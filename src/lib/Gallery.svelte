@@ -41,7 +41,7 @@
   ]
 </script>
 
-<div class="gallery">
+<div class="gallery" data-aos="fade-down" data-aos-duration="1000">
   <Splide 
     options={{
         rewind: true,

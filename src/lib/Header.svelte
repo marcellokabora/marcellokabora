@@ -31,14 +31,14 @@
 
 <header>
 
-	<div class="logo">
+	<div class="logo" data-aos="fade-down" data-aos-duration="1000">
 		<a href="/">
 			<img src="/icon/mk.png" alt="Marcello Kabora" />
 		</a>
 		<div class="arrow"></div>
 	</div>
 
-	<nav>
+	<nav data-aos="fade-down" data-aos-duration="1500">
 		<ul>
 			{#each menus as menu}
 			<li class:active={$page.url.pathname === menu.link}>
