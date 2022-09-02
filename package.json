@@ -30,6 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@splidejs/svelte-splide": "^0.2.5",
 		"material-icons": "^1.11.11"
 	}
 }
