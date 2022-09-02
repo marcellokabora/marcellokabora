@@ -33,7 +33,7 @@
 
 	<div class="logo">
 		<a href="/">
-			<img src="/logo_white.png" alt="Marcello Kabora" />
+			<img src="/icon/mk.png" alt="Marcello Kabora" />
 		</a>
 		<div class="arrow"></div>
 	</div>

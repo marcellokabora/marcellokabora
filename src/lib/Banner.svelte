@@ -13,7 +13,7 @@
             <div class="slogan">{slogan}</div>
         </div>
     </div>
-    <img class="arcbot" src="/arc_bot.png" alt="arcbot">
+    <img class="arcbot" src="/shape/arc_bot.png" alt="arcbot">
 </div>
 
 <style>
