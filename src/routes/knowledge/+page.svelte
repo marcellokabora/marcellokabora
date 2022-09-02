@@ -3,7 +3,7 @@
 </script>
 
 <Banner 
-    cover='/photo/develop.jpg' 
+    cover='/gallery/develop.jpeg' 
     title='Knowledge' 
     slogan='Some of mine knowledge divided by genre' 
 />

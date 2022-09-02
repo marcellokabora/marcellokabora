@@ -78,7 +78,7 @@
 </script>
 
 <Banner 
-    cover='/photo/styling.jpg' 
+    cover='/gallery/styling.jpg' 
     title='Career' 
     slogan='I worked for different startup in Berlin and Italy' 
 />
@@ -225,11 +225,10 @@ section .item .logo .time {
   section .item .logo img {
     display: none;
   }
-
-    .body {
-      margin-top: 20px;
-      margin-bottom: 80px;
-    }
+  .body {
+    margin-top: 20px;
+    margin-bottom: 80px;
+  }
   .dot{
     display: none;
   }

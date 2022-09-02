@@ -28,3 +28,10 @@ section {
 .hidden {
 	visibility: hidden;
 }
+
+.splide__pagination {
+	bottom: 70px;
+}
+.splide__arrows {
+	display: none;
+}

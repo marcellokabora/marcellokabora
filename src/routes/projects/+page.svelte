@@ -3,7 +3,7 @@
 </script>
 
 <Banner 
-    cover='/photo/projects.jpg' 
+    cover='/gallery/projects.jpeg' 
     title='Projects' 
     slogan='A collection of my successful projects' 
 />

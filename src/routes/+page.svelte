@@ -3,4 +3,12 @@
     import Gallery from '$lib/Gallery.svelte';
 </script>
 
-<Gallery/>
+<div class="welcome">
+    <Gallery/>
+</div>
+
+<style>
+    .welcome {
+        min-height: 100vh;
+    }
+</style>
