@@ -53,7 +53,7 @@
     <SplideSlide>
       <img src={item.photo} alt={item.photo} class="photo"/>
       <div class="dflex">
-        <Header title={item.title} slogan={item.slogan} zoom="1.2"/>
+        <Header title={item.title} slogan={item.slogan} zoom={1.2}/>
       </div>
     </SplideSlide>
   {/each}
