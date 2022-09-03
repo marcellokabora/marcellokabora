@@ -1,7 +1,8 @@
 <script>
-	import Header from '$lib/Header.svelte'
+	import Navbar from '$lib/Navbar.svelte'
 	import Footer from '$lib/Footer.svelte'
 	import '../app.css'
+	// @ts-ignore
 	import AOS from 'aos'
 	import 'aos/dist/aos.css'
 	import { onMount } from 'svelte';
@@ -10,7 +11,7 @@
 	});
 </script>
 
-<Header />
+<Navbar />
 
 <main>
 	<slot />
