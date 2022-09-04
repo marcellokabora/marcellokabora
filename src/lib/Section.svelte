@@ -5,7 +5,8 @@
     export let photo:string = ''
     export let title:string = ''
 </script>
-<div class="app-section" class:side={aside}>
+
+<div class="app-section" class:side={aside}  data-aos="fade-up" data-aos-duration="1000">
     <div class="photo" style:backgroundColor={color}>
         <!-- <a href={link} target="_blank">
             <img src={photo} alt="">

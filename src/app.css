@@ -29,15 +29,10 @@ section {
 	visibility: hidden;
 }
 
-.splide__pagination {
+.gallery .splide__pagination {
 	bottom: 90px;
 }
-.splide__arrows {
-	display: none;
-}
 
-/* @media(min-width: 1000px){
-	.splide__arrows {
-		display: inline;
-	}
-} */
+.carousel .splide__pagination {
+	bottom: -80px;
+}

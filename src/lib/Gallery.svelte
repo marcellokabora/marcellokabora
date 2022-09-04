@@ -46,7 +46,8 @@
     options={{
         rewind: true,
         height : 500,
-        autoplay: true
+        autoplay: true,
+        arrows: false,
       }}
   >
   {#each gallery as item}
