@@ -217,7 +217,7 @@
 			time: 'Nov 2016'
 		},
 		{
-			photo: '/project/autoginevra/photo/autoginevra_00.png',
+			photo: '/project/autoginevra/autoginevra_00.png',
 			name: 'TangLang - Autoginevra',
 			link: '/project/autoginevra',
 			height: iHeight(),
@@ -299,8 +299,8 @@
 
 	<div class="container">
 		{#each filteredList as item}
-			<a href={item.link}>
-				<div class="item" data-aos="fade-up" data-aos-duration="1000">
+			<div class="item" data-aos="fade-up" data-aos-duration="1000">
+				<a href={item.link}>
 					<div class="imgcont">
 						<div class="more">
 							<div class="type">{item.type}</div>
@@ -308,9 +308,9 @@
 						</div>
 						<img src={item.photo} style:height.px={item.height} alt="" />
 					</div>
-					<div class="info">{item.name}</div>
-				</div>
-			</a>
+				</a>
+				<div class="info">{item.name}</div>
+			</div>
 		{/each}
 	</div>
 </section>

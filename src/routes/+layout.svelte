@@ -1,14 +1,11 @@
 <script>
-	import Navbar from '$lib/Navbar.svelte'
-	import Footer from '$lib/Footer.svelte'
-	import '../app.css'
-	// @ts-ignore
-	import AOS from 'aos'
-	import 'aos/dist/aos.css'
+	import Navbar from '$lib/Navbar.svelte';
+	import Footer from '$lib/Footer.svelte';
+	import '../app.css';
+	import AOS from 'aos';
+	import 'aos/dist/aos.css';
 	import { onMount } from 'svelte';
-	onMount(() => {
-		AOS.init()
-	});
+	onMount(() => AOS.init());
 </script>
 
 <Navbar />
@@ -17,4 +14,4 @@
 	<slot />
 </main>
 
-<Footer></Footer>
+<Footer />

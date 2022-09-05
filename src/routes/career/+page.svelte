@@ -77,6 +77,10 @@
 	];
 </script>
 
+<svelte:head>
+	<title>Marcello Kabora | Career</title>
+</svelte:head>
+
 <Banner
 	cover="/gallery/styling.jpg"
 	title="Career"

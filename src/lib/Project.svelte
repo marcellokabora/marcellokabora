@@ -3,6 +3,10 @@
 	export let data: any = {};
 </script>
 
+<svelte:head>
+	<title>Marcello Kabora | {data.banner.title} {data.banner.slogan}</title>
+</svelte:head>
+
 <Banner {...data.banner} />
 
 <section data-aos="fade-up" data-aos-duration="1000">
@@ -43,7 +47,7 @@
 		align-items: center;
 	}
 	.date .material-icons {
-		margin-left: 20px;
+		margin-left: 10px;
 	}
 	.visual {
 		flex: 1;
@@ -56,7 +60,7 @@
 		margin-bottom: 20px;
 	}
 	.photo {
-		cursor: pointer;
+		/* cursor: pointer; */
 		position: relative;
 		margin-bottom: 20px;
 	}

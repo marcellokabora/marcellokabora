@@ -4,57 +4,57 @@
 		{
 			icon: 'home',
 			name: 'Home',
-			link: '/',
+			link: '/'
 		},
 		{
 			icon: 'dynamic_form',
 			name: 'Knowledge',
-			link: '/knowledge',
+			link: '/knowledge'
 		},
 		{
 			icon: 'explore',
 			name: 'Career',
-			link: '/career',
+			link: '/career'
 		},
 		{
 			icon: 'shop',
 			name: 'Projects',
-			link: '/projects',
+			link: '/projects'
 		},
 		{
 			icon: 'account_box',
 			name: 'Curriculum',
-			link: '/curriculum',
-		},
-	]
+			link: '/curriculum'
+		}
+	];
+	let y: number = 0;
 </script>
 
 <header>
-
 	<div class="logo" data-aos="fade-down" data-aos-duration="1000">
 		<a href="/">
 			<img src="/icon/mk.png" alt="Marcello Kabora" />
 		</a>
-		<div class="arrow"></div>
+		<div class="arrow" />
 	</div>
 
-	<nav data-aos="fade-down" data-aos-duration="1500">
+	<nav data-aos="fade-down" data-aos-duration="1500" class:scrolled={y > 200}>
 		<ul>
 			{#each menus as menu}
-			<li class:active={$page.url.pathname === menu.link}>
-				<a href={menu.link}>
-					<span class="material-icons">{menu.icon}</span>
-					<span>{menu.name}</span>
-				</a>
-			</li> 
+				<li class:active={$page.url.pathname === menu.link}>
+					<a href={menu.link}>
+						<span class="material-icons">{menu.icon}</span>
+						<span>{menu.name}</span>
+					</a>
+				</li>
 			{/each}
 		</ul>
 	</nav>
-
 </header>
 
-<style>
+<svelte:window bind:scrollY={y} />
 
+<style>
 	header {
 		position: fixed;
 		z-index: 999;
@@ -62,15 +62,15 @@
 
 	.logo {
 		position: fixed;
-        top: 0;
-        left: 0;
-        height: 100px;
-        background-color: #1b1b1b;
-        width: 180px;
-        zoom: 0.9;
+		top: 0;
+		left: 0;
+		height: 100px;
+		background-color: #1b1b1b;
+		width: 180px;
+		zoom: 0.9;
 		z-index: 999;
 	}
-	.logo img{
+	.logo img {
 		width: 100px;
 		position: relative;
 		left: 50px;
@@ -100,12 +100,15 @@
 		width: 100%;
 		height: 60px;
 	}
+	nav.scrolled {
+		background-color: rgba(61, 61, 61, 0.8);
+	}
 
 	ul {
-        display: flex;
-        align-items: center;
-        flex: 1;
-        margin-left: 220px;
+		display: flex;
+		align-items: center;
+		flex: 1;
+		margin-left: 220px;
 	}
 
 	li {
@@ -116,8 +119,8 @@
 		flex: 1;
 	}
 
-	.material-icons{
-		margin-right: 10px
+	.material-icons {
+		margin-right: 10px;
 	}
 
 	nav a {
@@ -129,8 +132,7 @@
 		border-radius: 100px;
 	}
 
-	nav li.active a{
+	nav li.active a {
 		background-color: rgba(255, 255, 255, 0.1);
 	}
-
 </style>
