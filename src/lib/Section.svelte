@@ -7,7 +7,7 @@
 </script>
 
 <div class="app-section" class:side={aside}  data-aos="fade-up" data-aos-duration="1000">
-    <div class="photo" style:backgroundColor={color}>
+    <div class="photo" style:background={color}>
         <!-- <a href={link} target="_blank">
             <img src={photo} alt="">
         </a> -->

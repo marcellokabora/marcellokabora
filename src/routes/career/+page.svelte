@@ -85,7 +85,7 @@
 
 <section>
     {#each companies as company}
-    <div class="item" >
+    <div class="item" data-aos="fade-up" data-aos-duration="1000">
         <div class="logo">
             <div>
                 <a href={company.link} target="_black">
