@@ -28,17 +28,20 @@
 		}
 	];
 	let y: number = 0;
+	let showNav: boolean = false;
+	const toggleNav = () => {
+		if (window.screen.width < 1000) showNav = !showNav;
+	};
 </script>
 
 <header>
 	<div class="logo" data-aos="fade-down" data-aos-duration="1000">
-		<a href="/">
+		<a href="/" on:click={toggleNav}>
 			<img src="/icon/mk.png" alt="Marcello Kabora" />
 		</a>
 		<div class="arrow" />
 	</div>
-
-	<nav data-aos="fade-down" data-aos-duration="1500" class:scrolled={y > 200}>
+	<nav class="navbar" data-aos="fade-down" data-aos-duration="1500" class:scrolled={y > 200}>
 		<ul>
 			{#each menus as menu}
 				<li class:active={$page.url.pathname === menu.link}>
@@ -50,11 +53,53 @@
 			{/each}
 		</ul>
 	</nav>
+	{#if showNav}
+		<nav class="navbig">
+			{#each menus as menu}
+				<div class="menu" class:active={$page.url.pathname === menu.link}>
+					<a href={menu.link} on:click={() => (showNav = false)}>
+						<span>{menu.name}</span>
+						<span class="material-icons">{menu.icon}</span>
+					</a>
+				</div>
+			{/each}
+		</nav>
+	{/if}
 </header>
 
 <svelte:window bind:scrollY={y} />
 
 <style>
+	.navbig {
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		background-color: rgb(0 0 0 / 95%);
+		color: white;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		padding-top: 20px;
+	}
+	.navbig .menu {
+		white-space: nowrap;
+		padding: 10px;
+		margin: 0;
+		margin-right: 20px;
+	}
+	.navbig a {
+		color: white;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		padding-bottom: 20px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+		padding-left: 50px;
+	}
+	.navbig .material-icons {
+		margin-left: 20px;
+	}
+
 	header {
 		position: fixed;
 		z-index: 999;
@@ -90,7 +135,7 @@
 		border-top: 100px solid #1b1b1b;
 	}
 
-	nav {
+	.navbar {
 		position: fixed;
 		display: flex;
 		align-items: center;
@@ -100,7 +145,7 @@
 		width: 100%;
 		height: 60px;
 	}
-	nav.scrolled {
+	.navbar.scrolled {
 		background-color: rgba(61, 61, 61, 0.8);
 	}
 
@@ -123,7 +168,7 @@
 		margin-right: 10px;
 	}
 
-	nav a {
+	.navbar a {
 		color: white;
 		text-decoration: none;
 		display: flex;
@@ -132,7 +177,12 @@
 		border-radius: 100px;
 	}
 
-	nav li.active a {
+	.navbar li.active a {
 		background-color: rgba(255, 255, 255, 0.1);
+	}
+	@media (max-width: 1000px) {
+		.navbar {
+			display: none;
+		}
 	}
 </style>

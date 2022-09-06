@@ -234,7 +234,7 @@
 
 	<Header title="PROJECTS" slogan="A collection of most successful projects" />
 
-	<div class="space" />
+	<br /><br />
 
 	<Projects />
 </section>

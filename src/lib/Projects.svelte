@@ -254,42 +254,40 @@
 		.filter((item) => (filterby ? item.type === filterby : item));
 </script>
 
-<section>
-	<div class="search">
-		<input type="text" bind:value={search} placeholder="Search..." />
-		<div class="radio">
-			<button
-				on:click={() => (filterby === 'webapp' ? (filterby = '') : (filterby = 'webapp'))}
-				class:active={filterby === 'webapp'}>Webapp</button
-			>
-			<button
-				on:click={() => (filterby === 'website' ? (filterby = '') : (filterby = 'website'))}
-				class:active={filterby === 'website'}>Website</button
-			>
-			<button
-				on:click={() => (filterby === 'design' ? (filterby = '') : (filterby = 'design'))}
-				class:active={filterby === 'design'}>Design</button
-			>
-		</div>
+<div class="search">
+	<input type="text" bind:value={search} placeholder="Search..." />
+	<div class="radio">
+		<button
+			on:click={() => (filterby === 'webapp' ? (filterby = '') : (filterby = 'webapp'))}
+			class:active={filterby === 'webapp'}>Webapp</button
+		>
+		<button
+			on:click={() => (filterby === 'website' ? (filterby = '') : (filterby = 'website'))}
+			class:active={filterby === 'website'}>Website</button
+		>
+		<button
+			on:click={() => (filterby === 'design' ? (filterby = '') : (filterby = 'design'))}
+			class:active={filterby === 'design'}>Design</button
+		>
 	</div>
+</div>
 
-	<div class="container">
-		{#each filteredList as item}
-			<div class="item" data-aos="fade-up" data-aos-duration="1000">
-				<a href={item.link}>
-					<div class="imgcont">
-						<div class="more">
-							<div class="type">{item.type}</div>
-							<div class="time">{item.time}</div>
-						</div>
-						<img src={item.photo} style:height.px={item.height} alt="" />
+<div class="container">
+	{#each filteredList as item}
+		<div class="item" data-aos="fade-up" data-aos-duration="1000">
+			<a href={item.link}>
+				<div class="imgcont">
+					<div class="more">
+						<div class="type">{item.type}</div>
+						<div class="time">{item.time}</div>
 					</div>
-				</a>
-				<div class="info">{item.name}</div>
-			</div>
-		{/each}
-	</div>
-</section>
+					<img src={item.photo} style:height.px={item.height} alt="" />
+				</div>
+			</a>
+			<div class="info">{item.name}</div>
+		</div>
+	{/each}
+</div>
 
 <style>
 	section {
@@ -434,7 +432,11 @@
 		}
 	}
 	@media (max-width: 600px) {
-		.search {
+		.search input {
+			border-radius: 100px;
+			min-width: 60%;
+		}
+		.search button {
 			display: none;
 		}
 	}

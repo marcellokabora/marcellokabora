@@ -33,7 +33,18 @@
 				autoplay: true,
 				perPage: perpage,
 				arrows: false,
-				pagination: true
+				pagination: true,
+				breakpoints: {
+					1200: {
+						perPage: 3
+					},
+					800: {
+						perPage: 2
+					},
+					600: {
+						perPage: 1
+					}
+				}
 			}}
 		>
 			{#each items as item}

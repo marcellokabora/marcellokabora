@@ -6,7 +6,7 @@
 	export let title: string = '';
 </script>
 
-<div class="app-section" class:side={aside} data-aos="fade-up" data-aos-duration="1000">
+<div class="section" class:side={aside} data-aos="fade-up" data-aos-duration="1000">
 	<div class="photo" style:background={color}>
 		{#if link}
 			<a href={link} target="_blank">
@@ -34,16 +34,16 @@
 </div>
 
 <style>
-	.app-section {
+	.section {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		margin: 0px 0px;
 	}
-	.app-section.side {
+	.section.side {
 		text-align: right;
 	}
-	.app-section.side .photo {
+	.section.side .photo {
 		order: 2;
 		margin: 0;
 		margin-left: 60px;
@@ -73,7 +73,7 @@
 		opacity: 0.2;
 	}
 	@media (max-width: 800px) {
-		.app-section {
+		.section {
 			flex-direction: column;
 		}
 		.photo {
@@ -84,8 +84,8 @@
 			order: 2;
 		}
 		.info {
-			text-align: left;
 			margin-bottom: 20px;
+			text-align: center;
 		}
 	}
 </style>

@@ -12,5 +12,8 @@
 	title="Projects"
 	slogan="A collection of my successful projects"
 />
+<br />
 
-<Projects />
+<section>
+	<Projects />
+</section>

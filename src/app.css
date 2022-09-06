@@ -10,21 +10,27 @@ body {
 	margin: 0;
 	font-family: Poppins, "Helvetica Neue", sans-serif;
 	background-color: var(--primary-color);
+	font-size: 18px;
 }
+
 * {
 	outline: 0;
 }
+
 a {
 	color: black;
 }
+
 a:hover {
 	color: blue;
 }
+
 section {
 	max-width: 1200px;
 	margin: auto;
 	padding: 0px 20px;
 }
+
 .hidden {
 	visibility: hidden;
 }
