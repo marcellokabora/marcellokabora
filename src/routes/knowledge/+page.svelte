@@ -304,11 +304,7 @@
 	<title>Marcello Kabora | Knowledge</title>
 </svelte:head>
 
-<Banner
-	cover="/gallery/develop.jpeg"
-	title="Knowledge"
-	slogan="Some of mine knowledge divided by genre"
-/>
+<Banner cover="/gallery/develop.jpeg" title="Knowledge" slogan="Technologies" />
 
 <section class="knowledge">
 	<div class="aside">

@@ -85,7 +85,7 @@
 		}
 		.info {
 			margin-bottom: 20px;
-			text-align: center;
+			text-align: left;
 		}
 	}
 </style>

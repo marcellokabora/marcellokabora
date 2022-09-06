@@ -91,7 +91,11 @@
 <Gallery />
 
 <section>
-	<Header title="ABOUT" slogan="I am passionate about user interface and user experience" />
+	<Header
+		classe="headtito"
+		title="ABOUT"
+		slogan="I am passionate about user interface and user experience"
+	/>
 
 	<div class="space" />
 
@@ -109,14 +113,14 @@
 	</Section>
 	<Section photo="/photo/develop.jpeg" title="Framework" aside>
 		<p>
-			I like to work using object-oriented program language in order to build complex features and
-			maintain scalable functionality. I can use different frameworks like <a
-				href="//reactjs.org"
-				target="_blank">React</a
-			>
-			or <a href="//vuejs.org" target="_blank">Vue</a> but my favorite one is by far
-			<a href="//angular.io" target="_blank">Angular</a>. I started using it from the beginning and
-			until now in version eleven following most of my projects like this website for example.
+			Using appropriate framework is essential for a developer because it saves an important time
+			and efforts for building an app. I like to work using object-oriented program language in
+			order to build complex features and maintain scalable functionality using different frameworks
+			like
+			<a href="//svelte.com" target="_blank">Svelte</a>,
+			<a href="//reactjs.org" target="_blank">React</a>,
+			<a href="//vuejs.org" target="_blank">Vue</a> and
+			<a href="//angular.io" target="_blank">Angular</a>.
 		</p>
 	</Section>
 	<Section photo="/photo/styling.jpg" title="Styling">
@@ -152,6 +156,7 @@
 	<div class="space" />
 
 	<Header
+		classe="headtito"
 		title="ENVIROMENT"
 		slogan="Develop programs by analysing and identifying areas for modification"
 	/>

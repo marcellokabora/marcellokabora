@@ -266,7 +266,6 @@
 	section .item {
 		display: flex;
 		align-items: center;
-		padding: 0px 20px;
 	}
 	section .item .logo {
 		margin-right: 40px;
@@ -306,7 +305,6 @@
 	}
 	.body {
 		flex: 1;
-		font-size: 14px;
 	}
 	.body .title {
 		font-size: 20px;
@@ -332,9 +330,6 @@
 			text-align: left;
 			margin: 0;
 			display: inline;
-		}
-		section .item .logo img {
-			display: none;
 		}
 		.body {
 			margin-top: 20px;
