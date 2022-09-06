@@ -52,10 +52,12 @@
 	>
 		{#each gallery as item}
 			<SplideSlide>
-				<img src={item.photo} alt={item.photo} class="photo" />
-				<div class="dflex">
-					<Header title={item.title} slogan={item.slogan} zoom={1.2} />
-				</div>
+				<a href={item.link}>
+					<img src={item.photo} alt={item.photo} class="photo" />
+					<div class="dflex">
+						<Header title={item.title} slogan={item.slogan} zoom={1.2} />
+					</div>
+				</a>
 			</SplideSlide>
 		{/each}
 	</Splide>
@@ -63,6 +65,10 @@
 </div>
 
 <style>
+	a {
+		color: white;
+		text-decoration: none;
+	}
 	.gallery {
 		position: relative;
 		color: white;

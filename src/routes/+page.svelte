@@ -13,7 +13,7 @@
 			{
 				logo: '/company/linus.png',
 				company: 'Linus',
-				title: 'Software Engineer',
+				title: 'Frontend Engineer',
 				time: 'Sep 2021 - Aug 2022',
 				link: '//linus-finance.com'
 			},

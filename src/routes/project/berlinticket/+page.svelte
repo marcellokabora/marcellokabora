@@ -13,10 +13,12 @@
 
 <Project {data}>
 	<p>
-		<a href="//beathecue.com">Beathecue</a> is a private project that I keep updating during my free
-		time; is an application where users can meet each other for friendship and knowledge. The main goal
-		is to avoid the cue in big music events like we have here in Berlin, you can give or receive some
-		money from the participant in the listed event and the host can decide who can join the position
-		of his list in the cue.
+		<a href="https://berlin-ticket.web.app/" target="_blank">Berlin Ticket</a> is a small project
+		built in <a href="https://angular.io/" target="_blank">Angular</a> and
+		<a href="https://material.angular.io/" target="_blank">Material</a>
+		where ypu can filter a list of events by price, rating and title.<br />The Dashboard is divided
+		in 3 section: the left aside panel for filter the list by rating, price and special offers, the
+		top menu for search tickets by title and list of the ticket displayed one by one including
+		title, price and rating.
 	</p>
 </Project>
