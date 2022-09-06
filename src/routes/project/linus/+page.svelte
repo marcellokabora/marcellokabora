@@ -1,0 +1,32 @@
+<script lang="ts">
+	import Project from '$lib/Project.svelte';
+	const data = {
+		banner: {
+			cover: '/project/linus/_cover.jpeg',
+			title: 'Linus',
+			slogan: 'Registration'
+		},
+		date: 'Apr 2021',
+		gallery: [
+			'/project/linus/linus-01.png',
+			'/project/linus/linus-02.png',
+			'/project/linus/linus-03.png',
+			'/project/linus/linus-04.png'
+		]
+	};
+</script>
+
+<Project {data}>
+	<p>
+		This application is built in <a href="//angular.io" target="_blank">Angular</a>,
+		<a href="//material.angular.io" target="_blank">Material</a>, and
+		<a href="//firebase.google.com" target="_blank">Firebase</a>
+		using the
+		<a href="//material.angular.io/components/stepper/overview" target="_blank">Stepper</a>
+		to connect 3 different forms that allow the user to select a project and collect information of the
+		customer and collet in the
+		<a href="//firebase.google.com/products/firestore" target="_blank">Firestore</a>
+		database. A preview of the application is possible following the link:
+		<a href="https://linus-15cac.web.app/" target="_blank">linus-15cac.web.app</a>
+	</p>
+</Project>

@@ -7,7 +7,7 @@
 
 <div class="banner" data-aos="fade-down" data-aos-duration="1000">
 	<img class="cover" src={cover} alt="cover" />
-	<Header {title} {slogan} />
+	<Header {title} {slogan} zoom={1.2} />
 	<img class="arcbot" src="/shape/arc_bot.png" alt="arcbot" />
 </div>
 

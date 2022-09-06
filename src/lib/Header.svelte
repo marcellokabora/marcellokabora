@@ -22,6 +22,7 @@
 		font-size: 30px;
 		font-weight: bold;
 		padding: 0px 50px;
+		min-width: 30vw;
 	}
 	hr {
 		opacity: 0.2;

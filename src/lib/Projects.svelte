@@ -25,14 +25,6 @@
 			time: 'April 2014'
 		},
 		{
-			photo: '/project/beathecue-admin/_cover.jpeg',
-			name: 'Beathecue - Admin',
-			link: '/project/beathecue-admin',
-			height: iHeight(),
-			type: 'webapp',
-			time: 'Jun 2021'
-		},
-		{
 			photo: '/project/beathecue-app/_cover.jpeg',
 			name: 'Beathecue - Webpp',
 			link: '/project/beathecue-app',
@@ -146,7 +138,7 @@
 		},
 		{
 			photo: '/project/mineko-upload/_cover.jpg',
-			name: 'Mineko - Upload',
+			name: 'Uploader',
 			link: '/project/mineko-upload',
 			height: iHeight(),
 			type: 'webapp',
@@ -178,19 +170,11 @@
 		},
 		{
 			photo: '/project/signals/_cover.jpg',
-			name: 'Yukka - Singnals',
+			name: 'Yukka - Signals',
 			link: '/project/signals',
 			height: iHeight(),
 			type: 'webapp',
 			time: 'Feb 2018'
-		},
-		{
-			photo: '/project/oktoberfest/_cover.png',
-			name: 'TangLang - Oktoberfest',
-			link: '/project/oktoberfest',
-			height: iHeight(),
-			type: 'website',
-			time: 'Marc 2015'
 		},
 		{
 			photo: '/project/autoginevra/autoginevra_00.png',
@@ -241,14 +225,6 @@
 			time: 'Jan 2017'
 		},
 		{
-			photo: '/project/btcprice/btcprice0.jpg',
-			name: 'Bitcoin Price',
-			link: '/project/btcprice',
-			height: iHeight(),
-			type: 'webapp',
-			time: 'Jul 2022'
-		},
-		{
 			photo: '/project/nbe/nbe-00.jpg',
 			name: 'NBE',
 			link: '/project/nbe',
@@ -258,7 +234,7 @@
 		},
 		{
 			photo: '/project/smava-best/smava-best-00.jpg',
-			name: 'Best',
+			name: 'Smava - Recommendation',
 			link: '/project/smava-best',
 			height: iHeight(),
 			type: 'recommendation',
