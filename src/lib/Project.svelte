@@ -56,11 +56,7 @@
 	.image {
 		width: 100% !important;
 	}
-	.body {
-		margin-bottom: 20px;
-	}
 	.photo {
-		/* cursor: pointer; */
 		position: relative;
 		margin-bottom: 20px;
 	}

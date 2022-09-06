@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Curriculum</title>
+	<title>Marcello Kabora | Curriculum</title>
 </svelte:head>
 
 <iframe src="/Marcello Annicchiarico.pdf" frameborder="0" title="Curriculum" />

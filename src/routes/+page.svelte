@@ -89,7 +89,7 @@
 </script>
 
 <svelte:head>
-	<title>Welcome</title>
+	<title>Marcello Kabora | Fronted Engineer</title>
 </svelte:head>
 
 <Gallery />

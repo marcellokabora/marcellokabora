@@ -3,6 +3,10 @@
 	import Projects from '$lib/Projects.svelte';
 </script>
 
+<svelte:head>
+	<title>Marcello Kabora | Projects</title>
+</svelte:head>
+
 <Banner
 	cover="/gallery/projects.jpeg"
 	title="Projects"
