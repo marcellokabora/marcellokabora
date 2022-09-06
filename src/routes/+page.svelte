@@ -88,10 +88,6 @@
 	};
 </script>
 
-<svelte:head>
-	<title>Marcello Kabora | Fronted Engineer</title>
-</svelte:head>
-
 <Gallery />
 
 <section>

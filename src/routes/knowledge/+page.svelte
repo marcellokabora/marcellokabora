@@ -124,6 +124,12 @@
 			link: '//firebase.google.com'
 		},
 		{
+			name: 'vercel',
+			title: 'Vercel',
+			photo: '/logo/vercel.svg',
+			link: '//vercel.com'
+		},
+		{
 			name: 'php',
 			title: 'PHP',
 			photo: '/photo/php.svg',
@@ -630,6 +636,13 @@
 							Firebase is a platform developed by Google for creating mobile and web applications.
 							It was originally an independent company founded in 2011. In 2014, Google acquired the
 							platform and it is now their flagship offering for app development.
+						</p>
+					{/if}
+					{#if item.name === 'vercel'}
+						<p>
+							Vercel is the platform for frontend developers, providing the speed and reliability
+							innovators need to create at the moment of inspiration. We enable teams to iterate
+							quickly and develop, preview, and ship delightful user experiences.
 						</p>
 					{/if}
 				</Section>
