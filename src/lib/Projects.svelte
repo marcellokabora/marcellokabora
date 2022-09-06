@@ -1,15 +1,15 @@
 <script lang="ts">
 	const items = [
 		{
-			photo: '/project/btcprice/photo/btcprice0.jpg',
-			name: 'Bitcoin Price',
-			link: '/project/btcprice',
+			photo: '/project/network/_cover.png',
+			name: 'Yukka - Network',
+			link: '/project/network',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'Jul 2022'
+			time: 'Jan 2018'
 		},
 		{
-			photo: '/project/berlinticket/photo/berlinticket0.jpg',
+			photo: '/project/berlinticket/berlinticket0.jpg',
 			name: 'Berlin Ticket',
 			link: '/project/berlinticket',
 			height: iHeight(),
@@ -17,7 +17,15 @@
 			time: 'Jul 2022'
 		},
 		{
-			photo: '/project/beathecue-admin/photo/_cover.jpeg',
+			photo: '/project/sentiment/_cover.jpg',
+			name: 'Yukka - Sentiment',
+			link: '/project/sentiment',
+			height: iHeight(),
+			type: 'webapp',
+			time: 'April 2014'
+		},
+		{
+			photo: '/project/beathecue-admin/_cover.jpeg',
 			name: 'Beathecue - Admin',
 			link: '/project/beathecue-admin',
 			height: iHeight(),
@@ -25,7 +33,7 @@
 			time: 'Jun 2021'
 		},
 		{
-			photo: '/project/beathecue-app/photo/_cover.jpeg',
+			photo: '/project/beathecue-app/_cover.jpeg',
 			name: 'Beathecue - Webpp',
 			link: '/project/beathecue-app',
 			height: iHeight(),
@@ -33,7 +41,7 @@
 			time: 'Jun 2021'
 		},
 		{
-			photo: '/project/beathecue-website/photo/_cover.jpeg',
+			photo: '/project/beathecue-website/_cover.jpeg',
 			name: 'Beathecue - Website',
 			link: '/project/beathecue-website',
 			height: iHeight(),
@@ -41,7 +49,7 @@
 			time: 'Jun 2021'
 		},
 		{
-			photo: '/project/linus-marketing/photo/_cover.jpeg',
+			photo: '/project/linus-marketing/_cover.jpeg',
 			name: 'Linus - Marketing',
 			link: '/project/linus-marketing',
 			height: iHeight(),
@@ -49,7 +57,15 @@
 			time: 'Feb 2022'
 		},
 		{
-			photo: '/project/linus-product/photo/_cover.jpeg',
+			photo: '/project/chartmap/_cover.jpg',
+			name: 'Yukka - Chartmap',
+			link: '/project/chartmap',
+			height: iHeight(),
+			type: 'webapp',
+			time: 'Jul 2018'
+		},
+		{
+			photo: '/project/linus-product/_cover.jpeg',
 			name: 'Linus - Product',
 			link: '/project/linus-product',
 			height: iHeight(),
@@ -57,7 +73,7 @@
 			time: 'Sep 2021'
 		},
 		{
-			photo: '/project/linus/photo/_cover.jpeg',
+			photo: '/project/linus/_cover.jpeg',
 			name: 'Linus - Registration',
 			link: '/project/linus',
 			height: iHeight(),
@@ -65,7 +81,7 @@
 			time: 'Apr 2021'
 		},
 		{
-			photo: '/project/uicomponents/photo/_cover.jpeg',
+			photo: '/project/uicomponents/_cover.jpeg',
 			name: 'Building Minds - Components',
 			link: '/project/uicomponents',
 			height: iHeight(),
@@ -81,15 +97,7 @@
 			time: 'May 2021'
 		},
 		{
-			photo: '/project/nbe/photo/nbe-00.jpg',
-			name: 'NBE',
-			link: '/project/nbe',
-			height: iHeight(),
-			type: 'design',
-			time: 'Feb 2012'
-		},
-		{
-			photo: '/project/serenitas/photo/serenitas-00.jpg',
+			photo: '/project/serenitas/serenitas-00.jpg',
 			name: 'Serenitas',
 			link: '/project/serenitas',
 			height: iHeight(),
@@ -97,7 +105,7 @@
 			time: 'Jan 2015'
 		},
 		{
-			photo: '/project/firenze/photo/_cover.png',
+			photo: '/project/firenze/_cover.png',
 			name: 'Firenze',
 			link: '/project/firenze',
 			height: iHeight(),
@@ -105,7 +113,7 @@
 			time: 'Aug 2012'
 		},
 		{
-			photo: '/project/mklogo/photo/marcellokabora.jpg',
+			photo: '/project/mklogo/marcellokabora.jpg',
 			name: 'Marcello Kabora',
 			link: '/project/mklogo',
 			height: iHeight(),
@@ -113,7 +121,7 @@
 			time: 'Apr 2013'
 		},
 		{
-			photo: '/project/loretdemar/photo/loretdemar-00.png',
+			photo: '/project/loretdemar/loretdemar-00.png',
 			name: 'TangLang - Lloret De Mar',
 			link: '/project/loretdemar',
 			height: iHeight(),
@@ -121,7 +129,7 @@
 			time: 'Mar 2015'
 		},
 		{
-			photo: '/project/wokamoka-avatar/photo/wokamoka-avatar-00.jpg',
+			photo: '/project/wokamoka-avatar/wokamoka-avatar-00.jpg',
 			name: 'Wokamoka',
 			link: '/project/wokamoka-avatar',
 			height: iHeight(),
@@ -129,7 +137,7 @@
 			time: 'Jun 2010'
 		},
 		{
-			photo: '/project/wokamoka-website/photo/wokamoka-website-00.png',
+			photo: '/project/wokamoka-website/wokamoka-website-00.png',
 			name: 'Wokamoka',
 			link: '/project/wokamoka-website',
 			height: iHeight(),
@@ -137,7 +145,7 @@
 			time: 'Oct 2010'
 		},
 		{
-			photo: '/project/mineko-upload/photo/_cover.jpg',
+			photo: '/project/mineko-upload/_cover.jpg',
 			name: 'Mineko - Upload',
 			link: '/project/mineko-upload',
 			height: iHeight(),
@@ -153,7 +161,7 @@
 			time: 'Dec 2014'
 		},
 		{
-			photo: '/project/iaa/photo/iaa_00.png',
+			photo: '/project/iaa/iaa_00.png',
 			name: 'TangLang - IAA',
 			link: '/project/iaa',
 			height: iHeight(),
@@ -161,31 +169,7 @@
 			time: 'Feb 2015'
 		},
 		{
-			photo: '/project/network/photo/_cover.png',
-			name: 'Yukka - Network',
-			link: '/project/network',
-			height: iHeight(),
-			type: 'webapp',
-			time: 'Jan 2018'
-		},
-		{
-			photo: '/project/sentiment/photo/_cover.jpg',
-			name: 'Yukka - Sentiment',
-			link: '/project/sentiment',
-			height: iHeight(),
-			type: 'webapp',
-			time: 'April 2014'
-		},
-		{
-			photo: '/project/chartmap/photo/_cover.jpg',
-			name: 'Yukka - Chartmap',
-			link: '/project/chartmap',
-			height: iHeight(),
-			type: 'webapp',
-			time: 'Jul 2018'
-		},
-		{
-			photo: '/project/yawiki/photo/_cover.png',
+			photo: '/project/yawiki/_cover.png',
 			name: 'Yawiki',
 			link: '/project/yawiki',
 			height: iHeight(),
@@ -193,7 +177,7 @@
 			time: 'Oct 2015'
 		},
 		{
-			photo: '/project/signals/photo/_cover.jpg',
+			photo: '/project/signals/_cover.jpg',
 			name: 'Yukka - Singnals',
 			link: '/project/signals',
 			height: iHeight(),
@@ -201,20 +185,12 @@
 			time: 'Feb 2018'
 		},
 		{
-			photo: '/project/oktoberfest/photo/_cover.png',
+			photo: '/project/oktoberfest/_cover.png',
 			name: 'TangLang - Oktoberfest',
 			link: '/project/oktoberfest',
 			height: iHeight(),
 			type: 'website',
 			time: 'Marc 2015'
-		},
-		{
-			photo: '/project/smava-best/photo/smava-best-00.jpg',
-			name: 'Best',
-			link: '/project/smava-best',
-			height: iHeight(),
-			type: 'recommendation',
-			time: 'Nov 2016'
 		},
 		{
 			photo: '/project/autoginevra/autoginevra_00.png',
@@ -225,7 +201,7 @@
 			time: 'Jul 2015'
 		},
 		{
-			photo: '/project/maggiolino/photo/maggiolino_00.png',
+			photo: '/project/maggiolino/maggiolino_00.png',
 			name: 'Maggiolino',
 			link: '/project/maggiolino',
 			height: iHeight(),
@@ -233,7 +209,7 @@
 			time: 'Mar 2015'
 		},
 		{
-			photo: '/project/smava-website/photo/smava_website_00.jpg',
+			photo: '/project/smava-website/smava_website_00.jpg',
 			name: 'Smava',
 			link: '/project/smava-website',
 			height: iHeight(),
@@ -241,7 +217,7 @@
 			time: 'Jun 2016'
 		},
 		{
-			photo: '/project/cosmoprof/photo/cosmoprof_00.png',
+			photo: '/project/cosmoprof/cosmoprof_00.png',
 			name: 'TangLang - Cosmoprof',
 			link: '/project/cosmoprof',
 			height: iHeight(),
@@ -249,7 +225,7 @@
 			time: 'Apr 2014'
 		},
 		{
-			photo: '/project/christmas/photo/christmas_00.png',
+			photo: '/project/christmas/christmas_00.png',
 			name: 'TangLang - Christmas',
 			link: '/project/christmas',
 			height: iHeight(),
@@ -257,12 +233,36 @@
 			time: 'Mar 2014'
 		},
 		{
-			photo: '/project/mineko-website/photo/_cover.png',
+			photo: '/project/mineko-website/_cover.png',
 			name: 'Mineko',
 			link: '/project/mineko-website',
 			height: iHeight(),
 			type: 'website',
 			time: 'Jan 2017'
+		},
+		{
+			photo: '/project/btcprice/btcprice0.jpg',
+			name: 'Bitcoin Price',
+			link: '/project/btcprice',
+			height: iHeight(),
+			type: 'webapp',
+			time: 'Jul 2022'
+		},
+		{
+			photo: '/project/nbe/nbe-00.jpg',
+			name: 'NBE',
+			link: '/project/nbe',
+			height: iHeight(),
+			type: 'design',
+			time: 'Feb 2012'
+		},
+		{
+			photo: '/project/smava-best/smava-best-00.jpg',
+			name: 'Best',
+			link: '/project/smava-best',
+			height: iHeight(),
+			type: 'recommendation',
+			time: 'Nov 2016'
 		}
 	];
 

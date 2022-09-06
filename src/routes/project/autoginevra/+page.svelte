@@ -3,10 +3,10 @@
 	const data = {
 		banner: {
 			cover: '/project/autoginevra/autoginevra_00.png',
-			title: 'Buildingminds',
-			slogan: 'App Manager'
+			title: 'Autoginevra',
+			slogan: 'Bus Travel'
 		},
-		date: 'May 2021',
+		date: 'Jul 2015',
 		gallery: [
 			'/project/autoginevra/autoginevra_01.png',
 			'/project/autoginevra/autoginevra_02.png',
