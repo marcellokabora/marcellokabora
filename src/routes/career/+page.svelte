@@ -119,7 +119,8 @@
 						<a href="//marcellokabora.com/project/linus-marketing" target="_blank">marketing</a> team.
 					</p>
 					<p>
-						<b>Technologies</b>: React, Vue, GraphQL, Docker, Builder, Github, Jira, Styled, Figma
+						<b>Technologies</b>: React, Next, Vue, GraphQL, Docker, Builder, Github, Jira, Styled,
+						Figma, Github
 					</p>
 				{/if}
 				{#if company.name === 'Buildingminds'}
@@ -171,7 +172,7 @@
 						on HTML, CSS, and JS. I worked on all the animation, events in jquery and for the mail
 						campaign building different templates for the marketing area.
 					</p>
-					<p><b>Technologies</b>: HTML, CSS, Javascript, Foundation</p>
+					<p><b>Technologies</b>: HTML, CSS, Javascript, Foundation, Github</p>
 				{/if}
 				{#if company.name === 'Tang Lang'}
 					<p>

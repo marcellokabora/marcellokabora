@@ -194,11 +194,10 @@
 		<p>
 			To communicate information clearly and efficiently, data visualization uses statistical
 			graphics, plots, information graphics and other tools. Numerical data may be encoded using
-			dots, lines, or bars, to visually communicate a quantitative message.
-		</p>
-		<p>
-			<a href="/">Highcharts</a> and <a href="/">D3</a> are my favorites library to create and explore
-			new ideas.
+			dots, lines, or bars, to visually communicate a quantitative message. <a href="/"
+				>Highcharts</a
+			>
+			and <a href="/">D3</a> are my favorites library to create and explore new ideas.
 		</p>
 	</Section>
 	<Section
