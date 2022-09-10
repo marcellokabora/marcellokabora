@@ -13,7 +13,6 @@
 	slogan="A collection of my successful projects"
 />
 <br />
-
 <section>
 	<Projects />
 </section>

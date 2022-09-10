@@ -23,6 +23,11 @@ const config = {
 			// instead of creating a single one for the entire app
 			split: false
 		})
+	},
+	vitePlugin: {
+		experimental: {
+			inspector: true
+		}
 	}
 };
 

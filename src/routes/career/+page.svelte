@@ -120,10 +120,9 @@
 					</p>
 					<p>
 						<b>Technologies</b>: React, Next, Vue, GraphQL, Docker, Builder, Github, Jira, Styled,
-						Figma, Github
+						Figma
 					</p>
-				{/if}
-				{#if company.name === 'Buildingminds'}
+				{:else if company.name === 'Buildingminds'}
 					<p>
 						<a href="//buildingminds.com" target="_blank">BuildingMinds</a> solution provides an unprecedented
 						scope of relevant business data, organized in a single source of truth, it drives advanced
@@ -141,8 +140,7 @@
 						<b>Technologies</b>: Angular, Redux, Bootstrap, Azure, Abstract, Material, Firebase,
 						Jest
 					</p>
-				{/if}
-				{#if company.name === 'Yukkalab'}
+				{:else if company.name === 'Yukkalab'}
 					<p>
 						<a href="//yukkalab.com" target="_blank">YUKKALab</a> is an application for desktop and
 						mobile built-in Angular that runs on top of an algorithm that shows the sentiment of the
@@ -161,8 +159,7 @@
 					<p>
 						<b>Technologies</b>: Angular, Material, MySql, Jira, D3, Highcharts, Github, Firebase
 					</p>
-				{/if}
-				{#if company.name === 'Smava'}
+				{:else if company.name === 'Smava'}
 					<p>
 						<a href="https://www.smava.de/" target="_blank">Smava</a> provides the best solution in
 						Germany to find the right credit online with more than 50 bank accounts. My position as
@@ -173,8 +170,7 @@
 						campaign building different templates for the marketing area.
 					</p>
 					<p><b>Technologies</b>: HTML, CSS, Javascript, Foundation, Github</p>
-				{/if}
-				{#if company.name === 'Tang Lang'}
+				{:else if company.name === 'Tang Lang'}
 					<p>
 						<a href="http://www.tanglangviaggi.it/" target="_blank">Tang Lang Viaggi</a> provide the
 						best travel in bus in all Europes events, like Oktoberfest or IAA and others 50 events in
@@ -196,8 +192,7 @@
 						decided to find a Full Time employment job.
 					</p>
 					<p><b>Technologies</b>: Jquery, CSS, Javascript, MySql</p>
-				{/if}
-				{#if company.name === 'Maggiolino'}
+				{:else if company.name === 'Maggiolino'}
 					<p>
 						<a href="http://libreriamaggiolino.com/" target="_blank">Maggiolino</a> is a ecommerce website
 						where anyone can find and buy specific books online. My position in the company was Full
@@ -214,8 +209,7 @@
 						every month, before the company decide to close the sell online.
 					</p>
 					<p><b>Technologies</b>: Jquery, Bootstrap, Javascript, MySql</p>
-				{/if}
-				{#if company.name === 'Annunci Animali'}
+				{:else if company.name === 'Annunci Animali'}
 					<p>
 						<a href="https://www.annuncianimali.it/" target="_blank">Annunci Animali</a> is the bigger
 						and famous website in Italy for sell or buy your animal, most of all dogs and cats but also
@@ -227,8 +221,7 @@
 						department building the flyer and the business card.
 					</p>
 					<p><b>Technologies</b>: Jquery, Javascript, MySql</p>
-				{/if}
-				{#if company.name === 'Airesis'}
+				{:else if company.name === 'Airesis'}
 					<p>
 						<a href="https://marcellokabora.com/project/airesis">Airesis</a> is a open source democracy
 						platform where anyone can open a discussion and involve users to vote and discuss about it.
@@ -242,8 +235,7 @@
 						focus on the deadline.
 					</p>
 					<p><b>Technologies</b>: HTMl, CSS, Jquery</p>
-				{/if}
-				{#if company.name === 'Shipchandler'}
+				{:else if company.name === 'Shipchandler'}
 					<p>
 						Thomas Shipchandler, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation

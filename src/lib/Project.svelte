@@ -1,6 +1,15 @@
 <script lang="ts">
 	import Banner from '$lib/Banner.svelte';
-	export let data: any = {};
+	export let data: Project;
+	interface Project {
+		banner: {
+			cover: string;
+			title: string;
+			slogan: string;
+		};
+		date: string;
+		gallery: string[];
+	}
 </script>
 
 <svelte:head>
