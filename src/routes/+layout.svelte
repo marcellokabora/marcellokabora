@@ -7,6 +7,7 @@
 	import 'aos/dist/aos.css';
 	import { onMount } from 'svelte';
 	onMount(() => AOS.init());
+	export const prerender = true;
 </script>
 
 <svelte:head>
