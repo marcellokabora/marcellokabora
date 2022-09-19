@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { language } from '$lib/interfaces';
 	import Project from '$lib/Project.svelte';
 	const data = {
 		banner: {
@@ -15,6 +16,21 @@
 			'/project/chartmap/yukkalab-chartmap-05.png',
 			'/project/chartmap/yukkalab-chartmap-06.png',
 			'/project/chartmap/yukkalab-chartmap-07.png'
+		],
+		lang: [language.angular, language.material, language.highchart],
+		more: [
+			{
+				name: 'Network',
+				link: 'network'
+			},
+			{
+				name: 'Sentiment',
+				link: 'sentiment'
+			},
+			{
+				name: 'Signals',
+				link: 'signals'
+			}
 		]
 	};
 </script>

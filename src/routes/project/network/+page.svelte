@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { language } from '$lib/interfaces';
 	import Project from '$lib/Project.svelte';
 	const data = {
 		banner: {
@@ -15,17 +16,26 @@
 			'/project/network/yukkalab-netwotk-05.png',
 			'/project/network/yukkalab-netwotk-06.png',
 			'/project/network/yukkalab-netwotk-07.png'
+		],
+		lang: [language.angular, language.material, language.d3],
+		more: [
+			{
+				name: 'Signals',
+				link: 'signals'
+			},
+			{
+				name: 'Chartmap',
+				link: 'chartmap'
+			},
+			{
+				name: 'Sentiment',
+				link: 'sentiment'
+			}
 		]
 	};
 </script>
 
 <Project {data}>
-	<p>
-		This project was built in <a href="//angualr.io" target="_blank">Angular</a> ,
-		<a href="//material.angular.io" target="_blank">Material</a>
-		and
-		<a href="//firebase.com" target="_blank">Firebase</a>.
-	</p>
 	<p>
 		This particular component use <a href="d3js.org" target="_blank">D3</a> collision functionality in
 		order to display the connection between the works collected by the news, the line define the connection,

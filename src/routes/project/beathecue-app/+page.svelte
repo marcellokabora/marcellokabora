@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { language } from '$lib/interfaces';
 	import Project from '$lib/Project.svelte';
 	const data = {
 		banner: {
@@ -11,6 +12,17 @@
 			'/project/beathecue-app/beathecue-app-01.png',
 			'/project/beathecue-app/beathecue-app-02.png',
 			'/project/beathecue-app/beathecue-app-03.png'
+		],
+		lang: [language.angular, language.material, language.firebase],
+		more: [
+			{
+				name: 'Website',
+				link: 'beathecue-website'
+			},
+			{
+				name: 'Tickets',
+				link: 'berlinticket'
+			}
 		]
 	};
 </script>

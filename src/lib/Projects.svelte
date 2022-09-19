@@ -1,12 +1,33 @@
 <script lang="ts">
-	const items = [
+	import type { ProjectThumb } from './interfaces';
+
+	const items: ProjectThumb[] = [
+		{
+			photo: '/gallery/keyboard.jpg',
+			name: 'Portfolio',
+			link: '/project/portfolio',
+			height: iHeight(),
+			type: 'website',
+			time: 'Aug 2022',
+			lang: ['svelte']
+		},
 		{
 			photo: '/project/network/_cover.png',
 			name: 'Yukka - Network',
 			link: '/project/network',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'Jan 2018'
+			time: 'Jan 2018',
+			lang: ['angular', 'd3']
+		},
+		{
+			photo: '/gallery/gameapp.jpg',
+			name: 'Game App',
+			link: '/project/gameapp',
+			height: iHeight(),
+			type: 'webapp',
+			time: 'Sep 2022',
+			lang: ['svelte']
 		},
 		{
 			photo: '/project/berlinticket/berlinticket0.jpg',
@@ -14,7 +35,8 @@
 			link: '/project/berlinticket',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'Jul 2022'
+			time: 'Jul 2022',
+			lang: ['angular', 'material', 'firebase']
 		},
 		{
 			photo: '/project/sentiment/_cover.jpg',
@@ -22,7 +44,8 @@
 			link: '/project/sentiment',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'April 2014'
+			time: 'April 2014',
+			lang: ['angular', 'highchart']
 		},
 		{
 			photo: '/project/beathecue-app/_cover.jpeg',
@@ -30,7 +53,8 @@
 			link: '/project/beathecue-app',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'Jun 2021'
+			time: 'Jun 2021',
+			lang: ['angular', 'material', 'firebase']
 		},
 		{
 			photo: '/project/beathecue-website/_cover.jpeg',
@@ -38,7 +62,8 @@
 			link: '/project/beathecue-website',
 			height: iHeight(),
 			type: 'website',
-			time: 'Jun 2021'
+			time: 'Jun 2021',
+			lang: ['angular', 'material', 'firebase']
 		},
 		{
 			photo: '/project/linus-marketing/_cover.jpeg',
@@ -46,7 +71,8 @@
 			link: '/project/linus-marketing',
 			height: iHeight(),
 			type: 'website',
-			time: 'Feb 2022'
+			time: 'Feb 2022',
+			lang: ['react', 'builder']
 		},
 		{
 			photo: '/project/chartmap/_cover.jpg',
@@ -54,7 +80,8 @@
 			link: '/project/chartmap',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'Jul 2018'
+			time: 'Jul 2018',
+			lang: ['angular', 'highchart']
 		},
 		{
 			photo: '/project/linus-product/_cover.jpeg',
@@ -62,7 +89,8 @@
 			link: '/project/linus-product',
 			height: iHeight(),
 			type: 'website',
-			time: 'Sep 2021'
+			time: 'Sep 2021',
+			lang: ['react', 'builder']
 		},
 		{
 			photo: '/project/linus/_cover.jpeg',
@@ -70,23 +98,26 @@
 			link: '/project/linus',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'Apr 2021'
+			time: 'Apr 2021',
+			lang: ['angular', 'material']
 		},
 		{
 			photo: '/project/uicomponents/_cover.jpeg',
-			name: 'Building Minds - Components',
+			name: 'Building - Components',
 			link: '/project/uicomponents',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'Jan 2020'
+			time: 'Jan 2020',
+			lang: ['augular']
 		},
 		{
 			photo: '/project/appmanager/_cover.jpeg',
-			name: 'Building Minds - Appmanager',
+			name: 'Building - Appmanager',
 			link: '/project/appmanager',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'May 2021'
+			time: 'May 2021',
+			lang: ['angular']
 		},
 		{
 			photo: '/project/serenitas/serenitas-00.jpg',
@@ -94,7 +125,8 @@
 			link: '/project/serenitas',
 			height: iHeight(),
 			type: 'design',
-			time: 'Jan 2015'
+			time: 'Jan 2015',
+			lang: ['illustrator']
 		},
 		{
 			photo: '/project/firenze/_cover.png',
@@ -102,7 +134,8 @@
 			link: '/project/firenze',
 			height: iHeight(),
 			type: 'design',
-			time: 'Aug 2012'
+			time: 'Aug 2012',
+			lang: ['illiustrator']
 		},
 		{
 			photo: '/project/mklogo/marcellokabora.jpg',
@@ -110,15 +143,17 @@
 			link: '/project/mklogo',
 			height: iHeight(),
 			type: 'design',
-			time: 'Apr 2013'
+			time: 'Apr 2013',
+			lang: ['illustrator']
 		},
 		{
 			photo: '/project/loretdemar/loretdemar-00.png',
-			name: 'TangLang - Lloret De Mar',
+			name: 'Tanglang - Lloret De Mar',
 			link: '/project/loretdemar',
 			height: iHeight(),
 			type: 'website',
-			time: 'Mar 2015'
+			time: 'Mar 2015',
+			lang: ['Jquery']
 		},
 		{
 			photo: '/project/wokamoka-avatar/wokamoka-avatar-00.jpg',
@@ -126,7 +161,8 @@
 			link: '/project/wokamoka-avatar',
 			height: iHeight(),
 			type: 'design',
-			time: 'Jun 2010'
+			time: 'Jun 2010',
+			lang: ['illustrator']
 		},
 		{
 			photo: '/project/wokamoka-website/wokamoka-website-00.png',
@@ -134,7 +170,8 @@
 			link: '/project/wokamoka-website',
 			height: iHeight(),
 			type: 'website',
-			time: 'Oct 2010'
+			time: 'Oct 2010',
+			lang: ['flash']
 		},
 		{
 			photo: '/project/mineko-upload/_cover.jpg',
@@ -142,7 +179,8 @@
 			link: '/project/mineko-upload',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'Mar 2017'
+			time: 'Mar 2017',
+			lang: ['augular', 'material', 'firebase']
 		},
 		{
 			photo: '/project/airesis/airesis-00.png',
@@ -150,23 +188,17 @@
 			link: '/project/airesis',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'Dec 2014'
+			time: 'Dec 2014',
+			lang: ['jquery']
 		},
 		{
 			photo: '/project/iaa/iaa_00.png',
-			name: 'TangLang - IAA',
+			name: 'Tanglang - IAA',
 			link: '/project/iaa',
 			height: iHeight(),
 			type: 'website',
-			time: 'Feb 2015'
-		},
-		{
-			photo: '/project/yawiki/_cover.png',
-			name: 'Yawiki',
-			link: '/project/yawiki',
-			height: iHeight(),
-			type: 'webapp',
-			time: 'Oct 2015'
+			time: 'Feb 2015',
+			lang: ['jquery']
 		},
 		{
 			photo: '/project/signals/_cover.jpg',
@@ -174,15 +206,17 @@
 			link: '/project/signals',
 			height: iHeight(),
 			type: 'webapp',
-			time: 'Feb 2018'
+			time: 'Feb 2018',
+			lang: ['angular', 'highchart']
 		},
 		{
 			photo: '/project/autoginevra/autoginevra_00.png',
-			name: 'TangLang - Autoginevra',
+			name: 'Tanglang - Autoginevra',
 			link: '/project/autoginevra',
 			height: iHeight(),
 			type: 'website',
-			time: 'Jul 2015'
+			time: 'Jul 2015',
+			lang: ['jquery']
 		},
 		{
 			photo: '/project/maggiolino/maggiolino_00.png',
@@ -190,7 +224,8 @@
 			link: '/project/maggiolino',
 			height: iHeight(),
 			type: 'website',
-			time: 'Mar 2015'
+			time: 'Mar 2015',
+			lang: ['jquery', 'bootstrap']
 		},
 		{
 			photo: '/project/smava-website/smava_website_00.jpg',
@@ -198,23 +233,35 @@
 			link: '/project/smava-website',
 			height: iHeight(),
 			type: 'website',
-			time: 'Jun 2016'
+			time: 'Jun 2016',
+			lang: ['backbone', 'semantic']
+		},
+		{
+			photo: '/project/yawiki/_cover.png',
+			name: 'Yawiki',
+			link: '/project/yawiki',
+			height: iHeight(),
+			type: 'webapp',
+			time: 'Oct 2015',
+			lang: ['jquery']
 		},
 		{
 			photo: '/project/cosmoprof/cosmoprof_00.png',
-			name: 'TangLang - Cosmoprof',
+			name: 'Tanglang - Cosmoprof',
 			link: '/project/cosmoprof',
 			height: iHeight(),
 			type: 'website',
-			time: 'Apr 2014'
+			time: 'Apr 2014',
+			lang: ['jquery']
 		},
 		{
 			photo: '/project/christmas/christmas_00.png',
-			name: 'TangLang - Christmas',
+			name: 'Tanglang - Christmas',
 			link: '/project/christmas',
 			height: iHeight(),
 			type: 'website',
-			time: 'Mar 2014'
+			time: 'Mar 2014',
+			lang: ['jquery']
 		},
 		{
 			photo: '/project/mineko-website/_cover.png',
@@ -222,7 +269,8 @@
 			link: '/project/mineko-website',
 			height: iHeight(),
 			type: 'website',
-			time: 'Jan 2017'
+			time: 'Jan 2017',
+			lang: ['react']
 		},
 		{
 			photo: '/project/nbe/nbe-00.jpg',
@@ -230,7 +278,8 @@
 			link: '/project/nbe',
 			height: iHeight(),
 			type: 'design',
-			time: 'Feb 2012'
+			time: 'Feb 2012',
+			lang: []
 		},
 		{
 			photo: '/project/smava-best/smava-best-00.jpg',
@@ -238,7 +287,8 @@
 			link: '/project/smava-best',
 			height: iHeight(),
 			type: 'recommendation',
-			time: 'Nov 2016'
+			time: 'Nov 2016',
+			lang: []
 		}
 	];
 
@@ -250,7 +300,11 @@
 	let filterby = '';
 
 	$: filteredList = items
-		.filter((item) => item.name.toLowerCase().indexOf(search.toLowerCase()) !== -1)
+		.filter(
+			(item) =>
+				item.name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+				item.lang.includes(search.toLowerCase())
+		)
 		.filter((item) => (filterby ? item.type === filterby : item));
 </script>
 
@@ -290,9 +344,6 @@
 </div>
 
 <style>
-	section {
-		margin-top: 10px;
-	}
 	.radio {
 		margin-left: 0px;
 	}

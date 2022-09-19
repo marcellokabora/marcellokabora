@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { language } from '$lib/interfaces';
 	import Project from '$lib/Project.svelte';
 	const data = {
 		banner: {
@@ -7,18 +8,19 @@
 			slogan: 'Webapp'
 		},
 		date: 'Jul 2022',
-		gallery: ['/project/berlinticket/berlinticket1.jpg']
+		gallery: ['/project/berlinticket/berlinticket1.jpg'],
+		lang: [language.angular, language.material, language.firebase],
+		more: [{ name: 'Game App', link: 'gameapp' }],
+		link: { name: 'Application', link: '//berlin-ticket.web.app' },
+		code: { name: 'Github', link: '//github.com/marcellokabora/evdi-berlin-travel' }
 	};
 </script>
 
 <Project {data}>
 	<p>
-		<a href="https://berlin-ticket.web.app/" target="_blank">Berlin Ticket</a> is a small project
-		built in <a href="https://angular.io/" target="_blank">Angular</a> and
-		<a href="https://material.angular.io/" target="_blank">Material</a>
-		where ypu can filter a list of events by price, rating and title.<br />The Dashboard is divided
-		in 3 section: the left aside panel for filter the list by rating, price and special offers, the
-		top menu for search tickets by title and list of the ticket displayed one by one including
-		title, price and rating.
+		Berlin Ticket is a small project where you can filter a list of events by price, rating, and
+		title. The Dashboard is divided into 3 sections: the left side panel for filtering the list by
+		rating, price, and special offers, the top menu for searching tickets by title, and the ticket
+		list displayed one by one including title, price, and rating.
 	</p>
 </Project>

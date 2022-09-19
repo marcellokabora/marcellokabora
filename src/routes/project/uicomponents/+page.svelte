@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { language } from '$lib/interfaces';
 	import Project from '$lib/Project.svelte';
 	const data = {
 		banner: {
@@ -19,7 +20,9 @@
 			'/project/uicomponents/buildingminds-09.png',
 			'/project/uicomponents/buildingminds-10.png',
 			'/project/uicomponents/buildingminds-11.png'
-		]
+		],
+		lang: [language.angular, language.bootstrap],
+		more: [{ name: 'App Manager', link: 'appmanager' }]
 	};
 </script>
 

@@ -36,7 +36,7 @@
 
 <header>
 	<div class="logo" data-aos="fade-down" data-aos-duration="1000">
-		<a href="/" on:click={toggleNav}>
+		<a href={showNav ? '' : '/'} on:click={toggleNav}>
 			<img src="/icon/mk.png" alt="Marcello Kabora" />
 		</a>
 		<div class="arrow" />
@@ -153,7 +153,7 @@
 		display: flex;
 		align-items: center;
 		flex: 1;
-		margin-left: 220px;
+		margin-left: 180px;
 	}
 
 	li {

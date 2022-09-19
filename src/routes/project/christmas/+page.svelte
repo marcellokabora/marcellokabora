@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { language } from '$lib/interfaces';
 	import Project from '$lib/Project.svelte';
 	const data = {
 		banner: {
@@ -17,6 +18,17 @@
 			'/project/christmas/christmas_07.png',
 			'/project/christmas/christmas_08.png',
 			'/project/christmas/christmas_09.png'
+		],
+		lang: [language.jquery, language.mysql],
+		more: [
+			{
+				name: 'Cosmoprof',
+				link: 'cosmoprof'
+			},
+			{
+				name: 'Loretdemar',
+				link: 'loretdemar'
+			}
 		]
 	};
 </script>
