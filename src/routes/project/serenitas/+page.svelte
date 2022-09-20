@@ -7,7 +7,11 @@
 			slogan: 'Mind Change'
 		},
 		date: 'Jan 2015',
-		gallery: ['/project/serenitas/serenitas-00.jpg']
+		gallery: ['/project/serenitas/serenitas-00.jpg'],
+		more: [
+			{ name: 'NBE', link: 'nbe' },
+			{ name: 'MK', link: 'mklogo' }
+		]
 	};
 </script>
 

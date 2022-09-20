@@ -15,7 +15,17 @@
 			'/project/airesis/airesis-04.png',
 			'/project/airesis/airesis-logo.jpg'
 		],
-		lang: [language.jquery]
+		lang: [language.jquery],
+		more: [
+			{
+				name: 'Maggiolino',
+				link: 'maggiolino'
+			},
+			{
+				name: 'Cosmoprof',
+				link: 'cosmoprof'
+			}
+		]
 	};
 </script>
 

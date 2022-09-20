@@ -11,7 +11,8 @@
 			'/project/firenze/_cover.png',
 			'/project/firenze/firenze-02.png',
 			'/project/firenze/firenze-03.png'
-		]
+		],
+		more: [{ name: 'Wakamoka', link: 'wokamoka-avatar' }]
 	};
 </script>
 

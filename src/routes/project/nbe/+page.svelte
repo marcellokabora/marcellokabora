@@ -7,7 +7,11 @@
 			slogan: ''
 		},
 		date: 'Feb 2012',
-		gallery: ['/project/nbe/nbe-00.jpg']
+		gallery: ['/project/nbe/nbe-00.jpg'],
+		more: [
+			{ name: 'MK', link: 'mklogo' },
+			{ name: 'Serenitas', link: 'serenitas' }
+		]
 	};
 </script>
 

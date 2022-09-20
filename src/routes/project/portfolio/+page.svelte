@@ -13,7 +13,9 @@
 		more: [
 			{ name: 'Game App', link: 'gameapp' },
 			{ name: 'Network', link: 'network' }
-		]
+		],
+		link: '//marcellokabora.com',
+		code: 'svelte-marcellokabora'
 	};
 </script>
 

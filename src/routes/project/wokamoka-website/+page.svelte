@@ -20,6 +20,10 @@
 			'/project/wokamoka-website/wokamoka-website-10.jpg',
 			'/project/wokamoka-website/wokamoka-website-11.jpg',
 			'/project/wokamoka-website/wokamoka-website-12.jpg'
+		],
+		more: [
+			{ name: 'Avatar', link: 'wokamoka-avatar' },
+			{ name: 'Firenze', link: 'firenze' }
 		]
 	};
 </script>

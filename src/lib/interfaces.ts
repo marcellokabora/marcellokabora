@@ -8,8 +8,8 @@ export interface Project {
     gallery: string[]
     lang?: Link[]
     more?: Link[]
-    link?: Link
-    code?: Link
+    link?: string
+    code?: string
 }
 export interface Link {
     name: string;
@@ -64,5 +64,9 @@ export const language = {
     highchart: {
         name: 'Highcharts',
         link: '//highcharts.com'
+    },
+    builder: {
+        name: 'Builder',
+        link: '//builder.io'
     }
 }

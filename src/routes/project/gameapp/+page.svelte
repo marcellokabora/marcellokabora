@@ -14,7 +14,8 @@
 			{ name: 'Portfolio', link: 'portfolio' },
 			{ name: 'Berlin Ticket', link: 'berlinticket' }
 		],
-		link: { name: 'Game App', link: '//gameapp-five.vercel.app/aa0c86fa' }
+		link: '//gameapp-five.vercel.app/aa0c86fa',
+		code: 'gameapp'
 	};
 </script>
 

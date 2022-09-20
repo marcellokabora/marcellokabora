@@ -7,7 +7,17 @@
 			slogan: 'Website'
 		},
 		date: 'Jun 2021',
-		gallery: ['/project/beathecue-website/beathecue-website.png']
+		gallery: ['/project/beathecue-website/beathecue-website.png'],
+		more: [
+			{
+				name: 'Beathecue',
+				link: 'beathecue-app'
+			},
+			{
+				name: 'Portfolio',
+				link: 'portfolio'
+			}
+		]
 	};
 </script>
 

@@ -95,7 +95,7 @@
 		{
 			photo: '/project/linus/_cover.jpeg',
 			name: 'Linus - Registration',
-			link: '/project/linus',
+			link: '/project/linus-registration',
 			height: iHeight(),
 			type: 'webapp',
 			time: 'Apr 2021',

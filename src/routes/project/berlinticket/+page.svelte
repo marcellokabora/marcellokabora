@@ -10,9 +10,12 @@
 		date: 'Jul 2022',
 		gallery: ['/project/berlinticket/berlinticket1.jpg'],
 		lang: [language.angular, language.material, language.firebase],
-		more: [{ name: 'Game App', link: 'gameapp' }],
-		link: { name: 'Application', link: '//berlin-ticket.web.app' },
-		code: { name: 'Github', link: '//github.com/marcellokabora/evdi-berlin-travel' }
+		more: [
+			{ name: 'Gameapp', link: 'gameapp' },
+			{ name: 'Uploader', link: 'mineko-upload' }
+		],
+		link: '//berlin-ticket.web.app',
+		code: 'evdi-berlin-travel'
 	};
 </script>
 

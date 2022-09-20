@@ -7,7 +7,11 @@
 			slogan: ''
 		},
 		date: 'Apr 2013',
-		gallery: ['/project/mklogo/marcellokabora.jpg']
+		gallery: ['/project/mklogo/marcellokabora.jpg'],
+		more: [
+			{ name: 'NBE', link: 'nbe' },
+			{ name: 'Serenitas', link: 'serenitas' }
+		]
 	};
 </script>
 

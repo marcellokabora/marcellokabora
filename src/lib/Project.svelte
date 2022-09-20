@@ -37,13 +37,15 @@
 			{#if data.link}
 				<div class="info">
 					<span class="material-icons">web</span>
-					<a class="lang" href={data.link.link} target="_blank">{data.link.name}</a>
+					<a class="lang" href={data.link} target="_blank">Website</a>
 				</div>
 			{/if}
 			{#if data.code}
 				<div class="info">
 					<img class="icon" src="/icon/github.svg" alt="github" />
-					<a class="lang" href={data.code.link} target="_blank">{data.code.name}</a>
+					<a class="lang" href={`//github.com/marcellokabora/${data.code}`} target="_blank"
+						>Repository
+					</a>
 				</div>
 			{/if}
 			{#if data.more}

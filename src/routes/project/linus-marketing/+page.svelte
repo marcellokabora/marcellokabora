@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { language } from '$lib/interfaces';
 	import Project from '$lib/Project.svelte';
 	const data = {
 		banner: {
@@ -11,6 +12,17 @@
 			'/project/linus-marketing/linus-lps-01.png',
 			'/project/linus-marketing/linus-lps-02.png',
 			'/project/linus-marketing/linus-lps-03.png'
+		],
+		lang: [language.react, language.builder],
+		more: [
+			{
+				name: 'Product',
+				link: 'linus-product'
+			},
+			{
+				name: 'Registration',
+				link: 'linus-registration'
+			}
 		]
 	};
 </script>

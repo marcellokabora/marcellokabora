@@ -19,6 +19,16 @@
 			'/project/yawiki/yawiki9.png',
 			'/project/yawiki/yawiki10.png',
 			'/project/yawiki/logo.jpg'
+		],
+		more: [
+			{
+				name: 'Beathecue',
+				link: 'beathecue-app'
+			},
+			{
+				name: 'Maggiolino',
+				link: 'maggiolino'
+			}
 		]
 	};
 </script>
