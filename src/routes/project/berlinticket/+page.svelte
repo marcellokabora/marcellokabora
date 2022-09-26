@@ -14,8 +14,8 @@
 			{ name: 'Gameapp', link: 'gameapp' },
 			{ name: 'Uploader', link: 'mineko-upload' }
 		],
-		link: '//berlin-ticket.web.app',
-		code: 'evdi-berlin-travel'
+		link: '//https://berlin-tickets.web.app/',
+		code: 'berlin-ticket'
 	};
 </script>
 
