@@ -2,12 +2,20 @@
 	import Banner from '$lib/Banner.svelte';
 	const companies = [
 		{
+			logo: '/company/evaglobal.jpg',
+			name: 'Eva Global',
+			slogan: 'eMobility',
+			title: 'Full Time - Senior Frontend Engineer',
+			time: 'From Oct 2022',
+			link: '//linkedin.com/company/evaglobal'
+		},
+		{
 			logo: '/logo/linus.png',
 			name: 'Linus',
 			slogan: 'Digital Finance',
-			title: 'Full Time - Frontend Engineer',
+			title: 'Full Time - Senior Frontend Engineer',
 			time: 'Sep 2021 - Aug 2022',
-			link: '//linkedin.com/logo/linus-digital-finance'
+			link: '//linkedin.com/company/linus-digital-finance'
 		},
 		{
 			logo: '/logo/buildingminds.png',
@@ -15,7 +23,7 @@
 			slogan: 'Real estate management',
 			title: 'Full Time - Frontend Developer',
 			time: 'Jan 2020 - Sep 2021',
-			link: '//linkedin.com/logo/buildingminds'
+			link: '//linkedin.com/company/buildingminds'
 		},
 		{
 			logo: '/logo/yukkalab.png',
@@ -103,7 +111,26 @@
 			</div>
 			<div class="body">
 				<div class="title">{company.title}</div>
-				{#if company.name === 'Linus'}
+				{#if company.name === 'Eva Global'}
+					<p>
+						<a href="//evaglobal.com" target="_blank">Eva Global</a> help customers to manage their electric
+						vehicle charger infrastructure and provide a superior customer experience to EV drivers.
+						Our services create new value and opportunities in eMobility business.
+					</p>
+					<p>
+						Our end-to-end infrastructure management, monitoring, service desk and support services
+						promises to protect the need of the consumer and ensure optimum uptime of the
+						infrastructure they rely on.
+					</p>
+					<p>
+						Since 2017, EVA has been playing a key role in shaping the future of electromobility. We
+						already support the transformation in over 30 countries and create confidence in a new
+						technology among drivers. And the journey continues.
+					</p>
+					<p>
+						<b>Technologies</b>: Angular, Jira, Gitlab
+					</p>
+				{:else if company.name === 'Linus'}
 					<p>
 						<a href="//linus-finance.com" target="_blank">LINUS Finance</a> is one of the leaders in
 						Real Estate in Germany and wants to combine technology and expertise to give the co-investors

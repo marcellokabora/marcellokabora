@@ -11,6 +11,13 @@
 		slogan: 'I worked for different startup in Berlin and Italy',
 		items: [
 			{
+				logo: '/company/evaglobal.jpg',
+				company: 'Eva Global',
+				title: 'Frontend Engineer',
+				time: 'From Oct 2022',
+				link: '//evaglobal.com'
+			},
+			{
 				logo: '/company/linus.png',
 				company: 'Linus',
 				title: 'Frontend Engineer',
@@ -50,12 +57,12 @@
 				title: 'Fullstack Developer',
 				time: 'Aug 2013 - Jan 2015'
 			},
-			{
-				logo: '/company/petdog.png',
-				company: 'Annunci Animali',
-				title: 'Frontend Developer',
-				time: 'Mar 2013 - Oct 2014'
-			},
+			// {
+			// 	logo: '/company/petdog.png',
+			// 	company: 'Annunci Animali',
+			// 	title: 'Frontend Developer',
+			// 	time: 'Mar 2013 - Oct 2014'
+			// },
 			{
 				logo: '/company/airesis.png',
 				company: 'Airesis',
