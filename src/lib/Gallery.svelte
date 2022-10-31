@@ -45,7 +45,7 @@
 	<Splide
 		options={{
 			rewind: true,
-			height: 500,
+			height: 600,
 			autoplay: true,
 			arrows: false
 		}}

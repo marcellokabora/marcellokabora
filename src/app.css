@@ -36,9 +36,15 @@ section {
 }
 
 .gallery .splide__pagination {
-	bottom: 90px;
+	bottom: 120px;
 }
 
 .carousel .splide__pagination {
 	bottom: -80px;
+}
+
+@media (max-width:1000px){
+	.gallery .splide__pagination {
+		display: none;
+	}
 }
