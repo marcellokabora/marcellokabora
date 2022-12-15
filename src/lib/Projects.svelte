@@ -3,7 +3,7 @@
 
 	const items: ProjectThumb[] = [
 		{
-			photo: '/gallery/keyboard_blur.jpg',
+			photo: '/project/portfolio/_cover.jpg',
 			name: 'Portfolio',
 			link: '/project/portfolio',
 			height: iHeight(),
