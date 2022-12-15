@@ -3,12 +3,12 @@
 	import ProjectUi from '$lib/Project.svelte';
 	const data: Project = {
 		banner: {
-			cover: '/gallery/keyboard.jpg',
+			cover: '/project/portfolio/_cover.jpg',
 			title: 'Marcello Kabora',
 			slogan: 'Portfolio'
 		},
 		date: 'Aug 2022',
-		gallery: ['/project/portfolio/poertfolio01.png'],
+		gallery: ['/project/portfolio/portfolio.png'],
 		lang: [language.svelte],
 		more: [
 			{ name: 'Game App', link: 'gameapp' },

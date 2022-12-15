@@ -3,37 +3,37 @@
 	import Header from '$lib/Header.svelte';
 	const gallery = [
 		{
-			photo: '/gallery/keyboard.jpg',
+			photo: '/blured/keyboard.jpg',
 			title: 'Marcello Kabora',
 			slogan: 'Frontend Engineer',
 			link: '/curriculum'
 		},
 		{
-			photo: '/gallery/chartmap.jpg',
+			photo: '/blured/chartmap.jpg',
 			title: 'Chartmap',
 			slogan: 'Analiticts',
 			link: '/project/chartmap'
 		},
 		{
-			photo: '/gallery/backfuture.png',
+			photo: '/blured/backfuture.jpg',
 			title: 'Yawiki',
 			slogan: 'Timeline',
 			link: '/project/yawiki'
 		},
 		{
-			photo: '/gallery/firenze.png',
+			photo: '/blured/firenze.jpg',
 			title: 'Firenze',
 			slogan: 'Logo',
 			link: '/project/firenze'
 		},
 		{
-			photo: '/gallery/mineko.png',
+			photo: '/blured/mineko.jpg',
 			title: 'Mineko',
 			slogan: 'Website',
 			link: '/project/mineko-website'
 		},
 		{
-			photo: '/gallery/beathecue.jpg',
+			photo: '/blured/beathecue.jpg',
 			title: 'Beathecue',
 			slogan: 'Skip The Cue',
 			link: '/project/beathecue-website'
@@ -46,7 +46,7 @@
 		options={{
 			rewind: true,
 			height: 600,
-			autoplay: true,
+			autoplay: false,
 			arrows: false
 		}}
 	>
@@ -83,8 +83,8 @@
 		position: absolute;
 		object-fit: cover;
 		width: 100%;
-		height: 190%;
-		filter: saturate(1) brightness(0.8) blur(8px);
+		/* height: 190%; */
+		filter: saturate(1) brightness(0.8);
 		z-index: -1;
 	}
 	.dflex {
