@@ -18,6 +18,7 @@
 			</div>
 			<slot />
 		</div>
+		<div class="space" />
 		<div class="infos">
 			<div class="header">
 				<div class="desc">Detail</div>
@@ -97,8 +98,8 @@
 	.flexo {
 		flex: 1;
 	}
-	.infos {
-		margin-left: 20px;
+	.space {
+		width: 20px;
 	}
 	.info {
 		display: flex;
@@ -134,5 +135,11 @@
 	}
 	.gallery {
 		margin-bottom: 50px;
+	}
+
+	@media (max-width: 1000px) {
+		.visual {
+			flex-direction: column;
+		}
 	}
 </style>

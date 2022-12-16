@@ -47,7 +47,12 @@
 			rewind: true,
 			height: 600,
 			autoplay: false,
-			arrows: false
+			arrows: false,
+			breakpoints: {
+				1000: {
+					height: 400
+				}
+			}
 		}}
 	>
 		{#each gallery as item}
@@ -83,7 +88,7 @@
 		position: absolute;
 		object-fit: cover;
 		width: 100%;
-		/* height: 190%; */
+		height: 100%;
 		filter: saturate(1) brightness(0.8);
 		z-index: -1;
 	}
@@ -92,5 +97,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		padding: 0 20px;
+	}
+	@media (max-width: 1000px) {
+		.dflex {
+			padding-top: 20px;
+		}
 	}
 </style>
