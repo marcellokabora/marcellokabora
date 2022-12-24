@@ -349,6 +349,7 @@
 	}
 	.radio button {
 		border: 1px solid silver;
+		background-color: white;
 		box-shadow: none;
 		padding: 0px 22px;
 		font-size: 13px;
@@ -359,8 +360,7 @@
 		cursor: pointer;
 	}
 	.radio button.active {
-		background-color: rgb(160, 160, 160);
-		color: white;
+		background-color: #efefef;
 	}
 	/* .radio button:first-child {
 		border-top-left-radius: 100px;

@@ -119,18 +119,8 @@
 	<div class="space" />
 
 	<Section photo="/photo/software.jpg" title="Software">
-		<!-- <p>
-			Building software is something I have always done from my early beginning, trying to create
-			something unique with special features is been my goal. Staying updated to the latest
-			technology is very important using powerful tools like <a
-				href="//code.visualstudio.com/"
-				target="_blank">VSC</a
-			>
-			and <a href="//google.com/chrome/" target="_blank">Chrome</a> I can test components in real-time
-			and finalize complex layouts.
-		</p> -->
 		<p>
-			The web is an incredible platform, f you think about platform-specific apps and web apps in
+			The web is an incredible platform, if you think about platform-specific apps and web apps in
 			terms of capabilities and reach, platform-specific apps represent the best of capabilities
 			whereas web apps represent the best of reach. Staying updated to the latest technology is very
 			important using powerful tools like <a href="//code.visualstudio.com/" target="_blank">VSC</a>
