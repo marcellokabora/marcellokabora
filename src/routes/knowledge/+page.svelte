@@ -667,7 +667,6 @@
 		display: flex;
 		max-width: 1400px;
 	}
-
 	.aside {
 		margin-right: 40px;
 		width: 200px;
@@ -702,30 +701,17 @@
 		flex: 1;
 		padding: 0px 20px;
 		margin-right: 20px;
-		/* .app-header {
-            margin-top: 80px;
-            margin-bottom: 40px;
-            .title {
-                font-size: 35px !important;
-            }
-        }
-        .photo {
-            height: 230px !important;
-            width: 230px !important;
-        } */
 	}
-
 	@media (max-width: 1000px) {
 		.aside {
 			display: none;
 		}
 	}
-
 	.knowledge :global(.photo) {
 		height: 230px;
 		width: 230px;
 	}
 	.knowledge :global(.photo img) {
-		object-fit: contain;
+		object-fit: contain !important;
 	}
 </style>
