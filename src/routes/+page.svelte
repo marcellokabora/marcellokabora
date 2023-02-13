@@ -103,7 +103,7 @@
 	/>
 	<meta
 		name="keywords"
-		content="Software, Engineer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, React, Material, D3, Firebase, Data Visualization"
+		content="Software, Engineer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, Material, D3,, NX, Firebase, Data Visualization"
 	/>
 </svelte:head>
 
