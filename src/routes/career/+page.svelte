@@ -128,7 +128,7 @@
 						technology among drivers. And the journey continues.
 					</p>
 					<p>
-						<b>Technologies</b>: Angular, Material, NX, AWS, Jira, Gitlab
+						<b>Technologies</b>: Angular, Material, Figma, NX, AWS, Jira, Gitlab, GraphQL, Storybook, Serverless
 					</p>
 				{:else if company.name === 'Linus'}
 					<p>

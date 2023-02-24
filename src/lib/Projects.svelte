@@ -405,6 +405,7 @@
 		cursor: pointer;
 		transition: all 0.5s;
 		position: relative;
+		border-radius: 10px;
 	}
 	.item:hover img {
 		filter: brightness(0.5);

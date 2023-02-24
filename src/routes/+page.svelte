@@ -89,7 +89,7 @@
 			{
 				logo: '/flag/sp.png',
 				company: 'Spanish',
-				title: '30%'
+				title: '40%'
 			}
 		]
 	};
