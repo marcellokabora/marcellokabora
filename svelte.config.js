@@ -25,9 +25,7 @@ const config = {
 		})
 	},
 	vitePlugin: {
-		experimental: {
-			inspector: true
-		}
+		inspector: true
 	}
 };
 
