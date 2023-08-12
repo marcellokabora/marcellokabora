@@ -14,8 +14,8 @@
 				link: 'beathecue-app'
 			},
 			{
-				name: 'Portfolio',
-				link: 'portfolio'
+				name: 'Game App',	
+				link: 'gameapp'
 			}
 		]
 	};

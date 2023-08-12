@@ -5,7 +5,7 @@
 			logo: '/company/evaglobal.jpg',
 			name: 'Eva Global',
 			slogan: 'eMobility',
-			title: 'Full Time - Senior Frontend Engineer',
+			title: 'Full Time - Frontend Engineer',
 			time: 'From Oct 2022',
 			link: '//linkedin.com/company/evaglobal'
 		},
@@ -13,7 +13,7 @@
 			logo: '/logo/linus.png',
 			name: 'Linus',
 			slogan: 'Digital Finance',
-			title: 'Full Time - Senior Frontend Engineer',
+			title: 'Full Time - Frontend Engineer',
 			time: 'Sep 2021 - Aug 2022',
 			link: '//linkedin.com/company/linus-digital-finance'
 		},
@@ -128,7 +128,7 @@
 						technology among drivers. And the journey continues.
 					</p>
 					<p>
-						<b>Technologies</b>: Angular, Jira, Gitlab
+						<b>Technologies</b>: Angular, Jira, Gitlab, AWS, Figma, Material, Chart, Potsman
 					</p>
 				{:else if company.name === 'Linus'}
 					<p>

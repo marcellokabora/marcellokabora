@@ -11,7 +11,7 @@
 		gallery: ['/project/gameapp/gameapp01.png'],
 		lang: [language.svelte],
 		more: [
-			{ name: 'Portfolio', link: 'portfolio' },
+			{ name: 'Network', link: 'network' },
 			{ name: 'Berlin Ticket', link: 'berlinticket' }
 		],
 		link: '//gameapp-five.vercel.app/aa0c86fa',

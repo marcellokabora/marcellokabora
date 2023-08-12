@@ -3,15 +3,6 @@
 
 	const items: ProjectThumb[] = [
 		{
-			photo: '/project/portfolio/_cover.jpg',
-			name: 'Portfolio',
-			link: '/project/portfolio',
-			height: iHeight(),
-			type: 'website',
-			time: 'Aug 2022',
-			lang: ['svelte']
-		},
-		{
 			photo: '/project/network/_cover.png',
 			name: 'Yukka - Network',
 			link: '/project/network',

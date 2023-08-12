@@ -89,7 +89,7 @@
 			{
 				logo: '/flag/sp.png',
 				company: 'Spanish',
-				title: '30%'
+				title: '40%'
 			}
 		]
 	};
@@ -119,21 +119,14 @@
 	<div class="space" />
 
 	<Section photo="/photo/software.jpg" title="Software">
-		<!-- <p>
-			Building software is something I have always done from my early beginning, trying to create
-			something unique with special features is been my goal. Staying updated to the latest
-			technology is very important using powerful tools like <a
+		<p>
+			Progressive Web Apps are on a lot of companies' roadmap to modernize their websites and adapt
+			to users' new expectations. As with many technologies, PWAs raise questions: is it what my
+			customers want, how much will it grow my business, what is technically feasible? Staying
+			updated to the latest technology is very important using powerful tools like <a
 				href="//code.visualstudio.com/"
 				target="_blank">VSC</a
 			>
-			and <a href="//google.com/chrome/" target="_blank">Chrome</a> I can test components in real-time
-			and finalize complex layouts.
-		</p> -->
-		<p>
-			The web is an incredible platform, f you think about platform-specific apps and web apps in
-			terms of capabilities and reach, platform-specific apps represent the best of capabilities
-			whereas web apps represent the best of reach. Staying updated to the latest technology is very
-			important using powerful tools like <a href="//code.visualstudio.com/" target="_blank">VSC</a>
 			and <a href="//google.com/chrome/" target="_blank">Chrome</a> I can test components in real-time
 			and finalize complex layouts.
 		</p>
@@ -190,12 +183,13 @@
 
 	<div class="space" />
 
-	<Section photo="/photo/angular.png" title="Angular" color="#1976d2" link="//angular.io">
+	<Section photo="/photo/angular.png" title="Framework" color="#1976d2" link="//angular.io">
 		<p>
-			<a href="//angular.io" target="_blank">Angular</a> is by far my preferred framework because it's
-			great for scalable projects and allows me to interact with the best providers from google and others.
-			I can build small projects with no unitest and extend it with authentication and pipes to control
-			any single feature.
+			<a href="//angular.io" target="_blank">Angular</a> and
+			<a href="https://svelte.dev" target="_blank">Svelte</a> are my preferred framework because they
+			are great for scalable projects and allow me to interact with the best providers in the market.
+			I can build any projects with unitest and extend it with authentication and pipes to control any
+			single feature.
 		</p>
 	</Section>
 	<Section
@@ -229,15 +223,15 @@
 	</Section>
 	<Section
 		photo="/photo/firebase.webp"
-		title="Firebase"
+		title="Database"
 		color="#4fb7e8"
 		link="//firebase.google.com"
 		aside
 	>
 		<p>
-			<a href="//firebase.google.com" target="_blank">Firebase</a> is a mobile- and web application
-			development platform, backed by <a href="//google.com" target="_blank">Google</a>, to help
-			developers deliver richer app experiences. Firebase manages its own infrastructure with a nice
+			<a href="//firebase.google.com" target="_blank">Firebase</a> and
+			<a href="https://aws.amazon.com/">AWS</a> are my favorite tools for working with databases that
+			allow me to deliver richer app experiences. Firebase manages its own infrastructure with a nice
 			set of tools to simplify the workflow of the developer by providing them with development kits
 			and an online dashboard.
 		</p>
