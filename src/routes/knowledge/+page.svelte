@@ -19,6 +19,12 @@
 			link: '//angular.io'
 		},
 		{
+			name: 'nx',
+			title: 'NX',
+			photo: '/logo/nx.png',
+			link: '//nx.dev'
+		},
+		{
 			id: 'javascript',
 			name: 'svelte',
 			title: 'Svelte',
@@ -330,6 +336,11 @@
 							Angular is a TypeScript-based open-source web application framework led by the Angular
 							Team at Google and by a community of individuals and corporations. Angular is a
 							complete rewrite from the same team that built AngularJS.
+						</p>
+					{/if}
+					{#if item.name === 'nx'}
+						<p>
+							From more out-of-the-box tooling support to faster builds and more features, the Nx CLI dramatically improves your Angular development experience, while allowing you to reuse most of the knowledge you have gained from using the Angular CLI.
 						</p>
 					{/if}
 					{#if item.name === 'svelte'}
@@ -656,7 +667,6 @@
 		display: flex;
 		max-width: 1400px;
 	}
-
 	.aside {
 		margin-right: 40px;
 		width: 200px;
@@ -691,30 +701,17 @@
 		flex: 1;
 		padding: 0px 20px;
 		margin-right: 20px;
-		/* .app-header {
-            margin-top: 80px;
-            margin-bottom: 40px;
-            .title {
-                font-size: 35px !important;
-            }
-        }
-        .photo {
-            height: 230px !important;
-            width: 230px !important;
-        } */
 	}
-
 	@media (max-width: 1000px) {
 		.aside {
 			display: none;
 		}
 	}
-
 	.knowledge :global(.photo) {
 		height: 230px;
 		width: 230px;
 	}
 	.knowledge :global(.photo img) {
-		object-fit: contain;
+		object-fit: contain !important;
 	}
 </style>

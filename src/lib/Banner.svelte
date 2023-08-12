@@ -21,6 +21,7 @@
 		overflow: hidden;
 		position: relative;
 		text-align: center;
+		padding-bottom: 40px;
 	}
 	.cover {
 		position: absolute;

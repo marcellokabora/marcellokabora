@@ -33,7 +33,7 @@
 	</div>
 </div>
 
-<style>
+<style lang="scss">
 	.section {
 		display: flex;
 		justify-content: center;
@@ -42,21 +42,23 @@
 	}
 	.section.side {
 		text-align: right;
-	}
-	.section.side .photo {
-		order: 2;
-		margin: 0;
-		margin-left: 60px;
+		.photo {
+			order: 2;
+			margin: 0;
+			margin-left: 60px;
+		}
 	}
 	.photo {
 		height: 400px;
 		width: 400px;
 		margin-right: 60px;
-	}
-	.photo img {
-		object-fit: cover;
-		height: 100%;
-		width: 100%;
+		border-radius: 10px;
+		overflow: hidden;
+		img {
+			object-fit: cover;
+			height: 100%;
+			width: 100%;
+		}
 	}
 	.info {
 		flex: 1;

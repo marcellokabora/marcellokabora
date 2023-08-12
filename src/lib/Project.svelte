@@ -87,8 +87,14 @@
 		padding-bottom: 10px;
 		font-weight: bold;
 	}
+	.infos .info {
+		opacity: 0.7;
+	}
 	.info .material-icons {
 		margin-right: 10px;
+	}
+	.info a {
+		text-decoration: none;
 	}
 	.visual {
 		flex: 1;

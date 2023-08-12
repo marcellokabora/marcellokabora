@@ -30,7 +30,7 @@
 
 <footer>
 	<div class="priva">
-		<span class="tito">© Marcello Kabora • 2021</span>
+		<span class="tito">© Marcello Kabora • 2023</span>
 	</div>
 	<div class="icons">
 		{#each menus as menu}

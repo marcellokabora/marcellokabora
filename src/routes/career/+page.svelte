@@ -128,7 +128,8 @@
 						technology among drivers. And the journey continues.
 					</p>
 					<p>
-						<b>Technologies</b>: Angular, Jira, Gitlab, AWS, Figma, Material, Chart, Potsman
+						<b>Technologies</b>: Angular, NX, Jira, Gitlab, AWS, GraphQL, Figma, Material, Chart,
+						Potsman, Storybook
 					</p>
 				{:else if company.name === 'Linus'}
 					<p>
@@ -278,78 +279,80 @@
 	{/each}
 </section>
 
-<style>
+<style lang="scss">
 	section {
 		margin-top: 20px;
 		margin-bottom: 4px;
-	}
-	section .item {
-		display: flex;
-		align-items: center;
-	}
-	section .item .logo {
-		margin-right: 40px;
-		text-align: center;
-		width: 250px;
-		height: 380px;
-		border-right: 1px solid #d8d8d8;
-		display: flex;
-		align-items: center;
-		margin-bottom: 40px;
-		position: relative;
-	}
-	section .item .logo img {
-		max-width: 200px;
-		max-height: 100px;
-		object-fit: contain;
-		margin-bottom: 20px;
-	}
-	section .item .logo .company {
-		font-size: 25px;
-		font-weight: bold;
-	}
-	section .item .logo .slogan {
-		font-style: 18px;
-		opacity: 0.5;
-	}
-	section .item .logo .time {
-		font-style: 16px;
-		opacity: 0.3;
-	}
-	.dot {
-		position: absolute;
-		bottom: -18px;
-		right: -2px;
-		color: rgb(214, 214, 214);
-		zoom: 3;
+		.item {
+			display: flex;
+			align-items: center;
+
+			.logo {
+				margin-right: 40px;
+				text-align: center;
+				width: 250px;
+				height: 380px;
+				border-right: 1px solid #d8d8d8;
+				display: flex;
+				align-items: center;
+				margin-bottom: 40px;
+				position: relative;
+
+				img {
+					max-width: 200px;
+					max-height: 100px;
+					object-fit: contain;
+					margin-bottom: 20px;
+				}
+				.company {
+					font-size: 25px;
+					font-weight: bold;
+				}
+				.slogan {
+					font-style: 18px;
+					opacity: 0.5;
+				}
+				.time {
+					font-style: 16px;
+					opacity: 0.3;
+				}
+				.dot {
+					position: absolute;
+					bottom: -18px;
+					right: -2px;
+					color: rgb(214, 214, 214);
+					zoom: 3;
+				}
+			}
+		}
 	}
 	.body {
 		flex: 1;
-	}
-	.body .title {
-		font-size: 20px;
-		font-weight: bold;
-		border-bottom: 1px solid #d8d8d8;
-		padding-bottom: 10px;
-	}
-	.body p {
-		font-size: 16px;
+		.title {
+			font-size: 20px;
+			font-weight: bold;
+			border-bottom: 1px solid #d8d8d8;
+			padding-bottom: 10px;
+		}
+		p {
+			font-size: 16px;
+		}
 	}
 	@media (max-width: 1000px) {
 		section {
 			margin-top: 40px;
-		}
-		section .item {
-			margin: 20px 0px;
-			display: inherit;
-		}
-		section .item .logo {
-			border: none;
-			height: auto;
-			width: auto;
-			text-align: left;
-			margin: 0;
-			display: inline;
+			.item {
+				margin: 20px 0px;
+				display: inherit;
+				.logo {
+					border: none;
+					height: auto;
+					width: auto;
+					text-align: left;
+					margin: 0;
+					display: inline;
+				}
+			}
 		}
 		.body {
 			margin-top: 20px;

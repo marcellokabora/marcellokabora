@@ -103,7 +103,7 @@
 	/>
 	<meta
 		name="keywords"
-		content="Software, Engineer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, React, Material, D3, Firebase, Data Visualization"
+		content="Software, Engineer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, Material, D3,, NX, Firebase, Data Visualization"
 	/>
 </svelte:head>
 
@@ -120,13 +120,10 @@
 
 	<Section photo="/photo/software.jpg" title="Software">
 		<p>
-			Progressive Web Apps are on a lot of companies' roadmap to modernize their websites and adapt
-			to users' new expectations. As with many technologies, PWAs raise questions: is it what my
-			customers want, how much will it grow my business, what is technically feasible? Staying
-			updated to the latest technology is very important using powerful tools like <a
-				href="//code.visualstudio.com/"
-				target="_blank">VSC</a
-			>
+			The web is an incredible platform, if you think about platform-specific apps and web apps in
+			terms of capabilities and reach, platform-specific apps represent the best of capabilities
+			whereas web apps represent the best of reach. Staying updated to the latest technology is very
+			important using powerful tools like <a href="//code.visualstudio.com/" target="_blank">VSC</a>
 			and <a href="//google.com/chrome/" target="_blank">Chrome</a> I can test components in real-time
 			and finalize complex layouts.
 		</p>
