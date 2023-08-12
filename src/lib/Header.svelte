@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
 	export let title: string = 'Title';
 	export let slogan: string = 'Slogan';
 	export let zoom: number = 1;
