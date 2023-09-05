@@ -120,23 +120,21 @@
 
   <Section photo="/photo/software.jpg" title="Software">
     <p>
-      The web is an incredible platform, if you think about platform-specific
-      apps and web apps in terms of capabilities and reach, platform-specific
-      apps represent the best of capabilities whereas web apps represent the
-      best of reach. Staying updated to the latest technology is very important
-      using powerful tools like <a
-        href="//code.visualstudio.com/"
-        target="_blank">VSC</a
+      A web application is internet-based software accessed via web browsers,
+      offering platform-independent access, centralized maintenance, and diverse
+      functionalities. It uses web technologies and ensures cross-browser
+      compatibility and security. Staying updated with the current technology,
+      using tools like <a href="//code.visualstudio.com/" target="_blank">VSC</a
       >
-      and <a href="//google.com/chrome/" target="_blank">Chrome</a> I can test components
-      in real-time and finalize complex layouts.
+      and <a href="//google.com/chrome/" target="_blank">Chrome</a>, enables
+      <b>real-time testing</b> and simplifies <b>complex layout design</b>.
     </p>
   </Section>
   <Section photo="/photo/develop.jpeg" title="Framework" aside>
     <p>
-      Using appropriate framework is essential for a developer because it saves
-      an important time and efforts for building an app. I like to work using
-      object-oriented program language in order to build complex features and
+      Using an appropriate framework is essential for a developer because it
+      saves important time and effort in building an app. I like to work using
+      <b>object-oriented</b> programming languages to build complex features and
       maintain scalable functionality using different frameworks like
       <a href="//svelte.com" target="_blank">Svelte</a>,
       <a href="//reactjs.org" target="_blank">React</a>,
@@ -149,18 +147,20 @@
       CSS or Cascading Style Sheets is a style sheet language used for
       describing the presentation of a document written in a markup language
       such as HTML, in particular, SCSS is used in different libraries like
-      material design. For me is extremely easy to develop complex layouts using
-      this technology with the help of auto complete and nested classes.
+      <b>material design</b>. For me is extremely easy to develop complex
+      layouts using this technology with the help of auto complete and nested
+      classes.
     </p>
   </Section>
-  <Section photo="/photo/visualization.jpeg" title="Visualizzation" aside>
+  <Section photo="/photo/visualization.jpeg" title="Visualization" aside>
     <p>
       Data visualization is an interdisciplinary field that deals with the
       graphic representation of data and it is a particularly efficient way of
-      communicating when the data is numerous as for example a Time Series. I
-      use <a href="//d3js.org" target="_blank">D3js</a> o
+      communicating when the data is numerous for example a <b>Time Series</b>.
+      I use
+      <a href="//d3js.org" target="_blank">D3js</a> or
       <a href="//highcharts.com" target="_blank">Highcharts</a> to communicate information
-      clearly and efficiently building statistical graphics, plots or information
+      clearly and efficiently building statistical graphics, plots, or information
       graphics.
     </p>
   </Section>
