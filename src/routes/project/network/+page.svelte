@@ -37,8 +37,8 @@
 
 <Project {data}>
 	<p>
-		This particular component use <a href="d3js.org" target="_blank">D3</a> collision functionality in
-		order to display the connection between the works collected by the news, the line define the connection,
+		This particular component use <a href="//d3js.org" target="_blank">D3</a> collision functionality
+		in order to display the connection between the works collected by the news, the line define the connection,
 		the opacity of the line define the quantity of the connection, the color of the word define the sentiment
 		positive/neutral/negative and the size of the word define the total amount of news collected.
 	</p>
