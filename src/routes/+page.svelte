@@ -14,7 +14,7 @@
         logo: "/company/evaglobal.jpg",
         company: "Eva Global",
         title: "Frontend Engineer",
-        time: "From Oct 2022",
+        time: "Oct 2022 - May 2024",
         link: "//evaglobal.com",
       },
       {

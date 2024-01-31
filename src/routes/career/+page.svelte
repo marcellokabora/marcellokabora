@@ -1,12 +1,20 @@
 <script>
   import Banner from "$lib/Banner.svelte";
   const companies = [
+    // {
+    //   logo: "/company/7echno.jpg",
+    //   name: "7echno",
+    //   slogan: "Techno Music",
+    //   title: "Founder",
+    //   time: "From Oct 2022",
+    //   link: "//linkedin.com/company/evaglobal",
+    // },
     {
       logo: "/company/evaglobal.jpg",
       name: "Eva Global",
       slogan: "eMobility",
       title: "Full Time - Frontend Engineer",
-      time: "From Oct 2022",
+      time: "Oct 2022 - May 2024",
       link: "//linkedin.com/company/evaglobal",
     },
     {
@@ -45,7 +53,7 @@
       name: "Smava",
       slogan: "Credit Online",
       title: "Full Time - Frontend Developer",
-      time: "Feb 2016 - Nov 2016",
+      time: "Feb 2016 - Feb 2017",
     },
     {
       logo: "/logo/tanglang.png",
