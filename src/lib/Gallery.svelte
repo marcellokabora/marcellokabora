@@ -11,8 +11,8 @@
     {
       photo: "/blured/eva-global.jpg",
       title: "EVA Global",
-      slogan: "eMobility",
-      link: "/project/eva-global",
+      slogan: "Monitoring",
+      link: "/project/eva-monitoring",
     },
     {
       photo: "/blured/chartmap.jpg",
