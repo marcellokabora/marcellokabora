@@ -18,7 +18,7 @@
       photo: "/blured/eva-global.jpg",
       title: "EVA Global",
       slogan: "Monitoring",
-      link: "/project/eva-monitoring",
+      link: "/project/monitoring",
     },
     {
       photo: "/blured/chartmap.jpg",

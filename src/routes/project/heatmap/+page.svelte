@@ -3,21 +3,21 @@
   import ProjectUi from "$lib/Project.svelte";
   const data: Project = {
     banner: {
-      cover: "/project/eva-heatmap/cover.jpg",
+      cover: "/project/heatmap/cover.jpg",
       title: "EVA Global",
       slogan: "Heatmap",
     },
     date: "Nov 2023",
     gallery: [
-      "/project/eva-heatmap/image1.png",
-      "/project/eva-heatmap/image2.png",
-      "/project/eva-heatmap/image3.png",
+      "/project/heatmap/image1.png",
+      "/project/heatmap/image2.png",
+      "/project/heatmap/image3.png",
     ],
     lang: [language.figma],
     more: [
       {
         name: "Monitoring",
-        link: "eva-monitoring",
+        link: "monitoring",
       },
     ],
   };

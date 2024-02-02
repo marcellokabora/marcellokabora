@@ -8,6 +8,12 @@
     },
     date: "Jun 2016",
     gallery: ["/project/smava-website/smava_website_03.png"],
+    more: [
+      {
+        name: "Recommendation",
+        link: "smava-recommendation",
+      },
+    ],
   };
 </script>
 

@@ -12,7 +12,7 @@
     lang: [language.svelte],
     more: [
       { name: "Network", link: "network" },
-      { name: "Berlin Ticket", link: "berlinticket" },
+      { name: "Ticket", link: "berlinticket" },
     ],
     // link: "//gameapp-five.vercel.app/aa0c86fa",
     code: "gameapp",

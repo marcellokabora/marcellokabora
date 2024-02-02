@@ -3,16 +3,16 @@
   import ProjectUi from "$lib/Project.svelte";
   const data: Project = {
     banner: {
-      cover: "/project/eva-monitoring/cover.jpg",
+      cover: "/project/monitoring/cover.jpg",
       title: "EVA Global",
       slogan: "Monitoring",
     },
     date: "Nov 2023",
     gallery: [
-      "/project/eva-monitoring/image1.png",
-      "/project/eva-monitoring/image2.png",
-      "/project/eva-monitoring/image3.png",
-      "/project/eva-monitoring/image4.png",
+      "/project/monitoring/image1.png",
+      "/project/monitoring/image2.png",
+      "/project/monitoring/image3.png",
+      "/project/monitoring/image4.png",
     ],
     lang: [
       language.angular,
@@ -24,7 +24,7 @@
     more: [
       {
         name: "Heatmap",
-        link: "eva-heatmap",
+        link: "heatmap",
       },
     ],
   };
