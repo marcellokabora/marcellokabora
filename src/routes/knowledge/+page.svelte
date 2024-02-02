@@ -1,6 +1,7 @@
 <script lang="ts">
   import Banner from "$lib/Banner.svelte";
   import Section from "$lib/Section.svelte";
+  import { description } from "$lib/mocks";
 
   const menu = ["javascript", "styling", "database", "software", "management"];
 
@@ -314,6 +315,9 @@
 
 <svelte:head>
   <title>Marcello Kabora | Knowledge</title>
+  <meta name="description" content={description} />
+  <meta name="thumbnail" content="/gallery/develop.jpeg" />
+  <meta property="og:image" content="/gallery/develop.jpeg" />
 </svelte:head>
 
 <Banner cover="/gallery/develop.jpeg" title="Knowledge" slogan="Technologies" />
@@ -327,6 +331,8 @@
       class:fixed={y > 240}
     >
       {#each menu as item}
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <div class="menu" on:click|preventDefault={() => scrollIntoView(item)}>
           {item}
         </div>

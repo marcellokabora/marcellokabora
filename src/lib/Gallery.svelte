@@ -9,6 +9,12 @@
       link: "/curriculum",
     },
     {
+      photo: "/blured/7echno.jpg",
+      title: "7echno",
+      slogan: "Music",
+      link: "/project/7echno",
+    },
+    {
       photo: "/blured/eva-global.jpg",
       title: "EVA Global",
       slogan: "Monitoring",
@@ -21,22 +27,10 @@
       link: "/project/chartmap",
     },
     {
-      photo: "/blured/backfuture.jpg",
-      title: "Yawiki",
-      slogan: "Timeline",
-      link: "/project/yawiki",
-    },
-    {
-      photo: "/blured/firenze.jpg",
-      title: "Firenze",
-      slogan: "Logo",
-      link: "/project/firenze",
-    },
-    {
-      photo: "/blured/mineko.jpg",
-      title: "Mineko",
-      slogan: "Website",
-      link: "/project/mineko-website",
+      photo: "/blured/network.jpg",
+      title: "Network",
+      slogan: "Analitics",
+      link: "/project/network",
     },
   ];
 </script>

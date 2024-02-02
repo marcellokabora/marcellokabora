@@ -6,6 +6,8 @@
 
 <svelte:head>
   <title>Marcello Kabora | {data.banner.title} {data.banner.slogan}</title>
+  <meta name="thumbnail" content={data.banner.cover} />
+  <meta property="og:image" content={data.banner.cover} />
 </svelte:head>
 
 <Banner {...data.banner} />

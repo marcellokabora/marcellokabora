@@ -105,6 +105,8 @@
     name="keywords"
     content="Software, Engineer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, Material, D3,, NX, Firebase, Data Visualization"
   />
+  <meta name="thumbnail" content="/gallery/keyboard.jpg" />
+  <meta property="og:image" content="/gallery/keyboard.jpg" />
 </svelte:head>
 
 <Gallery />

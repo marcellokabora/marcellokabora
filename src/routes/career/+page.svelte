@@ -1,5 +1,6 @@
 <script>
   import Banner from "$lib/Banner.svelte";
+  import { description } from "$lib/mocks";
   const companies = [
     // {
     //   logo: "/company/7echno.jpg",
@@ -95,6 +96,9 @@
 
 <svelte:head>
   <title>Marcello Kabora | Career</title>
+  <meta name="description" content={description} />
+  <meta name="thumbnail" content="/gallery/styling.jpg" />
+  <meta property="og:image" content="/gallery/styling.jpg" />
 </svelte:head>
 
 <Banner
