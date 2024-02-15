@@ -130,10 +130,12 @@
             customer experience to EV drivers.
           </p>
           <p>
-            As a senior frontend engineer, I am responsible for building a new
-            UI library and ensuring that all the components follow the same
-            style guidelines. I also worked as a UX designer and ensured that
-            the new projects, pages, and components had the same consistency.
+            As a senior frontend engineer, I was responsible for building the UI
+            library using Angular Material and building multiple features for
+            the <a href="/project/monitoring/">Monitoring</a>
+            project . I also worked as a UX designer providing multiple designs for
+            the new features like the
+            <a href="/project/heatmap/">Heatmap</a>.
           </p>
           <p>
             <b>Technologies</b>: Angular, Material, NX, GraphQL, Storybook,
