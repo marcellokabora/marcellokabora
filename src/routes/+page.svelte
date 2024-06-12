@@ -14,7 +14,7 @@
         logo: "/company/evaglobal.jpg",
         company: "Eva Global",
         title: "Frontend Engineer",
-        time: "From Oct 2022",
+        time: "Oct 2022 - May 2024",
         link: "//evaglobal.com",
       },
       {
@@ -105,6 +105,8 @@
     name="keywords"
     content="Software, Engineer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, Material, D3,, NX, Firebase, Data Visualization"
   />
+  <meta name="thumbnail" content="/gallery/keyboard.jpg" />
+  <meta property="og:image" content="/gallery/keyboard.jpg" />
 </svelte:head>
 
 <Gallery />

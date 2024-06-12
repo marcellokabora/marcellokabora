@@ -1,12 +1,21 @@
 <script>
   import Banner from "$lib/Banner.svelte";
+  import { description } from "$lib/mocks";
   const companies = [
+    // {
+    //   logo: "/company/7echno.jpg",
+    //   name: "7echno",
+    //   slogan: "Techno Music",
+    //   title: "Founder",
+    //   time: "From Oct 2022",
+    //   link: "//linkedin.com/company/evaglobal",
+    // },
     {
       logo: "/company/evaglobal.jpg",
       name: "Eva Global",
       slogan: "eMobility",
       title: "Full Time - Frontend Engineer",
-      time: "From Oct 2022",
+      time: "Oct 2022 - May 2024",
       link: "//linkedin.com/company/evaglobal",
     },
     {
@@ -45,7 +54,7 @@
       name: "Smava",
       slogan: "Credit Online",
       title: "Full Time - Frontend Developer",
-      time: "Feb 2016 - Nov 2016",
+      time: "Feb 2016 - Feb 2017",
     },
     {
       logo: "/logo/tanglang.png",
@@ -87,6 +96,9 @@
 
 <svelte:head>
   <title>Marcello Kabora | Career</title>
+  <meta name="description" content={description} />
+  <meta name="thumbnail" content="/gallery/styling.jpg" />
+  <meta property="og:image" content="/gallery/styling.jpg" />
 </svelte:head>
 
 <Banner
@@ -113,25 +125,21 @@
         <div class="title">{company.title}</div>
         {#if company.name === "Eva Global"}
           <p>
-            <a href="//evaglobal.com" target="_blank">Eva Global</a> help customers
-            to manage their electric vehicle charger infrastructure and provide a
-            superior customer experience to EV drivers. Our services create new value
-            and opportunities in eMobility business.
+            <a href="//evaglobal.com" target="_blank">Eva Global</a> helps customers
+            manage their electric vehicle charger infrastructure and provides a superior
+            customer experience to EV drivers.
           </p>
           <p>
-            Our end-to-end infrastructure management, monitoring, service desk
-            and support services promises to protect the need of the consumer
-            and ensure optimum uptime of the infrastructure they rely on.
+            As a senior frontend engineer, I was responsible for building the UI
+            library using Angular Material and building multiple features for
+            the <a href="/project/monitoring/">Monitoring</a>
+            project . I also worked as a UX designer providing multiple designs for
+            the new features like the
+            <a href="/project/heatmap/">Heatmap</a>.
           </p>
           <p>
-            Since 2017, EVA has been playing a key role in shaping the future of
-            electromobility. We already support the transformation in over 30
-            countries and create confidence in a new technology among drivers.
-            And the journey continues.
-          </p>
-          <p>
-            <b>Technologies</b>: Angular, NX, Jira, Gitlab, AWS, GraphQL, Figma,
-            Material, Chart, Potsman, Storybook
+            <b>Technologies</b>: Angular, Material, NX, GraphQL, Storybook,
+            Gitlab, Jira, Figma
           </p>
         {:else if company.name === "Linus"}
           <p>
@@ -191,12 +199,10 @@
             <a href="//marcellokabora.com/project/signals">Signals</a>.
           </p>
           <p>
-            By measuring, the sentiment in the markets and have developed
-            financial models based on them. These technologies often highlight
-            the market mood before the stock exchanges follow a few weeks later.
-            As a result, you receive concrete recommendations for losses due to
-            loss-limiting signals and an investment rate. The latter allows you
-            to decide individually in which market you are investing.
+            These technologies often highlight the market mood before the stock
+            exchanges follow a few weeks later. As a result, you receive
+            concrete recommendations for losses due to loss-limiting signals and
+            an investment rate.
           </p>
           <p>
             <b>Technologies</b>: Angular, Material, MySql, Jira, D3, Highcharts,
@@ -210,7 +216,10 @@
             fundamental for the creation of the new
             <a href="https://marcellokabora.com/project/smava-website"
               >homepage</a
-            >. My team was responsible for the conversion from the design to web
+            >.
+          </p>
+          <p>
+            My team was responsible for the conversion from the design to web
             application, my focus was mostly on HTML, CSS, and JS. I worked on
             all the animation, events in jquery and for the mail campaign
             building different templates for the marketing area.

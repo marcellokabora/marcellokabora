@@ -4,7 +4,7 @@
   const data = {
     banner: {
       cover: "/project/berlinticket/berlinticket0.jpg",
-      title: "Berlin Ticket",
+      title: "Ticket",
       slogan: "Webapp",
     },
     date: "Jul 2022",
@@ -21,10 +21,10 @@
 
 <Project {data}>
   <p>
-    Berlin Ticket is a small project where you can filter a list of events by
-    price, rating, and title. The Dashboard is divided into 3 sections: the left
-    side panel for filtering the list by rating, price, and special offers, the
-    top menu for searching tickets by title, and the ticket list displayed one
-    by one including title, price, and rating.
+    Ticket is a small project where you can filter a list of events by price,
+    rating, and title. The Dashboard is divided into 3 sections: the left side
+    panel for filtering the list by rating, price, and special offers, the top
+    menu for searching tickets by title, and the ticket list displayed one by
+    one including title, price, and rating.
   </p>
 </Project>
