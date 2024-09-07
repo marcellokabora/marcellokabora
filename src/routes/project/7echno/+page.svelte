@@ -3,17 +3,23 @@
   import ProjectUi from "$lib/Project.svelte";
   const data: Project = {
     banner: {
-      cover: "/project/7echno/cover.jpg",
+      cover: "/blured/7echno.jpg",
       title: "7echno",
       slogan: "Techno music, event, and more...",
     },
     date: "Gen 2024",
     link: "//7echno.com",
     gallery: [
-      "/project/7echno/7echno-01.png",
-      "/project/7echno/7echno-02.png",
-      "/project/7echno/7echno-03.png",
-      "/project/7echno/7echno-04.png",
+      "/project/7echno/7echno1.png",
+      "/project/7echno/7echno2.png",
+      "/project/7echno/7echno3.png",
+      "/project/7echno/7echno4.png",
+      "/project/7echno/7echno5.png",
+      "/project/7echno/7echno6.png",
+      "/project/7echno/7echno7.png",
+      "/project/7echno/7echno8.png",
+      "/project/7echno/7echno9.png",
+      "/project/7echno/7echno10.png",
     ],
     lang: [language.svelte, language.firebase],
     more: [
