@@ -1,6 +1,4 @@
-**👋 Hello, I'm Marcello Kabora!**
-
-📍 **Based in Berlin, Germany** 🇩🇪
+**👋 Hello, I'm Marcello Based in Berlin, Germany**
 
 👨‍💻 **Passionate about coding and problem-solving**
 
