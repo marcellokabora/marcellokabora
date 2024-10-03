@@ -51,14 +51,6 @@
       lang: ["svelte"],
     },
     {
-      photo: "/gallery/gameapp.jpg",
-      name: "Game App",
-      link: "/project/gameapp",
-      type: "webapp",
-      time: "Sep 2022",
-      lang: ["svelte"],
-    },
-    {
       photo: "/project/berlinticket/berlinticket0.jpg",
       name: "Ticket",
       link: "/project/berlinticket",
