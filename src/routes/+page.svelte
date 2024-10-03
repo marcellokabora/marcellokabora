@@ -57,12 +57,6 @@
         title: "Fullstack Developer",
         time: "Aug 2013 - Jan 2015",
       },
-      // {
-      // 	logo: '/company/petdog.png',
-      // 	company: 'Annunci Animali',
-      // 	title: 'Frontend Developer',
-      // 	time: 'Mar 2013 - Oct 2014'
-      // },
       {
         logo: "/company/airesis.png",
         company: "Airesis",

@@ -51,6 +51,14 @@
       lang: ["svelte"],
     },
     {
+      photo: "/gallery/gameapp.jpg",
+      name: "Game App",
+      link: "/project/gameapp",
+      type: "webapp",
+      time: "Sep 2022",
+      lang: ["svelte"],
+    },
+    {
       photo: "/project/berlinticket/berlinticket0.jpg",
       name: "Ticket",
       link: "/project/berlinticket",
@@ -265,6 +273,14 @@
       type: "recommendation",
       time: "Nov 2016",
       lang: [],
+    },
+    {
+      photo: "/project/doinstruct/cover.webp",
+      name: "doinstruct",
+      link: "/project/doinstruct",
+      type: "webapp",
+      time: "Oct 2024",
+      lang: ["Svelte", "API"],
     },
   ].sort(() => 0.5 - Math.random());
 
