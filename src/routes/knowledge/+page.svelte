@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { preventDefault } from 'svelte/legacy';
+  import { preventDefault } from "svelte/legacy";
 
   import Banner from "$lib/Banner.svelte";
   import Section from "$lib/Section.svelte";
@@ -306,7 +306,7 @@
     ...management,
   ];
 
-  let y: number = $state();
+  let scrollY: number = $state(0);
 
   function scrollIntoView(value: string) {
     const el = document.getElementById(value);
@@ -330,7 +330,7 @@
       class="menus"
       data-aos="fade-up"
       data-aos-duration="1000"
-      class:fixed={y > 240}
+      class:fixed={scrollY > 240}
     >
       {#each menu as item}
         <!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -723,7 +723,7 @@
   </div>
 </section>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window bind:scrollY />
 
 <style>
   section {

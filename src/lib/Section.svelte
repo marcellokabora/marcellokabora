@@ -5,6 +5,7 @@
     color?: string;
     photo?: string;
     title?: string;
+    cover?: boolean;
     children?: import("svelte").Snippet;
   }
 
@@ -14,6 +15,7 @@
     color = "",
     photo = "",
     title = "",
+    cover = false,
     children,
   }: Props = $props();
 </script>
@@ -24,7 +26,7 @@
   data-aos="fade-up"
   data-aos-duration="1000"
 >
-  <div class="photo" style:background={color}>
+  <div class="photo" style:background={color} class:cover>
     {#if link}
       <a href={link} target="_blank">
         <img src={photo} alt="" />
@@ -50,7 +52,7 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .section {
     display: flex;
     justify-content: center;
@@ -72,6 +74,15 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 2em;
+    &.cover {
+      padding: 0;
+      height: 350px;
+      width: 350px;
+      img {
+        object-fit: cover;
+        border-radius: 10px;
+      }
+    }
   }
   .photo img {
     object-fit: contain;

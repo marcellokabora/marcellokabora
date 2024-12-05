@@ -114,7 +114,7 @@
 
   <div class="space"></div>
 
-  <Section photo="/photo/software.jpg" title="Software">
+  <Section photo="/photo/software.jpg" title="Software" cover>
     <p>
       A web application is internet-based software accessed via web browsers,
       offering platform-independent access, centralized maintenance, and diverse
@@ -126,7 +126,7 @@
       <b>real-time testing</b> and simplifies <b>complex layout design</b>.
     </p>
   </Section>
-  <Section photo="/photo/develop.jpeg" title="Framework" aside>
+  <Section photo="/photo/develop.jpeg" title="Framework" aside cover>
     <p>
       Using an appropriate framework is essential for a developer because it
       saves important time and effort in building an app. I like to work using
@@ -138,7 +138,7 @@
       <a href="//angular.io" target="_blank">Angular</a>.
     </p>
   </Section>
-  <Section photo="/photo/styling.jpg" title="Styling">
+  <Section photo="/photo/styling.jpg" title="Styling" cover>
     <p>
       CSS or Cascading Style Sheets is a style sheet language used for
       describing the presentation of a document written in a markup language
@@ -148,7 +148,7 @@
       classes.
     </p>
   </Section>
-  <Section photo="/photo/visualization.jpeg" title="Visualization" aside>
+  <Section photo="/photo/visualization.jpeg" title="Visualization" aside cover>
     <p>
       Data visualization is an interdisciplinary field that deals with the
       graphic representation of data and it is a particularly efficient way of
