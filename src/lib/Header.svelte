@@ -1,8 +1,17 @@
 <script lang="ts">
-	export let title: string = 'Title';
-	export let slogan: string = 'Slogan';
-	export let zoom: number = 1;
-	export let classe: string = '';
+	interface Props {
+		title?: string;
+		slogan?: string;
+		zoom?: number;
+		classe?: string;
+	}
+
+	let {
+		title = 'Title',
+		slogan = 'Slogan',
+		zoom = 1,
+		classe = ''
+	}: Props = $props();
 </script>
 
 <header data-aos="fade-up" data-aos-duration="1000" class={classe}>

@@ -1,11 +1,21 @@
 <script lang="ts">
   import { Splide, SplideSlide } from "@splidejs/svelte-splide";
   import Header from "$lib/Header.svelte";
-  export let cover: string = "/gallery/back2.jpg";
-  export let title: string = "";
-  export let slogan: string = "";
-  export let perpage: number = 4;
-  export let items: Item[] = [];
+  interface Props {
+    cover?: string;
+    title?: string;
+    slogan?: string;
+    perpage?: number;
+    items?: Item[];
+  }
+
+  let {
+    cover = "/gallery/back2.jpg",
+    title = "",
+    slogan = "",
+    perpage = 4,
+    items = []
+  }: Props = $props();
 
   interface Item {
     logo: string;
@@ -25,7 +35,7 @@
   <section>
     <Header {title} {slogan} />
 
-    <div class="space" />
+    <div class="space"></div>
 
     <Splide
       options={{

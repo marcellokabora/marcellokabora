@@ -13,13 +13,15 @@
   import AOS from "aos";
   import "aos/dist/aos.css";
   import { onMount } from "svelte";
+  /** @type {{children?: import('svelte').Snippet}} */
+  let { children } = $props();
   onMount(() => AOS.init());
 </script>
 
 <Navbar />
 
 <main>
-  <slot />
+  {@render children?.()}
 </main>
 
 <Footer />

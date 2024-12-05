@@ -112,7 +112,7 @@
     slogan="I am passionate about user interface and user experience"
   />
 
-  <div class="space" />
+  <div class="space"></div>
 
   <Section photo="/photo/software.jpg" title="Software">
     <p>
@@ -161,7 +161,7 @@
     </p>
   </Section>
 
-  <div class="space" />
+  <div class="space"></div>
 </section>
 
 <Carousel
@@ -173,7 +173,7 @@
 />
 
 <section>
-  <div class="space" />
+  <div class="space"></div>
 
   <Header
     classe="headtito"
@@ -181,20 +181,20 @@
     slogan="Develop programs by analysing and identifying areas for modification"
   />
 
-  <div class="space" />
+  <div class="space"></div>
 
   <Section
-    photo="/photo/angular.png"
+    photo="/photo/svelte.png"
     title="Framework"
     color="#1976d2"
     link="//angular.io"
   >
     <p>
-      <a href="//angular.io" target="_blank">Angular</a> and
-      <a href="https://svelte.dev" target="_blank">Svelte</a> are my preferred framework
-      because they are great for scalable projects and allow me to interact with
-      the best providers in the market. I can build any projects with unitest and
-      extend it with authentication and pipes to control any single feature.
+      <a href="https://svelte.dev" target="_blank">Svelte</a> and
+      <a href="//angular.io" target="_blank">Angular</a> are my preferred frameworks
+      for scalable projects, enabling seamless integration with leading market providers.
+      Their unit testing capabilities and extensibility with authentication and pipes
+      empower me to build and customize any project with precision and control.
     </p>
   </Section>
   <Section
@@ -260,7 +260,7 @@
     </p>
   </Section>
 
-  <div class="space" />
+  <div class="space"></div>
 </section>
 
 <Carousel
@@ -271,7 +271,7 @@
 />
 
 <section>
-  <div class="space" />
+  <div class="space"></div>
   <Header title="PROJECTS" slogan="A collection of most successful projects" />
   <br /><br />
   <Projects />

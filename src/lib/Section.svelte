@@ -1,9 +1,21 @@
 <script lang="ts">
-  export let link: string = "";
-  export let aside: boolean = false;
-  export let color: string = "";
-  export let photo: string = "";
-  export let title: string = "";
+  interface Props {
+    link?: string;
+    aside?: boolean;
+    color?: string;
+    photo?: string;
+    title?: string;
+    children?: import("svelte").Snippet;
+  }
+
+  let {
+    link = "",
+    aside = false,
+    color = "",
+    photo = "",
+    title = "",
+    children,
+  }: Props = $props();
 </script>
 
 <div
@@ -33,7 +45,7 @@
     </div>
     <hr />
     <div class="desc">
-      <slot />
+      {@render children?.()}
     </div>
   </div>
 </div>
@@ -54,14 +66,15 @@
     margin-left: 60px;
   }
   .photo {
-    height: 400px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
     margin-right: 60px;
     border-radius: 10px;
     overflow: hidden;
+    padding: 2em;
   }
   .photo img {
-    object-fit: cover;
+    object-fit: contain;
     height: 100%;
     width: 100%;
   }

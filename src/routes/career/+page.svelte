@@ -154,15 +154,11 @@
             working on the new <a
               href="https://marcellokabora.com/project/linus">registration</a
             >, my next task was to build the template of the main
-            <a href="//marcellokabora.com/project/linus-product" target="_blank"
-              >product</a
-            >
+            <a href="//marcellokabora.com/project/linus-product">product</a>
             using Builder.io and React.js. and after I had rebuilt several landing
             pages for the
-            <a
-              href="//marcellokabora.com/project/linus-marketing"
-              target="_blank">marketing</a
-            > team.
+            <a href="//marcellokabora.com/project/linus-marketing">marketing</a>
+            team.
           </p>
           <p>
             <b>Technologies</b>: React, Next, Vue, GraphQL, Docker, Builder,

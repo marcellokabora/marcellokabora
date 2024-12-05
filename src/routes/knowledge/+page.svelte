@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { preventDefault } from 'svelte/legacy';
+
   import Banner from "$lib/Banner.svelte";
   import Section from "$lib/Section.svelte";
   import { description } from "$lib/mocks";
@@ -304,7 +306,7 @@
     ...management,
   ];
 
-  let y: number;
+  let y: number = $state();
 
   function scrollIntoView(value: string) {
     const el = document.getElementById(value);
@@ -331,9 +333,9 @@
       class:fixed={y > 240}
     >
       {#each menu as item}
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <div class="menu" on:click|preventDefault={() => scrollIntoView(item)}>
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
+        <!-- svelte-ignore a11y_no_static_element_interactions -->
+        <div class="menu" onclick={preventDefault(() => scrollIntoView(item))}>
           {item}
         </div>
       {/each}

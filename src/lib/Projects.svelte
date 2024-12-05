@@ -276,16 +276,16 @@
     },
   ].sort(() => 0.5 - Math.random());
 
-  let search = "";
-  let filterby = "";
+  let search = $state("");
+  let filterby = $state("");
 
-  $: filteredList = items
+  let filteredList = $derived(items
     .filter(
       (item) =>
         item.name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         item.lang.includes(search.toLowerCase())
     )
-    .filter((item) => (filterby ? item.type === filterby : item));
+    .filter((item) => (filterby ? item.type === filterby : item)));
 
   function iHeight() {
     return Math.random() * (400 - 200) + 200 + "px";
@@ -296,17 +296,17 @@
   <input type="text" bind:value={search} placeholder="Search..." />
   <div class="radio">
     <button
-      on:click={() =>
+      onclick={() =>
         filterby === "webapp" ? (filterby = "") : (filterby = "webapp")}
       class:active={filterby === "webapp"}>Webapp</button
     >
     <button
-      on:click={() =>
+      onclick={() =>
         filterby === "website" ? (filterby = "") : (filterby = "website")}
       class:active={filterby === "website"}>Website</button
     >
     <button
-      on:click={() =>
+      onclick={() =>
         filterby === "design" ? (filterby = "") : (filterby = "design")}
       class:active={filterby === "design"}>Design</button
     >

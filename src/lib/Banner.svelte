@@ -1,8 +1,12 @@
 <script lang="ts">
   import Header from "$lib/Header.svelte";
-  export let cover: string = "/styling.jpg";
-  export let title: string = "Title";
-  export let slogan: string = "Slogan";
+  interface Props {
+    cover?: string;
+    title?: string;
+    slogan?: string;
+  }
+
+  let { cover = "/styling.jpg", title = "Title", slogan = "Slogan" }: Props = $props();
 </script>
 
 <div class="banner" data-aos="fade-down" data-aos-duration="1000">

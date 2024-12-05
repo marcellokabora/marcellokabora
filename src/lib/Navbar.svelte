@@ -27,19 +27,19 @@
       link: "/curriculum",
     },
   ];
-  let y: number = 0;
-  let showNav: boolean = false;
+  let y: number = $state(0);
+  let showNav: boolean = $state(false);
 </script>
 
 <header>
   <div class="logo" data-aos="fade-down" data-aos-duration="1000">
     <a
       href={showNav ? "" : "/"}
-      on:click={() => (showNav = window.screen.width < 1000)}
+      onclick={() => (showNav = window.screen.width < 1000)}
     >
       <img src="/icon/mk.png" alt="Marcello Kabora" />
     </a>
-    <div class="arrow" />
+    <div class="arrow"></div>
   </div>
   <nav
     class="navbar"
@@ -62,7 +62,7 @@
     <nav class="navbig">
       {#each menus as menu}
         <div class="menu" class:active={$page.url.pathname === menu.link}>
-          <a href={menu.link} on:click={() => (showNav = false)}>
+          <a href={menu.link} onclick={() => (showNav = false)}>
             <span>{menu.name}</span>
             <span class="material-icons">{menu.icon}</span>
           </a>

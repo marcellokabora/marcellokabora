@@ -9,7 +9,7 @@
   <meta property="og:image" content="/gallery/keyboard.jpg" />
 </svelte:head>
 
-<iframe src="/Marcello_Annicchiarico.pdf" frameborder="0" title="Curriculum" />
+<iframe src="/Marcello_Annicchiarico.pdf" frameborder="0" title="Curriculum"></iframe>
 
 <style>
   iframe {

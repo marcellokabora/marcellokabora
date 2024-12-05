@@ -1,7 +1,12 @@
 <script lang="ts">
   import Banner from "$lib/Banner.svelte";
   import type { Project } from "./interfaces";
-  export let data: Project;
+  interface Props {
+    data: Project;
+    children?: import('svelte').Snippet;
+  }
+
+  let { data, children }: Props = $props();
 </script>
 
 <svelte:head>
@@ -18,9 +23,9 @@
       <div class="header">
         <div class="desc">Description</div>
       </div>
-      <slot />
+      {@render children?.()}
     </div>
-    <div class="space" />
+    <div class="space"></div>
     <div class="infos">
       <div class="header">
         <div class="desc">Details</div>
