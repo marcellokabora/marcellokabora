@@ -5,7 +5,7 @@
     {
       photo: "/blured/keyboard.jpg",
       title: "Marcello Kabora",
-      slogan: "Frontend Engineer",
+      slogan: "Frontend Developer",
       link: "/curriculum",
     },
     {

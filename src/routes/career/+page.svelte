@@ -14,7 +14,7 @@
       logo: "/company/evaglobal.jpg",
       name: "Eva Global",
       slogan: "eMobility",
-      title: "Full Time - Frontend Engineer",
+      title: "Full Time - Frontend Developer",
       time: "Oct 2022 - May 2024",
       link: "//linkedin.com/company/evaglobal",
     },
@@ -22,7 +22,7 @@
       logo: "/logo/linus.png",
       name: "Linus",
       slogan: "Digital Finance",
-      title: "Full Time - Frontend Engineer",
+      title: "Full Time - Frontend Developer",
       time: "Sep 2021 - Aug 2022",
       link: "//linkedin.com/company/linus-digital-finance",
     },
@@ -130,8 +130,8 @@
             customer experience to EV drivers.
           </p>
           <p>
-            As a senior frontend engineer, I was responsible for building the UI
-            library using Angular Material and building multiple features for
+            As a senior frontend Developer, I was responsible for building the
+            UI library using Angular Material and building multiple features for
             the <a href="/project/monitoring/">Monitoring</a>
             project . I also worked as a UX designer providing multiple designs for
             the new features like the

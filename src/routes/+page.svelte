@@ -13,14 +13,14 @@
       {
         logo: "/company/evaglobal.jpg",
         company: "Eva Global",
-        title: "Frontend Engineer",
+        title: "Frontend Developer",
         time: "Oct 2022 - May 2024",
         link: "//evaglobal.com",
       },
       {
         logo: "/company/linus.png",
         company: "Linus",
-        title: "Frontend Engineer",
+        title: "Frontend Developer",
         time: "Sep 2021 - Aug 2022",
         link: "//linus-finance.com",
       },
@@ -90,14 +90,14 @@
 </script>
 
 <svelte:head>
-  <title>Marcello Kabora | Fronted Engineer</title>
+  <title>Marcello Kabora | Fronted Developer</title>
   <meta
     name="description"
-    content="Frontend Engineer with over 12 years of experience in frontend development, user interface, graphic design, data visualization, and progressive web app"
+    content="Frontend Developer with over 12 years of experience in frontend development, user interface, graphic design, data visualization, and progressive web app"
   />
   <meta
     name="keywords"
-    content="Software, Engineer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, Material, D3,, NX, Firebase, Data Visualization"
+    content="Software, Developer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, Material, D3,, NX, Firebase, Data Visualization"
   />
   <meta name="thumbnail" content="/gallery/keyboard.jpg" />
   <meta property="og:image" content="/gallery/keyboard.jpg" />
