@@ -109,21 +109,17 @@
   <Header
     classe="headtito"
     title="ABOUT"
-    slogan="I am passionate about user interface and user experience"
+    slogan="I am passionate about user interface and web application"
   />
 
   <div class="space"></div>
 
-  <Section photo="/photo/software.jpg" title="Software" cover>
+  <Section photo="/photo/software.jpg" title="Application" cover>
     <p>
-      A web application is internet-based software accessed via web browsers,
-      offering platform-independent access, centralized maintenance, and diverse
-      functionalities. It uses web technologies and ensures cross-browser
-      compatibility and security. Staying updated with the current technology,
-      using tools like <a href="//code.visualstudio.com/" target="_blank">VSC</a
-      >
-      and <a href="//google.com/chrome/" target="_blank">Chrome</a>, enables
-      <b>real-time testing</b> and simplifies <b>complex layout design</b>.
+      Web applications are online software accessed through web browsers, making
+      them usable on any device with an internet connection. Since they're
+      centralized, updates are handled by the provider. Web apps offer diverse
+      functionalities, from online shopping to data analysis.
     </p>
   </Section>
   <Section photo="/photo/develop.jpeg" title="Framework" aside cover>
@@ -140,20 +136,18 @@
   </Section>
   <Section photo="/photo/styling.jpg" title="Styling" cover>
     <p>
-      CSS or Cascading Style Sheets is a style sheet language used for
-      describing the presentation of a document written in a markup language
-      such as HTML, in particular, SCSS is used in different libraries like
-      <b>material design</b>. For me is extremely easy to develop complex
-      layouts using this technology with the help of auto complete and nested
-      classes.
+      CSS provides web developers with a powerful toolkit for creating visually
+      engaging and complex web layouts. By utilizing features like auto-complete
+      and nested classes, developers can write cleaner code, improve site-wide
+      consistency, and ultimately enhance the user experience with polished and
+      responsive designs.
     </p>
   </Section>
   <Section photo="/photo/visualization.jpeg" title="Visualization" aside cover>
     <p>
       Data visualization is an interdisciplinary field that deals with the
       graphic representation of data and it is a particularly efficient way of
-      communicating when the data is numerous for example a <b>Time Series</b>.
-      I use
+      communicating when the data is numerous for example a Time Series. I use
       <a href="//d3js.org" target="_blank">D3js</a> or
       <a href="//highcharts.com" target="_blank">Highcharts</a> to communicate information
       clearly and efficiently building statistical graphics, plots, or information
@@ -205,27 +199,12 @@
     aside
   >
     <p>
-      <a href="//material.angular.io" target="_blank">Material</a> is the best
-      framework for styling it offers a large list of components ready to be
-      used perfect built-in responsive designing integration for any
-      <a href="//angular.io" target="_blank">Angular</a> project, it provide tools
-      that help developers build their own custom components with common interaction
-      patterns.
-    </p>
-  </Section>
-
-  <Section
-    photo="/photo/highchart.png"
-    title="Visualization"
-    color="#ffb8b8"
-    link="//web.dev/progressive-web-apps"
-  >
-    <p>
-      To communicate information clearly and efficiently, data visualization
-      uses statistical graphics, plots, information graphics and other tools.
-      Numerical data may be encoded using dots, lines, or bars, to visually
-      communicate a quantitative message. <a href="/">Highcharts</a>
-      and <a href="/">D3</a> are my favorites library to create and explore new ideas.
+      <a href="//material.angular.io" target="_blank">Material</a> Design is my
+      favorite styling framework because it offers a comprehensive collection of
+      ready-to-use components and seamless responsive design integration, making
+      it perfect for any <a href="//angular.io" target="_blank">Angular</a> project.
+      Additionally, it provides tools that empower developers to create custom components
+      with familiar interaction patterns.
     </p>
   </Section>
 
@@ -234,7 +213,6 @@
     title="Database"
     color="#4fb7e8"
     link="//firebase.google.com"
-    aside
   >
     <p>
       <a href="//firebase.google.com" target="_blank">Firebase</a> and
@@ -247,6 +225,22 @@
   </Section>
 
   <Section
+    photo="/logo/vercel.svg"
+    title="Deployment"
+    color="#ac36f4"
+    link="//vercel.com"
+    aside
+  >
+    <p>
+      <a href="//vercel.com" target="_blank">Vercel</a> is my go-to tool for deployments,
+      simplifying the process of pushing projects live. It provides insightful analytics,
+      helping me understand user interaction and optimize performance. I also appreciate
+      Vercel's continuous evolution, with new features like integrated commenting
+      for streamlined collaboration and multi-branch management for flexible development.
+    </p>
+  </Section>
+
+  <!-- <Section
     photo="/photo/webapp.png"
     title="Webapp"
     color="#ffdf00"
@@ -258,7 +252,7 @@
       operating system of the device, web applications are accessed by the user
       through a web browser with an active network connection.
     </p>
-  </Section>
+  </Section> -->
 
   <div class="space"></div>
 </section>

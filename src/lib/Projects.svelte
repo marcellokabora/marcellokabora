@@ -279,16 +279,18 @@
   let search = $state("");
   let filterby = $state("");
 
-  let filteredList = $derived(items
-    .filter(
-      (item) =>
-        item.name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        item.lang.includes(search.toLowerCase())
-    )
-    .filter((item) => (filterby ? item.type === filterby : item)));
+  let filteredList = $derived(
+    items
+      .filter(
+        (item) =>
+          item.name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+          item.lang.includes(search.toLowerCase())
+      )
+      .filter((item) => (filterby ? item.type === filterby : item))
+  );
 
   function iHeight() {
-    return Math.random() * (400 - 200) + 200 + "px";
+    return Math.random() * (300 - 200) + 200 + "px";
   }
 </script>
 
