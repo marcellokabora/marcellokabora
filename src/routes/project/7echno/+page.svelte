@@ -5,7 +5,7 @@
     banner: {
       cover: "/blured/7echno.jpg",
       title: "7echno",
-      slogan: "Where music meets movement",
+      slogan: "Music Streaming",
     },
     date: "Gen 2024",
     link: "//7echno.com",

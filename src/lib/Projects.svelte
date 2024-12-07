@@ -11,7 +11,7 @@
       lang: ["svelte", "firebase"],
     },
     {
-      photo: "/project/7echno-logo/logo-02.jpg",
+      photo: "/project/7echno-logo/logo1.png",
       name: "7echno",
       link: "/project/7echno-logo",
       type: "design",

@@ -3,14 +3,15 @@
   import ProjectUi from "$lib/Project.svelte";
   const data: Project = {
     banner: {
-      cover: "/project/7echno/cover.jpg",
+      cover: "/project/7echno-logo/cover.jpg",
       title: "7echno",
-      slogan: "Techno music, event, and more...",
+      slogan: "Where music meets movement",
     },
     date: "Gen 2024",
     gallery: [
-      "/project/7echno-logo/logo-01.jpg",
-      "/project/7echno-logo/logo-02.jpg",
+      "/project/7echno-logo/logo1.png",
+      "/project/7echno-logo/logo2.jpg",
+      "/project/7echno-logo/logo3.png",
     ],
     lang: [language.figma],
     more: [

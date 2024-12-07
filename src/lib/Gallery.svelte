@@ -11,7 +11,7 @@
     {
       photo: "/blured/7echno.jpg",
       title: "7echno",
-      slogan: "Music",
+      slogan: "Music Streaming",
       link: "/project/7echno",
     },
     {

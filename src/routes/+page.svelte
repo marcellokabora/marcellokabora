@@ -134,13 +134,13 @@
       <a href="//angular.io" target="_blank">Angular</a>.
     </p>
   </Section>
-  <Section photo="/photo/styling.jpg" title="Styling" cover>
+  <Section photo="/photo/styling.jpg" title="Design" cover>
     <p>
-      CSS provides web developers with a powerful toolkit for creating visually
-      engaging and complex web layouts. By utilizing features like auto-complete
-      and nested classes, developers can write cleaner code, improve site-wide
-      consistency, and ultimately enhance the user experience with polished and
-      responsive designs.
+      A well-crafted user interface is the cornerstone of a successful
+      application, seamlessly blending clarity with intuitive navigation. This
+      design approach not only fosters a positive user experience but also
+      empowers users to unleash their creativity and fully explore the
+      application's rich features.
     </p>
   </Section>
   <Section photo="/photo/visualization.jpeg" title="Visualization" aside cover>
@@ -193,7 +193,7 @@
   </Section>
   <Section
     photo="/photo/layer.png"
-    title="Material"
+    title="Styling"
     color="#00e89d"
     link="//material.angular.io"
     aside
