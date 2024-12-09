@@ -3,7 +3,7 @@
   import type { Project } from "./interfaces";
   interface Props {
     data: Project;
-    children?: import('svelte').Snippet;
+    children?: import("svelte").Snippet;
   }
 
   let { data, children }: Props = $props();
@@ -87,7 +87,8 @@
     margin-top: 20px;
   }
   .infos {
-    max-width: 300px;
+    // max-width: 300px;
+    min-width: 250px;
     .info {
       opacity: 0.7;
       display: flex;
@@ -115,8 +116,8 @@
     display: flex;
     align-items: center;
     text-transform: capitalize;
-    min-width: 200px;
     margin-bottom: 10px;
+    flex-wrap: nowrap;
   }
   .info .icon {
     width: 23px;

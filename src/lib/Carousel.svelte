@@ -14,13 +14,13 @@
     title = "",
     slogan = "",
     perpage = 4,
-    items = []
+    items = [],
   }: Props = $props();
 
   interface Item {
     logo: string;
     company: string;
-    title: string;
+    title?: string;
     time?: string;
     link?: string;
   }
@@ -71,7 +71,9 @@
               <img src={item.logo} alt={item.logo} class="photo" />
               <div class="cont">
                 <div class="company">{item.company}</div>
-                <div class="title">{item.title}</div>
+                {#if item.title}
+                  <div class="title">{item.title}</div>
+                {/if}
                 {#if item.time}
                   <div class="time">{item.time}</div>
                 {/if}
@@ -99,12 +101,12 @@
     padding-bottom: 130px;
   }
   .space {
-    height: 40px;
+    height: 80px;
   }
   .photo {
     height: 130px;
     object-fit: contain;
-    max-width: 200px;
+    max-width: 150px;
     margin-bottom: 20px;
   }
   .dflex {
