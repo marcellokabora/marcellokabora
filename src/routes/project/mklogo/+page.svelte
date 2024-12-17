@@ -1,24 +1,25 @@
 <script lang="ts">
-	import Project from '$lib/Project.svelte';
-	const data = {
-		banner: {
-			cover: '/project/mklogo/marcellokabora.jpg',
-			title: 'Marcello Kabora',
-			slogan: ''
-		},
-		date: 'Apr 2013',
-		gallery: ['/project/mklogo/marcellokabora.jpg'],
-		more: [
-			{ name: 'NBE', link: 'nbe' },
-			{ name: 'Serenitas', link: 'serenitas' }
-		]
-	};
+  import Project from "$lib/Project.svelte";
+  const data = {
+    banner: {
+      cover: "/project/mklogo/marcellokabora.jpg",
+      title: "Marcello Kabora",
+      slogan: "",
+    },
+    date: "Apr 2013",
+    gallery: ["/project/mklogo/marcellokabora.jpg"],
+    more: [
+      { name: "NBE", link: "nbe" },
+      { name: "Serenitas", link: "serenitas" },
+    ],
+  };
 </script>
 
 <Project {data}>
-	<p>
-		This is my logo design a long time ago it represents the first letters of my nick name Marcello
-		Kabora. The K is connected with the M and the borders have a different opacity in order to
-		maintain a nice blur effect on the background.
-	</p>
+  <p>
+    This logo, which I designed some time ago, cleverly combines the first
+    letters of my nickname, Marcello Kabora. The 'K' and 'M' are intertwined,
+    and the logo's edges fade into the background, creating a soft, blurred
+    effect.
+  </p>
 </Project>
