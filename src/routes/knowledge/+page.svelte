@@ -16,6 +16,13 @@
       link: "//nodejs.org",
     },
     {
+      id: "javascript",
+      name: "svelte",
+      title: "Svelte",
+      photo: "/photo/svelte.png",
+      link: "//svelte.dev",
+    },
+    {
       name: "angular",
       title: "Angular",
       photo: "/photo/angular.png",
@@ -26,13 +33,6 @@
       title: "NX",
       photo: "/logo/nx.png",
       link: "//nx.dev",
-    },
-    {
-      id: "javascript",
-      name: "svelte",
-      title: "Svelte",
-      photo: "/photo/svelte.png",
-      link: "//svelte.dev",
     },
     {
       name: "vue",
@@ -155,12 +155,6 @@
       title: "Firebase",
       photo: "/photo/firebase.png",
       link: "//firebase.google.com",
-    },
-    {
-      name: "vercel",
-      title: "Vercel",
-      photo: "/logo/vercel.svg",
-      link: "//vercel.com",
     },
     {
       name: "php",
@@ -296,6 +290,36 @@
       photo: "/photo/asana.png",
       link: "//asana.com",
     },
+    {
+      name: "miro",
+      title: "Miro",
+      photo: "/photo/miro.png",
+      link: "//miro.com",
+    },
+    {
+      name: "abstract",
+      title: "Abstract",
+      photo: "/photo/abstract.png",
+      link: "//abstract.com",
+    },
+    {
+      name: "figma",
+      title: "Figma",
+      photo: "/photo/figma.svg",
+      link: "//figma.com",
+    },
+    {
+      name: "storybook",
+      title: "Storybook",
+      photo: "/photo/storybook.png",
+      link: "//storybook.js.org",
+    },
+    {
+      name: "vercel",
+      title: "Vercel",
+      photo: "/logo/vercel.svg",
+      link: "//vercel.com",
+    },
   ];
 
   const items = [
@@ -333,11 +357,9 @@
       class:fixed={scrollY > 240}
     >
       {#each menu as item}
-        <!-- svelte-ignore a11y_click_events_have_key_events -->
-        <!-- svelte-ignore a11y_no_static_element_interactions -->
-        <div class="menu" onclick={preventDefault(() => scrollIntoView(item))}>
+        <button class="menu" onclick={() => scrollIntoView(item)}>
           {item}
-        </div>
+        </button>
       {/each}
     </div>
   </div>
@@ -762,6 +784,8 @@
     padding: 20px 40px;
     cursor: pointer;
     text-transform: capitalize;
+    border: none;
+    background-color: transparent;
   }
   .menu:not(:last-child) {
     border-bottom: 1px solid silver;

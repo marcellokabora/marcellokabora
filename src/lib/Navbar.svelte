@@ -190,5 +190,8 @@
     .navbar {
       display: none;
     }
+    .logo {
+      zoom: 0.7;
+    }
   }
 </style>

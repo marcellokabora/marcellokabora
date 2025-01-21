@@ -13,55 +13,55 @@
       {
         logo: "/company/evaglobal.jpg",
         company: "Eva Global",
-        title: "Frontend Developer",
-        time: "Oct 2022 - May 2024",
+        // title: "Frontend Developer",
+        // time: "Oct 2022 - May 2024",
         link: "//evaglobal.com",
       },
       {
         logo: "/company/linus.png",
         company: "Linus",
-        title: "Frontend Developer",
-        time: "Sep 2021 - Aug 2022",
+        // title: "Frontend Developer",
+        // time: "Sep 2021 - Aug 2022",
         link: "//linus-finance.com",
       },
       {
         logo: "/company/buildingminds.png",
         company: "Buildingminds",
-        title: "Frontend Developer ",
-        time: "Jan 2020 - Aug 2021",
+        // title: "Frontend Developer ",
+        // time: "Jan 2020 - Aug 2021",
         link: "//buildingminds.com",
       },
       {
         logo: "/company/yukkalab.png",
         company: "Yukkalab",
-        title: "Frontend Developer",
-        time: "Jun 2017 - Nov 2019",
+        // title: "Frontend Developer",
+        // time: "Jun 2017 - Nov 2019",
         link: "//yukkalab.com",
       },
       {
         logo: "/company/smava.png",
         company: "Smava",
-        title: "Frontend Developer",
-        time: "Feb 2016 - Nov 2016",
+        // title: "Frontend Developer",
+        // time: "Feb 2016 - Nov 2016",
         link: "//smava.de",
       },
       {
         logo: "/company/tanglang.png",
         company: "Tang Lang",
-        title: "Fullstack Developer",
-        time: "Apr 2014 - Dec 2015",
+        // title: "Fullstack Developer",
+        // time: "Apr 2014 - Dec 2015",
       },
       {
         logo: "/company/maggiolino.png",
         company: "Maggiolino",
-        title: "Fullstack Developer",
-        time: "Aug 2013 - Jan 2015",
+        // title: "Fullstack Developer",
+        // time: "Aug 2013 - Jan 2015",
       },
       {
         logo: "/company/airesis.png",
         company: "Airesis",
-        title: "UI Designer",
-        time: "Apr 2011 - Apr 2012",
+        // title: "UI Designer",
+        // time: "Apr 2011 - Apr 2012",
       },
     ],
   };
@@ -116,31 +116,31 @@
 
   <Section photo="/photo/software.jpg" title="Application" cover>
     <p>
-      Web applications are online software accessed through web browsers, making
-      them usable on any device with an internet connection. Since they're
-      centralized, updates are handled by the provider. Web apps offer diverse
-      functionalities, from online shopping to data analysis.
+      Web applications simplify software access by operating directly within web
+      browsers. This allows users to access them from any device with internet
+      access, and ensures seamless updates managed by the provider. They support
+      a variety of tasks, including online shopping and data analysis.
     </p>
   </Section>
-  <Section photo="/photo/develop.jpeg" title="Framework" aside cover>
-    <p>
-      Using an appropriate framework is essential for a developer because it
-      saves important time and effort in building an app. I like to work using
-      <b>object-oriented</b> programming languages to build complex features and
-      maintain scalable functionality using different frameworks like
-      <a href="//svelte.com" target="_blank">Svelte</a>,
-      <a href="//reactjs.org" target="_blank">React</a>,
-      <a href="//vuejs.org" target="_blank">Vue</a> and
-      <a href="//angular.io" target="_blank">Angular</a>.
-    </p>
-  </Section>
-  <Section photo="/photo/styling.jpg" title="Design" cover>
+  <Section photo="/photo/styling.jpg" title="Design" cover aside>
     <p>
       A well-crafted user interface is the cornerstone of a successful
       application, seamlessly blending clarity with intuitive navigation. This
       design approach not only fosters a positive user experience but also
       empowers users to unleash their creativity and fully explore the
       application's rich features.
+    </p>
+  </Section>
+  <Section photo="/photo/develop.jpeg" title="Management" cover>
+    <p>
+      To build complex and scalable applications, developers must choose
+      appropriate frameworks based on the specific project. Frameworks such as
+      <a href="//svelte.com" target="_blank">Svelte</a>,
+      <a href="//reactjs.org" target="_blank">React</a>,
+      <a href="//vuejs.org" target="_blank">Vue</a> and
+      <a href="//angular.io" target="_blank">Angular</a> are suitable for a range
+      of projects, from complex web applications to simple server-side rendered landing
+      pages.
     </p>
   </Section>
   <Section photo="/photo/visualization.jpeg" title="Visualization" aside cover>

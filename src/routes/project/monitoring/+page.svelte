@@ -14,13 +14,7 @@
       "/project/monitoring/image3.png",
       "/project/monitoring/image4.png",
     ],
-    lang: [
-      language.angular,
-      language.material,
-      language.gmap,
-      language.storybook,
-      language.figma,
-    ],
+    lang: [language.angular, language.material, language.gmap],
     more: [
       {
         name: "Heatmap",
