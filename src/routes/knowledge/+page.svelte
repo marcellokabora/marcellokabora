@@ -291,30 +291,6 @@
       link: "//asana.com",
     },
     {
-      name: "miro",
-      title: "Miro",
-      photo: "/photo/miro.png",
-      link: "//miro.com",
-    },
-    {
-      name: "abstract",
-      title: "Abstract",
-      photo: "/photo/abstract.png",
-      link: "//abstract.com",
-    },
-    {
-      name: "figma",
-      title: "Figma",
-      photo: "/photo/figma.svg",
-      link: "//figma.com",
-    },
-    {
-      name: "storybook",
-      title: "Storybook",
-      photo: "/photo/storybook.png",
-      link: "//storybook.js.org",
-    },
-    {
       name: "vercel",
       title: "Vercel",
       photo: "/logo/vercel.svg",
