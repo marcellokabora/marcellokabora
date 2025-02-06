@@ -5,7 +5,7 @@
   import Section from "$lib/Section.svelte";
   import { description } from "$lib/mocks";
 
-  const menu = ["javascript", "styling", "database", "software", "management"];
+  const menu = ["javascript", "design", "database", "software", "management"];
 
   const javascript = [
     {
@@ -90,9 +90,33 @@
     },
   ];
 
-  const styling = [
+  const design = [
     {
-      id: "styling",
+      id: "design",
+      name: "figma",
+      title: "Figma",
+      photo: "/photo/figma.svg",
+      link: "//figma.com",
+    },
+    {
+      name: "miro",
+      title: "Miro",
+      photo: "/photo/miro.png",
+      link: "//miro.com",
+    },
+    {
+      name: "abstract",
+      title: "Abstract",
+      photo: "/photo/abstract.png",
+      link: "//abstract.com",
+    },
+    {
+      name: "storybook",
+      title: "Storybook",
+      photo: "/photo/storybook.png",
+      link: "//storybook.js.org",
+    },
+    {
       name: "material",
       title: "Material",
       photo: "/photo/material.png",
@@ -105,10 +129,10 @@
       link: "//getbootstrap.com",
     },
     {
-      name: "semantic",
-      title: "Semantic",
-      photo: "/photo/semantic.png",
-      link: "//semantic-ui.com",
+      name: "tinkercad",
+      title: "Tinkercad",
+      photo: "/photo/tinkercad.webp",
+      link: "//tinkercad.com",
     },
   ];
 
@@ -267,30 +291,6 @@
       link: "//asana.com",
     },
     {
-      name: "miro",
-      title: "Miro",
-      photo: "/photo/miro.png",
-      link: "//miro.com",
-    },
-    {
-      name: "abstract",
-      title: "Abstract",
-      photo: "/photo/abstract.png",
-      link: "//abstract.com",
-    },
-    {
-      name: "figma",
-      title: "Figma",
-      photo: "/photo/figma.svg",
-      link: "//figma.com",
-    },
-    {
-      name: "storybook",
-      title: "Storybook",
-      photo: "/photo/storybook.png",
-      link: "//storybook.js.org",
-    },
-    {
       name: "vercel",
       title: "Vercel",
       photo: "/logo/vercel.svg",
@@ -300,7 +300,7 @@
 
   const items = [
     ...javascript,
-    ...styling,
+    ...design,
     ...database,
     ...software,
     ...management,
@@ -348,6 +348,13 @@
           link={item.link}
           aside={id % 2 == 1}
         >
+          {#if item.name === "tinkercad"}
+            <p>
+              Tinkercad is a free web app for 3D design, electronics, and
+              coding. It's beginner-friendly with an intuitive interface for
+              creating 3D models, simulating circuits, and learning to code.
+            </p>
+          {/if}
           {#if item.name === "nodejs"}
             <p>
               Node. js is primarily used for non-blocking, event-driven servers,
