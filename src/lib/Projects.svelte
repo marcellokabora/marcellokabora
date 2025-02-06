@@ -11,14 +11,6 @@
       lang: ["svelte", "firebase"],
     },
     {
-      photo: "/project/7echno-logo/logo1.png",
-      name: "7echno",
-      link: "/project/7echno-logo",
-      type: "design",
-      time: "Dec 2023",
-      lang: ["figma"],
-    },
-    {
       photo: "/project/monitoring/cover.jpg",
       name: "EVA - Monitoring",
       link: "/project/monitoring",
@@ -43,12 +35,28 @@
       lang: ["angular", "d3"],
     },
     {
+      photo: "/project/chartmap/_cover.jpg",
+      name: "Yukka - Chartmap",
+      link: "/project/chartmap",
+      type: "webapp",
+      time: "Jul 2018",
+      lang: ["angular", "highchart"],
+    },
+    {
       photo: "/gallery/gameapp.jpg",
       name: "Game App",
       link: "/project/gameapp",
       type: "webapp",
       time: "Sep 2022",
       lang: ["svelte"],
+    },
+    {
+      photo: "/project/doinstruct/cover.webp",
+      name: "doinstruct",
+      link: "/project/doinstruct",
+      type: "webapp",
+      time: "Oct 2024",
+      lang: ["Svelte", "API"],
     },
     {
       photo: "/project/berlinticket/berlinticket0.jpg",
@@ -73,14 +81,6 @@
       type: "website",
       time: "Feb 2022",
       lang: ["react", "builder"],
-    },
-    {
-      photo: "/project/chartmap/_cover.jpg",
-      name: "Yukka - Chartmap",
-      link: "/project/chartmap",
-      type: "webapp",
-      time: "Jul 2018",
-      lang: ["angular", "highchart"],
     },
     {
       photo: "/project/linus-product/_cover.jpeg",
@@ -121,6 +121,14 @@
       type: "design",
       time: "Jan 2015",
       lang: ["illustrator"],
+    },
+    {
+      photo: "/project/7echno-logo/logo1.png",
+      name: "7echno",
+      link: "/project/7echno-logo",
+      type: "design",
+      time: "Dec 2023",
+      lang: ["figma"],
     },
     {
       photo: "/project/firenze/_cover.png",
@@ -266,15 +274,7 @@
       time: "Nov 2016",
       lang: [],
     },
-    {
-      photo: "/project/doinstruct/cover.webp",
-      name: "doinstruct",
-      link: "/project/doinstruct",
-      type: "webapp",
-      time: "Oct 2024",
-      lang: ["Svelte", "API"],
-    },
-  ].sort(() => 0.5 - Math.random());
+  ];
 
   let search = $state("");
   let filterby = $state("");
@@ -324,7 +324,7 @@
             <div class="type">{item.type}</div>
             <div class="time">{item.time}</div>
           </div>
-          <img src={item.photo} alt="" height={iHeight()} />
+          <img src={item.photo} alt="" />
         </div>
       </a>
       <div class="info">{item.name}</div>
@@ -351,10 +351,6 @@
   .radio button.active {
     background-color: #efefef;
   }
-  /* .radio button:first-child {
-		border-top-left-radius: 100px;
-		border-bottom-left-radius: 100px;
-	} */
   .radio button:last-child {
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
@@ -377,13 +373,13 @@
     color: black;
   }
   .container {
-    column-gap: 20px;
-    column-count: 3;
     margin-top: 60px;
     margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
   }
   .item {
-    break-inside: avoid-column;
     padding: 1px;
     margin-bottom: 20px;
     padding: 0px;
@@ -400,6 +396,8 @@
     }
     img {
       width: 100%;
+      height: 200px;
+      object-fit: cover;
       transition: all 0.5s;
       object-fit: cover;
     }
