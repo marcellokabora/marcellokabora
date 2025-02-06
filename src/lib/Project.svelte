@@ -64,7 +64,7 @@
           <div class="desc">Related</div>
         </div>
         <div class="info">
-          <span class="material-icons">hub</span>
+          <span class="material-icons">tune</span>
           {#each data.more as more}
             <a class="lang" href={`/project/${more.link}`}>{more.name}</a>
           {/each}
@@ -87,7 +87,6 @@
     margin-top: 20px;
   }
   .infos {
-    // max-width: 300px;
     min-width: 250px;
     .info {
       opacity: 0.7;
@@ -108,6 +107,7 @@
   }
   .flexo {
     flex: 1;
+    font-size: 0.9em;
   }
   .space {
     width: 20px;

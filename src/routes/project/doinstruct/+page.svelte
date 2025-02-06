@@ -4,13 +4,16 @@
   const data = {
     banner: {
       cover: "/project/doinstruct/cover.webp",
-      title: "doinstruct",
+      title: "Doinstruct",
       slogan: "Table Employees",
     },
     date: "Oct 2024",
     gallery: ["/project/doinstruct/image1.png"],
     lang: [language.svelte],
-    more: [{ name: "Components", link: "uicomponents" }],
+    more: [
+      { name: "Components", link: "uicomponents" },
+      { name: "Gallery", link: "favoritegallery" },
+    ],
     code: "doinstruct",
   };
 </script>
@@ -21,12 +24,10 @@
     fetches information from an API, presenting it in a randomized order to
     avoid any inherent biases or ordering. This randomization ensures each time
     you load the page, you encounter a different arrangement of employees,
-    promoting a more diverse and unbiased browsing experience.
-    <br /> <br />
-    Beyond simply displaying the data, the project provides tools to interact with
-    it. A gender filter allows you to refine the displayed employee list, focusing
-    on specific demographics within the dataset. Furthermore, the inclusion of infinite
-    scrolling means you can seamlessly navigate through the entire database without
-    the limitations of traditional pagination.
+    promoting a more diverse and unbiased browsing experience.A gender filter
+    allows you to refine the displayed employee list, focusing on specific
+    demographics within the dataset. Furthermore, the inclusion of infinite
+    scrolling means you can seamlessly navigate through the entire database
+    without the limitations of traditional pagination.
   </p>
 </Project>
