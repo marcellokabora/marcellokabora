@@ -46,7 +46,7 @@
 <div class="container">
   {#if filteredList.length > 0}
     {#each filteredList as item}
-      <div class="item" data-aos="fade-up" data-aos-duration="1000">
+      <div class="item" data-aos="fade-up">
         <a href={item.link}>
           <div class="imgcont">
             <div class="more">

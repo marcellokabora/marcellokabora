@@ -2,20 +2,16 @@
   interface Props {
     link?: string;
     aside?: boolean;
-    color?: string;
     photo?: string;
     title?: string;
-    cover?: boolean;
     children?: import("svelte").Snippet;
   }
 
   let {
     link = "",
     aside = false,
-    color = "",
     photo = "",
     title = "",
-    cover = false,
     children,
   }: Props = $props();
 </script>
@@ -26,7 +22,7 @@
   data-aos="fade-up"
   data-aos-duration="1000"
 >
-  <div class="photo" style:background={color} class:cover>
+  <div class="photo">
     {#if link}
       <a href={link} target="_blank">
         <img src={photo} alt="" />

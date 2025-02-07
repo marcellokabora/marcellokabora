@@ -32,7 +32,7 @@
 </script>
 
 <header>
-  <div class="logo" data-aos="fade-down" data-aos-duration="1000">
+  <div class="logo" data-aos="fade-down">
     <a
       href={showNav ? "" : "/"}
       onclick={() => (showNav = window.screen.width < 1000)}
@@ -41,12 +41,7 @@
     </a>
     <div class="arrow"></div>
   </div>
-  <nav
-    class="navbar"
-    data-aos="fade-down"
-    data-aos-duration="1500"
-    class:scrolled={y > 200}
-  >
+  <nav class="navbar" data-aos="fade-down" class:scrolled={y > 200}>
     <ul>
       {#each menus as menu}
         <li class:active={$page.url.pathname === menu.link}>
@@ -166,8 +161,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8em;
     flex: 1;
+    zoom: 0.8;
   }
 
   .material-icons {
@@ -184,7 +179,8 @@
   }
 
   .navbar li.active a {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0.8);
   }
   @media (max-width: 1000px) {
     .navbar {

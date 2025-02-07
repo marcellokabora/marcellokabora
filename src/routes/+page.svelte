@@ -113,15 +113,16 @@
 
   <div class="space"></div>
 
-  <Section photo="/photo/software.jpg" title="Application" cover>
+  <Section photo="/photo/software.jpg" title="Development">
     <p>
-      Web applications simplify software access by operating directly within web
-      browsers. This allows users to access them from any device with internet
-      access, and ensures seamless updates managed by the provider. They support
-      a variety of tasks, including online shopping and data analysis.
+      Web-based developer applications, such as Sass or B2B platforms,
+      streamline software access. Because they run in web browsers, users can
+      access them from any internet-connected device. Updates are handled
+      seamlessly by the provider. These applications support a range of
+      functions, from online shopping to data analysis.
     </p>
   </Section>
-  <Section photo="/photo/styling.jpg" title="Design" cover aside>
+  <Section photo="/photo/styling.jpg" title="Design" aside>
     <p>
       A well-crafted user interface is the cornerstone of a successful
       application, seamlessly blending clarity with intuitive navigation. This
@@ -130,27 +131,27 @@
       application's rich features.
     </p>
   </Section>
-  <Section photo="/photo/develop.jpeg" title="Management" cover>
+  <Section photo="/photo/visualization.jpeg" title="Visualization">
     <p>
-      To build complex and scalable applications, developers must choose
-      appropriate frameworks based on the specific project. Frameworks such as
-      <a href="//svelte.com" target="_blank">Svelte</a>,
+      I specialize in data visualization, a field that uses graphical
+      representations to make data more understandable. This is especially
+      useful for large datasets, like time series. I leverage tools like D3.js
+      and Highcharts to create clear and effective statistical graphics, plots,
+      and information graphics.
+    </p>
+  </Section>
+  <Section photo="/photo/develop.jpeg" title="Management" aside>
+    <p>
+      To build complex and scalable applications, I must choose the appropriate
+      framework based on the specific project. Frameworks such as <a
+        href="//svelte.com"
+        target="_blank">Svelte</a
+      >,
       <a href="//reactjs.org" target="_blank">React</a>,
       <a href="//vuejs.org" target="_blank">Vue</a> and
       <a href="//angular.io" target="_blank">Angular</a> are suitable for a range
       of projects, from complex web applications to simple server-side rendered landing
       pages.
-    </p>
-  </Section>
-  <Section photo="/photo/visualization.jpeg" title="Visualization" aside cover>
-    <p>
-      Data visualization is an interdisciplinary field that deals with the
-      graphic representation of data and it is a particularly efficient way of
-      communicating when the data is numerous for example a Time Series. I use
-      <a href="//d3js.org" target="_blank">D3js</a> or
-      <a href="//highcharts.com" target="_blank">Highcharts</a> to communicate information
-      clearly and efficiently building statistical graphics, plots, or information
-      graphics.
     </p>
   </Section>
 
@@ -175,7 +176,7 @@
 
   <div class="space"></div>
 
-  <Section photo="/photo/frameworks.jpg" title="Framework" link="//angular.io">
+  <Section photo="/photo/framework.gif" title="Framework" link="//angular.io">
     <p>
       <a href="https://svelte.dev" target="_blank">Svelte</a> and
       <a href="//angular.io" target="_blank">Angular</a> are my preferred frameworks
@@ -184,15 +185,10 @@
       empower me to build and customize any project with precision and control.
     </p>
   </Section>
-  <Section
-    photo="/photo/styles.jpg"
-    title="Styling"
-    link="//material.angular.io"
-    aside
-  >
+  <Section photo="/photo/styles.jpg" title="Styling" link="//material.io" aside>
     <p>
-      <a href="//material.angular.io" target="_blank">Material</a> and
-      <a href="//mui.com">MUI</a>
+      <a href="//material.io" target="_blank">Material</a> and
+      <a href="//flowbite.com" target="_blank">Flowbite</a>
       are my collection of ready-to-use components and seamless responsive design
       integration, making it perfect for any project. Additionally, it provides tools
       that empower developers to create custom components with familiar interaction
@@ -201,7 +197,7 @@
   </Section>
 
   <Section
-    photo="/photo/database.jpg"
+    photo="/photo/database.webp"
     title="Database"
     link="//firebase.google.com"
   >
@@ -216,9 +212,8 @@
   </Section>
 
   <Section
-    photo="/photo/deployment.jpg"
+    photo="/photo/deployment.webp"
     title="Deployment"
-    color="#ac36f4"
     link="//vercel.com"
     aside
   >
@@ -231,20 +226,6 @@
       for streamlined collaboration and multi-branch management for flexible development.
     </p>
   </Section>
-
-  <!-- <Section
-    photo="/photo/webapp.png"
-    title="Webapp"
-    color="#ffdf00"
-    link="//web.dev/progressive-web-apps"
-  >
-    <p>
-      A web application is application software that runs on a web server,
-      unlike computer-based software programs that are run locally on the
-      operating system of the device, web applications are accessed by the user
-      through a web browser with an active network connection.
-    </p>
-  </Section> -->
 
   <div class="space"></div>
 </section>
