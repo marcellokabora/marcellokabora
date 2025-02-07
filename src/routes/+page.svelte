@@ -11,7 +11,7 @@
     slogan: "I worked for different startup in Berlin and Italy",
     items: [
       {
-        logo: "/company/evaglobal.jpg",
+        logo: "/company/evaglobal.png",
         company: "Eva Global",
         // title: "Frontend Developer",
         // time: "Oct 2022 - May 2024",

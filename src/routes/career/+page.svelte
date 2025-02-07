@@ -2,16 +2,16 @@
   import Banner from "$lib/Banner.svelte";
   import { description } from "$lib/mocks";
   const companies = [
-    // {
-    //   logo: "/company/7echno.jpg",
-    //   name: "7echno",
-    //   slogan: "Techno Music",
-    //   title: "Founder",
-    //   time: "From Oct 2022",
-    //   link: "//linkedin.com/company/evaglobal",
-    // },
     {
-      logo: "/company/evaglobal.jpg",
+      logo: "/logo/7echno.png",
+      name: "7echno",
+      slogan: "Music Experience",
+      title: "Founder - Partime",
+      time: "From May 2024",
+      link: "//7echno.com",
+    },
+    {
+      logo: "/company/evaglobal.png",
       name: "Eva Global",
       slogan: "eMobility",
       title: "Full Time - Frontend Developer",
@@ -41,14 +41,6 @@
       title: "Full Time - Frontend Developer",
       time: "Jun 2017 - Nov 2019",
     },
-    // {
-    //   logo: '/logo/mineko.png',
-    //   company: 'Mineko',
-    //   slogan: 'Nebenkosten­abrechnung',
-    //   title: 'Full Time - Frontend Developer',
-    //   time: 'Jan 2017 - Jun 2017',
-    //   template: 'mineko'
-    // },
     {
       logo: "/logo/smava.png",
       name: "Smava",
@@ -117,12 +109,14 @@
           </a>
           <div class="company">{company.name}</div>
           <div class="slogan">{company.slogan}</div>
-          <div class="time">{company.time}</div>
           <div class="dot">·</div>
         </div>
       </div>
       <div class="body">
-        <div class="title">{company.title}</div>
+        <div class="title">
+          <div class="name">{company.title}</div>
+          <div class="time">{company.time}</div>
+        </div>
         {#if company.name === "Eva Global"}
           <p>
             <a href="//evaglobal.com" target="_blank">Eva Global</a> helps customers
@@ -140,6 +134,21 @@
           <p>
             <b>Technologies</b>: Angular, Material, NX, GraphQL, Storybook,
             Gitlab, Jira, Figma
+          </p>
+        {:else if company.name === "7echno"}
+          <p>
+            <a href="//7echno.com" target="_blank">7echno</a> is a revolutionary
+            social hub where friends connect through music and technology. It offers
+            collaborative DJing, interactive visuals, and remote participation in
+            live music streams, plus recording and sharing capabilities. Social games
+            include music trivia, rhythm games, production challenges, and karaoke.
+            A museum section features interactive exhibits, workshops, and artist
+            showcases. Finally, a themed bar and restaurant offers music-inspired
+            food, drinks, and live performances, creating an immersive, creative
+            community for all music lovers.
+          </p>
+          <p>
+            <b>Technologies</b>: Svelte, Firebase, Vercel, Github, Figma
           </p>
         {:else if company.name === "Linus"}
           <p>
@@ -335,10 +344,9 @@
         margin-bottom: 40px;
         position: relative;
         img {
-          max-width: 200px;
-          max-height: 100px;
+          width: 200px;
+          height: 150px;
           object-fit: contain;
-          margin-bottom: 20px;
         }
         .company {
           font-size: 1.2em;
@@ -347,10 +355,6 @@
         .slogan {
           font-size: 1.2em;
           opacity: 0.5;
-        }
-        .time {
-          font-style: 16px;
-          opacity: 0.3;
         }
         .dot {
           position: absolute;
@@ -365,10 +369,19 @@
   .body {
     flex: 1;
     .title {
-      font-size: 1.2em;
-      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
       border-bottom: 1px solid #d8d8d8;
       padding-bottom: 10px;
+      .name {
+        font-size: 1.2em;
+        font-weight: bold;
+        flex: 1;
+      }
+      .time {
+        opacity: 0.5;
+      }
     }
   }
   @media (max-width: 1000px) {
