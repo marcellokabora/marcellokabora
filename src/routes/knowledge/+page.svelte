@@ -111,6 +111,18 @@
       link: "//abstract.com",
     },
     {
+      name: "photoshop",
+      title: "Photoshop",
+      photo: "/photo/photoshop.png",
+      link: "//photoshop.com",
+    },
+    {
+      name: "illustrator",
+      title: "Illustrator",
+      photo: "/photo/illustrator.png",
+      link: "//adobe.com/illustrator",
+    },
+    {
       name: "storybook",
       title: "Storybook",
       photo: "/photo/storybook.png",
@@ -233,18 +245,6 @@
       link: "//slack.com",
     },
     {
-      name: "photoshop",
-      title: "Photoshop",
-      photo: "/photo/photoshop.png",
-      link: "//photoshop.com",
-    },
-    {
-      name: "illustrator",
-      title: "Illustrator",
-      photo: "/photo/illustrator.png",
-      link: "//adobe.com/illustrator",
-    },
-    {
       name: "ableton",
       title: "Ableton",
       photo: "/photo/ableton.png",
@@ -310,8 +310,7 @@
 
   function scrollIntoView(value: string) {
     const el = document.getElementById(value);
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth" });
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   }
 </script>
 

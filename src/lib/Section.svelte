@@ -73,11 +73,7 @@
     margin-right: 60px;
     border-radius: 10px;
     overflow: hidden;
-    padding: 2em;
     &.cover {
-      padding: 0;
-      height: 300px;
-      width: 300px;
       img {
         object-fit: cover;
         border-radius: 10px;
