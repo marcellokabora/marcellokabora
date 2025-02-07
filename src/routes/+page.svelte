@@ -177,12 +177,7 @@
 
   <div class="space"></div>
 
-  <Section
-    photo="/photo/svelte.png"
-    title="Framework"
-    color="#1976d2"
-    link="//angular.io"
-  >
+  <Section photo="/photo/frameworks.jpg" title="Framework" link="//angular.io">
     <p>
       <a href="https://svelte.dev" target="_blank">Svelte</a> and
       <a href="//angular.io" target="_blank">Angular</a> are my preferred frameworks
@@ -192,26 +187,24 @@
     </p>
   </Section>
   <Section
-    photo="/photo/layer.png"
+    photo="/photo/styles.jpg"
     title="Styling"
-    color="#00e89d"
     link="//material.angular.io"
     aside
   >
     <p>
-      <a href="//material.angular.io" target="_blank">Material</a> Design is my
-      favorite styling framework because it offers a comprehensive collection of
-      ready-to-use components and seamless responsive design integration, making
-      it perfect for any <a href="//angular.io" target="_blank">Angular</a> project.
-      Additionally, it provides tools that empower developers to create custom components
-      with familiar interaction patterns.
+      <a href="//material.angular.io" target="_blank">Material</a> and
+      <a href="//mui.com">MUI</a>
+      are my collection of ready-to-use components and seamless responsive design
+      integration, making it perfect for any project. Additionally, it provides tools
+      that empower developers to create custom components with familiar interaction
+      patterns.
     </p>
   </Section>
 
   <Section
-    photo="/photo/firebase.webp"
+    photo="/photo/database.jpg"
     title="Database"
-    color="#4fb7e8"
     link="//firebase.google.com"
   >
     <p>
@@ -225,14 +218,15 @@
   </Section>
 
   <Section
-    photo="/logo/vercel.svg"
+    photo="/photo/deployment.jpg"
     title="Deployment"
     color="#ac36f4"
     link="//vercel.com"
     aside
   >
     <p>
-      <a href="//vercel.com" target="_blank">Vercel</a> is my go-to tool for deployments,
+      <a href="//vercel.com" target="_blank">Vercel</a> or
+      <a href="//aws.com" target="_blank">AWS</a> is my go-to tool for deployments,
       simplifying the process of pushing projects live. It provides insightful analytics,
       helping me understand user interaction and optimize performance. I also appreciate
       Vercel's continuous evolution, with new features like integrated commenting

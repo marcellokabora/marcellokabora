@@ -73,17 +73,11 @@
     margin-right: 60px;
     border-radius: 10px;
     overflow: hidden;
-    &.cover {
-      img {
-        object-fit: cover;
-        border-radius: 10px;
-      }
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
     }
-  }
-  .photo img {
-    object-fit: contain;
-    height: 100%;
-    width: 100%;
   }
   .info {
     flex: 1;
