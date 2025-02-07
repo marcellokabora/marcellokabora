@@ -6,7 +6,11 @@
     slogan?: string;
   }
 
-  let { cover = "/styling.jpg", title = "Title", slogan = "Slogan" }: Props = $props();
+  let {
+    cover = "/styling.jpg",
+    title = "Title",
+    slogan = "Slogan",
+  }: Props = $props();
 </script>
 
 <div class="banner" data-aos="fade-down" data-aos-duration="1000">

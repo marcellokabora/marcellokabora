@@ -107,7 +107,6 @@
 
 <section>
   <Header
-    classe="headtito"
     title="ABOUT"
     slogan="I am passionate about user interface and web application"
   />
@@ -170,7 +169,6 @@
   <div class="space"></div>
 
   <Header
-    classe="headtito"
     title="ENVIROMENT"
     slogan="Develop programs by analysing and identifying areas for modification"
   />
@@ -226,7 +224,7 @@
   >
     <p>
       <a href="//vercel.com" target="_blank">Vercel</a> or
-      <a href="//aws.com" target="_blank">AWS</a> is my go-to tool for deployments,
+      <a href="//github.com" target="_blank">Github</a> is my go-to tool for deployments,
       simplifying the process of pushing projects live. It provides insightful analytics,
       helping me understand user interaction and optimize performance. I also appreciate
       Vercel's continuous evolution, with new features like integrated commenting

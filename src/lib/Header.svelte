@@ -3,18 +3,12 @@
     title?: string;
     slogan?: string;
     zoom?: number;
-    classe?: string;
   }
 
-  let {
-    title = "Title",
-    slogan = "Slogan",
-    zoom = 1,
-    classe = "",
-  }: Props = $props();
+  let { title = "Title", slogan = "Slogan", zoom = 1 }: Props = $props();
 </script>
 
-<header data-aos="fade-up" data-aos-duration="1000" class={classe}>
+<header data-aos="fade-up" data-aos-duration="1000">
   <div class="flexone" style:zoom>
     <div class="title">{title}</div>
     <hr />
@@ -22,7 +16,7 @@
   </div>
 </header>
 
-<style class="scss">
+<style>
   header {
     text-align: center;
     display: flex;
@@ -50,16 +44,6 @@
       max-width: none;
       min-width: none;
       padding-top: 40px;
-    }
-    .headtito .flexone {
-      text-align: left;
-      margin-bottom: 0;
-    }
-    .headtito .flexone .title {
-      padding: 0;
-    }
-    .headtito .flexone .slogan {
-      padding: 0;
     }
   }
 </style>

@@ -83,8 +83,8 @@
     flex: 1;
   }
   .info .tito {
-    font-size: 24px;
     font-weight: bold;
+    font-size: 1.2em;
   }
   .info .tito a {
     color: black;
