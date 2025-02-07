@@ -22,7 +22,7 @@
   </div>
 </header>
 
-<style>
+<style class="scss">
   header {
     text-align: center;
     display: flex;
@@ -51,7 +51,6 @@
       min-width: none;
       padding-top: 40px;
     }
-
     .headtito .flexone {
       text-align: left;
       margin-bottom: 0;
