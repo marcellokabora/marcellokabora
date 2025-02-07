@@ -54,7 +54,6 @@
       padding: 40px;
       .tito {
         font-weight: bold;
-        font-size: 20px;
         opacity: 0.5;
       }
     }

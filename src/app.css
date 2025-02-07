@@ -10,7 +10,6 @@ body {
 	margin: 0;
 	font-family: Poppins, "Helvetica Neue", sans-serif;
 	background-color: var(--primary-color);
-	font-size: 18px;
 }
 
 * {

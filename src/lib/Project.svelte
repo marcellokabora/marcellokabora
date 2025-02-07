@@ -107,7 +107,6 @@
   }
   .flexo {
     flex: 1;
-    font-size: 0.9em;
   }
   .space {
     width: 20px;

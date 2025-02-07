@@ -166,7 +166,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 0.8em;
     flex: 1;
   }
 

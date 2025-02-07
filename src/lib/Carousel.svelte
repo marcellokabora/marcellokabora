@@ -117,14 +117,12 @@
     flex-direction: column;
   }
   .company {
-    font-size: 26px;
+    font-size: 1.5em;
   }
   .title {
-    font-size: 20px;
     opacity: 0.6;
   }
   .time {
-    font-size: 14px;
     opacity: 0.5;
   }
 </style>

@@ -76,8 +76,8 @@
     padding: 2em;
     &.cover {
       padding: 0;
-      height: 350px;
-      width: 350px;
+      height: 300px;
+      width: 300px;
       img {
         object-fit: cover;
         border-radius: 10px;

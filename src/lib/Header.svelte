@@ -29,7 +29,7 @@
     justify-content: center;
   }
   .title {
-    font-size: 35px;
+    font-size: 2em;
     font-weight: bold;
     padding: 0px 50px;
     min-width: 30vw;
@@ -38,7 +38,6 @@
     opacity: 0.2;
   }
   .slogan {
-    font-size: 22px;
     padding: 0px 50px;
   }
   @media (max-width: 1200px) {
