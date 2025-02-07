@@ -29,7 +29,7 @@
     {
       logo: "/logo/buildingminds.png",
       name: "Buildingminds",
-      slogan: "Real estate management",
+      slogan: "Equipment Tool",
       title: "Full Time - Frontend Developer",
       time: "Jan 2020 - Sep 2021",
       link: "//linkedin.com/company/buildingminds",
@@ -37,7 +37,7 @@
     {
       logo: "/logo/yukkalab.png",
       name: "Yukkalab",
-      slogan: "Real time news analytics",
+      slogan: "News analytics",
       title: "Full Time - Frontend Developer",
       time: "Jun 2017 - Nov 2019",
     },
