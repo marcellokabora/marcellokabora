@@ -67,7 +67,6 @@
     background-color: white;
     box-shadow: none;
     padding: 0px 22px;
-    font-size: 13px;
     font-weight: normal;
     margin: 0 -3px;
     border-radius: 0px;
@@ -139,7 +138,6 @@
     opacity: 0.8;
     font-weight: bold;
     padding: 10px;
-    font-size: 18px;
     margin-top: -5px;
     text-transform: capitalize;
   }
@@ -149,7 +147,6 @@
     top: 0;
     bottom: 0;
     right: 0;
-    font-size: 30px;
     color: white;
     opacity: 0;
     z-index: 10;
@@ -168,7 +165,6 @@
     top: 0;
     bottom: 0;
     right: 0;
-    font-size: 30px;
     color: white;
     opacity: 0;
     z-index: 10;
@@ -180,10 +176,10 @@
   }
   .more .type {
     text-transform: capitalize;
+    font-size: 1.4em;
   }
   .more .time {
     opacity: 0.6;
-    font-size: 20px;
   }
   @media (max-width: 1000px) {
     .container {

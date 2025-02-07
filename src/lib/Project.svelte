@@ -85,47 +85,41 @@
 <style lang="scss">
   .visual {
     margin-top: 20px;
-  }
-  .infos {
-    min-width: 250px;
-    .info {
-      opacity: 0.7;
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-  .info .material-icons {
-    margin-right: 10px;
-  }
-  .info a {
-    text-decoration: none;
-  }
-  .visual {
     flex: 1;
     flex-wrap: wrap;
     display: flex;
+    .infos {
+      min-width: 250px;
+      .info {
+        opacity: 0.7;
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        margin-bottom: 10px;
+        flex-wrap: nowrap;
+        .material-icons {
+          margin-right: 10px;
+        }
+        a {
+          text-decoration: none;
+        }
+        .icon {
+          width: 23px;
+          height: 23px;
+          margin-right: 10px;
+        }
+        .lang:not(:last-child)::after {
+          content: ",";
+          margin-right: 10px;
+        }
+      }
+    }
   }
   .flexo {
     flex: 1;
   }
   .space {
     width: 20px;
-  }
-  .info {
-    display: flex;
-    align-items: center;
-    text-transform: capitalize;
-    margin-bottom: 10px;
-    flex-wrap: nowrap;
-  }
-  .info .icon {
-    width: 23px;
-    height: 23px;
-    margin-right: 10px;
-  }
-  .info .lang:not(:last-child)::after {
-    content: ",";
-    margin-right: 10px;
   }
   .image {
     width: 100% !important;
@@ -150,7 +144,6 @@
     border-bottom: 1px solid silver;
     opacity: 0.5;
     margin-bottom: 20px;
-    font-size: 18px;
     display: flex;
     justify-content: space-between;
     padding-top: 10px;

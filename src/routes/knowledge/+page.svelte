@@ -755,7 +755,6 @@
   }
   .menu {
     text-align: right;
-    font-size: 16px;
     font-weight: bold;
     padding: 20px 40px;
     cursor: pointer;
