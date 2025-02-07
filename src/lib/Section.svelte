@@ -98,6 +98,7 @@
       flex-direction: column;
     }
     .photo {
+      order: 1;
       width: 100%;
       height: 200px;
       margin: 0 !important;
@@ -105,8 +106,9 @@
       order: 2;
     }
     .info {
+      order: 2;
       margin-bottom: 20px;
-      text-align: left;
+      text-align: center;
     }
   }
 </style>
