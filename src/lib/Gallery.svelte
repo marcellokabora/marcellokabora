@@ -20,6 +20,12 @@
       link: "/project/monitoring",
     },
     {
+      photo: "/blured/appmanager.webp",
+      title: "Building Minds",
+      slogan: "App Manager",
+      link: "/project/appmanager",
+    },
+    {
       photo: "/blured/chartmap.jpg",
       title: "Chartmap",
       slogan: "Analiticts",
@@ -34,7 +40,7 @@
   ];
   let scrolled: HTMLElement | undefined = $state();
 
-  let counter = 0;
+  let counter = $state(0);
   let interval = setInterval(() => {
     counter++;
     scrollGallery();
@@ -50,10 +56,9 @@
         behavior: "smooth",
       });
   }
-  function onScroll(input: number) {
-    // clearInterval(interval);
-    input > 0 ? counter++ : counter--;
-    console.log(counter);
+  function onScroll(value: number) {
+    clearInterval(interval);
+    counter = value;
     scrollGallery();
   }
 </script>
@@ -71,12 +76,15 @@
       </a>
     {/each}
   </div>
-  <button class="action left" onclick={() => onScroll(-1)}>
-    <span class="material-icons">chevron_left</span>
-  </button>
-  <button class="action right" onclick={() => onScroll(1)}>
-    <span class="material-icons">chevron_right</span>
-  </button>
+  <div class="radios">
+    {#each gallery as item, index}
+      <button class="material-icons" onclick={() => onScroll(index)}
+        >{counter === index
+          ? "radio_button_checked"
+          : "radio_button_unchecked"}</button
+      >
+    {/each}
+  </div>
   <img class="arcbot" src="/shape/arc_bot.png" alt="arcbot" />
 </div>
 
@@ -97,9 +105,8 @@
       scroll-snap-align: center;
       position: relative;
       width: 100vw;
-      height: 60vh;
+      height: 500px;
       display: flex;
-      max-height: 500px;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -123,6 +130,7 @@
       align-items: center;
       justify-content: center;
       padding: 0 20px;
+      margin-bottom: 2em;
     }
     .arcbot {
       width: 100%;
@@ -130,31 +138,25 @@
       position: absolute;
       bottom: -1px;
     }
-    .action {
+    .radios {
       position: absolute;
-      border: none;
-      color: white;
-      background-color: transparent;
-      border-radius: 100px;
-      height: 50px;
-      width: 50px;
-      z-index: 1;
-      top: 50%;
-      cursor: pointer;
-      &.left {
-        left: 2em;
-      }
-      &.right {
-        right: 2em;
+      bottom: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      button {
+        background-color: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+        zoom: 0.6;
       }
     }
   }
   @media (max-width: 1000px) {
     .header {
       padding-top: 20px;
-    }
-    .action {
-      display: none;
     }
   }
 </style>

@@ -41,6 +41,7 @@
           <a href={item.link} target="_blank">
             <img src={item.logo} alt={item.logo} />
             <div class="company">{item.company}</div>
+            <div class="title">{item.title}</div>
           </a>
         </div>
       {/each}
@@ -58,7 +59,8 @@
     padding: 100px 0;
     .gallery {
       margin-top: 80px;
-      overflow: auto;
+      overflow: hidden;
+      overflow-x: auto;
       display: flex;
       gap: 2em;
       scroll-snap-type: x mandatory;
@@ -73,11 +75,13 @@
         flex: 1;
         min-width: 200px;
         img {
-          // height: 130px;
           object-fit: contain;
           margin-bottom: 20px;
           height: 100px;
           width: 100%;
+        }
+        .title {
+          opacity: 0.6;
         }
       }
     }
