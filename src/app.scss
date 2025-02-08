@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import "material-icons/iconfont/material-icons.css";
-@import "@splidejs/svelte-splide/css";
 
 :root {
   --bg-color: #fafafa;
@@ -32,18 +31,4 @@ section {
 
 .hidden {
   visibility: hidden;
-}
-
-.gallery .splide__pagination {
-  bottom: 120px;
-}
-
-.carousel .splide__pagination {
-  bottom: -80px;
-}
-
-@media (max-width: 1000px) {
-  .gallery .splide__pagination {
-    display: none;
-  }
 }

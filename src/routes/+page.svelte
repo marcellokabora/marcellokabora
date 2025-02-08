@@ -163,7 +163,6 @@
   slogan={company.slogan}
   cover={company.cover}
   items={company.items}
-  perpage={4}
 />
 
 <section>
@@ -234,7 +233,6 @@
   title={language.title}
   cover={language.cover}
   items={language.items}
-  perpage={3}
 />
 
 <section>

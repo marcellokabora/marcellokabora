@@ -1,11 +1,9 @@
 <script lang="ts">
-  import { Splide, SplideSlide } from "@splidejs/svelte-splide";
   import Header from "$lib/Header.svelte";
   interface Props {
     cover?: string;
     title?: string;
     slogan?: string;
-    perpage?: number;
     items?: Item[];
   }
 
@@ -13,7 +11,6 @@
     cover = "/gallery/back2.jpg",
     title = "",
     slogan = "",
-    perpage = 4,
     items = [],
   }: Props = $props();
 
@@ -26,103 +23,63 @@
   }
 </script>
 
-<div
-  class="carousel"
+<main
   data-aos="fade-down"
   data-aos-duration="1000"
   style="background-image: url({cover})"
 >
   <section>
     <Header {title} {slogan} />
-
-    <div class="space"></div>
-
-    <Splide
-      options={{
-        rewind: true,
-        autoplay: false,
-        perPage: perpage,
-        arrows: false,
-        pagination: true,
-        perMove: 1,
-        type: "loop",
-        breakpoints: {
-          1200: {
-            perPage: 3,
-          },
-          800: {
-            perPage: 2,
-          },
-          600: {
-            perPage: 1,
-          },
-        },
-      }}
-    >
+    <div class="gallery">
       {#each items as item}
-        <SplideSlide>
-          <div
-            class="dflex"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="200"
-          >
-            <a href={item.link} target="_blank">
-              <img src={item.logo} alt={item.logo} class="photo" />
-              <div class="cont">
-                <div class="company">{item.company}</div>
-                {#if item.title}
-                  <div class="title">{item.title}</div>
-                {/if}
-                {#if item.time}
-                  <div class="time">{item.time}</div>
-                {/if}
-              </div>
-            </a>
-          </div>
-        </SplideSlide>
+        <div
+          class="item"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+        >
+          <a href={item.link} target="_blank">
+            <img src={item.logo} alt={item.logo} />
+            <div class="company">{item.company}</div>
+          </a>
+        </div>
       {/each}
-    </Splide>
+    </div>
   </section>
-</div>
+</main>
 
-<style>
-  a {
-    color: white;
-    text-decoration: none;
-  }
-  .carousel {
+<style lang="scss">
+  main {
     position: relative;
     color: white;
     background-position: center center;
     background-size: cover;
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 130px;
-  }
-  .space {
-    height: 80px;
-  }
-  .photo {
-    height: 130px;
-    object-fit: contain;
-    max-width: 150px;
-    margin-bottom: 20px;
-  }
-  .dflex {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .company {
-    font-size: 1.5em;
-  }
-  .title {
-    opacity: 0.6;
-  }
-  .time {
-    opacity: 0.5;
+    padding: 100px 0;
+    .gallery {
+      margin-top: 80px;
+      overflow: auto;
+      display: flex;
+      gap: 2em;
+      scroll-snap-type: x mandatory;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+      }
+      .item {
+        flex: 1;
+        min-width: 200px;
+        img {
+          // height: 130px;
+          object-fit: contain;
+          margin-bottom: 20px;
+          height: 100px;
+          width: 100%;
+        }
+      }
+    }
   }
 </style>
