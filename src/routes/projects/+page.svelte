@@ -2,8 +2,6 @@
   import Banner from "$lib/Banner.svelte";
   import Projects from "$lib/Projects.svelte";
   import { description } from "$lib/mocks";
-
-  let { data } = $props();
 </script>
 
 <svelte:head>

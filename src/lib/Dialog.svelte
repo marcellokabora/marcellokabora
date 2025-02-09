@@ -60,7 +60,4 @@
       opacity: 1;
     }
   }
-  button {
-    display: block;
-  }
 </style>
