@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { ProjectThumb } from "./interfaces";
   import { projects } from "./projects";
 
   let search = $state("");
@@ -14,10 +13,6 @@
       )
       .filter((item) => (filterby ? item.type === filterby : item))
   );
-
-  function iHeight() {
-    return Math.random() * (300 - 200) + 200 + "px";
-  }
 </script>
 
 <div class="search">

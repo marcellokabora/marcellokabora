@@ -5,6 +5,7 @@
 
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";
+
   if (!dev) {
     inject({ mode: dev ? "development" : "production" });
   }
@@ -13,7 +14,6 @@
   import AOS from "aos";
   import "aos/dist/aos.css";
   import { onMount } from "svelte";
-  /** @type {{children?: import('svelte').Snippet}} */
   let { children } = $props();
   onMount(() => AOS.init());
 </script>
