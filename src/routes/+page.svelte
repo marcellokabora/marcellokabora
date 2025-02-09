@@ -175,7 +175,7 @@
 
   <div class="space"></div>
 
-  <Section photo="/photo/framework.gif" title="Framework" link="//angular.io">
+  <Section photo="/photo/framework.gif" title="Framework">
     <p>
       <a href="https://svelte.dev" target="_blank">Svelte</a> and
       <a href="//angular.io" target="_blank">Angular</a> are my preferred frameworks
@@ -184,7 +184,7 @@
       empower me to build and customize any project with precision and control.
     </p>
   </Section>
-  <Section photo="/photo/styles.jpg" title="Styling" link="//material.io" aside>
+  <Section photo="/photo/styles.jpg" title="Styling" aside>
     <p>
       <a href="//material.io" target="_blank">Material</a> and
       <a href="//flowbite.com" target="_blank">Flowbite</a>
@@ -195,27 +195,18 @@
     </p>
   </Section>
 
-  <Section
-    photo="/photo/database.webp"
-    title="Database"
-    link="//firebase.google.com"
-  >
+  <Section photo="/photo/database.webp" title="Database">
     <p>
       <a href="//firebase.google.com" target="_blank">Firebase</a> and
-      <a href="https://aws.amazon.com/" target="_blank">AWS</a> are my favorite tools
-      for working with databases that allow me to deliver richer app experiences.
+      <a href="https://supabase.com/" target="_blank">Superbase</a> are my favorite
+      tools for working with databases that allow me to deliver richer app experiences.
       Firebase manages its own infrastructure with a nice set of tools to simplify
       the workflow of the developer by providing them with development kits and an
       online dashboard.
     </p>
   </Section>
 
-  <Section
-    photo="/photo/deployment.webp"
-    title="Deployment"
-    link="//vercel.com"
-    aside
-  >
+  <Section photo="/photo/deployment.webp" title="Deployment" aside>
     <p>
       <a href="//vercel.com" target="_blank">Vercel</a> or
       <a href="//github.com" target="_blank">Github</a> is my go-to tool for deployments,

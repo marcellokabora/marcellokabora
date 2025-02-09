@@ -1,10 +1,12 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
+
   interface Props {
     link?: string;
     aside?: boolean;
     photo?: string;
     title?: string;
-    children?: import("svelte").Snippet;
+    children?: Snippet;
   }
 
   let {
