@@ -1,8 +1,6 @@
 <script lang="ts">
-  import { PUBLIC_STORAGE_URL } from "$env/static/public";
   import Banner from "$lib/Banner.svelte";
-  import type { Projecto } from "$lib/database.types.js";
-  import type { Snippet } from "svelte";
+  import supabaseLoader from "$lib/function.js";
 
   let { data } = $props();
 </script>
@@ -15,7 +13,9 @@
 
 {#if data.project}
   <Banner
-    cover="{PUBLIC_STORAGE_URL}{data.project.name}/{data.project.cover}"
+    cover={supabaseLoader({
+      src: data.project.name + "/" + data.project.cover,
+    })}
     title={data.project.title}
     slogan={data.project.slogan}
   />
@@ -80,7 +80,7 @@
         <div class="photo" data-aos="fade-up" data-aos-duration="1000">
           <img
             class="image"
-            src="{PUBLIC_STORAGE_URL}{data.project.name}/{photo}"
+            src={supabaseLoader({ src: data.project.name + "/" + photo })}
             alt=""
           />
         </div>

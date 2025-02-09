@@ -1,12 +1,11 @@
 <script lang="ts">
   import Banner from "$lib/Banner.svelte";
+  import supabaseLoader from "$lib/function";
   import { description } from "$lib/mocks";
-
-  import { PUBLIC_STORAGE_URL } from "$env/static/public";
 
   let { data } = $props();
 
-  let supabase = data.projects?.sort(
+  let projects = data.projects?.sort(
     (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
   );
 
@@ -53,13 +52,13 @@
     </div>
 
     <div class="container">
-      {#if supabase}
-        {#each supabase as item}
+      {#if projects}
+        {#each projects as item}
           <div class="item" data-aos="fade-up">
             <a href="projecto/{item.name}">
               <div class="imgcont">
                 <img
-                  src="{PUBLIC_STORAGE_URL}{item.name}/{item.cover}"
+                  src={supabaseLoader({ src: item.name + "/" + item.cover })}
                   alt={item.name}
                 />
                 <div class="more">
