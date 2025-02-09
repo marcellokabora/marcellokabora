@@ -1,6 +1,12 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import Dialog from "./Dialog.svelte";
   import Icon from "./Icon.svelte";
+  import Login from "./Login.svelte";
+
+  let showModal = $state(false);
+  let isLogin = $state(false);
+
   const menus = [
     {
       icon: "home",
@@ -54,16 +60,18 @@
       {/each}
     </ul>
     <div class="account">
-      <button class="user">
+      <button class="user" onclick={() => (showModal = true)}>
         <Icon>account_circle</Icon>
       </button>
-      <ul class="dropdown">
-        <li>
-          <button>Create</button>
-          <button>Login</button>
-          <button>Logout</button>
-        </li>
-      </ul>
+      {#if isLogin}
+        <div class="dropdown">
+          <button><Icon>add_circle</Icon> Create</button>
+          <!-- <button onclick={() => (showLogin = true)}
+          ><Icon>login</Icon> Login</button
+          > -->
+          <!-- <button><Icon>logout</Icon> Logout</button> -->
+        </div>
+      {/if}
     </div>
   </nav>
   {#if showNav}
@@ -79,6 +87,10 @@
     </nav>
   {/if}
 </header>
+
+<Dialog bind:showModal>
+  <Login bind:showModal />
+</Dialog>
 
 <svelte:window bind:scrollY={y} />
 
@@ -159,12 +171,42 @@
       .account {
         position: relative;
         padding-right: 1em;
+        &:hover .dropdown {
+          visibility: visible;
+          opacity: 1;
+          display: block;
+        }
         .user {
           color: white;
         }
         .dropdown {
           position: absolute;
+          right: 0;
           visibility: hidden;
+          transition: all 0.5s ease;
+          margin-top: 20px;
+          margin-right: 1em;
+          box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+          button {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 1em;
+            width: 100%;
+            font-size: 0.7em;
+            &:hover {
+              font-weight: bold;
+            }
+            &:not(:last-child) {
+              border-bottom: 1px solid silver;
+            }
+            &:first-child {
+              border-top-left-radius: 0.5em;
+              border-top-right-radius: 0.5em;
+            }
+            &:last-child {
+              border-bottom-left-radius: 0.5em;
+              border-bottom-right-radius: 0.5em;
+            }
+          }
         }
       }
     }
