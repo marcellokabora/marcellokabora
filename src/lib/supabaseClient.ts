@@ -1,11 +1,11 @@
 import {
-  PUBLIC_SUPABASE_ANON_KEY,
-  PUBLIC_SUPERBASE_URL,
-} from "$env/static/public";
+  PRIVATE_SUPABASE_ANON_KEY,
+  PRIVATE_SUPERBASE_URL,
+} from "$env/static/private";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "./database.types";
 
 export const supabase = createClient<Database>(
-  PUBLIC_SUPERBASE_URL,
-  PUBLIC_SUPABASE_ANON_KEY
+  PRIVATE_SUPERBASE_URL,
+  PRIVATE_SUPABASE_ANON_KEY
 );
