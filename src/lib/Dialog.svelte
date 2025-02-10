@@ -20,9 +20,7 @@
     if (e.target === dialog) dialog.close();
   }}
 >
-  <div>
-    {@render children?.()}
-  </div>
+  {@render children?.()}
 </dialog>
 
 <style>
@@ -32,6 +30,9 @@
     border: none;
     padding: 0;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.5);
   }
   dialog::backdrop {
     background: rgba(0, 0, 0, 0.3);

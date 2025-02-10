@@ -1,6 +1,7 @@
 <script lang="ts">
-  import Banner from "$lib/Banner.svelte";
-  import supabaseLoader, { getLang } from "$lib/functions";
+  import Bannero from "$lib/Bannero.svelte";
+  import { getLang } from "$lib/functions.js";
+  import Icon from "$lib/Icon.svelte";
 
   let { data } = $props();
 </script>
@@ -12,13 +13,7 @@
 </svelte:head>
 
 {#if data.project}
-  <Banner
-    cover={supabaseLoader({
-      src: data.project.name + "/" + data.project.cover,
-    })}
-    title={data.project.title}
-    slogan={data.project.slogan}
-  />
+  <Bannero bind:project={data.project} />
 
   <section data-aos="fade-up" data-aos-duration="1000">
     <div class="visual">
@@ -67,7 +62,7 @@
             <div class="desc">Related</div>
           </div>
           <div class="info">
-            <span class="material-icons">tune</span>
+            <Icon>tune</Icon>
             {#each data.project.more as more}
               <a class="lang" href={`/project/${more}`}>{more}</a>
             {/each}
@@ -79,11 +74,7 @@
     <div class="gallery">
       {#each data.project.gallery as photo}
         <div class="photo" data-aos="fade-up" data-aos-duration="1000">
-          <img
-            class="image"
-            src={supabaseLoader({ src: data.project.name + "/" + photo })}
-            alt=""
-          />
+          <img class="image" src={photo} alt="" />
         </div>
       {/each}
     </div>
@@ -91,6 +82,9 @@
 {/if}
 
 <style lang="scss">
+  section {
+    min-height: 100vh;
+  }
   .visual {
     margin-top: 20px;
     flex: 1;

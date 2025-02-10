@@ -1,36 +1,44 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import type { Projecto } from "./database.types";
+  import { user } from "./store";
   import { supabase } from "./supabaseClient";
 
-  let { showCreate = $bindable(), user = $bindable() } = $props();
+  let {
+    showCreate = $bindable(),
+    project,
+  }: {
+    showCreate: boolean;
+    project?: Projecto;
+  } = $props();
   let loading = $state(false);
   let error = $state("");
-  let data: Projecto = $state({
-    name: "",
-    title: "",
-    slogan: "",
-    info: "",
-    lang: [],
-    code: "",
-    link: "",
-    cover: "",
-    type: "",
-    more: [],
-    date: new Date().toISOString(),
-    gallery: [],
-    user_id: user?.id,
-    email: user?.email,
-  });
+  let data: Projecto = $state(
+    project
+      ? project
+      : {
+          name: "",
+          title: "",
+          slogan: "",
+          info: "",
+          lang: [],
+          code: "",
+          link: "",
+          cover: "",
+          type: "",
+          more: [],
+          date: new Date().toISOString(),
+          gallery: [],
+          user_id: $user?.id,
+          email: $user?.email ?? "",
+        }
+  );
 
-  let input: HTMLInputElement;
-  let cover = $state("");
-  let coverFile: any = $state();
-  let isValid = $derived(data.name && data.cover);
+  let isValid = $derived(data.name);
 
   function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
-    if (user) {
+    if ($user) {
       loading = true;
       error = "";
       if (isValid) {
@@ -42,24 +50,9 @@
               error = result.error.message;
               loading = false;
             } else {
-              if (coverFile) {
-                supabase.storage
-                  .from("marcellokabora")
-                  .upload(data.name + "/" + data.cover, coverFile, {
-                    cacheControl: "3600",
-                    upsert: false,
-                  })
-                  .then((result) => {
-                    if (result.error) {
-                      error = result.error.message;
-                      loading = false;
-                    } else {
-                      iFinish();
-                    }
-                  });
-              } else {
-                iFinish();
-              }
+              loading = false;
+              showCreate = false;
+              goto("/projecto/" + data.name);
             }
           });
       } else {
@@ -69,32 +62,11 @@
       error = "Error";
     }
   }
-
-  function iFinish() {
-    loading = false;
-    showCreate = false;
-    goto("/projecto/" + data.name);
-  }
-
-  function onChange() {
-    if (input.files && input.files[0]) {
-      coverFile = input.files[0];
-      cover = URL.createObjectURL(coverFile);
-      data.cover = coverFile.name;
-    }
-  }
 </script>
 
 <form onsubmit={handleSubmit}>
   <div class="main">
-    <div class="cover">
-      <div class="label">
-        <span>Cover*</span>
-        <input bind:this={input} onchange={onChange} type="file" />
-      </div>
-      <img src={cover} alt="" />
-    </div>
-    <div class="column2">
+    <div class="columns">
       <label>
         <span>Name*</span>
         <input type="text" bind:value={data.name} />
@@ -154,8 +126,7 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
-    max-width: 600px;
-    max-height: 60vh;
+    color: rgb(20, 20, 20);
     .main {
       display: flex;
       flex-direction: column;
@@ -163,10 +134,11 @@
       overflow: auto;
       padding: 2em;
     }
-    .column2 {
+    .columns {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1em;
+      max-width: 600px;
     }
     label {
       display: flex;
@@ -178,7 +150,8 @@
       textarea {
         padding: 1em;
         border-radius: 0.5em;
-        border: 1px solid silver;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.4);
       }
       textarea {
         min-height: 80px;
@@ -194,19 +167,15 @@
       justify-content: end;
       align-items: center;
       gap: 1em;
-      padding: 1em;
+      padding: 2em;
+      padding-top: 0;
       button {
         &.login {
-          background-color: gray;
+          background-color: rgb(41, 41, 41);
           color: white;
           border-radius: 100px;
           padding: 1em 1.5em;
         }
-      }
-    }
-    .cover {
-      img {
-        width: 100%;
       }
     }
   }

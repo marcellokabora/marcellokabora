@@ -4,6 +4,7 @@
   import Dialog from "./Dialog.svelte";
   import Icon from "./Icon.svelte";
   import Login from "./Login.svelte";
+  import { user } from "./store";
   import { supabase } from "./supabaseClient";
 
   let showModal = $state(false);
@@ -38,11 +39,9 @@
   let y: number = $state(0);
   let showNav: boolean = $state(false);
 
-  let { user = $bindable() } = $props();
-
   function onLogout() {
     supabase.auth.signOut();
-    user = undefined;
+    user.set(null);
   }
 </script>
 
@@ -70,17 +69,19 @@
     <div class="account">
       <button
         class="user"
-        onclick={() => (user ? (showModal = false) : (showModal = true))}
+        onclick={() => ($user ? (showModal = false) : (showModal = true))}
       >
         <Icon>account_circle</Icon>
       </button>
-      {#if user}
+      {#if $user}
         <div class="dropdown">
-          <div class="email">{user.email}</div>
-          <button onclick={() => (showCreate = true)}
-            ><Icon>add_circle</Icon> Create</button
-          >
-          <button onclick={onLogout}><Icon>logout</Icon> Logout</button>
+          <div class="email">{$user.email}</div>
+          <div class="actions">
+            <button onclick={() => (showCreate = true)}
+              ><Icon>add_circle</Icon> Create</button
+            >
+            <button onclick={onLogout}><Icon>logout</Icon> Logout</button>
+          </div>
         </div>
       {/if}
     </div>
@@ -100,11 +101,11 @@
 </header>
 
 <Dialog bind:showModal>
-  <Login bind:showModal bind:user />
+  <Login bind:showModal />
 </Dialog>
 
 <Dialog bind:showModal={showCreate}>
-  <Create bind:showCreate bind:user />
+  <Create bind:showCreate />
 </Dialog>
 
 <svelte:window bind:scrollY={y} />
@@ -200,25 +201,30 @@
           margin-top: 20px;
           margin-right: 1em;
           box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
-          background-color: white;
+          background-color: rgba(255, 255, 255, 0.8);
           color: black;
           border-radius: 0.5em;
           .email {
             font-size: small;
             padding: 1em;
           }
-          button {
-            padding: 1em;
-            padding: 1em;
-            width: 100%;
-            font-size: 0.7em;
+          .actions {
             display: flex;
-            align-items: center;
             gap: 1em;
-            &:hover {
-              font-weight: bold;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            button {
+              padding: 1em;
+              padding: 1em;
+              width: 100%;
+              // font-size: 0.7em;
+              display: flex;
+              align-items: center;
+              gap: 1em;
+              color: rgb(61, 61, 61);
+              &:hover {
+                color: black;
+              }
             }
-            border-top: 1px solid silver;
           }
         }
       }

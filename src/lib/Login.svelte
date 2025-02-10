@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { user } from "./store";
   import { supabase } from "./supabaseClient";
 
-  let { showModal = $bindable(), user = $bindable() } = $props();
+  let { showModal = $bindable() } = $props();
   let email = $state("");
   let password = $state("");
 
@@ -11,7 +12,7 @@
       email: email,
       password: password,
     });
-    user = response.data.user;
+    user.set(response.data.user);
     showModal = false;
   }
 </script>

@@ -9,3 +9,6 @@ export default function supabaseLoader({
 }) {
   return `https://iluuzburwyhjbrpihdte.supabase.co/storage/v1/object/public/marcellokabora/${src}?width=${width}&quality=${quality}`;
 }
+
+export const urlStore =
+  "https://iluuzburwyhjbrpihdte.supabase.co/storage/v1/object/public/marcellokabora/";

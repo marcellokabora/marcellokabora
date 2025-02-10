@@ -1,6 +1,6 @@
 <script lang="ts">
   import Banner from "$lib/Banner.svelte";
-  import supabaseLoader from "$lib/functions";
+  import supabaseLoader, { urlStore } from "$lib/functions";
   import { description } from "$lib/mocks";
 
   let { data } = $props();
@@ -57,10 +57,7 @@
           <div class="item" data-aos="fade-up">
             <a href="projecto/{item.name}">
               <div class="imgcont">
-                <img
-                  src={supabaseLoader({ src: item.name + "/" + item.cover })}
-                  alt={item.name}
-                />
+                <img src={urlStore + item.cover} alt={item.name} />
                 <div class="more">
                   <div class="type">{item.type}</div>
                   <div class="time">{item.date}</div>
