@@ -1,6 +1,6 @@
 <script lang="ts">
   import Banner from "$lib/Banner.svelte";
-  import supabaseLoader from "$lib/function";
+  import supabaseLoader from "$lib/functions";
   import { description } from "$lib/mocks";
 
   let { data } = $props();

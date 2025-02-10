@@ -1,6 +1,6 @@
 <script lang="ts">
   import Banner from "$lib/Banner.svelte";
-  import supabaseLoader from "$lib/function.js";
+  import supabaseLoader, { getLang } from "$lib/functions";
 
   let { data } = $props();
 </script>
@@ -26,6 +26,7 @@
         <div class="header">
           <div class="desc">Description</div>
         </div>
+        <p>{data.project.info}</p>
       </div>
       <div class="space"></div>
       <div class="infos">
@@ -40,38 +41,38 @@
           <div class="info">
             <span class="material-icons">code</span>
             {#each data.project.lang as lang}
-              <a class="lang" href={lang} target="_blank">{lang}</a>
+              <a class="lang" href={getLang(lang)} target="_blank">{lang}</a>
             {/each}
           </div>
         {/if}
-        <!-- {#if data.project.link}
-        <div class="info">
-          <span class="material-icons">web</span>
-          <a class="lang" href={data.project.link} target="_blank">Website</a>
-        </div>
-      {/if}
-      {#if data.project.code}
-        <div class="info">
-          <img class="icon" src="/icon/github.svg" alt="github" />
-          <a
-            class="lang"
-            href={`//github.com/marcellokabora/${data.project.code}`}
-            target="_blank"
-            >Repository
-          </a>
-        </div>
-      {/if}
-      {#if data.project.more}
-        <div class="header">
-          <div class="desc">Related</div>
-        </div>
-        <div class="info">
-          <span class="material-icons">tune</span>
-          {#each data.project.more as more}
-            <a class="lang" href={`/project/${more.link}`}>{more.name}</a>
-          {/each}
-        </div>
-      {/if} -->
+        {#if data.project.link}
+          <div class="info">
+            <span class="material-icons">web</span>
+            <a class="lang" href={data.project.link} target="_blank">Website</a>
+          </div>
+        {/if}
+        {#if data.project.code}
+          <div class="info">
+            <img class="icon" src="/icon/github.svg" alt="github" />
+            <a
+              class="lang"
+              href={`//github.com/marcellokabora/${data.project.code}`}
+              target="_blank"
+              >Repository
+            </a>
+          </div>
+        {/if}
+        {#if data.project.more}
+          <div class="header">
+            <div class="desc">Related</div>
+          </div>
+          <div class="info">
+            <span class="material-icons">tune</span>
+            {#each data.project.more as more}
+              <a class="lang" href={`/project/${more}`}>{more}</a>
+            {/each}
+          </div>
+        {/if}
       </div>
     </div>
     <div class="header">Gallery</div>
@@ -110,11 +111,11 @@
         a {
           text-decoration: none;
         }
-        // .icon {
-        //   width: 23px;
-        //   height: 23px;
-        //   margin-right: 10px;
-        // }
+        .icon {
+          width: 23px;
+          height: 23px;
+          margin-right: 10px;
+        }
         .lang:not(:last-child)::after {
           content: ",";
           margin-right: 10px;

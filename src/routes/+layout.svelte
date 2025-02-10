@@ -14,11 +14,11 @@
   import AOS from "aos";
   import "aos/dist/aos.css";
   import { onMount } from "svelte";
-  let { children } = $props();
+  let { data, children } = $props();
   onMount(() => AOS.init());
 </script>
 
-<Navbar />
+<Navbar user={data.user} />
 
 <main>
   {@render children?.()}

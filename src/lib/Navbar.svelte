@@ -3,10 +3,9 @@
   import Dialog from "./Dialog.svelte";
   import Icon from "./Icon.svelte";
   import Login from "./Login.svelte";
+  import { supabase } from "./supabaseClient";
 
   let showModal = $state(false);
-  let isLogin = $state(false);
-
   const menus = [
     {
       icon: "home",
@@ -36,6 +35,13 @@
   ];
   let y: number = $state(0);
   let showNav: boolean = $state(false);
+
+  let { user = $bindable() } = $props();
+
+  function onLogout() {
+    supabase.auth.signOut();
+    user = undefined;
+  }
 </script>
 
 <header>
@@ -60,16 +66,17 @@
       {/each}
     </ul>
     <div class="account">
-      <button class="user" onclick={() => (showModal = true)}>
+      <button
+        class="user"
+        onclick={() => (user ? (showModal = false) : (showModal = true))}
+      >
         <Icon>account_circle</Icon>
       </button>
-      {#if isLogin}
+      {#if user}
         <div class="dropdown">
+          <div class="email">{user.email}</div>
           <button><Icon>add_circle</Icon> Create</button>
-          <!-- <button onclick={() => (showLogin = true)}
-          ><Icon>login</Icon> Login</button
-          > -->
-          <!-- <button><Icon>logout</Icon> Logout</button> -->
+          <button onclick={onLogout}><Icon>logout</Icon> Logout</button>
         </div>
       {/if}
     </div>
@@ -89,7 +96,7 @@
 </header>
 
 <Dialog bind:showModal>
-  <Login bind:showModal />
+  <Login bind:showModal bind:user />
 </Dialog>
 
 <svelte:window bind:scrollY={y} />
@@ -98,7 +105,6 @@
   header {
     position: fixed;
     z-index: 999;
-
     .logo {
       position: fixed;
       top: 0;
@@ -127,7 +133,6 @@
         border-top: 100px solid #1b1b1b;
       }
     }
-
     .navbar {
       position: fixed;
       display: flex;
@@ -186,26 +191,26 @@
           transition: all 0.5s ease;
           margin-top: 20px;
           margin-right: 1em;
-          box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+          background-color: white;
+          color: black;
+          border-radius: 0.5em;
+          .email {
+            font-size: small;
+            padding: 1em;
+          }
           button {
-            background-color: rgba(255, 255, 255, 0.5);
+            padding: 1em;
             padding: 1em;
             width: 100%;
             font-size: 0.7em;
+            display: flex;
+            align-items: center;
+            gap: 1em;
             &:hover {
               font-weight: bold;
             }
-            &:not(:last-child) {
-              border-bottom: 1px solid silver;
-            }
-            &:first-child {
-              border-top-left-radius: 0.5em;
-              border-top-right-radius: 0.5em;
-            }
-            &:last-child {
-              border-bottom-left-radius: 0.5em;
-              border-bottom-right-radius: 0.5em;
-            }
+            border-top: 1px solid silver;
           }
         }
       }

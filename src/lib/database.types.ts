@@ -7,15 +7,19 @@ export type Json =
   | Json[];
 
 export type Projecto = {
+  id: number;
   cover: string;
   date: string;
   gallery: string[];
-  id: number;
   lang: string[];
   name: string;
   slogan: string;
   title: string;
   type: string;
+  info: string;
+  link: string;
+  code: string;
+  more: string[];
 };
 
 export type Database = {
