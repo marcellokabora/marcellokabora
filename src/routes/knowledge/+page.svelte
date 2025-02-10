@@ -169,6 +169,12 @@
       link: "//firebase.google.com",
     },
     {
+      name: "supabase",
+      title: "Supabase",
+      photo: "/photo/supabase.jpg",
+      link: "//supabase.com",
+    },
+    {
       name: "php",
       title: "PHP",
       photo: "/photo/php.svg",
@@ -353,40 +359,35 @@
               coding. It's beginner-friendly with an intuitive interface for
               creating 3D models, simulating circuits, and learning to code.
             </p>
-          {/if}
-          {#if item.name === "nodejs"}
+          {:else if item.name === "nodejs"}
             <p>
               Node. js is primarily used for non-blocking, event-driven servers,
               due to its single-threaded nature. It's used for traditional web
               sites and back-end API services, but was designed with real-time,
               push-based architectures in mind.
             </p>
-          {/if}
-          {#if item.name === "angular"}
+          {:else if item.name === "angular"}
             <p>
               Angular is a TypeScript-based open-source web application
               framework led by the Angular Team at Google and by a community of
               individuals and corporations. Angular is a complete rewrite from
               the same team that built AngularJS.
             </p>
-          {/if}
-          {#if item.name === "nx"}
+          {:else if item.name === "nx"}
             <p>
               From more out-of-the-box tooling support to faster builds and more
               features, the Nx CLI dramatically improves your Angular
               development experience, while allowing you to reuse most of the
               knowledge you have gained from using the Angular CLI.
             </p>
-          {/if}
-          {#if item.name === "svelte"}
+          {:else if item.name === "svelte"}
             <p>
               Svelte is a radical new approach to building user interfaces.
               Whereas traditional frameworks like React and Vue do the bulk of
               their work in the browser, Svelte shifts that work into a compile
               step that happens when you build your app.
             </p>
-          {/if}
-          {#if item.name === "vue"}
+          {:else if item.name === "vue"}
             <p>
               VueJS is an open source progressive JavaScript framework used to
               develop interactive web interfaces. It is one of the famous
@@ -394,8 +395,7 @@
               view layer. It can be easily integrated into big projects for
               front-end development without any issues.
             </p>
-          {/if}
-          {#if item.name === "react"}
+          {:else if item.name === "react"}
             <p>
               ReactJS is JavaScript library used for building reusable UI
               components. According to React official documentation, following
@@ -403,16 +403,14 @@
               user interfaces. It encourages the creation of reusable UI
               components, which present data that changes over time.
             </p>
-          {/if}
-          {#if item.name === "next"}
+          {:else if item.name === "next"}
             <p>
               Next. js is a React framework that enables several extra features,
               including server-side rendering and generating static websites.
               React is a JavaScript library that is traditionally used to build
               web applications rendered in the client's browser with JavaScript.
             </p>
-          {/if}
-          {#if item.name === "jquery"}
+          {:else if item.name === "jquery"}
             <p>
               jQuery is a JavaScript library designed to simplify HTML DOM tree
               traversal and manipulation, as well as event handling, CSS
@@ -420,14 +418,12 @@
               permissive MIT License. As of May 2019, jQuery is used by 73% of
               the 10 million most popular websites.
             </p>
-          {/if}
-          {#if item.name === "formly"}
+          {:else if item.name === "formly"}
             <p>
               Formly is a dynamic (JSON powered) form library for Angular that
               bring unmatched maintainability to your application's forms.
             </p>
-          {/if}
-          {#if item.name === "ckeditor"}
+          {:else if item.name === "ckeditor"}
             <p>
               CKEditor 5 builds are a set of ready-to-use rich text editors.
               Every “build” provides a single type of editor with a set of
@@ -435,8 +431,7 @@
               solutions that can be installed with no effort and that satisfy
               the most common editing use cases.
             </p>
-          {/if}
-          {#if item.name === "d3"}
+          {:else if item.name === "d3"}
             <p>
               D3 is a JavaScript library and framework for creating
               visualizations. D3 creates visualizations by binding the data and
@@ -444,8 +439,7 @@
               (binding) the data (stuff you want to visualize) with the DOM.
               This allows the user to manipulate, change or add to the DOM.
             </p>
-          {/if}
-          {#if item.name === "highchart"}
+          {:else if item.name === "highchart"}
             <p>
               Highcharts is a pure JavaScript based charting library meant to
               enhance web applications by adding interactive charting
@@ -453,16 +447,14 @@
               example, line charts, spline charts, area charts, bar charts, pie
               charts and so on.
             </p>
-          {/if}
-          {#if item.name === "pwa"}
+          {:else if item.name === "pwa"}
             <p>
               Progressive Web Apps (PWAs) are web apps that use service workers,
               manifests, and other web-platform features in combination with
               progressive enhancement to give users an experience on par with
               native apps.
             </p>
-          {/if}
-          {#if item.name === "material"}
+          {:else if item.name === "material"}
             <p>
               Material provide tools that help developers build their own custom
               components with common interaction patterns. Customizable within
@@ -470,24 +462,21 @@
               Angular team to integrate seamlessly with Angular. Start from
               scratch or drop into your existing applications.
             </p>
-          {/if}
-          {#if item.name === "bootstrap"}
+          {:else if item.name === "bootstrap"}
             <p>
               Bootstrap is a free and open-source CSS framework directed at
               responsive, mobile-first front-end web development. It contains
               HTML, CSS and JavaScript-based design templates for typography,
               forms, buttons, navigation, and other interface components.
             </p>
-          {/if}
-          {#if item.name === "semantic"}
+          {:else if item.name === "semantic"}
             <p>
               Semantic is a development framework that helps create beautiful,
               responsive layouts using human-friendly HTML. Classes use syntax
               from natural languages like noun/modifier relationships, word
               order, and plurality to link concepts intuitively.
             </p>
-          {/if}
-          {#if item.name === "git"}
+          {:else if item.name === "git"}
             <p>
               Git is software for tracking changes in any set of files, usually
               used for coordinating work among programmers collaboratively
@@ -495,8 +484,7 @@
               include speed, data integrity, and support for distributed,
               non-linear workflows.
             </p>
-          {/if}
-          {#if item.name === "npm"}
+          {:else if item.name === "npm"}
             <p>
               npm is a package manager for the JavaScript programming language
               maintained by npm, Inc. npm is the default package manager for the
@@ -504,47 +492,41 @@
               line client, also called npm, and an online database of public and
               paid-for private packages, called the npm registry.
             </p>
-          {/if}
-          {#if item.name === "php"}
+          {:else if item.name === "php"}
             <p>
               PHP is a general-purpose scripting language geared toward web
               development. It was originally created by Danish-Canadian
               programmer Rasmus Lerdorf in 1994. The PHP reference
               implementation is now produced by The PHP Group.
             </p>
-          {/if}
-          {#if item.name === "mysql"}
+          {:else if item.name === "mysql"}
             <p>
               MySQL is an open-source relational database management system. Its
               name is a combination of "My", the name of co-founder Michael
               Widenius's daughter, and "SQL", the abbreviation for Structured
               Query Language.
             </p>
-          {/if}
-          {#if item.name === "wordpress"}
+          {:else if item.name === "wordpress"}
             <p>
               WordPress is a free and open-source content management system
               written in PHP and paired with a MySQL or MariaDB database.
               Features include a plugin architecture and a template system,
               referred to within WordPress as Themes.
             </p>
-          {/if}
-          {#if item.name === "webflow"}
+          {:else if item.name === "webflow"}
             <p>
               Webflow, Inc. is an American company, based in San Francisco, that
               provides software as a service for website building and hosting.
               Their online visual editor platform allows users to design, build,
               and launch websites.
             </p>
-          {/if}
-          {#if item.name === "builder"}
+          {:else if item.name === "builder"}
             <p>
               Builder is the only headless CMS with a complete no-code visual
               editor that allows editors to drag and drop to create pages and
               content with your data and code components.
             </p>
-          {/if}
-          {#if item.name === "firefox"}
+          {:else if item.name === "firefox"}
             <p>
               Mozilla Firefox, or simply Firefox, is a free and open-source web
               browser developed by the Mozilla Foundation and its subsidiary,
@@ -552,8 +534,7 @@
               display web pages, which implements current and anticipated web
               standards.
             </p>
-          {/if}
-          {#if item.name === "chrome"}
+          {:else if item.name === "chrome"}
             <p>
               Google Chrome is a cross-platform web browser developed by Google.
               It was first released in 2008 for Microsoft Windows, built with
@@ -561,16 +542,14 @@
               was later ported to Linux, macOS, iOS, and Android, where it is
               the default browser.
             </p>
-          {/if}
-          {#if item.name === "safari"}
+          {:else if item.name === "safari"}
             <p>
               Safari is a graphical web browser developed by Apple. It is
               primarily based on open-source software, and mainly WebKit. It
               succeeded Netscape Navigator, Cyberdog and Internet Explorer for
               Mac as the default web browser for Macintosh computers.
             </p>
-          {/if}
-          {#if item.name === "edge"}
+          {:else if item.name === "edge"}
             <p>
               Microsoft Edge is a cross-platform web browser created and
               developed by Microsoft. It was first bundled with Windows 10 and
@@ -578,8 +557,7 @@
               and iOS in 2017, macOS and older Windows versions in 2019, and
               Linux in 2020.
             </p>
-          {/if}
-          {#if item.name === "vsc"}
+          {:else if item.name === "vsc"}
             <p>
               Visual Studio Code, also commonly referred to as VS Code, is a
               source-code editor made by Microsoft for Windows, Linux and macOS.
@@ -587,8 +565,7 @@
               intelligent code completion, snippets, code refactoring, and
               embedded Git.
             </p>
-          {/if}
-          {#if item.name === "brackets"}
+          {:else if item.name === "brackets"}
             <p>
               Brackets is a source code editor with a primary focus on web
               development. Created by Adobe Inc., it is free and open-source
@@ -596,8 +573,7 @@
               maintained on GitHub by open-source developers. It is written in
               JavaScript, HTML and CSS.
             </p>
-          {/if}
-          {#if item.name === "slack"}
+          {:else if item.name === "slack"}
             <p>
               Slack is a messaging program designed specifically for the
               workplace. Developed by American software company Slack
@@ -605,8 +581,7 @@
               IRC-style features, including persistent chat rooms organized by
               topic, private groups, and direct messaging.
             </p>
-          {/if}
-          {#if item.name === "photoshop"}
+          {:else if item.name === "photoshop"}
             <p>
               Adobe Photoshop is a raster graphics editor developed and
               published by Adobe Inc. for Windows and macOS. It was originally
@@ -614,82 +589,71 @@
               has become the industry standard not only in raster graphics
               editing, but in digital art as a whole.
             </p>
-          {/if}
-          {#if item.name === "illustrator"}
+          {:else if item.name === "illustrator"}
             <p>
               Adobe Illustrator is a vector graphics editor and design program
               developed and marketed by Adobe Inc. Originally designed for the
               Apple Macintosh, development of Adobe Illustrator began in 1985.
               Along with Creative Cloud, Illustrator CC was releasedole.
             </p>
-          {/if}
-          {#if item.name === "ableton"}
+          {:else if item.name === "ableton"}
             <p>
               Ableton AG is a German music software company that produces and
               distributes the production and performance program Ableton Live
               and a collection of related instruments and sample libraries, as
               well as their own hardware controller Ableton Push.
             </p>
-          {/if}
-          {#if item.name === "1password"}
+          {:else if item.name === "1password"}
             <p>
               1Password is a password manager developed by AgileBits Inc. It
               provides a place for users to store various passwords, software
               licenses, and other sensitive information in a virtual vault that
               is locked with a PBKDF2-guarded master password.
             </p>
-          {/if}
-          {#if item.name === "github"}
+          {:else if item.name === "github"}
             <p>
               GitHub, Inc. is a provider of Internet hosting for software
               development and version control using Git. It offers the
               distributed version control and source code management
               functionality of Git, plus its own features.
             </p>
-          {/if}
-          {#if item.name === "gitlab"}
+          {:else if item.name === "gitlab"}
             <p>
               GitLab Inc. is an open-core company that provides GitLab, a DevOps
               software package that combines the ability to develop, secure, and
               operate software in a single application.
             </p>
-          {/if}
-          {#if item.name === "jira"}
+          {:else if item.name === "jira"}
             <p>
               Jira is a proprietary issue tracking product developed by
               Atlassian that allows bug tracking and agile project management.
             </p>
-          {/if}
-          {#if item.name === "azure"}
+          {:else if item.name === "azure"}
             <p>
               Microsoft Azure, often referred to as Azure, is a cloud computing
               service operated by Microsoft for application management via
               Microsoft-managed data centers.
             </p>
-          {/if}
-          {#if item.name === "asana"}
+          {:else if item.name === "asana"}
             <p>
               Asana is a web and mobile work management platform designed to
               help teams organize, track, and manage their work. It is produced
               by the San Francisco based company of the same name.
             </p>
-          {/if}
-          {#if item.name === "miro"}
+          {:else if item.name === "miro"}
             <p>
               Miro is the online collaborative whiteboard platform that enables
               distributed teams to work effectively together, from brainstorming
               with digital sticky notes to planning and managing agile
               workflows.
             </p>
-          {/if}
-          {#if item.name === "abstract"}
+          {:else if item.name === "abstract"}
             <p>
               Abstract is a design intelligence platform that helps teams gather
               requirements, review designs, and continuously measure what works,
               all in one space.
             </p>
-          {/if}
-          {#if item.name === "figma"}
+          {:else if item.name === "figma"}
             <p>
               Figma is a vector graphics editor and prototyping tool which is
               primarily web-based, with additional offline features enabled by
@@ -697,23 +661,28 @@
               for Android and iOS allow viewing and interacting with Figma
               prototypes in real-time mobile devices.
             </p>
-          {/if}
-          {#if item.name === "storybook"}
+          {:else if item.name === "storybook"}
             <p>
               Storybook is an open source tool for building UI components and
               pages in isolation. It streamlines UI development, testing, and
               documentation.
             </p>
-          {/if}
-          {#if item.name === "firebase"}
+          {:else if item.name === "firebase"}
             <p>
               Firebase is a platform developed by Google for creating mobile and
               web applications. It was originally an independent company founded
               in 2011. In 2014, Google acquired the platform and it is now their
               flagship offering for app development.
             </p>
-          {/if}
-          {#if item.name === "vercel"}
+          {:else if item.name === "supabase"}
+            <p>
+              Supabase is an open-source alternative to Firebase that provides
+              developers with the tools they need to build, scale, and manage
+              their applications. At its core, Supabase offers a Postgres
+              database, which is a powerful and reliable relational database
+              management system.
+            </p>
+          {:else if item.name === "vercel"}
             <p>
               Vercel is the platform for frontend developers, providing the
               speed and reliability innovators need to create at the moment of

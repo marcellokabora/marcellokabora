@@ -27,16 +27,14 @@
 
 <style>
   dialog {
-    max-width: 32em;
-    border-radius: 0.2em;
+    max-width: 80vw;
+    border-radius: 0.5em;
     border: none;
     padding: 0;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   }
   dialog::backdrop {
     background: rgba(0, 0, 0, 0.3);
-  }
-  dialog > div {
-    padding: 1em;
   }
   dialog[open] {
     animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);

@@ -1,11 +1,13 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import Create from "./Create.svelte";
   import Dialog from "./Dialog.svelte";
   import Icon from "./Icon.svelte";
   import Login from "./Login.svelte";
   import { supabase } from "./supabaseClient";
 
   let showModal = $state(false);
+  let showCreate = $state(false);
   const menus = [
     {
       icon: "home",
@@ -75,7 +77,9 @@
       {#if user}
         <div class="dropdown">
           <div class="email">{user.email}</div>
-          <button><Icon>add_circle</Icon> Create</button>
+          <button onclick={() => (showCreate = true)}
+            ><Icon>add_circle</Icon> Create</button
+          >
           <button onclick={onLogout}><Icon>logout</Icon> Logout</button>
         </div>
       {/if}
@@ -97,6 +101,10 @@
 
 <Dialog bind:showModal>
   <Login bind:showModal bind:user />
+</Dialog>
+
+<Dialog bind:showModal={showCreate}>
+  <Create bind:showCreate bind:user />
 </Dialog>
 
 <svelte:window bind:scrollY={y} />
@@ -246,7 +254,7 @@
       }
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 800px) {
       .navbar {
         display: none;
       }

@@ -7,16 +7,11 @@
 
   async function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
-
     const response = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
     });
-
-    console.log(response);
-
     user = response.data.user;
-
     showModal = false;
   }
 </script>
