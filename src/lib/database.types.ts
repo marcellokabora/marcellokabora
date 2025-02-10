@@ -48,28 +48,8 @@ export type Database = {
     Tables: {
       projects: {
         Row: Projecto;
-        Insert: {
-          cover?: string | null;
-          date?: string | null;
-          gallery?: string[] | null;
-          id?: number;
-          lang?: string[] | null;
-          name?: string | null;
-          slogan?: string | null;
-          title?: string | null;
-          type?: string | null;
-        };
-        Update: {
-          cover?: string | null;
-          date?: string | null;
-          gallery?: string[] | null;
-          id?: number;
-          lang?: string[] | null;
-          name?: string | null;
-          slogan?: string | null;
-          title?: string | null;
-          type?: string | null;
-        };
+        Insert: Projecto;
+        Update: Projecto;
         Relationships: [];
       };
     };
