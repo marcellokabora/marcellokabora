@@ -71,19 +71,19 @@
 </div>
 
 <Dialog bind:showModal={showCreate}>
-  <Create bind:showCreate />
+  <Create bind:showCreate bind:project />
 </Dialog>
 
 <style lang="scss">
   .actions {
     position: absolute;
-    top: 5em;
-    right: 2em;
     display: flex;
     align-items: center;
     gap: 1em;
+    margin-top: 280px;
+    zoom: 0.9;
     button {
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.2);
       border-radius: 100px;
       height: 50px;
       width: 50px;
@@ -91,6 +91,9 @@
       box-shadow: 0px 0px 2px black;
       zoom: 0.8;
       position: relative;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.6);
+      }
       .file {
         position: absolute;
         inset: 0;

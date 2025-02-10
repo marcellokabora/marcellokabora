@@ -1,19 +1,23 @@
 <script lang="ts">
   import Bannero from "$lib/Bannero.svelte";
+  import type { Projecto } from "$lib/database.types.js";
   import { getLang } from "$lib/functions.js";
   import Icon from "$lib/Icon.svelte";
 
   let { data } = $props();
+
+  let project: Projecto | undefined = $state();
+  if (data.project) project = data.project;
 </script>
 
 <svelte:head>
-  <title>Marcello Kabora | {data.project?.title} {data.project?.slogan}</title>
-  <meta name="thumbnail" content={data.project?.cover} />
-  <meta property="og:image" content={data.project?.cover} />
+  <title>Marcello Kabora | {project?.title} {project?.slogan}</title>
+  <meta name="thumbnail" content={project?.cover} />
+  <meta property="og:image" content={project?.cover} />
 </svelte:head>
 
-{#if data.project}
-  <Bannero bind:project={data.project} />
+{#if project}
+  <Bannero bind:project />
 
   <section data-aos="fade-up" data-aos-duration="1000">
     <div class="visual">
@@ -21,7 +25,7 @@
         <div class="header">
           <div class="desc">Description</div>
         </div>
-        <p>{data.project.info}</p>
+        <p>{project.info}</p>
       </div>
       <div class="space"></div>
       <div class="infos">
@@ -30,40 +34,40 @@
         </div>
         <div class="info">
           <span class="material-icons">event</span>
-          <span>{data.project.date}</span>
+          <span>{project.date}</span>
         </div>
-        {#if data.project.lang}
+        {#if project.lang}
           <div class="info">
             <span class="material-icons">code</span>
-            {#each data.project.lang as lang}
+            {#each project.lang as lang}
               <a class="lang" href={getLang(lang)} target="_blank">{lang}</a>
             {/each}
           </div>
         {/if}
-        {#if data.project.link}
+        {#if project.link}
           <div class="info">
             <span class="material-icons">web</span>
-            <a class="lang" href={data.project.link} target="_blank">Website</a>
+            <a class="lang" href={project.link} target="_blank">Website</a>
           </div>
         {/if}
-        {#if data.project.code}
+        {#if project.code}
           <div class="info">
             <img class="icon" src="/icon/github.svg" alt="github" />
             <a
               class="lang"
-              href={`//github.com/marcellokabora/${data.project.code}`}
+              href={`//github.com/marcellokabora/${project.code}`}
               target="_blank"
               >Repository
             </a>
           </div>
         {/if}
-        {#if data.project.more}
+        {#if project.more}
           <div class="header">
             <div class="desc">Related</div>
           </div>
           <div class="info">
             <Icon>tune</Icon>
-            {#each data.project.more as more}
+            {#each project.more as more}
               <a class="lang" href={`/project/${more}`}>{more}</a>
             {/each}
           </div>
@@ -72,7 +76,7 @@
     </div>
     <div class="header">Gallery</div>
     <div class="gallery">
-      {#each data.project.gallery as photo}
+      {#each project.gallery as photo}
         <div class="photo" data-aos="fade-up" data-aos-duration="1000">
           <img class="image" src={photo} alt="" />
         </div>

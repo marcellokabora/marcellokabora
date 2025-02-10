@@ -6,7 +6,7 @@
 
   let {
     showCreate = $bindable(),
-    project,
+    project = $bindable(),
   }: {
     showCreate: boolean;
     project?: Projecto;
@@ -34,27 +34,50 @@
         }
   );
 
+  let more = $state(data.more.join());
+  let lang = $state(data.lang.join());
   let isValid = $derived(data.name);
 
-  function handleSubmit(event: SubmitEvent) {
-    event.preventDefault();
+  // $effect(() => {
+  //   if (project) {
+  //   }
+  // });
+
+  function handleSubmit() {
     if ($user) {
       loading = true;
       error = "";
       if (isValid) {
-        supabase
-          .from("projects")
-          .insert([data])
-          .then((result) => {
-            if (result.error) {
-              error = result.error.message;
-              loading = false;
-            } else {
-              loading = false;
-              showCreate = false;
-              goto("/projecto/" + data.name);
-            }
-          });
+        data.more = more.split(",");
+        data.lang = lang.split(",");
+        if (project) {
+          supabase
+            .from("projects")
+            .upsert(data)
+            .then((result) => {
+              if (result.error) {
+                error = result.error.message;
+                loading = false;
+              } else {
+                loading = false;
+                showCreate = false;
+              }
+            });
+        } else {
+          supabase
+            .from("projects")
+            .insert(data)
+            .then((result) => {
+              if (result.error) {
+                error = result.error.message;
+                loading = false;
+              } else {
+                loading = false;
+                showCreate = false;
+                goto("/projecto/" + data.name);
+              }
+            });
+        }
       } else {
         error = "Missing";
       }
@@ -64,13 +87,15 @@
   }
 </script>
 
-<form onsubmit={handleSubmit}>
+<div class="form">
   <div class="main">
     <div class="columns">
-      <label>
-        <span>Name*</span>
-        <input type="text" bind:value={data.name} />
-      </label>
+      {#if !project}
+        <label>
+          <span>Name*</span>
+          <input type="text" bind:value={data.name} />
+        </label>
+      {/if}
       <label>
         <span>Title</span>
         <input type="text" bind:value={data.title} />
@@ -81,7 +106,7 @@
       </label>
       <label>
         <span>Lang</span>
-        <input type="text" bind:value={data.lang} />
+        <input type="text" bind:value={lang} />
       </label>
       <label>
         <span>Code</span>
@@ -93,7 +118,7 @@
       </label>
       <label>
         <span>More</span>
-        <input type="text" bind:value={data.more} />
+        <input type="text" bind:value={more} />
       </label>
     </div>
     <label>
@@ -107,10 +132,10 @@
     {/if}
     <button onclick={() => (showCreate = false)}>Cancel</button>
     <button
-      type="submit"
       class="login"
       disabled={!isValid}
       style:opacity={!isValid ? 0.2 : 1}
+      onclick={handleSubmit}
     >
       {#if loading}
         <span>Loading...</span>
@@ -119,10 +144,10 @@
       {/if}
     </button>
   </div>
-</form>
+</div>
 
 <style lang="scss">
-  form {
+  .form {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -133,12 +158,13 @@
       gap: 1em;
       overflow: auto;
       padding: 2em;
+      min-width: 50vw;
+      max-height: 100vw;
     }
     .columns {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1em;
-      max-width: 600px;
     }
     label {
       display: flex;
@@ -152,15 +178,12 @@
         border-radius: 0.5em;
         border: none;
         background-color: rgba(255, 255, 255, 0.4);
+        field-sizing: content;
       }
       textarea {
         min-height: 80px;
+        resize: vertical;
       }
-    }
-    .error {
-      color: red;
-      font-size: small;
-      max-width: 400px;
     }
     .actions {
       display: flex;
@@ -169,6 +192,13 @@
       gap: 1em;
       padding: 2em;
       padding-top: 0;
+      .error {
+        color: red;
+        font-size: x-small;
+        max-width: 200px;
+        position: absolute;
+        left: 4em;
+      }
       button {
         &.login {
           background-color: rgb(41, 41, 41);

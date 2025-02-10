@@ -5,15 +5,28 @@
   let { showModal = $bindable() } = $props();
   let email = $state("");
   let password = $state("");
+  let error = $state("");
+  let loading = $state(false);
 
-  async function handleSubmit(event: SubmitEvent) {
+  function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
-    const response = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
-    });
-    user.set(response.data.user);
-    showModal = false;
+    error = "";
+    loading = true;
+    supabase.auth
+      .signInWithPassword({
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        if (response.error) {
+          error = response.error.message;
+          loading = false;
+        } else {
+          user.set(response.data.user);
+          loading = false;
+          showModal = false;
+        }
+      });
   }
 </script>
 
@@ -40,7 +53,12 @@
       bind:value={password}
     />
   </label>
-  <button type="submit">Login</button>
+  <button disabled={loading} type="submit"
+    >{loading ? "Loading..." : "Login"}</button
+  >
+  {#if error}
+    <div class="error">{error}</div>
+  {/if}
 </form>
 
 <style lang="scss">
@@ -66,6 +84,11 @@
     }
     button {
       margin-top: 1em;
+    }
+    .error {
+      font-size: small;
+      color: red;
+      text-align: center;
     }
   }
 </style>
