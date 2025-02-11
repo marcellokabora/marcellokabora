@@ -103,13 +103,17 @@
   {/if}
 </header>
 
-<Dialog bind:showModal>
-  <Login bind:showModal />
-</Dialog>
+{#if showModal}
+  <Dialog bind:showModal>
+    <Login bind:showModal />
+  </Dialog>
+{/if}
 
-<Dialog bind:showModal={showCreate}>
-  <Create bind:showCreate />
-</Dialog>
+{#if showCreate}
+  <Dialog bind:showModal={showCreate}>
+    <Create bind:showCreate />
+  </Dialog>
+{/if}
 
 <svelte:window bind:scrollY={y} />
 

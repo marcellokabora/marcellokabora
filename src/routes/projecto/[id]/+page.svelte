@@ -193,9 +193,11 @@
   </div>
 {/if}
 
-<Dialog bind:showModal={showCreate}>
-  <Create bind:showCreate bind:project />
-</Dialog>
+{#if showCreate}
+  <Dialog bind:showModal={showCreate}>
+    <Create bind:showCreate bind:project />
+  </Dialog>
+{/if}
 
 <style>
   .actions {
