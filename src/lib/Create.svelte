@@ -1,8 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  import Confirm from "./Confirm.svelte";
   import type { Projecto } from "./database.types";
-  import Dialog from "./Dialog.svelte";
   import { user } from "./store";
   import { supabase } from "./supabaseClient";
 
@@ -11,7 +9,7 @@
     project = $bindable(),
   }: {
     showCreate: boolean;
-    project?: Projecto;
+    project?: Projecto | null;
   } = $props();
   let loading = $state(false);
   let error = $state("");
@@ -139,9 +137,19 @@
   <div class="actions">
     <div class="block">
       {#if project}
-        <button class="delete" onclick={() => (showConfirm = true)}>
-          Delete</button
-        >
+        <div>
+          {#if showConfirm}
+            <button class="confirm" onclick={onDelete}>
+              <i class="material-icons">check</i>
+              <span>Confirm</span>
+            </button>
+          {:else}
+            <button class="delete" onclick={() => (showConfirm = true)}>
+              <i class="material-icons">delete</i>
+              <span>Delete</span>
+            </button>
+          {/if}
+        </div>
       {/if}
       {#if error}
         <span class="error">{error}</span>
@@ -165,10 +173,6 @@
     </div>
   </div>
 </div>
-
-{#if showConfirm}
-  <Confirm cancel={() => (showConfirm = false)} confirm={onDelete} />
-{/if}
 
 <style>
   .form {
@@ -204,6 +208,7 @@
       border: none;
       background-color: rgba(255, 255, 255, 0.4);
       field-sizing: content;
+      border: 1px solid silver;
     }
     textarea {
       min-height: 80px;
@@ -230,7 +235,9 @@
       display: flex;
       align-items: center;
       gap: 1em;
-      &.login {
+      &.login,
+      &.delete,
+      &.confirm {
         background-color: rgb(41, 41, 41);
         color: white;
         border-radius: 100px;
@@ -238,6 +245,12 @@
       }
       &.delete {
         color: red;
+        border: 1px solid red;
+        background-color: transparent;
+      }
+      &.confirm {
+        color: white;
+        background-color: red;
       }
     }
   }

@@ -30,7 +30,7 @@
   }
 </script>
 
-<form method="POST" action="?/login" onsubmit={handleSubmit}>
+<form onsubmit={handleSubmit}>
   <label>
     <span>Email</span>
     <!-- svelte-ignore a11y_autofocus -->
@@ -54,7 +54,8 @@
     />
   </label>
   <button disabled={loading} type="submit"
-    >{loading ? "Loading..." : "Login"}</button
+    >{loading ? "Loading..." : "Login"}
+    <i class="material-icons">login</i></button
   >
   {#if error}
     <div class="error">{error}</div>
@@ -74,16 +75,24 @@
         font-size: small;
       }
     }
-    input,
-    button {
+    input {
       flex: 1;
       padding: 1em 1.5em;
       border-radius: 0.5em;
       border: none;
-      background-color: rgb(230, 230, 230);
+      background-color: rgba(255, 255, 255, 0.4);
+      border: 1px solid silver;
     }
     button {
       margin-top: 1em;
+      border-radius: 100px;
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      padding: 1em 1.5em;
     }
     .error {
       font-size: small;

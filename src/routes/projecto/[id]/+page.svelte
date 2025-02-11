@@ -8,14 +8,12 @@
   import { supabase } from "$lib/supabaseClient";
 
   let { data } = $props();
-
-  let project: Projecto | undefined = $state();
-
+  let project: Projecto | null = $state(data.project);
   let showCreate = $state(false);
   let inputCover: HTMLInputElement | undefined = $state();
   let inputGallery: HTMLInputElement | undefined = $state();
-  if (data.project) project = data.project;
   let loading = $state(false);
+
   function onCover() {
     if (project && inputCover && inputCover.files) {
       loading = true;
@@ -42,10 +40,44 @@
         });
     }
   }
-  function onEdit() {
-    console.log(1);
+  function onGallery() {
+    if (project && inputGallery && inputGallery.files && project.gallery) {
+      for (let step = 0; step < inputGallery.files.length; step++) {
+        let photo = inputGallery.files[step];
+        supabase.storage
+          .from("marcellokabora")
+          .upload(project.name + "/" + photo.name, photo)
+          .then((result) => {
+            if (result.data && project) {
+              project.gallery = [
+                ...project.gallery,
+                project.name + "/" + photo.name,
+              ];
+              supabase
+                .from("projects")
+                .upsert(project)
+                .then(() => {
+                  loading = false;
+                });
+            }
+          });
+      }
+    }
+  }
 
-    showCreate = true;
+  $inspect(project?.gallery);
+
+  function deletePhoto(photo: string) {
+    if (project) {
+      project.gallery = project?.gallery.filter((value) => value !== photo);
+      if (project)
+        supabase
+          .from("projects")
+          .upsert(project)
+          .then(() => {
+            supabase.storage.from("marcellokabora").remove([photo]);
+          });
+    }
   }
 </script>
 
@@ -120,7 +152,12 @@
     <div class="gallery">
       {#each project.gallery as photo}
         <div class="photo" data-aos="fade-up" data-aos-duration="1000">
-          <img class="image" src={photo} alt="" />
+          <img class="image" src={urlStore + photo} alt="" />
+          {#if $user}
+            <button class="material-icons" onclick={() => deletePhoto(photo)}
+              >delete</button
+            >
+          {/if}
         </div>
       {/each}
     </div>
@@ -137,11 +174,16 @@
         title="Cover"
       /></button
     >
-    <button onclick={onEdit} class="material-icons" title="Edit">edit</button>
+    <button
+      onclick={() => (showCreate = true)}
+      class="material-icons"
+      title="Edit">edit</button
+    >
     <button class="material-icons" title="Gallery"
       >photo_library <input
+        multiple
         bind:this={inputGallery}
-        onchange={onCover}
+        onchange={onGallery}
         type="file"
       /></button
     >
@@ -162,7 +204,7 @@
     align-items: center;
     gap: 1em;
     button {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.5);
       border-radius: 100px;
       height: 50px;
       width: 50px;
@@ -172,7 +214,7 @@
       position: relative;
       overflow: hidden;
       &:hover {
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.7);
       }
       input {
         position: absolute;
@@ -243,6 +285,19 @@
   }
   .gallery {
     margin-bottom: 50px;
+    .photo {
+      position: relative;
+      button {
+        zoom: 0.8;
+        height: 50px;
+        width: 50px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 100px;
+        position: absolute;
+        right: 1em;
+        top: 1em;
+      }
+    }
   }
   .header {
     border-bottom: 1px solid silver;
