@@ -39,7 +39,6 @@
   let more = $state(data.more.join());
   let lang = $state(data.lang.join());
   let isValid = $derived(data.name);
-  let confirmDelete = $state(false);
   let showConfirm = $state(false);
 
   function handleSubmit() {
@@ -60,6 +59,7 @@
               } else {
                 loading = false;
                 showCreate = false;
+                goto("/projecto/" + data.name);
               }
             });
         } else {
@@ -137,18 +137,18 @@
     </label>
   </div>
   <div class="actions">
-    <div class="left">
+    <div class="block">
       {#if project}
-        <button class="delete" onclick={() => (showConfirm = true)}
-          >Delete</button
+        <button class="delete" onclick={() => (showConfirm = true)}>
+          Delete</button
         >
       {/if}
       {#if error}
         <span class="error">{error}</span>
       {/if}
     </div>
-    <div class="right">
-      <button onclick={() => (showCreate = false)}>Cancel</button>
+    <div class="block">
+      <button onclick={() => (showCreate = false)}>Cancel </button>
       <button
         class="login"
         disabled={!isValid}
@@ -160,6 +160,7 @@
         {:else}
           <span>{project ? "Update" : "Create"}</span>
         {/if}
+        <i class="material-icons">save</i>
       </button>
     </div>
   </div>
@@ -169,66 +170,74 @@
   <Confirm cancel={() => (showConfirm = false)} confirm={onDelete} />
 {/if}
 
-<style lang="scss">
+<style>
   .form {
     display: flex;
     flex-direction: column;
     color: rgb(20, 20, 20);
-    .main {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-      overflow: auto;
-      padding: 2em;
-      width: 80vw;
-      max-height: 100vw;
-      max-width: 600px;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    overflow: auto;
+    padding: 2em;
+    width: 80vw;
+    max-height: 100vw;
+    max-width: 600px;
+  }
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+  }
+  label {
+    display: flex;
+    flex-direction: column;
+    span {
+      font-size: small;
     }
-    .columns {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1em;
+    input,
+    textarea {
+      padding: 1em;
+      border-radius: 0.5em;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.4);
+      field-sizing: content;
     }
-    label {
-      display: flex;
-      flex-direction: column;
-      span {
-        font-size: small;
-      }
-      input,
-      textarea {
-        padding: 1em;
-        border-radius: 0.5em;
-        border: none;
-        background-color: rgba(255, 255, 255, 0.4);
-        field-sizing: content;
-      }
-      textarea {
-        min-height: 80px;
-        resize: vertical;
-      }
+    textarea {
+      min-height: 80px;
+      resize: vertical;
     }
-    .actions {
+  }
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: 2em;
+    padding-top: 0;
+    .error {
+      color: red;
+      font-size: x-small;
+    }
+    .block {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       gap: 1em;
-      padding: 2em;
-      padding-top: 0;
-      .error {
-        color: red;
-        font-size: x-small;
+    }
+    button {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      &.login {
+        background-color: rgb(41, 41, 41);
+        color: white;
+        border-radius: 100px;
+        padding: 1em 1.5em;
       }
-      button {
-        &.login {
-          background-color: rgb(41, 41, 41);
-          color: white;
-          border-radius: 100px;
-          padding: 1em 1.5em;
-        }
-        &.delete {
-          color: red;
-        }
+      &.delete {
+        color: red;
       }
     }
   }

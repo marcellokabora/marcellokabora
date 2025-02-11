@@ -88,7 +88,7 @@
   <img class="arcbot" src="/shape/arc_bot.png" alt="arcbot" />
 </div>
 
-<style lang="scss">
+<style>
   .gallery {
     position: relative;
     color: white;

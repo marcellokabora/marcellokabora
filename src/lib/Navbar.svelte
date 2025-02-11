@@ -2,7 +2,6 @@
   import { page } from "$app/stores";
   import Create from "./Create.svelte";
   import Dialog from "./Dialog.svelte";
-  import Icon from "./Icon.svelte";
   import Login from "./Login.svelte";
   import { user } from "./store";
   import { supabase } from "./supabaseClient";
@@ -71,16 +70,20 @@
         class="user"
         onclick={() => ($user ? (showModal = false) : (showModal = true))}
       >
-        <Icon>account_circle</Icon>
+        <i class="material-icons">account_circle</i>
       </button>
       {#if $user}
         <div class="dropdown">
           <div class="email">{$user.email}</div>
           <div class="actions">
-            <button onclick={() => (showCreate = true)}
-              ><Icon>add_circle</Icon> Create</button
+            <button onclick={() => (showCreate = true)}>
+              <i class="material-icons">add_circle</i>
+              Create</button
             >
-            <button onclick={onLogout}><Icon>logout</Icon> Logout</button>
+            <button onclick={onLogout}>
+              <i class="material-icons">logout</i>
+              Logout</button
+            >
           </div>
         </div>
       {/if}
@@ -110,7 +113,7 @@
 
 <svelte:window bind:scrollY={y} />
 
-<style lang="scss">
+<style>
   header {
     position: fixed;
     z-index: 999;
@@ -216,7 +219,6 @@
               padding: 1em;
               padding: 1em;
               width: 100%;
-              // font-size: 0.7em;
               display: flex;
               align-items: center;
               gap: 1em;

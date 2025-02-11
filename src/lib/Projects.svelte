@@ -59,7 +59,7 @@
   {/if}
 </div>
 
-<style lang="scss">
+<style>
   .search {
     display: flex;
     align-items: center;

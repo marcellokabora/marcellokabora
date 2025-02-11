@@ -1,11 +1,9 @@
 <script lang="ts">
   import Banner from "$lib/Banner.svelte";
-  import Bannero from "$lib/Bannero.svelte";
   import Create from "$lib/Create.svelte";
   import type { Projecto } from "$lib/database.types";
   import Dialog from "$lib/Dialog.svelte";
   import { getLang, imgPlaceholder, urlStore } from "$lib/functions.js";
-  import Icon from "$lib/Icon.svelte";
   import { user } from "$lib/store.js";
   import { supabase } from "$lib/supabaseClient";
 
@@ -110,7 +108,7 @@
             <div class="desc">Related</div>
           </div>
           <div class="info">
-            <Icon>tune</Icon>
+            <i class="material-icons">tune</i>
             {#each project.more as more}
               <a class="lang" href={`/project/${more}`}>{more}</a>
             {/each}
@@ -154,7 +152,7 @@
   <Create bind:showCreate bind:project />
 </Dialog>
 
-<style lang="scss">
+<style>
   .actions {
     position: absolute;
     left: 3em;

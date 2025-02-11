@@ -49,7 +49,7 @@
   </section>
 </main>
 
-<style lang="scss">
+<style>
   main {
     position: relative;
     color: white;

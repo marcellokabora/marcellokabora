@@ -50,7 +50,7 @@
   </div>
 </div>
 
-<style lang="scss">
+<style>
   .section {
     display: flex;
     justify-content: center;

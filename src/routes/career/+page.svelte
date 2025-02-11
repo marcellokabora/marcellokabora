@@ -326,7 +326,7 @@
   {/each}
 </section>
 
-<style lang="scss">
+<style>
   section {
     margin-top: 20px;
     margin-bottom: 4px;

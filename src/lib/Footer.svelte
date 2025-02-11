@@ -41,7 +41,7 @@
   </div>
 </footer>
 
-<style lang="scss">
+<style>
   footer {
     background-color: #1b1b1b;
     display: flex;

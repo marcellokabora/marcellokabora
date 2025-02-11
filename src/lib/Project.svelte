@@ -82,7 +82,7 @@
   </div>
 </section>
 
-<style lang="scss">
+<style>
   .visual {
     margin-top: 20px;
     flex: 1;
