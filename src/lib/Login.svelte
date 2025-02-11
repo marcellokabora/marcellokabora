@@ -7,6 +7,7 @@
   let password = $state("");
   let error = $state("");
   let loading = $state(false);
+  let valid = $derived(email && password);
 
   function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
@@ -53,10 +54,14 @@
       bind:value={password}
     />
   </label>
-  <button disabled={loading} type="submit"
-    >{loading ? "Loading..." : "Login"}
-    <i class="material-icons">login</i></button
-  >
+  <button disabled={loading || !valid} type="submit">
+    {#if loading}
+      <span>Loading...</span>
+    {:else}
+      <span>Login</span>
+      <i class="material-icons">login</i>
+    {/if}
+  </button>
   {#if error}
     <div class="error">{error}</div>
   {/if}
@@ -93,6 +98,12 @@
       align-items: center;
       gap: 1em;
       padding: 1em 1.5em;
+      position: relative;
+      i {
+        zoom: 0.8;
+        position: absolute;
+        right: 1em;
+      }
     }
     .error {
       font-size: small;

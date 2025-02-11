@@ -8,11 +8,15 @@
   import { supabase } from "$lib/supabaseClient";
 
   let { data } = $props();
-  let project: Projecto | null = $state(data.project);
+  let project: Projecto | null = $state(null);
   let showCreate = $state(false);
   let inputCover: HTMLInputElement | undefined = $state();
   let inputGallery: HTMLInputElement | undefined = $state();
   let loading = $state(false);
+
+  $effect(() => {
+    project = data.project;
+  });
 
   function onCover() {
     if (project && inputCover && inputCover.files) {
@@ -40,6 +44,7 @@
         });
     }
   }
+
   function onGallery() {
     if (project && inputGallery && inputGallery.files && project.gallery) {
       for (let step = 0; step < inputGallery.files.length; step++) {
@@ -129,14 +134,14 @@
               class="lang"
               href={`//github.com/marcellokabora/${project.code}`}
               target="_blank"
-              >Repository
+              >Github
             </a>
           </div>
         {/if}
         {#if project.more}
-          <div class="header">
+          <!-- <div class="header">
             <div class="desc">Related</div>
-          </div>
+          </div> -->
           <div class="info">
             <i class="material-icons">tune</i>
             {#each project.more as more}
