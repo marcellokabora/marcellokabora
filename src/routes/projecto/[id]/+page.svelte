@@ -1,13 +1,54 @@
 <script lang="ts">
+  import Banner from "$lib/Banner.svelte";
   import Bannero from "$lib/Bannero.svelte";
-  import type { Projecto } from "$lib/database.types.js";
-  import { getLang } from "$lib/functions.js";
+  import Create from "$lib/Create.svelte";
+  import type { Projecto } from "$lib/database.types";
+  import Dialog from "$lib/Dialog.svelte";
+  import { getLang, imgPlaceholder, urlStore } from "$lib/functions.js";
   import Icon from "$lib/Icon.svelte";
+  import { user } from "$lib/store.js";
+  import { supabase } from "$lib/supabaseClient";
 
   let { data } = $props();
 
   let project: Projecto | undefined = $state();
+
+  let showCreate = $state(false);
+  let inputCover: HTMLInputElement | undefined = $state();
+  let inputGallery: HTMLInputElement | undefined = $state();
   if (data.project) project = data.project;
+  let loading = $state(false);
+  function onCover() {
+    if (project && inputCover && inputCover.files) {
+      loading = true;
+      supabase.storage.from("marcellokabora").remove([project.cover]);
+      supabase.storage
+        .from("marcellokabora")
+        .upload(
+          project.name + "/" + inputCover.files[0].name,
+          inputCover.files[0],
+          {
+            upsert: true,
+          }
+        )
+        .then((result) => {
+          if (project && result.data) {
+            project.cover = result.data.path;
+            supabase
+              .from("projects")
+              .upsert(project)
+              .then(() => {
+                loading = false;
+              });
+          }
+        });
+    }
+  }
+  function onEdit() {
+    console.log(1);
+
+    showCreate = true;
+  }
 </script>
 
 <svelte:head>
@@ -17,8 +58,11 @@
 </svelte:head>
 
 {#if project}
-  <Bannero bind:project />
-
+  <Banner
+    cover={project?.cover ? urlStore + project.cover : imgPlaceholder}
+    title={project.title}
+    slogan={project.slogan}
+  />
   <section data-aos="fade-up" data-aos-duration="1000">
     <div class="visual">
       <div class="flexo">
@@ -85,7 +129,63 @@
   </section>
 {/if}
 
+{#if $user}
+  <div class="actions">
+    <button class="material-icons"
+      >photo <input
+        bind:this={inputCover}
+        onchange={onCover}
+        type="file"
+        title="Cover"
+      /></button
+    >
+    <button onclick={onEdit} class="material-icons" title="Edit">edit</button>
+    <button class="material-icons" title="Gallery"
+      >photo_library <input
+        bind:this={inputGallery}
+        onchange={onCover}
+        type="file"
+      /></button
+    >
+  </div>
+{/if}
+
+<Dialog bind:showModal={showCreate}>
+  <Create bind:showCreate bind:project />
+</Dialog>
+
 <style lang="scss">
+  .actions {
+    position: absolute;
+    left: 3em;
+    top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    button {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 100px;
+      height: 50px;
+      width: 50px;
+      z-index: 1;
+      box-shadow: 0px 0px 2px black;
+      zoom: 0.8;
+      position: relative;
+      overflow: hidden;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+      input {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
+        margin-top: -30px;
+      }
+    }
+  }
+
   section {
     min-height: 100vh;
   }

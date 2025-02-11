@@ -12,3 +12,5 @@ export default function supabaseLoader({
 
 export const urlStore =
   "https://iluuzburwyhjbrpihdte.supabase.co/storage/v1/object/public/marcellokabora/";
+
+export const imgPlaceholder = "/gallery/styling.jpg";

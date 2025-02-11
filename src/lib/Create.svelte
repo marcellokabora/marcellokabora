@@ -1,6 +1,8 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import Confirm from "./Confirm.svelte";
   import type { Projecto } from "./database.types";
+  import Dialog from "./Dialog.svelte";
   import { user } from "./store";
   import { supabase } from "./supabaseClient";
 
@@ -37,11 +39,8 @@
   let more = $state(data.more.join());
   let lang = $state(data.lang.join());
   let isValid = $derived(data.name);
-
-  // $effect(() => {
-  //   if (project) {
-  //   }
-  // });
+  let confirmDelete = $state(false);
+  let showConfirm = $state(false);
 
   function handleSubmit() {
     if ($user) {
@@ -85,17 +84,28 @@
       error = "Error";
     }
   }
+
+  function onDelete() {
+    supabase.storage
+      .from("marcellokabora")
+      .remove([data.cover, ...data.gallery]);
+    supabase
+      .from("projects")
+      .delete()
+      .eq("id", data.id!)
+      .then(() => {
+        goto("/projectos");
+      });
+  }
 </script>
 
 <div class="form">
   <div class="main">
+    <label>
+      <span>Name*</span>
+      <input type="text" bind:value={data.name} />
+    </label>
     <div class="columns">
-      {#if !project}
-        <label>
-          <span>Name*</span>
-          <input type="text" bind:value={data.name} />
-        </label>
-      {/if}
       <label>
         <span>Title</span>
         <input type="text" bind:value={data.title} />
@@ -127,30 +137,42 @@
     </label>
   </div>
   <div class="actions">
-    {#if error}
-      <span class="error">{error}</span>
-    {/if}
-    <button onclick={() => (showCreate = false)}>Cancel</button>
-    <button
-      class="login"
-      disabled={!isValid}
-      style:opacity={!isValid ? 0.2 : 1}
-      onclick={handleSubmit}
-    >
-      {#if loading}
-        <span>Loading...</span>
-      {:else}
-        <span>Create</span>
+    <div class="left">
+      {#if project}
+        <button class="delete" onclick={() => (showConfirm = true)}
+          >Delete</button
+        >
       {/if}
-    </button>
+      {#if error}
+        <span class="error">{error}</span>
+      {/if}
+    </div>
+    <div class="right">
+      <button onclick={() => (showCreate = false)}>Cancel</button>
+      <button
+        class="login"
+        disabled={!isValid}
+        style:opacity={!isValid ? 0.2 : 1}
+        onclick={handleSubmit}
+      >
+        {#if loading}
+          <span>Loading...</span>
+        {:else}
+          <span>{project ? "Update" : "Create"}</span>
+        {/if}
+      </button>
+    </div>
   </div>
 </div>
+
+{#if showConfirm}
+  <Confirm cancel={() => (showConfirm = false)} confirm={onDelete} />
+{/if}
 
 <style lang="scss">
   .form {
     display: flex;
     flex-direction: column;
-    gap: 1em;
     color: rgb(20, 20, 20);
     .main {
       display: flex;
@@ -158,8 +180,9 @@
       gap: 1em;
       overflow: auto;
       padding: 2em;
-      min-width: 50vw;
+      width: 80vw;
       max-height: 100vw;
+      max-width: 600px;
     }
     .columns {
       display: grid;
@@ -187,7 +210,7 @@
     }
     .actions {
       display: flex;
-      justify-content: end;
+      justify-content: space-between;
       align-items: center;
       gap: 1em;
       padding: 2em;
@@ -195,9 +218,6 @@
       .error {
         color: red;
         font-size: x-small;
-        max-width: 200px;
-        position: absolute;
-        left: 4em;
       }
       button {
         &.login {
@@ -205,6 +225,9 @@
           color: white;
           border-radius: 100px;
           padding: 1em 1.5em;
+        }
+        &.delete {
+          color: red;
         }
       }
     }

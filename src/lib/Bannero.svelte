@@ -3,31 +3,32 @@
   import Create from "./Create.svelte";
   import type { Projecto } from "./database.types";
   import Dialog from "./Dialog.svelte";
-  import { urlStore } from "./functions";
-  import Icon from "./Icon.svelte";
+  import { imgPlaceholder, urlStore } from "./functions";
   import { user } from "./store";
   import { supabase } from "./supabaseClient";
-  interface Props {
+  let {
+    project = $bindable(),
+  }: {
     project: Projecto;
-  }
-
-  let { project = $bindable() }: Props = $props();
+  } = $props();
   let showCreate = $state(false);
-  let input: HTMLInputElement | undefined = $state();
-  let cover = $state(
-    project.cover ? urlStore + project.cover : "/gallery/styling.jpg"
-  );
+  let inputCover: HTMLInputElement | undefined = $state();
+  let inputGallery: HTMLInputElement | undefined = $state();
+  let cover = $state(project.cover ? urlStore + project.cover : imgPlaceholder);
   let loading = $state(false);
   function onCover() {
-    if (input && input.files && input.files[0]) {
+    if (inputCover && inputCover.files) {
       loading = true;
       supabase.storage
         .from("marcellokabora")
-        .upload(project.name + "/" + input.files[0].name, input.files[0], {
-          upsert: true,
-        })
+        .upload(
+          project.name + "/" + inputCover.files[0].name,
+          inputCover.files[0],
+          {
+            upsert: true,
+          }
+        )
         .then((result) => {
-          console.log(result.data);
           if (result.data) {
             project.cover = result.data.path;
             cover = urlStore + project.cover;
@@ -57,15 +58,23 @@
   {/if}
   {#if $user}
     <div class="actions">
-      <button class="material-icons"
+      <button onclick={onEdit} class="material-icons">edit</button>
+      <button class="material-icons" title="Cover"
         >photo <input
           class="file"
-          bind:this={input}
+          bind:this={inputCover}
           onchange={onCover}
           type="file"
         /></button
       >
-      <button onclick={onEdit} class="material-icons">edit</button>
+      <button class="material-icons" title="Gallery"
+        >photo_library <input
+          class="file"
+          bind:this={inputGallery}
+          onchange={onCover}
+          type="file"
+        /></button
+      >
     </div>
   {/if}
 </div>
@@ -74,14 +83,13 @@
   <Create bind:showCreate bind:project />
 </Dialog>
 
-<style lang="scss">
+<style>
   .actions {
     position: absolute;
     display: flex;
     align-items: center;
     gap: 1em;
     margin-top: 280px;
-    zoom: 0.9;
     button {
       background-color: rgba(255, 255, 255, 0.2);
       border-radius: 100px;
