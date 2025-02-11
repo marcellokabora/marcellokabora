@@ -11,10 +11,25 @@
     showCreate: boolean;
     project?: Projecto | null;
   } = $props();
+
   let loading = $state(false);
   let error = $state("");
-  let data: Projecto = $state(
-    project
+  let data: Projecto = $state(initData());
+  // svelte-ignore state_referenced_locally
+  let more = $state(data.more.join());
+  // svelte-ignore state_referenced_locally
+  let lang = $state(data.lang.join());
+  let isValid = $derived(data.name);
+  let showConfirm = $state(false);
+
+  $effect(() => {
+    if (showCreate) {
+      showConfirm = false;
+    }
+  });
+
+  function initData() {
+    return project
       ? project
       : {
           name: "",
@@ -31,13 +46,8 @@
           gallery: [],
           user_id: $user?.id,
           email: $user?.email ?? "",
-        }
-  );
-
-  let more = $state(data.more.join());
-  let lang = $state(data.lang.join());
-  let isValid = $derived(data.name);
-  let showConfirm = $state(false);
+        };
+  }
 
   function handleSubmit() {
     if ($user) {
@@ -72,6 +82,7 @@
                 loading = false;
                 showCreate = false;
                 goto("/projecto/" + data.name);
+                data = initData();
               }
             });
         }
@@ -99,11 +110,15 @@
 
 <div class="form">
   <div class="main">
-    <label>
-      <span>Name*</span>
-      <input type="text" bind:value={data.name} />
-    </label>
     <div class="columns">
+      <label>
+        <span>Name*</span>
+        <input type="text" bind:value={data.name} />
+      </label>
+      <label>
+        <span>Date</span>
+        <input type="date" bind:value={data.date} />
+      </label>
       <label>
         <span>Title</span>
         <input type="text" bind:value={data.title} />
@@ -125,7 +140,7 @@
         <input type="text" bind:value={data.link} />
       </label>
       <label>
-        <span>More</span>
+        <span>Related</span>
         <input type="text" bind:value={more} />
       </label>
     </div>

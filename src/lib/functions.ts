@@ -1,5 +1,17 @@
 export function getLang(lang: string) {
-  return lang === "angular" ? "//angular.dev" : "";
+  return lang === "angular"
+    ? "//angular.dev"
+    : lang === "svelte"
+    ? "//svelte.dev"
+    : lang === "firebase"
+    ? "//firebase.google.com"
+    : lang === "material"
+    ? "//material.io"
+    : lang === "d3"
+    ? "//d3js.org"
+    : lang === "figma"
+    ? "//figma.com"
+    : "";
 }
 
 export default function supabaseLoader({

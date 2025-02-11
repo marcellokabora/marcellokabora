@@ -65,8 +65,6 @@
     }
   }
 
-  $inspect(project?.gallery);
-
   function deletePhoto(photo: string) {
     if (project) {
       project.gallery = project?.gallery.filter((value) => value !== photo);
@@ -108,7 +106,7 @@
         </div>
         <div class="info">
           <span class="material-icons">event</span>
-          <span>{project.date}</span>
+          <span>{new Date(project.date).toDateString().substring(4)}</span>
         </div>
         {#if project.lang}
           <div class="info">
