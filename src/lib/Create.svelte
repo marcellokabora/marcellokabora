@@ -18,9 +18,9 @@
   let error = $state("");
   let data: Projecto = $state(initData());
   // svelte-ignore state_referenced_locally
-  let more = $state(data.more.join());
+  let more = $state(data.more?.join());
   // svelte-ignore state_referenced_locally
-  let lang = $state(data.lang.join());
+  let lang = $state(data.lang?.join());
   let isValid = $derived(data.name);
   let showConfirm = $state(false);
 
@@ -58,8 +58,7 @@
               } else {
                 loading = false;
                 showCreate = false;
-                if (page.params.id !== data.name)
-                  goto("/projecto/" + data.name);
+                if (page.params.id !== data.name) goto("/project/" + data.name);
               }
             });
         } else {
@@ -73,7 +72,7 @@
               } else {
                 loading = false;
                 showCreate = false;
-                goto("/projecto/" + data.name);
+                goto("/project/" + data.name);
                 data = initData();
               }
             });
@@ -95,7 +94,7 @@
       .delete()
       .eq("id", data.id!)
       .then(() => {
-        goto("/projectos");
+        goto("/projects");
       });
   }
 </script>

@@ -20,6 +20,10 @@ export function getLang(lang: string) {
     ? "//builder.io"
     : lang === "bootstrap"
     ? "//getbootstrap.com"
+    : lang === "jquery"
+    ? "//jquery.com"
+    : lang === "mysql"
+    ? "//mysql.com"
     : "";
 }
 
@@ -52,3 +56,11 @@ export const productPlaceholder: Projecto = {
   user_id: "",
   email: "",
 };
+
+export function formatDate(date: string) {
+  return new Date(date)
+    .toDateString()
+    .split(" ")
+    .filter((_, index) => index !== 0 && index !== 2)
+    .join(" ");
+}

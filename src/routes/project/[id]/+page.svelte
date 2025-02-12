@@ -4,6 +4,7 @@
   import type { Projecto } from "$lib/database.types";
   import Dialog from "$lib/Dialog.svelte";
   import {
+    formatDate,
     getLang,
     imgPlaceholder,
     productPlaceholder,
@@ -116,7 +117,7 @@
         </div>
         <div class="info">
           <span class="material-icons">event</span>
-          <span>{new Date(project.date).toDateString().substring(4)}</span>
+          <span>{formatDate(project.date)}</span>
         </div>
         {#if project.lang[0]}
           <div class="info">
@@ -143,17 +144,20 @@
             </a>
           </div>
         {/if}
-        {#if project.more}
-          <div class="info">
-            <i class="material-icons">tune</i>
-            {#each project.more as more}
-              <a class="lang" href={`/projecto/${more.toLowerCase()}`}>{more}</a
-              >
-            {/each}
-          </div>
-        {/if}
       </div>
     </div>
+    {#if project.more}
+      <!-- <div class="header">
+        <div class="desc">Related</div>
+      </div> -->
+      <div class="info">
+        <i class="material-icons">tune</i>
+        {#each project.more as more}
+          <a class="lang" href={`/project/${more.toLowerCase()}`}>{more}</a>
+        {/each}
+      </div>
+    {/if}
+
     <div class="header">Gallery</div>
     <div class="gallery">
       {#each [...project.gallery].sort() as photo}
@@ -243,29 +247,29 @@
     display: flex;
     .infos {
       min-width: 250px;
-      .info {
-        opacity: 0.7;
-        display: flex;
-        align-items: center;
-        text-transform: capitalize;
-        margin-bottom: 10px;
-        flex-wrap: nowrap;
-        .material-icons {
-          margin-right: 10px;
-        }
-        a {
-          text-decoration: none;
-        }
-        .icon {
-          width: 23px;
-          height: 23px;
-          margin-right: 10px;
-        }
-        .lang:not(:last-child)::after {
-          content: ",";
-          margin-right: 10px;
-        }
-      }
+    }
+  }
+  .info {
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+    .material-icons {
+      margin-right: 10px;
+    }
+    a {
+      text-decoration: none;
+    }
+    .icon {
+      width: 23px;
+      height: 23px;
+      margin-right: 10px;
+    }
+    .lang:not(:last-child)::after {
+      content: ",";
+      margin-right: 10px;
     }
   }
   .flexo {
