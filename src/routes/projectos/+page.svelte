@@ -1,7 +1,7 @@
 <script lang="ts">
   import Banner from "$lib/Banner.svelte";
   import type { Projecto } from "$lib/database.types.js";
-  import supabaseLoader, { imgPlaceholder, urlStore } from "$lib/functions";
+  import { imgPlaceholder, urlStore } from "$lib/functions";
   import { description } from "$lib/mocks";
 
   let { data } = $props();
@@ -20,8 +20,8 @@
     projects
       .filter(
         (item) =>
-          item.name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-          item.lang.includes(search.toLowerCase())
+          item.name.includes(search.toLowerCase()) ||
+          item.title.toLocaleLowerCase().includes(search.toLowerCase())
       )
       .filter((item) => (filterby ? item.type === filterby : item))
   );

@@ -118,7 +118,7 @@
           <span class="material-icons">event</span>
           <span>{new Date(project.date).toDateString().substring(4)}</span>
         </div>
-        {#if project.lang}
+        {#if project.lang[0]}
           <div class="info">
             <span class="material-icons">code</span>
             {#each project.lang as lang}

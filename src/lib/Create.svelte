@@ -4,6 +4,7 @@
   import { productPlaceholder } from "./functions";
   import { user } from "./store";
   import { supabase } from "./supabaseClient";
+  import { page } from "$app/state";
 
   let {
     showCreate = $bindable(),
@@ -57,8 +58,8 @@
               } else {
                 loading = false;
                 showCreate = false;
-
-                goto("/projecto/" + data.name);
+                if (page.params.id !== data.name)
+                  goto("/projecto/" + data.name);
               }
             });
         } else {

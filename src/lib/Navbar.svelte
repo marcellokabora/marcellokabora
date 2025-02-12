@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import Create from "./Create.svelte";
   import Dialog from "./Dialog.svelte";
   import Login from "./Login.svelte";
@@ -57,7 +57,7 @@
   <nav class="navbar" data-aos="fade-down" class:scrolled={y > 200}>
     <ul>
       {#each menus as menu}
-        <li class:active={$page.url.pathname === menu.link}>
+        <li class:active={page.url.pathname === menu.link}>
           <a href={menu.link}>
             <span class="material-icons">{menu.icon}</span>
             <span>{menu.name}</span>
@@ -92,7 +92,7 @@
   {#if showNav}
     <nav class="navbig">
       {#each menus as menu}
-        <div class="menu" class:active={$page.url.pathname === menu.link}>
+        <div class="menu" class:active={page.url.pathname === menu.link}>
           <a href={menu.link} onclick={() => (showNav = false)}>
             <span>{menu.name}</span>
             <span class="material-icons">{menu.icon}</span>
