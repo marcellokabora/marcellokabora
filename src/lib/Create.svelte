@@ -1,6 +1,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import type { Projecto } from "./database.types";
+  import { productPlaceholder } from "./functions";
   import { user } from "./store";
   import { supabase } from "./supabaseClient";
 
@@ -32,18 +33,7 @@
     return project
       ? project
       : {
-          name: "",
-          title: "",
-          slogan: "",
-          info: "",
-          lang: [],
-          code: "",
-          link: "",
-          cover: "",
-          type: "",
-          more: [],
-          date: new Date().toISOString(),
-          gallery: [],
+          ...productPlaceholder,
           user_id: $user?.id,
           email: $user?.email ?? "",
         };
@@ -67,6 +57,7 @@
               } else {
                 loading = false;
                 showCreate = false;
+
                 goto("/projecto/" + data.name);
               }
             });
@@ -134,6 +125,14 @@
       <label>
         <span>Code</span>
         <input type="text" bind:value={data.code} />
+      </label>
+      <label>
+        <span>Type</span>
+        <select bind:value={data.type}>
+          <option value="design">Design</option>
+          <option value="website">Website</option>
+          <option value="webapp">Webapp</option>
+        </select>
       </label>
       <label>
         <span>Link</span>
@@ -207,7 +206,7 @@
   }
   .columns {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1em;
   }
   label {
@@ -217,15 +216,19 @@
       font-size: small;
     }
     input,
-    textarea {
+    textarea,
+    select {
       padding: 1em;
       border-radius: 0.5em;
       border: none;
       background-color: rgba(255, 255, 255, 0.4);
-      field-sizing: content;
       border: 1px solid silver;
     }
+    select {
+      height: 45px;
+    }
     textarea {
+      field-sizing: content;
       min-height: 80px;
       resize: vertical;
     }

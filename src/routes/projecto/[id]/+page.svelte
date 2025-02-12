@@ -3,19 +3,24 @@
   import Create from "$lib/Create.svelte";
   import type { Projecto } from "$lib/database.types";
   import Dialog from "$lib/Dialog.svelte";
-  import { getLang, imgPlaceholder, urlStore } from "$lib/functions.js";
-  import { user } from "$lib/store.js";
+  import {
+    getLang,
+    imgPlaceholder,
+    productPlaceholder,
+    urlStore,
+  } from "$lib/functions";
+  import { user } from "$lib/store";
   import { supabase } from "$lib/supabaseClient";
 
   let { data } = $props();
-  let project: Projecto | null = $state(null);
+  let project: Projecto = $state(data.project ?? productPlaceholder);
   let showCreate = $state(false);
   let inputCover: HTMLInputElement | undefined = $state();
   let inputGallery: HTMLInputElement | undefined = $state();
   let loading = $state(false);
 
   $effect(() => {
-    project = data.project;
+    project = data.project ?? productPlaceholder;
   });
 
   function onCover() {
@@ -139,13 +144,11 @@
           </div>
         {/if}
         {#if project.more}
-          <!-- <div class="header">
-            <div class="desc">Related</div>
-          </div> -->
           <div class="info">
             <i class="material-icons">tune</i>
             {#each project.more as more}
-              <a class="lang" href={`/project/${more}`}>{more}</a>
+              <a class="lang" href={`/projecto/${more.toLowerCase()}`}>{more}</a
+              >
             {/each}
           </div>
         {/if}
@@ -153,8 +156,8 @@
     </div>
     <div class="header">Gallery</div>
     <div class="gallery">
-      {#each project.gallery as photo}
-        <div class="photo" data-aos="fade-up" data-aos-duration="1000">
+      {#each [...project.gallery].sort() as photo}
+        <div class="photo" data-aos="fade-up">
           <img class="image" src={urlStore + photo} alt="" />
           {#if $user}
             <button class="material-icons" onclick={() => deletePhoto(photo)}
@@ -230,7 +233,6 @@
       }
     }
   }
-
   section {
     min-height: 100vh;
   }

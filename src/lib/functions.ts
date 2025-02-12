@@ -1,4 +1,7 @@
+import type { Projecto } from "./database.types";
+
 export function getLang(lang: string) {
+  lang = lang.trim();
   return lang === "angular"
     ? "//angular.dev"
     : lang === "svelte"
@@ -10,7 +13,13 @@ export function getLang(lang: string) {
     : lang === "d3"
     ? "//d3js.org"
     : lang === "figma"
-    ? "//figma.com"
+    ? "//d3js.org"
+    : lang === "react"
+    ? "//react.dev"
+    : lang === "builder"
+    ? "//builder.io"
+    : lang === "bootstrap"
+    ? "//getbootstrap.com"
     : "";
 }
 
@@ -26,3 +35,20 @@ export const urlStore =
   "https://iluuzburwyhjbrpihdte.supabase.co/storage/v1/object/public/marcellokabora/";
 
 export const imgPlaceholder = "/gallery/styling.jpg";
+
+export const productPlaceholder: Projecto = {
+  name: "",
+  title: "",
+  slogan: "",
+  info: "",
+  lang: [],
+  code: "",
+  link: "",
+  cover: "",
+  type: "",
+  more: [],
+  date: new Date().toISOString(),
+  gallery: [],
+  user_id: "",
+  email: "",
+};
