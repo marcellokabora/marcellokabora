@@ -1,8 +1,9 @@
 <script lang="ts">
-  // import { page } from "$app/state";
 </script>
 
-<!-- <h1>{page.error.message}</h1> -->
+<section>
+  <h1>404</h1>
+</section>
 
 <style>
   section {
