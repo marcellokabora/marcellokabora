@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { enhance } from "$app/forms";
   import Banner from "$lib/Banner.svelte";
   import Create from "$lib/Create.svelte";
   import type { Projecto } from "$lib/database.types";
@@ -11,7 +12,8 @@
     urlStore,
   } from "$lib/functions";
   import { user } from "$lib/store";
-  import { supabase } from "$lib/supabaseClient";
+  import type { FormEventHandler } from "svelte/elements";
+  // import { supabase } from "$lib/supabaseClient";
 
   let { data } = $props();
   let project: Projecto = $state(data.project ?? productPlaceholder);
@@ -19,74 +21,75 @@
   let inputCover: HTMLInputElement | undefined = $state();
   let inputGallery: HTMLInputElement | undefined = $state();
   let loading = $state(false);
+  let formCover: HTMLFormElement | undefined = $state();
 
   $effect(() => {
     project = data.project ?? productPlaceholder;
   });
 
   function onCover() {
-    if (project && inputCover && inputCover.files) {
-      loading = true;
-      supabase.storage.from("marcellokabora").remove([project.cover]);
-      supabase.storage
-        .from("marcellokabora")
-        .upload(
-          project.name + "/" + inputCover.files[0].name,
-          inputCover.files[0],
-          {
-            upsert: true,
-          }
-        )
-        .then((result) => {
-          if (project && result.data) {
-            project.cover = result.data.path;
-            supabase
-              .from("projects")
-              .upsert(project)
-              .then(() => {
-                loading = false;
-              });
-          }
-        });
-    }
+    // if (project && inputCover && inputCover.files) {
+    //   loading = true;
+    //   supabase.storage.from("marcellokabora").remove([project.cover]);
+    //   supabase.storage
+    //     .from("marcellokabora")
+    //     .upload(
+    //       project.name + "/" + inputCover.files[0].name,
+    //       inputCover.files[0],
+    //       {
+    //         upsert: true,
+    //       }
+    //     )
+    //     .then((result) => {
+    //       if (project && result.data) {
+    //         project.cover = result.data.path;
+    //         supabase
+    //           .from("projects")
+    //           .upsert(project)
+    //           .then(() => {
+    //             loading = false;
+    //           });
+    //       }
+    //     });
+    // }
   }
 
   function onGallery() {
-    if (project && inputGallery && inputGallery.files && project.gallery) {
-      for (let step = 0; step < inputGallery.files.length; step++) {
-        let photo = inputGallery.files[step];
-        supabase.storage
-          .from("marcellokabora")
-          .upload(project.name + "/" + photo.name, photo)
-          .then((result) => {
-            if (result.data && project) {
-              project.gallery = [
-                ...project.gallery,
-                project.name + "/" + photo.name,
-              ];
-              supabase
-                .from("projects")
-                .upsert(project)
-                .then(() => {
-                  loading = false;
-                });
-            }
-          });
-      }
-    }
+    // if (project && inputGallery && inputGallery.files && project.gallery) {
+    //   for (let step = 0; step < inputGallery.files.length; step++) {
+    //     let photo = inputGallery.files[step];
+    //     supabase.storage
+    //       .from("marcellokabora")
+    //       .upload(project.name + "/" + photo.name, photo)
+    //       .then((result) => {
+    //         if (result.data && project) {
+    //           project.gallery = [
+    //             ...project.gallery,
+    //             project.name + "/" + photo.name,
+    //           ];
+    //           supabase
+    //             .from("projects")
+    //             .upsert(project)
+    //             .then(() => {
+    //               loading = false;
+    //             });
+    //         }
+    //       });
+    //   }
+    // }
   }
 
   function deletePhoto(photo: string) {
-    if (project) {
-      project.gallery = project?.gallery.filter((value) => value !== photo);
-      if (project)
-        supabase
-          .from("projects")
-          .upsert(project)
-          .then(() => {
-            supabase.storage.from("marcellokabora").remove([photo]);
-          });
-    }
+    // if (project) {
+    //   project.gallery = project?.gallery.filter((value) => value !== photo);
+    //   if (project)
+    //     supabase
+    //       .from("projects")
+    //       .upsert(project)
+    //       .then(() => {
+    //         supabase.storage.from("marcellokabora").remove([photo]);
+    //       });
+    // }
   }
 </script>
 
@@ -115,11 +118,13 @@
         <div class="header">
           <div class="desc">Details</div>
         </div>
-        <div class="info">
-          <span class="material-icons">event</span>
-          <span>{formatDate(project.date)}</span>
-        </div>
-        {#if project.lang[0]}
+        {#if project.date}
+          <div class="info">
+            <span class="material-icons">event</span>
+            <span>{formatDate(project.date)}</span>
+          </div>
+        {/if}
+        {#if project.lang}
           <div class="info">
             <span class="material-icons">code</span>
             {#each project.lang as lang}
@@ -157,33 +162,50 @@
         {/each}
       </div>
     {/if}
-
-    <div class="header">Gallery</div>
-    <div class="gallery">
-      {#each [...project.gallery].sort() as photo}
-        <div class="photo" data-aos="fade-up">
-          <img class="image" src={urlStore + photo} alt="" />
-          {#if $user}
-            <button class="material-icons" onclick={() => deletePhoto(photo)}
-              >delete</button
-            >
-          {/if}
-        </div>
-      {/each}
-    </div>
+    {#if project.gallery}
+      <div class="header">Gallery</div>
+      <div class="gallery">
+        {#each [...project.gallery].sort() as photo}
+          <div class="photo" data-aos="fade-up">
+            <img class="image" src={urlStore + photo} alt="" />
+            {#if $user}
+              <button class="material-icons" onclick={() => deletePhoto(photo)}
+                >delete</button
+              >
+            {/if}
+          </div>
+        {/each}
+      </div>
+    {/if}
   </section>
 {/if}
 
 {#if $user}
   <div class="actions">
-    <button class="material-icons"
-      >photo <input
-        bind:this={inputCover}
-        onchange={onCover}
-        type="file"
-        title="Cover"
-      /></button
+    <form
+      method="POST"
+      action="?/cover"
+      enctype="multipart/form-data"
+      bind:this={formCover}
+      use:enhance={() => {
+        return async ({ result }) => {
+          if (result.type === "success") {
+            if (result?.data?.cover)
+              project.cover = result.data.cover as string;
+          }
+        };
+      }}
     >
+      <button class="material-icons"
+        >photo <input
+          bind:this={inputCover}
+          onchange={() => formCover?.requestSubmit()}
+          type="file"
+          title="Cover"
+          name="cover"
+        /></button
+      >
+    </form>
     <button
       onclick={() => (showCreate = true)}
       class="material-icons"

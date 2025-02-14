@@ -1,10 +1,11 @@
 <script lang="ts">
+  import { enhance } from "$app/forms";
   import { page } from "$app/state";
   import Create from "./Create.svelte";
   import Dialog from "./Dialog.svelte";
   import Login from "./Login.svelte";
   import { user } from "./store";
-  import { supabase } from "./supabaseClient";
+  // import { supabase } from "./supabaseClient";
 
   let showModal = $state(false);
   let showCreate = $state(false);
@@ -39,8 +40,8 @@
   let showNav: boolean = $state(false);
 
   function onLogout() {
-    supabase.auth.signOut();
-    user.set(null);
+    // supabase.auth.signOut();
+    // user.set(null);
   }
 </script>
 
@@ -76,14 +77,16 @@
         <div class="dropdown">
           <div class="email">{$user.email}</div>
           <div class="actions">
-            <button onclick={() => (showCreate = true)}>
+            <button type="submit" onclick={() => (showCreate = true)}>
               <i class="material-icons">add_circle</i>
               Create</button
             >
-            <button onclick={onLogout}>
-              <i class="material-icons">logout</i>
-              Logout</button
-            >
+            <form method="POST" action="/?/logout">
+              <button onclick={onLogout}>
+                <i class="material-icons">logout</i>
+                Logout</button
+              >
+            </form>
           </div>
         </div>
       {/if}

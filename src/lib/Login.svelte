@@ -1,11 +1,15 @@
 <script lang="ts">
+  import { enhance } from "$app/forms";
+  import { goto } from "$app/navigation";
+  import type { User } from "@supabase/supabase-js";
   import { user } from "./store";
-  import { supabase } from "./supabaseClient";
+  // import { user } from "./store";
+  // import { supabase } from "./supabaseClient";
 
   let { showModal = $bindable() } = $props();
   let email = $state("");
   let password = $state("");
-  let error = $state("");
+  let error = $state();
   let loading = $state(false);
   let valid = $derived(email && password);
 
@@ -13,25 +17,42 @@
     event.preventDefault();
     error = "";
     loading = true;
-    supabase.auth
-      .signInWithPassword({
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        if (response.error) {
-          error = response.error.message;
-          loading = false;
-        } else {
-          user.set(response.data.user);
-          loading = false;
-          showModal = false;
-        }
-      });
+    // supabase.auth
+    //   .signInWithPassword({
+    //     email: email,
+    //     password: password,
+    //   })
+    //   .then((response) => {
+    //     if (response.error) {
+    //       error = response.error.message;
+    //       loading = false;
+    //     } else {
+    //       user.set(response.data.user);
+    //       loading = false;
+    //       showModal = false;
+    //     }
+    //   });
   }
 </script>
 
-<form onsubmit={handleSubmit}>
+<form
+  method="POST"
+  action="/?/login"
+  use:enhance={() => {
+    loading = true;
+    error = null;
+    return async ({ result }) => {
+      loading = false;
+      if (result.type === "success") {
+        error = result?.data?.error;
+        if (!error) {
+          showModal = false;
+          if (result?.data?.user) user.set(result.data.user as User);
+        }
+      }
+    };
+  }}
+>
   <label>
     <span>Email</span>
     <!-- svelte-ignore a11y_autofocus -->

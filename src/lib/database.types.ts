@@ -8,20 +8,20 @@ export type Json =
 
 export type Projecto = {
   id?: number;
-  cover: string;
-  date: string;
-  gallery: string[];
-  lang: string[];
   name: string;
-  slogan: string;
+  cover?: string;
+  date: string;
+  gallery?: string[];
+  lang?: string[];
+  slogan?: string;
   title: string;
-  type: string;
-  info: string;
-  link: string;
-  code: string;
-  more: string[];
-  user_id: any;
-  email: string;
+  type?: string;
+  info?: string;
+  link?: string;
+  code?: string;
+  more?: string[];
+  user_id?: any;
+  email?: string;
 };
 
 export type Database = {

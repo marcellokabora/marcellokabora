@@ -76,9 +76,11 @@
               />
               <div class="more">
                 <div class="type">{item.type}</div>
-                <div class="time">
-                  {formatDate(item.date)}
-                </div>
+                {#if item.date}
+                  <div class="time">
+                    {formatDate(item.date)}
+                  </div>
+                {/if}
               </div>
             </div>
             <div class="info">

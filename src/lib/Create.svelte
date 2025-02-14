@@ -3,8 +3,8 @@
   import type { Projecto } from "./database.types";
   import { productPlaceholder } from "./functions";
   import { user } from "./store";
-  import { supabase } from "./supabaseClient";
   import { page } from "$app/state";
+  import { enhance } from "$app/forms";
 
   let {
     showCreate = $bindable(),
@@ -15,14 +15,15 @@
   } = $props();
 
   let loading = $state(false);
-  let error = $state("");
+  let error = $state();
   let data: Projecto = $state(initData());
   // svelte-ignore state_referenced_locally
-  let more = $state(data.more?.join());
+  // let more = $state(data.more?.join());
   // svelte-ignore state_referenced_locally
-  let lang = $state(data.lang?.join());
-  let isValid = $derived(data.name);
+  // let lang = $state(data.lang?.join());
+  let isValid = $derived(data.name && data.date && data.title);
   let showConfirm = $state(false);
+  let formDelete: HTMLFormElement | undefined = $state();
 
   $effect(() => {
     if (showCreate) {
@@ -39,96 +40,55 @@
           email: $user?.email ?? "",
         };
   }
-
-  function handleSubmit() {
-    if ($user) {
-      loading = true;
-      error = "";
-      if (isValid) {
-        data.more = more.split(",");
-        data.lang = lang.split(",");
-        if (project) {
-          supabase
-            .from("projects")
-            .upsert(data)
-            .then((result) => {
-              if (result.error) {
-                error = result.error.message;
-                loading = false;
-              } else {
-                loading = false;
-                showCreate = false;
-                if (page.params.id !== data.name) goto("/project/" + data.name);
-              }
-            });
-        } else {
-          supabase
-            .from("projects")
-            .insert(data)
-            .then((result) => {
-              if (result.error) {
-                error = result.error.message;
-                loading = false;
-              } else {
-                loading = false;
-                showCreate = false;
-                goto("/project/" + data.name);
-                data = initData();
-              }
-            });
-        }
-      } else {
-        error = "Missing";
-      }
-    } else {
-      error = "Error";
-    }
-  }
-
-  function onDelete() {
-    supabase.storage
-      .from("marcellokabora")
-      .remove([data.cover, ...data.gallery]);
-    supabase
-      .from("projects")
-      .delete()
-      .eq("id", data.id!)
-      .then(() => {
-        goto("/projects");
-      });
-  }
 </script>
 
-<div class="form">
+<form
+  class="form"
+  method="POST"
+  action="/?/create"
+  use:enhance={() => {
+    loading = true;
+    return async ({ result }) => {
+      loading = false;
+      if (result.type === "success") {
+        error = result?.data?.error;
+        if (!error) {
+          showCreate = false;
+          if (page.params.id !== data.name) goto("/project/" + data.name);
+        }
+      }
+    };
+  }}
+>
   <div class="main">
     <div class="columns">
       <label>
         <span>Name*</span>
-        <input type="text" bind:value={data.name} />
+        <input name="name" type="text" bind:value={data.name} />
       </label>
       <label>
-        <span>Date</span>
-        <input type="date" bind:value={data.date} />
+        <span>Date*</span>
+        <input name="date" type="date" bind:value={data.date} />
       </label>
       <label>
-        <span>Title</span>
-        <input type="text" bind:value={data.title} />
+        <span>Title*</span>
+        <input name="title" type="text" bind:value={data.title} />
       </label>
       <label>
         <span>Slogan</span>
-        <input type="text" bind:value={data.slogan} />
+        <input name="slogan" type="text" bind:value={data.slogan} />
       </label>
       <label>
         <span>Lang</span>
-        <input type="text" bind:value={lang} />
+        <input name="lang" type="text" bind:value={data.lang} />
       </label>
       <label>
         <span>Code</span>
-        <input type="text" bind:value={data.code} />
+        <input name="code" type="text" bind:value={data.code} />
       </label>
       <label>
         <span>Type</span>
-        <select bind:value={data.type}>
+        <select name="type" bind:value={data.type}>
           <option value="design">Design</option>
           <option value="website">Website</option>
           <option value="webapp">Webapp</option>
@@ -136,24 +96,33 @@
       </label>
       <label>
         <span>Link</span>
-        <input type="text" bind:value={data.link} />
+        <input name="link" type="text" bind:value={data.link} />
       </label>
       <label>
         <span>Related</span>
-        <input type="text" bind:value={more} />
+        <input name="more" type="text" bind:value={data.more} />
       </label>
     </div>
     <label>
       <span>Infos</span>
-      <textarea bind:value={data.info}></textarea>
+      <textarea name="info" bind:value={data.info}></textarea>
     </label>
+    <div class="hidden">
+      <!-- <input name="user_id" type="number" value={$user?.id} />
+      <input name="email" type="text" value={$user?.email} /> -->
+      <input name="id" type="text" value={data.id} />
+    </div>
   </div>
   <div class="actions">
     <div class="block">
       {#if project}
         <div>
           {#if showConfirm}
-            <button class="confirm" onclick={onDelete}>
+            <button
+              type="button"
+              class="confirm"
+              onclick={() => formDelete?.requestSubmit()}
+            >
               <i class="material-icons">check</i>
               <span>Confirm</span>
             </button>
@@ -175,7 +144,7 @@
         class="login"
         disabled={!isValid}
         style:opacity={!isValid ? 0.2 : 1}
-        onclick={handleSubmit}
+        type="submit"
       >
         {#if loading}
           <span>Loading...</span>
@@ -186,7 +155,21 @@
       </button>
     </div>
   </div>
-</div>
+</form>
+
+<form
+  class="form"
+  method="POST"
+  action="/project/[id]?/delete"
+  bind:this={formDelete}
+  use:enhance={() => {
+    return async ({ result }) => {
+      if (result.type === "success") {
+        goto("/");
+      }
+    };
+  }}
+></form>
 
 <style>
   .form {

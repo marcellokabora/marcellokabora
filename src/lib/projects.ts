@@ -98,7 +98,7 @@ export const projects: ProjectThumb[] = [
     lang: ["react", "builder"],
   },
   {
-    photo: "/project/linus/_cover.jpeg",
+    photo: "/project/linus-registration/_cover.jpeg",
     name: "Linus - Registration",
     link: "/project/linus-registration",
     type: "webapp",
