@@ -51,12 +51,11 @@ export const actions: Actions = {
       email: account.email,
     };
     const id = Number(form.get("id"));
-    let sendata;
     if (id) {
       data.id = id;
-      sendata = await supabase.from("projects").update(data).eq("id", data.id);
+      await supabase.from("projects").update(data).eq("id", data.id);
     } else {
-      sendata = await supabase.from("projects").insert(data);
+      await supabase.from("projects").insert(data);
     }
     return { success: true };
   },
