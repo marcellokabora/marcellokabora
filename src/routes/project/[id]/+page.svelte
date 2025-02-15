@@ -12,85 +12,18 @@
     urlStore,
   } from "$lib/functions";
   import { user } from "$lib/store";
-  import type { FormEventHandler } from "svelte/elements";
-  // import { supabase } from "$lib/supabaseClient";
 
   let { data } = $props();
   let project: Projecto = $state(data.project ?? productPlaceholder);
   let showCreate = $state(false);
   let inputCover: HTMLInputElement | undefined = $state();
   let inputGallery: HTMLInputElement | undefined = $state();
-  let loading = $state(false);
   let formCover: HTMLFormElement | undefined = $state();
+  let formGallery: HTMLFormElement | undefined = $state();
 
   $effect(() => {
     project = data.project ?? productPlaceholder;
   });
-
-  function onCover() {
-    // if (project && inputCover && inputCover.files) {
-    //   loading = true;
-    //   supabase.storage.from("marcellokabora").remove([project.cover]);
-    //   supabase.storage
-    //     .from("marcellokabora")
-    //     .upload(
-    //       project.name + "/" + inputCover.files[0].name,
-    //       inputCover.files[0],
-    //       {
-    //         upsert: true,
-    //       }
-    //     )
-    //     .then((result) => {
-    //       if (project && result.data) {
-    //         project.cover = result.data.path;
-    //         supabase
-    //           .from("projects")
-    //           .upsert(project)
-    //           .then(() => {
-    //             loading = false;
-    //           });
-    //       }
-    //     });
-    // }
-  }
-
-  function onGallery() {
-    // if (project && inputGallery && inputGallery.files && project.gallery) {
-    //   for (let step = 0; step < inputGallery.files.length; step++) {
-    //     let photo = inputGallery.files[step];
-    //     supabase.storage
-    //       .from("marcellokabora")
-    //       .upload(project.name + "/" + photo.name, photo)
-    //       .then((result) => {
-    //         if (result.data && project) {
-    //           project.gallery = [
-    //             ...project.gallery,
-    //             project.name + "/" + photo.name,
-    //           ];
-    //           supabase
-    //             .from("projects")
-    //             .upsert(project)
-    //             .then(() => {
-    //               loading = false;
-    //             });
-    //         }
-    //       });
-    //   }
-    // }
-  }
-
-  function deletePhoto(photo: string) {
-    // if (project) {
-    //   project.gallery = project?.gallery.filter((value) => value !== photo);
-    //   if (project)
-    //     supabase
-    //       .from("projects")
-    //       .upsert(project)
-    //       .then(() => {
-    //         supabase.storage.from("marcellokabora").remove([photo]);
-    //       });
-    // }
-  }
 </script>
 
 <svelte:head>
@@ -124,7 +57,7 @@
             <span>{formatDate(project.date)}</span>
           </div>
         {/if}
-        {#if project.lang}
+        {#if project.lang && project.lang[0]}
           <div class="info">
             <span class="material-icons">code</span>
             {#each project.lang as lang}
@@ -151,10 +84,7 @@
         {/if}
       </div>
     </div>
-    {#if project.more}
-      <!-- <div class="header">
-        <div class="desc">Related</div>
-      </div> -->
+    {#if project.more && project.more[0]}
       <div class="info">
         <i class="material-icons">tune</i>
         {#each project.more as more}
@@ -169,9 +99,23 @@
           <div class="photo" data-aos="fade-up">
             <img class="image" src={urlStore + photo} alt="" />
             {#if $user}
-              <button class="material-icons" onclick={() => deletePhoto(photo)}
-                >delete</button
+              <form
+                method="POST"
+                action="?/remove"
+                use:enhance={() => {
+                  return async ({ result }) => {
+                    if (result.type === "success") {
+                      if (result?.data?.project)
+                        project = result.data.project as Projecto;
+                    }
+                  };
+                }}
               >
+                <button class="material-icons" type="submit">delete</button>
+                <div class="hidden">
+                  <input type="text" name="name" value={photo} />
+                </div>
+              </form>
             {/if}
           </div>
         {/each}
@@ -211,14 +155,29 @@
       class="material-icons"
       title="Edit">edit</button
     >
-    <button class="material-icons" title="Gallery"
-      >photo_library <input
-        multiple
-        bind:this={inputGallery}
-        onchange={onGallery}
-        type="file"
-      /></button
+    <form
+      method="POST"
+      action="?/gallery"
+      enctype="multipart/form-data"
+      bind:this={formGallery}
+      use:enhance={() => {
+        return async ({ result }) => {
+          if (result.type === "success") {
+            if (result.data) project = result.data.project as Projecto;
+          }
+        };
+      }}
     >
+      <button class="material-icons" title="Gallery"
+        >photo_library <input
+          multiple
+          bind:this={inputGallery}
+          onchange={() => formGallery?.requestSubmit()}
+          type="file"
+          name="gallery"
+        /></button
+      >
+    </form>
   </div>
 {/if}
 
@@ -320,6 +279,10 @@
     margin-bottom: 50px;
     .photo {
       position: relative;
+      img {
+        border-radius: 0.5em;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+      }
       button {
         zoom: 0.8;
         height: 50px;

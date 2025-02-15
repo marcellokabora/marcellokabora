@@ -1,10 +1,7 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import { goto } from "$app/navigation";
   import type { User } from "@supabase/supabase-js";
   import { user } from "./store";
-  // import { user } from "./store";
-  // import { supabase } from "./supabaseClient";
 
   let { showModal = $bindable() } = $props();
   let email = $state("");
@@ -12,27 +9,6 @@
   let error = $state();
   let loading = $state(false);
   let valid = $derived(email && password);
-
-  function handleSubmit(event: SubmitEvent) {
-    event.preventDefault();
-    error = "";
-    loading = true;
-    // supabase.auth
-    //   .signInWithPassword({
-    //     email: email,
-    //     password: password,
-    //   })
-    //   .then((response) => {
-    //     if (response.error) {
-    //       error = response.error.message;
-    //       loading = false;
-    //     } else {
-    //       user.set(response.data.user);
-    //       loading = false;
-    //       showModal = false;
-    //     }
-    //   });
-  }
 </script>
 
 <form

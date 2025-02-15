@@ -17,10 +17,6 @@
   let loading = $state(false);
   let error = $state();
   let data: Projecto = $state(initData());
-  // svelte-ignore state_referenced_locally
-  // let more = $state(data.more?.join());
-  // svelte-ignore state_referenced_locally
-  // let lang = $state(data.lang?.join());
   let isValid = $derived(data.name && data.date && data.title);
   let showConfirm = $state(false);
   let formDelete: HTMLFormElement | undefined = $state();
@@ -108,8 +104,6 @@
       <textarea name="info" bind:value={data.info}></textarea>
     </label>
     <div class="hidden">
-      <!-- <input name="user_id" type="number" value={$user?.id} />
-      <input name="email" type="text" value={$user?.email} /> -->
       <input name="id" type="text" value={data.id} />
     </div>
   </div>
@@ -129,7 +123,7 @@
           {:else}
             <button class="delete" onclick={() => (showConfirm = true)}>
               <i class="material-icons">delete</i>
-              <span>Delete</span>
+              <!-- <span>Delete</span> -->
             </button>
           {/if}
         </div>

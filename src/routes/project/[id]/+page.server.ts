@@ -2,21 +2,21 @@ import type { Projecto } from "$lib/database.types";
 import { supabase } from "$lib/server/supabaseClient";
 import { error, type Actions, type ServerLoad } from "@sveltejs/kit";
 
-let projectData: Projecto;
+let project: Projecto;
 
 export const load: ServerLoad = async ({ params }) => {
   const id = params.id ? params.id : "";
-  let { data: project } = await supabase
+  let { data } = await supabase
     .from("projects")
     .select()
     .eq("name", id)
     .single();
-  if (!project) {
+  if (!data) {
     error(404, {
       message: "Not found",
     });
   } else {
-    projectData = project;
+    project = data;
   }
   return { project };
 };
@@ -26,10 +26,11 @@ export const actions: Actions = {
     const { data, error } = await supabase
       .from("projects")
       .delete()
-      .eq("id", projectData?.id!);
-    let photos: string[] = [];
-    if (projectData.cover) photos = [...photos, projectData.cover];
-    if (projectData.gallery) photos = [...photos, ...projectData.gallery];
+      .eq("id", project?.id!);
+    let photos: string[] = [
+      ...[project.cover ?? ""],
+      ...(project.gallery ?? []),
+    ];
     supabase.storage.from("marcellokabora").remove(photos);
     if (error) return { error };
     return { data };
@@ -37,19 +38,42 @@ export const actions: Actions = {
   cover: async ({ request }) => {
     const form = await request.formData();
     const cover = form.get("cover");
-    if (cover && projectData) {
-      if (projectData.cover)
-        supabase.storage.from("marcellokabora").remove([projectData.cover]);
-      projectData.cover = projectData.name + "/" + Date.now();
-      const req1 = await supabase.from("projects").upsert(projectData);
+    if (cover && project) {
+      if (project.cover)
+        supabase.storage.from("marcellokabora").remove([project.cover]);
+      project.cover = project.name + "/" + Date.now();
+      const req1 = await supabase.from("projects").upsert(project);
       const { data, error } = await supabase.storage
         .from("marcellokabora")
-        .upload(projectData.cover, cover, {
+        .upload(project.cover, cover, {
           cacheControl: "3600",
           upsert: true,
         });
       if (error) return { error: error.message };
       return { cover: data.path };
     }
+  },
+  gallery: async ({ request }) => {
+    const form = await request.formData();
+    const files = form.getAll("gallery");
+    let prosimese: any = [];
+    files.forEach((file, index) => {
+      const name = project.name + "/" + Date.now().toString() + index;
+      project.gallery = [...(project.gallery ?? []), name];
+      prosimese.push(
+        supabase.storage.from("marcellokabora").upload(name, file)
+      );
+    });
+    await Promise.all(prosimese);
+    await supabase.from("projects").upsert(project);
+    return { project };
+  },
+  remove: async ({ request }) => {
+    const form = await request.formData();
+    const name = form.getAll("name").toString();
+    supabase.storage.from("marcellokabora").remove([name]);
+    project.gallery = project.gallery?.filter((value) => value !== name);
+    await supabase.from("projects").upsert(project);
+    return { project };
   },
 };
