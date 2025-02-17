@@ -34,7 +34,7 @@
   .cover {
     position: absolute;
     object-fit: cover;
-    height: 105%;
+    height: 110%;
     width: 105%;
     z-index: -1;
     filter: saturate(1) brightness(0.8) blur(8px);

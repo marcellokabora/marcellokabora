@@ -1,9 +1,15 @@
 <script lang="ts">
   import Banner from "$lib/Banner.svelte";
+  import type { Projecto } from "$lib/database.types";
   import { description } from "$lib/mocks";
   import Projects from "$lib/Projects.svelte";
 
   let { data } = $props();
+
+  let projects = data.projects?.sort(
+    (a: Projecto, b: Projecto) =>
+      new Date(b.date).valueOf() - new Date(a.date).valueOf()
+  );
 </script>
 
 <svelte:head>
@@ -19,4 +25,6 @@
   slogan="A collection of my successful projects"
 />
 <br />
-<Projects projects={data.projects} />
+<section>
+  <Projects {projects} />
+</section>

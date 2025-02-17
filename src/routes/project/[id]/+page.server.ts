@@ -2,16 +2,11 @@ import type { Projecto } from "$lib/database.types";
 import { supabase } from "$lib/server/supabaseClient";
 import { error, type Actions } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
-import type { User } from "@supabase/supabase-js";
 
 let project: Projecto;
-let account: User;
 
 export const load: PageServerLoad = async ({ params, parent }) => {
-  const { user } = await parent();
-
-  if (user) account = user;
-
+  const { projects } = await parent();
   const id = params.id ? params.id : "";
   let { data } = await supabase
     .from("projects")
@@ -25,7 +20,7 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   } else {
     project = data;
   }
-  return { project };
+  return { project: project, projects };
 };
 
 export const actions: Actions = {

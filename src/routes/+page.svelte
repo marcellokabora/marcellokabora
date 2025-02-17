@@ -1,11 +1,17 @@
-<script>
+<script lang="ts">
   import Gallery from "$lib/Gallery.svelte";
   import Section from "$lib/Section.svelte";
   import Header from "$lib/Header.svelte";
   import Carousel from "$lib/Carousel.svelte";
   import Projects from "$lib/Projects.svelte";
+  import type { Projecto } from "$lib/database.types";
 
   let { data } = $props();
+
+  let projects = data.projects?.sort(
+    (a: Projecto, b: Projecto) =>
+      new Date(b.date).valueOf() - new Date(a.date).valueOf()
+  );
 
   const company = {
     cover: "/photo/back2.jpg",
@@ -160,12 +166,7 @@
   <div class="space"></div>
 </section>
 
-<Carousel
-  title={company.title}
-  slogan={company.slogan}
-  cover={company.cover}
-  items={company.items}
-/>
+<Carousel title={company.title} slogan={company.slogan} items={company.items} />
 
 <section>
   <div class="space"></div>
@@ -222,17 +223,13 @@
   <div class="space"></div>
 </section>
 
-<Carousel
-  title={language.title}
-  cover={language.cover}
-  items={language.items}
-/>
+<Carousel title={language.title} items={language.items} />
 
 <section>
   <div class="space"></div>
   <Header title="PROJECTS" slogan="A collection of my successful projects" />
   <br /><br />
-  <Projects projects={data.projects} />
+  <Projects {projects} />
 </section>
 
 <style>

@@ -8,7 +8,7 @@
   }
 
   let {
-    cover = "/gallery/back2.jpg",
+    cover = "/gallery/blur002.jpg",
     title = "",
     slogan = "",
     items = [],

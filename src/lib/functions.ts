@@ -24,6 +24,10 @@ export function getLang(lang: string) {
     ? "//jquery.com"
     : lang === "mysql"
     ? "//mysql.com"
+    : lang === "highcharts"
+    ? "//highcharts.com"
+    : lang === "google map"
+    ? "//developers.google.com/maps"
     : "";
 }
 
@@ -35,8 +39,12 @@ export default function supabaseLoader({
   return `https://iluuzburwyhjbrpihdte.supabase.co/storage/v1/object/public/marcellokabora/${src}?width=${width}&quality=${quality}`;
 }
 
-export const urlStore =
-  "https://iluuzburwyhjbrpihdte.supabase.co/storage/v1/object/public/marcellokabora/";
+export function getImg(img: String) {
+  return (
+    "https://iluuzburwyhjbrpihdte.supabase.co/storage/v1/object/public/marcellokabora/" +
+    img
+  );
+}
 
 export const imgPlaceholder = "/gallery/styling.jpg";
 

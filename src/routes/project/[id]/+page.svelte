@@ -4,25 +4,28 @@
   import Create from "$lib/Create.svelte";
   import type { Projecto } from "$lib/database.types";
   import Dialog from "$lib/Dialog.svelte";
-  import {
-    formatDate,
-    getLang,
-    imgPlaceholder,
-    productPlaceholder,
-    urlStore,
-  } from "$lib/functions";
+  import { formatDate, getImg, getLang, imgPlaceholder } from "$lib/functions";
+  import Projects from "$lib/Projects.svelte";
   import { user } from "$lib/store";
 
   let { data } = $props();
-  let project: Projecto = $state(data.project ?? productPlaceholder);
+  let project: Projecto = $state(data.project);
   let showCreate = $state(false);
   let inputCover: HTMLInputElement | undefined = $state();
   let inputGallery: HTMLInputElement | undefined = $state();
   let formCover: HTMLFormElement | undefined = $state();
   let formGallery: HTMLFormElement | undefined = $state();
+  let related = $derived(
+    data.projects
+      .filter(
+        (value) => value.type === project.type && value.name !== project.name
+      )
+      .sort(() => 0.5 - Math.random())
+      .splice(0, 9)
+  );
 
   $effect(() => {
-    project = data.project ?? productPlaceholder;
+    project = data.project;
   });
 </script>
 
@@ -34,7 +37,7 @@
 
 {#if project}
   <Banner
-    cover={project?.cover ? urlStore + project.cover : imgPlaceholder}
+    cover={project?.cover ? getImg(project.cover) : imgPlaceholder}
     title={project.title}
     slogan={project.slogan}
   />
@@ -56,18 +59,16 @@
             <span>{formatDate(project.date)}</span>
           </div>
         {/if}
-        {#if project.lang}
+        {#if project.type}
           <div class="info">
-            <span class="material-icons">code</span>
-            {#each project.lang.split(",") as lang}
-              <a class="lang" href={getLang(lang)} target="_blank">{lang}</a>
-            {/each}
+            <span class="material-icons">topic</span>
+            <span>{project.type}</span>
           </div>
         {/if}
         {#if project.link}
           <div class="info">
             <span class="material-icons">web</span>
-            <a class="lang" href={project.link} target="_blank">Website</a>
+            <a class="lang" href={project.link} target="_blank">Preview</a>
           </div>
         {/if}
         {#if project.code}
@@ -83,20 +84,23 @@
         {/if}
       </div>
     </div>
-    {#if project.more && project.more[0]}
-      <div class="info">
-        <i class="material-icons">tune</i>
-        {#each project.more as more}
-          <a class="lang" href={`/project/${more.toLowerCase()}`}>{more}</a>
-        {/each}
-      </div>
-    {/if}
+    <div class="infos">
+      {#if project.lang}
+        <div class="info">
+          <span class="material-icons" title="Technology">code</span>
+          {#each project.lang.split(",") as lang}
+            <a class="lang" href={getLang(lang)} target="_blank">{lang}</a>
+          {/each}
+        </div>
+      {/if}
+    </div>
+
     {#if project.gallery}
       <div class="gallery">
         <div class="header">Gallery</div>
         {#each [...project.gallery].sort() as photo}
           <div class="photo" data-aos="fade-up">
-            <img class="image" src={urlStore + photo} alt="" />
+            <img src={getImg(photo)} alt="" />
             {#if $user}
               <form
                 method="POST"
@@ -120,6 +124,12 @@
         {/each}
       </div>
     {/if}
+    <div class="related">
+      <div class="header">Realted</div>
+      <div class="main">
+        <Projects projects={related} hideSearch />
+      </div>
+    </div>
   </section>
 {/if}
 
@@ -219,6 +229,7 @@
   }
   section {
     min-height: 100vh;
+    margin-bottom: 4em;
   }
   .visual {
     margin-top: 20px;
@@ -226,6 +237,9 @@
     flex-wrap: wrap;
     display: flex;
     gap: 2em;
+    .flexo {
+      flex: 1;
+    }
   }
   .header {
     border-bottom: 1px solid silver;
@@ -239,50 +253,42 @@
     font-size: 1.2em;
   }
   .infos {
-    min-width: 250px;
-  }
-  .info {
-    opacity: 0.7;
-    display: flex;
-    align-items: center;
-    text-transform: capitalize;
-    margin-bottom: 10px;
-    flex-wrap: nowrap;
-    .material-icons {
-      margin-right: 10px;
+    .info {
+      /* max-width: 200px; */
+      opacity: 0.7;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      text-transform: capitalize;
+      margin-bottom: 10px;
+      .material-icons {
+        margin-right: 10px;
+      }
+      a {
+        text-decoration: none;
+      }
+      .icon {
+        width: 23px;
+        height: 23px;
+        margin-right: 10px;
+      }
+      .lang:not(:last-child)::after {
+        content: ",";
+        margin-right: 10px;
+      }
     }
-    a {
-      text-decoration: none;
-    }
-    .icon {
-      width: 23px;
-      height: 23px;
-      margin-right: 10px;
-    }
-    .lang:not(:last-child)::after {
-      content: ",";
-      margin-right: 10px;
-    }
-  }
-  .flexo {
-    flex: 1;
   }
   .photo {
     position: relative;
     margin-bottom: 20px;
-  }
-  .photo:hover .image {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-  .image {
-    width: 100%;
-    transition: all 0.3s;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
+    img {
+      width: 100%;
+      transition: all 0.3s;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
   }
   .gallery {
-    margin-bottom: 4em;
-    margin-top: 2em;
     .photo {
       position: relative;
       img {

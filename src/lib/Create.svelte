@@ -62,27 +62,57 @@
     <div class="columns">
       <label>
         <span>Name*</span>
-        <input name="name" type="text" bind:value={data.name} />
+        <input
+          name="name"
+          type="text"
+          bind:value={data.name}
+          autocomplete="off"
+        />
       </label>
       <label>
         <span>Date*</span>
-        <input name="date" type="date" bind:value={data.date} />
+        <input
+          name="date"
+          type="date"
+          bind:value={data.date}
+          autocomplete="off"
+        />
       </label>
       <label>
         <span>Title*</span>
-        <input name="title" type="text" bind:value={data.title} />
+        <input
+          name="title"
+          type="text"
+          bind:value={data.title}
+          autocomplete="off"
+        />
       </label>
       <label>
         <span>Slogan</span>
-        <input name="slogan" type="text" bind:value={data.slogan} />
+        <input
+          name="slogan"
+          type="text"
+          bind:value={data.slogan}
+          autocomplete="off"
+        />
       </label>
       <label>
         <span>Lang</span>
-        <input name="lang" type="text" bind:value={data.lang} />
+        <input
+          name="lang"
+          type="text"
+          bind:value={data.lang}
+          autocomplete="off"
+        />
       </label>
       <label>
         <span>Code</span>
-        <input name="code" type="text" bind:value={data.code} />
+        <input
+          name="code"
+          type="text"
+          bind:value={data.code}
+          autocomplete="off"
+        />
       </label>
       <label>
         <span>Type</span>
@@ -94,23 +124,29 @@
       </label>
       <label>
         <span>Link</span>
-        <input name="link" type="text" bind:value={data.link} />
+        <input
+          name="link"
+          type="text"
+          bind:value={data.link}
+          autocomplete="off"
+        />
       </label>
       {#if projects}
         <label>
           <span>Related</span>
-          <!-- <select name="type" bind:value={data.more} multiple>
-            {#each projects as project}
-              <option value={project.name}>{project?.name}</option>
-            {/each}
-          </select> -->
-          <input name="more" type="text" bind:value={data.more} />
+          <input
+            name="more"
+            type="text"
+            bind:value={data.more}
+            autocomplete="off"
+          />
         </label>
       {/if}
     </div>
     <label>
       <span>Infos</span>
-      <textarea name="info" bind:value={data.info}></textarea>
+      <textarea name="info" bind:value={data.info} autocomplete="off"
+      ></textarea>
     </label>
     <div class="hidden">
       <input name="id" type="text" value={data.id} />

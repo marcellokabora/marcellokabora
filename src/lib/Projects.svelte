@@ -1,19 +1,14 @@
 <script lang="ts">
-  import Banner from "$lib/Banner.svelte";
   import type { Projecto } from "$lib/database.types.js";
-  import { formatDate, imgPlaceholder, urlStore } from "$lib/functions";
+  import { formatDate, getImg, imgPlaceholder } from "$lib/functions";
   import { description } from "$lib/mocks";
 
   interface Props {
     projects: Projecto[];
+    hideSearch?: boolean;
   }
 
-  let { projects }: Props = $props();
-
-  projects = projects?.sort(
-    (a: Projecto, b: Projecto) =>
-      new Date(b.date).valueOf() - new Date(a.date).valueOf()
-  );
+  let { projects, hideSearch }: Props = $props();
 
   let search = $state("");
   let filterby = $state("");
@@ -36,38 +31,40 @@
   <meta property="og:image" content="/gallery/projects.jpeg" />
 </svelte:head>
 
-<section>
-  <div class="search" data-aos="fade-up">
-    <div class="main">
-      <input type="text" bind:value={search} placeholder="Search..." />
-      <div class="radio">
-        <button
-          onclick={() =>
-            filterby === "webapp" ? (filterby = "") : (filterby = "webapp")}
-          class:active={filterby === "webapp"}>Webapp</button
-        >
-        <button
-          onclick={() =>
-            filterby === "website" ? (filterby = "") : (filterby = "website")}
-          class:active={filterby === "website"}>Website</button
-        >
-        <button
-          onclick={() =>
-            filterby === "design" ? (filterby = "") : (filterby = "design")}
-          class:active={filterby === "design"}>Design</button
-        >
+<div>
+  {#if !hideSearch}
+    <div class="search" data-aos="fade-up">
+      <div class="main">
+        <input type="text" bind:value={search} placeholder="Search..." />
+        <div class="radio">
+          <button
+            onclick={() =>
+              filterby === "webapp" ? (filterby = "") : (filterby = "webapp")}
+            class:active={filterby === "webapp"}>Webapp</button
+          >
+          <button
+            onclick={() =>
+              filterby === "website" ? (filterby = "") : (filterby = "website")}
+            class:active={filterby === "website"}>Website</button
+          >
+          <button
+            onclick={() =>
+              filterby === "design" ? (filterby = "") : (filterby = "design")}
+            class:active={filterby === "design"}>Design</button
+          >
+        </div>
       </div>
     </div>
-  </div>
+  {/if}
 
   <div class="container" data-aos="fade-up">
     {#if filterProject[0]}
       {#each filterProject as item}
         <div class="item">
-          <a href="project/{item.name}">
+          <a href="/project/{item.name}">
             <div class="imgcont">
               <img
-                src={item.cover ? urlStore + item.cover : imgPlaceholder}
+                src={item.cover ? getImg(item.cover) : imgPlaceholder}
                 alt={item.name}
               />
               <div class="more">
@@ -90,7 +87,7 @@
       <div class="empty">No projects found.</div>
     {/if}
   </div>
-</section>
+</div>
 
 <style>
   .search {
