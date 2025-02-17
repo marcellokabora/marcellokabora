@@ -5,6 +5,8 @@
   import Carousel from "$lib/Carousel.svelte";
   import Projects from "$lib/Projects.svelte";
 
+  let { data } = $props();
+
   const company = {
     cover: "/photo/back2.jpg",
     title: "CAREER",
@@ -228,9 +230,9 @@
 
 <section>
   <div class="space"></div>
-  <Header title="PROJECTS" slogan="A collection of most successful projects" />
+  <Header title="PROJECTS" slogan="A collection of my successful projects" />
   <br /><br />
-  <Projects />
+  <Projects projects={data.projects} />
 </section>
 
 <style>

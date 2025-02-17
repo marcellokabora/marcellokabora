@@ -74,6 +74,7 @@
       .item {
         flex: 1;
         min-width: 200px;
+        scroll-snap-align: center;
         img {
           object-fit: contain;
           margin-bottom: 20px;

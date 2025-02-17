@@ -1,63 +1,96 @@
 <script lang="ts">
-  import { projects } from "./projects";
+  import Banner from "$lib/Banner.svelte";
+  import type { Projecto } from "$lib/database.types.js";
+  import { formatDate, imgPlaceholder, urlStore } from "$lib/functions";
+  import { description } from "$lib/mocks";
+
+  interface Props {
+    projects: Projecto[];
+  }
+
+  let { projects }: Props = $props();
+
+  projects = projects?.sort(
+    (a: Projecto, b: Projecto) =>
+      new Date(b.date).valueOf() - new Date(a.date).valueOf()
+  );
 
   let search = $state("");
   let filterby = $state("");
 
-  let filteredList = $derived(
+  let filterProject = $derived(
     projects
       .filter(
         (item) =>
-          item.name.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-          item.lang.includes(search.toLowerCase())
+          item.name.includes(search.toLowerCase()) ||
+          item.title.toLocaleLowerCase().includes(search.toLowerCase())
       )
       .filter((item) => (filterby ? item.type === filterby : item))
   );
 </script>
 
-<div class="search">
-  <div class="main">
-    <input type="text" bind:value={search} placeholder="Search..." />
-    <div class="radio">
-      <button
-        onclick={() =>
-          filterby === "webapp" ? (filterby = "") : (filterby = "webapp")}
-        class:active={filterby === "webapp"}>Webapp</button
-      >
-      <button
-        onclick={() =>
-          filterby === "website" ? (filterby = "") : (filterby = "website")}
-        class:active={filterby === "website"}>Website</button
-      >
-      <button
-        onclick={() =>
-          filterby === "design" ? (filterby = "") : (filterby = "design")}
-        class:active={filterby === "design"}>Design</button
-      >
+<svelte:head>
+  <title>Marcello Kabora | Projects</title>
+  <meta name="description" content={description} />
+  <meta name="thumbnail" content="/gallery/projects.jpeg" />
+  <meta property="og:image" content="/gallery/projects.jpeg" />
+</svelte:head>
+
+<section>
+  <div class="search" data-aos="fade-up">
+    <div class="main">
+      <input type="text" bind:value={search} placeholder="Search..." />
+      <div class="radio">
+        <button
+          onclick={() =>
+            filterby === "webapp" ? (filterby = "") : (filterby = "webapp")}
+          class:active={filterby === "webapp"}>Webapp</button
+        >
+        <button
+          onclick={() =>
+            filterby === "website" ? (filterby = "") : (filterby = "website")}
+          class:active={filterby === "website"}>Website</button
+        >
+        <button
+          onclick={() =>
+            filterby === "design" ? (filterby = "") : (filterby = "design")}
+          class:active={filterby === "design"}>Design</button
+        >
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  {#if filteredList.length > 0}
-    {#each filteredList as item}
-      <div class="item" data-aos="fade-up">
-        <a href={item.link}>
-          <div class="imgcont">
-            <div class="more">
-              <div class="type">{item.type}</div>
-              <div class="time">{item.time}</div>
+  <div class="container" data-aos="fade-up">
+    {#if filterProject[0]}
+      {#each filterProject as item}
+        <div class="item">
+          <a href="project/{item.name}">
+            <div class="imgcont">
+              <img
+                src={item.cover ? urlStore + item.cover : imgPlaceholder}
+                alt={item.name}
+              />
+              <div class="more">
+                <div class="type">{item.type}</div>
+                {#if item.date}
+                  <div class="time">
+                    {formatDate(item.date)}
+                  </div>
+                {/if}
+              </div>
             </div>
-            <img src={item.photo} alt="" />
-          </div>
-        </a>
-        <div class="info">{item.name}</div>
-      </div>
-    {/each}
-  {:else}
-    <div class="empty">No projects found.</div>
-  {/if}
-</div>
+            <div class="info">
+              <div class="title">{item.title}</div>
+              <div class="slogan">{item.slogan}</div>
+            </div>
+          </a>
+        </div>
+      {/each}
+    {:else}
+      <div class="empty">No projects found.</div>
+    {/if}
+  </div>
+</section>
 
 <style>
   .search {
@@ -105,7 +138,6 @@
     gap: 1em;
     .item {
       padding: 1px;
-      margin-bottom: 20px;
       padding: 0px;
       border: 1px solid rgb(224, 224, 224);
       border-radius: 2px;
@@ -140,10 +172,15 @@
       .info {
         transition: all 0.5s;
         opacity: 0.8;
-        font-weight: bold;
         padding: 10px;
         margin-top: -5px;
         text-transform: capitalize;
+        .title {
+          font-weight: bold;
+        }
+        .slogan {
+          font-size: small;
+        }
       }
       .more {
         position: absolute;

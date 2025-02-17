@@ -46,7 +46,6 @@
         </div>
         <p>{project.info}</p>
       </div>
-      <div class="space"></div>
       <div class="infos">
         <div class="header">
           <div class="desc">Details</div>
@@ -57,10 +56,10 @@
             <span>{formatDate(project.date)}</span>
           </div>
         {/if}
-        {#if project.lang && project.lang[0]}
+        {#if project.lang}
           <div class="info">
             <span class="material-icons">code</span>
-            {#each project.lang as lang}
+            {#each project.lang.split(",") as lang}
               <a class="lang" href={getLang(lang)} target="_blank">{lang}</a>
             {/each}
           </div>
@@ -93,8 +92,8 @@
       </div>
     {/if}
     {#if project.gallery}
-      <div class="header">Gallery</div>
       <div class="gallery">
+        <div class="header">Gallery</div>
         {#each [...project.gallery].sort() as photo}
           <div class="photo" data-aos="fade-up">
             <img class="image" src={urlStore + photo} alt="" />
@@ -183,7 +182,7 @@
 
 {#if showCreate}
   <Dialog bind:showModal={showCreate}>
-    <Create bind:showCreate bind:project />
+    <Create bind:showCreate bind:project projects={data.projects} />
   </Dialog>
 {/if}
 
@@ -226,9 +225,21 @@
     flex: 1;
     flex-wrap: wrap;
     display: flex;
-    .infos {
-      min-width: 250px;
-    }
+    gap: 2em;
+  }
+  .header {
+    border-bottom: 1px solid silver;
+    opacity: 0.5;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  .infos {
+    min-width: 250px;
   }
   .info {
     opacity: 0.7;
@@ -256,12 +267,6 @@
   .flexo {
     flex: 1;
   }
-  .space {
-    width: 20px;
-  }
-  .image {
-    width: 100% !important;
-  }
   .photo {
     position: relative;
     margin-bottom: 20px;
@@ -276,7 +281,8 @@
     border-radius: 3px;
   }
   .gallery {
-    margin-bottom: 50px;
+    margin-bottom: 4em;
+    margin-top: 2em;
     .photo {
       position: relative;
       img {
@@ -295,16 +301,7 @@
       }
     }
   }
-  .header {
-    border-bottom: 1px solid silver;
-    opacity: 0.5;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-weight: bold;
-  }
+
   @media (max-width: 1000px) {
     .visual {
       flex-direction: column;

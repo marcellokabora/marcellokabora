@@ -9,9 +9,11 @@
   let {
     showCreate = $bindable(),
     project = $bindable(),
+    projects,
   }: {
     showCreate: boolean;
     project?: Projecto | null;
+    projects: Projecto[] | null;
   } = $props();
 
   let loading = $state(false);
@@ -94,10 +96,17 @@
         <span>Link</span>
         <input name="link" type="text" bind:value={data.link} />
       </label>
-      <label>
-        <span>Related</span>
-        <input name="more" type="text" bind:value={data.more} />
-      </label>
+      {#if projects}
+        <label>
+          <span>Related</span>
+          <!-- <select name="type" bind:value={data.more} multiple>
+            {#each projects as project}
+              <option value={project.name}>{project?.name}</option>
+            {/each}
+          </select> -->
+          <input name="more" type="text" bind:value={data.more} />
+        </label>
+      {/if}
     </div>
     <label>
       <span>Infos</span>
@@ -105,6 +114,8 @@
     </label>
     <div class="hidden">
       <input name="id" type="text" value={data.id} />
+      <input name="user_id" type="text" value={$user?.id} />
+      <input name="email" type="text" value={$user?.email} />
     </div>
   </div>
   <div class="actions">

@@ -20,7 +20,7 @@
   user.set(data.user);
 </script>
 
-<Navbar />
+<Navbar projects={data.projects} />
 
 <main>
   {@render children?.()}

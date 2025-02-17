@@ -45,7 +45,7 @@ export const productPlaceholder: Projecto = {
   title: "",
   slogan: "",
   info: "",
-  lang: [],
+  lang: "",
   code: "",
   link: "",
   cover: "",

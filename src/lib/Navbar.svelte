@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { enhance } from "$app/forms";
   import { page } from "$app/state";
   import Create from "./Create.svelte";
+  import type { Projecto } from "./database.types";
   import Dialog from "./Dialog.svelte";
   import Login from "./Login.svelte";
   import { user } from "./store";
-  // import { supabase } from "./supabaseClient";
+
+  let { projects }: { projects: Projecto[] } = $props();
 
   let showModal = $state(false);
   let showCreate = $state(false);
@@ -114,7 +115,7 @@
 
 {#if showCreate}
   <Dialog bind:showModal={showCreate}>
-    <Create bind:showCreate />
+    <Create bind:showCreate {projects} />
   </Dialog>
 {/if}
 

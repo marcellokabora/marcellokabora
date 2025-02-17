@@ -12,7 +12,7 @@ export type Projecto = {
   cover?: string;
   date: string;
   gallery?: string[];
-  lang?: string[];
+  lang?: string;
   slogan?: string;
   title: string;
   type?: string;
@@ -20,7 +20,7 @@ export type Projecto = {
   link?: string;
   code?: string;
   more?: string[];
-  user_id?: any;
+  user_id?: string;
   email?: string;
 };
 
