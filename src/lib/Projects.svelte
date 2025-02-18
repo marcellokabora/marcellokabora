@@ -13,15 +13,17 @@
   let search = $state("");
   let filterby = $state("");
 
-  let filterProject = $derived(
-    projects
+  let filterProject: Projecto[] = $state([]);
+
+  $effect(() => {
+    filterProject = projects
       .filter(
         (item) =>
           item.name.includes(search.toLowerCase()) ||
           item.title.toLocaleLowerCase().includes(search.toLowerCase())
       )
-      .filter((item) => (filterby ? item.type === filterby : item))
-  );
+      .filter((item) => (filterby ? item.type === filterby : item));
+  });
 </script>
 
 <svelte:head>
@@ -61,7 +63,7 @@
     {#if filterProject[0]}
       {#each filterProject as item}
         <div class="item">
-          <a href="/project/{item.name}">
+          <a href="/project/{item.name}" data-sveltekit-preload-data="hover">
             <div class="imgcont">
               <img
                 src={item.cover ? getImg(item.cover) : imgPlaceholder}
