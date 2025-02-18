@@ -48,6 +48,7 @@
     justify-content: space-between;
     align-items: center;
     color: white;
+    margin-top: 4em;
     .priva {
       display: flex;
       align-items: center;

@@ -11,18 +11,18 @@
   let { projects, hideSearch }: Props = $props();
 
   let search = $state("");
-  let filterby = $state("");
+  let filter = $state("");
 
-  let filterProject: Projecto[] = $state([]);
+  let filtered: Projecto[] = $state([]);
 
   $effect(() => {
-    filterProject = projects
+    filtered = projects
       .filter(
         (item) =>
           item.name.includes(search.toLowerCase()) ||
           item.title.toLocaleLowerCase().includes(search.toLowerCase())
       )
-      .filter((item) => (filterby ? item.type === filterby : item));
+      .filter((item) => (filter ? item.type === filter : item));
   });
 </script>
 
@@ -33,7 +33,7 @@
   <meta property="og:image" content="/gallery/projects.jpeg" />
 </svelte:head>
 
-<div>
+<div class="projects">
   {#if !hideSearch}
     <div class="search" data-aos="fade-up">
       <div class="main">
@@ -41,18 +41,18 @@
         <div class="radio">
           <button
             onclick={() =>
-              filterby === "webapp" ? (filterby = "") : (filterby = "webapp")}
-            class:active={filterby === "webapp"}>Webapp</button
+              filter === "webapp" ? (filter = "") : (filter = "webapp")}
+            class:active={filter === "webapp"}>Webapp</button
           >
           <button
             onclick={() =>
-              filterby === "website" ? (filterby = "") : (filterby = "website")}
-            class:active={filterby === "website"}>Website</button
+              filter === "website" ? (filter = "") : (filter = "website")}
+            class:active={filter === "website"}>Website</button
           >
           <button
             onclick={() =>
-              filterby === "design" ? (filterby = "") : (filterby = "design")}
-            class:active={filterby === "design"}>Design</button
+              filter === "design" ? (filter = "") : (filter = "design")}
+            class:active={filter === "design"}>Design</button
           >
         </div>
       </div>
@@ -60,8 +60,8 @@
   {/if}
 
   <div class="container" data-aos="fade-up">
-    {#if filterProject[0]}
-      {#each filterProject as item}
+    {#if filtered[0]}
+      {#each filtered as item}
         <div class="item">
           <a href="/project/{item.name}" data-sveltekit-preload-data="hover">
             <div class="imgcont">
@@ -72,9 +72,7 @@
               <div class="more">
                 <div class="type">{item.type}</div>
                 {#if item.date}
-                  <div class="time">
-                    {formatDate(item.date)}
-                  </div>
+                  <div class="time">{formatDate(item.date)}</div>
                 {/if}
               </div>
             </div>
@@ -92,6 +90,10 @@
 </div>
 
 <style>
+  .projects {
+    display: grid;
+    gap: 4em;
+  }
   .search {
     display: flex;
     align-items: center;
@@ -130,8 +132,6 @@
     }
   }
   .container {
-    margin-top: 60px;
-    margin-bottom: 60px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1em;

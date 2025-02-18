@@ -16,11 +16,19 @@
   let formCover: HTMLFormElement | undefined = $state();
   let formGallery: HTMLFormElement | undefined = $state();
   let related = $derived(
-    data.projects
-      .filter(
-        (value) => value.type === project.type && value.name !== project.name
-      )
-      .sort(() => 0.5 - Math.random())
+    Array.from(
+      new Set([
+        ...data.projects.filter((value) =>
+          value.title
+            .toLocaleLowerCase()
+            .includes(project.title.toLocaleLowerCase())
+        ),
+        ...data.projects
+          .filter((value) => value.type === project.type)
+          .sort(() => 0.5 - Math.random()),
+      ])
+    )
+      .filter((value) => value.name !== project.name)
       .splice(0, 9)
   );
 
@@ -30,9 +38,9 @@
 </script>
 
 <svelte:head>
-  <title>Marcello Kabora | {project?.title} {project?.slogan}</title>
-  <meta name="thumbnail" content={project?.cover} />
-  <meta property="og:image" content={project?.cover} />
+  <title>Marcello Kabora | {project?.title} | {project?.slogan}</title>
+  <meta name="thumbnail" content={getImg(project.cover!)} />
+  <meta property="og:image" content={getImg(project.cover!)} />
 </svelte:head>
 
 {#if project}
@@ -47,7 +55,17 @@
         <div class="header">
           <div class="desc">Description</div>
         </div>
-        <p>{project.info}</p>
+        <div>{project.info}</div>
+        <div class="infos code">
+          {#if project.lang}
+            <div class="info">
+              <span class="material-icons" title="Technology">code</span>
+              {#each project.lang.split(",") as lang}
+                <a class="lang" href={getLang(lang)} target="_blank">{lang}</a>
+              {/each}
+            </div>
+          {/if}
+        </div>
       </div>
       <div class="infos">
         <div class="header">
@@ -83,16 +101,6 @@
           </div>
         {/if}
       </div>
-    </div>
-    <div class="infos">
-      {#if project.lang}
-        <div class="info">
-          <span class="material-icons" title="Technology">code</span>
-          {#each project.lang.split(",") as lang}
-            <a class="lang" href={getLang(lang)} target="_blank">{lang}</a>
-          {/each}
-        </div>
-      {/if}
     </div>
 
     {#if project.gallery}
@@ -277,6 +285,9 @@
         margin-right: 10px;
       }
     }
+  }
+  .code {
+    margin-top: 1em;
   }
   .photo {
     position: relative;
