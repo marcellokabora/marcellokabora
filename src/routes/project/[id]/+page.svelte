@@ -16,11 +16,19 @@
   let formCover: HTMLFormElement | undefined = $state();
   let formGallery: HTMLFormElement | undefined = $state();
   let related = $derived(
-    data.projects
-      .filter(
-        (value) => value.type === project.type && value.name !== project.name
-      )
-      .sort(() => 0.5 - Math.random())
+    Array.from(
+      new Set([
+        ...data.projects.filter((value) =>
+          value.title
+            .toLocaleLowerCase()
+            .includes(project.title.toLocaleLowerCase())
+        ),
+        ...data.projects
+          .filter((value) => value.type === project.type)
+          .sort(() => 0.5 - Math.random()),
+      ])
+    )
+      .filter((value) => value.name !== project.name)
       .splice(0, 9)
   );
 
@@ -30,9 +38,9 @@
 </script>
 
 <svelte:head>
-  <title>Marcello Kabora | {project?.title} {project?.slogan}</title>
-  <meta name="thumbnail" content={project?.cover} />
-  <meta property="og:image" content={project?.cover} />
+  <title>Marcello Kabora | {project?.title} | {project?.slogan}</title>
+  <meta name="thumbnail" content={getImg(project.cover!)} />
+  <meta property="og:image" content={getImg(project.cover!)} />
 </svelte:head>
 
 {#if project}

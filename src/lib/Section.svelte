@@ -57,24 +57,28 @@
     align-items: center;
     margin: 0px 0px;
   }
-  .section.side {
+  .side {
     text-align: right;
   }
-  .section.side .photo {
+  .side .photo {
     order: 2;
     margin: 0;
-    margin-left: 60px;
+    margin-left: 2em;
+    margin-right: 0;
   }
   .photo {
-    height: 300px;
-    width: 300px;
-    margin-right: 60px;
+    /* height: 300px;
+    width: 300px; */
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2em;
     img {
       object-fit: cover;
-      height: 100%;
-      width: 100%;
+      height: 200px;
+      width: 200px;
     }
   }
   .info {

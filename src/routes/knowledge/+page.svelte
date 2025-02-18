@@ -20,18 +20,16 @@
 <Banner cover="/gallery/develop.jpeg" title="Knowledge" slogan="Technologies" />
 
 <section class="knowledge">
-  <div class="aside">
-    <div class="menus" data-aos="fade-up" data-aos-duration="1000">
-      {#each menu as item}
-        <button class="menu" onclick={() => scrollIntoView(item)}>
-          {item}
-        </button>
-      {/each}
-    </div>
+  <div class="menus" data-aos="fade-up" data-aos-duration="1000">
+    {#each menu as item}
+      <button onclick={() => scrollIntoView(item)}>
+        {item}
+      </button>
+    {/each}
   </div>
   <div class="items">
     {#each items as item, id}
-      <div data-aos="fade-up" data-aos-duration="1000" id={item.id}>
+      <div data-aos="fade-up" id={item.id}>
         <Section
           photo={item.photo}
           title={item.title}
@@ -383,29 +381,27 @@
 
 <style>
   section {
-    display: flex;
+    display: grid;
     gap: 2em;
-    max-width: 1200px;
   }
   .menus {
     position: sticky;
-    top: 100px;
-    width: 200px;
+    top: 80px;
     display: flex;
-    flex-direction: column;
-    .menu {
+    justify-content: center;
+    gap: 1em;
+    z-index: 1;
+    button {
+      background-color: var(--bg-color);
       text-align: right;
       font-weight: bold;
-      padding: 20px 40px;
+      padding: 1em 2em;
       cursor: pointer;
       text-transform: capitalize;
-      font-size: 1.2em;
-      border: none;
-      background-color: transparent;
-      border-radius: 2em;
-      opacity: 0.8;
+      border: 1px solid silver;
+      border-radius: 100px;
       &:hover {
-        background-color: rgb(240, 240, 240);
+        border-color: black;
       }
     }
   }
@@ -415,7 +411,7 @@
     margin-right: 20px;
   }
   @media (max-width: 1000px) {
-    .aside {
+    .menus {
       display: none;
     }
   }
