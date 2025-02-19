@@ -29,6 +29,7 @@
     overflow: hidden;
     position: relative;
     text-align: center;
+    padding: 0 2em;
     padding-bottom: 40px;
   }
   .cover {

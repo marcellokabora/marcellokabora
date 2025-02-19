@@ -312,14 +312,5 @@
   }
 
   @media (max-width: 1000px) {
-    section {
-      text-align: center;
-    }
-    .infos {
-      justify-content: center;
-    }
-    .description {
-      text-align: justify;
-    }
   }
 </style>
