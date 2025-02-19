@@ -52,11 +52,39 @@
   <section data-aos="fade-up">
     <div class="visual">
       <div class="flexo">
-        <div class="header">
-          <div class="desc">Description</div>
-        </div>
+        <h2>Description</h2>
         <div>{project.info}</div>
-        <div class="infos code">
+        <h2>Details</h2>
+        <div class="infos">
+          {#if project.date}
+            <div class="info">
+              <span class="material-icons">event</span>
+              <span>{formatDate(project.date)}</span>
+            </div>
+          {/if}
+          {#if project.type}
+            <div class="info">
+              <span class="material-icons">topic</span>
+              <span>{project.type}</span>
+            </div>
+          {/if}
+          {#if project.link}
+            <div class="info">
+              <span class="material-icons">web</span>
+              <a class="lang" href={project.link} target="_blank">Preview</a>
+            </div>
+          {/if}
+          {#if project.code}
+            <div class="info">
+              <img class="icon" src="/icon/github.svg" alt="github" />
+              <a
+                class="lang"
+                href={`//github.com/marcellokabora/${project.code}`}
+                target="_blank"
+                >Github
+              </a>
+            </div>
+          {/if}
           {#if project.lang}
             <div class="info">
               <span class="material-icons" title="Technology">code</span>
@@ -67,45 +95,11 @@
           {/if}
         </div>
       </div>
-      <div class="infos">
-        <div class="header">
-          <div class="desc">Details</div>
-        </div>
-        {#if project.date}
-          <div class="info">
-            <span class="material-icons">event</span>
-            <span>{formatDate(project.date)}</span>
-          </div>
-        {/if}
-        {#if project.type}
-          <div class="info">
-            <span class="material-icons">topic</span>
-            <span>{project.type}</span>
-          </div>
-        {/if}
-        {#if project.link}
-          <div class="info">
-            <span class="material-icons">web</span>
-            <a class="lang" href={project.link} target="_blank">Preview</a>
-          </div>
-        {/if}
-        {#if project.code}
-          <div class="info">
-            <img class="icon" src="/icon/github.svg" alt="github" />
-            <a
-              class="lang"
-              href={`//github.com/marcellokabora/${project.code}`}
-              target="_blank"
-              >Github
-            </a>
-          </div>
-        {/if}
-      </div>
     </div>
 
     {#if project.gallery}
       <div class="gallery">
-        <div class="header">Gallery</div>
+        <h2>Gallery</h2>
         {#each [...project.gallery].sort() as photo}
           <div class="photo">
             <img src={getImg(photo)} alt="" />
@@ -249,26 +243,27 @@
       flex: 1;
     }
   }
-  .header {
+  h2 {
     border-bottom: 1px solid silver;
     opacity: 0.5;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 1em;
+    padding-bottom: 1em;
     font-weight: bold;
     font-size: 1.2em;
   }
   .infos {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
     .info {
-      /* max-width: 200px; */
       opacity: 0.7;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       text-transform: capitalize;
       margin-bottom: 10px;
+      flex-wrap: wrap;
+      text-wrap: nowrap;
       .material-icons {
         margin-right: 10px;
       }
@@ -286,9 +281,6 @@
       }
     }
   }
-  .code {
-    margin-top: 1em;
-  }
   .photo {
     position: relative;
     margin-bottom: 20px;
@@ -300,6 +292,9 @@
     }
   }
   .gallery {
+    h2 {
+      margin-bottom: 2em;
+    }
     .photo {
       position: relative;
       img {

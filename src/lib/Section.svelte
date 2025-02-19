@@ -85,11 +85,11 @@
   .info {
     flex: 1;
   }
-  .info .tito {
+  .tito {
     font-weight: bold;
     font-size: 1.2em;
   }
-  .info .tito a {
+  .tito a {
     color: black;
     text-decoration: none;
   }
@@ -99,14 +99,29 @@
   @media (max-width: 800px) {
     .section {
       flex-direction: column;
+      &.small {
+        img {
+          position: relative !important;
+        }
+      }
+    }
+    .tito {
+      font-size: 2em;
+    }
+    .side {
+      margin-top: 2em;
     }
     .photo {
       order: 1;
-      width: 100%;
-      height: 200px;
-      margin: 0 !important;
-      margin-bottom: 50px !important;
+      margin: 0;
       order: 2;
+      z-index: -1;
+      height: 200px;
+      img {
+        position: absolute;
+        width: 100vw;
+        height: 250px;
+      }
     }
     .info {
       order: 2;

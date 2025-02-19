@@ -411,16 +411,16 @@
     padding: 0px 20px;
     margin-right: 20px;
   }
-  @media (max-width: 1000px) {
-    .menus {
-      display: none;
-    }
-  }
   .knowledge :global(.photo) {
     height: 230px;
     width: 230px;
   }
   .knowledge :global(.photo img) {
     object-fit: contain !important;
+  }
+  @media (max-width: 1000px) {
+    .menus {
+      display: none;
+    }
   }
 </style>

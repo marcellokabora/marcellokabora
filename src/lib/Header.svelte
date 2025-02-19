@@ -45,5 +45,8 @@
       min-width: none;
       padding-top: 40px;
     }
+    .slogan {
+      padding: 0;
+    }
   }
 </style>
