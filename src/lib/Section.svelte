@@ -6,6 +6,7 @@
     aside?: boolean;
     photo?: string;
     title?: string;
+    small?: boolean;
     children?: Snippet;
   }
 
@@ -14,6 +15,7 @@
     aside = false,
     photo = "",
     title = "",
+    small = false,
     children,
   }: Props = $props();
 </script>
@@ -23,6 +25,7 @@
   class:side={aside}
   data-aos="fade-up"
   data-aos-duration="1000"
+  class:small
 >
   <div class="photo">
     {#if link}
@@ -56,6 +59,14 @@
     justify-content: center;
     align-items: center;
     margin: 0px 0px;
+    gap: 4em;
+    &.small {
+      gap: 2em;
+      .photo img {
+        height: 200px;
+        width: 200px;
+      }
+    }
   }
   .side {
     text-align: right;
@@ -63,22 +74,18 @@
   .side .photo {
     order: 2;
     margin: 0;
-    margin-left: 2em;
     margin-right: 0;
   }
   .photo {
-    /* height: 300px;
-    width: 300px; */
     border-radius: 10px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 2em;
     img {
       object-fit: cover;
-      height: 200px;
-      width: 200px;
+      height: 300px;
+      width: 300px;
     }
   }
   .info {

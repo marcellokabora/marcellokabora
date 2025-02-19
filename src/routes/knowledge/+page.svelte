@@ -35,6 +35,7 @@
           title={item.title}
           link={item.link}
           aside={id % 2 == 1}
+          small
         >
           {#if item.name === "tinkercad"}
             <p>
