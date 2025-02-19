@@ -20,7 +20,7 @@
 <Banner cover="/gallery/develop.jpeg" title="Knowledge" slogan="Technologies" />
 
 <section class="knowledge">
-  <div class="menus" data-aos="fade-up" data-aos-duration="1000">
+  <div class="menus" data-aos="fade-up">
     {#each menu as item}
       <button onclick={() => scrollIntoView(item)}>
         {item}

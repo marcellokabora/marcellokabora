@@ -13,7 +13,7 @@
   }: Props = $props();
 </script>
 
-<div class="banner" data-aos="fade-down" data-aos-duration="1000">
+<div class="banner" data-aos="fade-down">
   <img class="cover" src={cover} alt="cover" />
   <Header {title} {slogan} zoom={1.2} />
   <img class="arcbot" src="/shape/arc_bot.png" alt="arcbot" />

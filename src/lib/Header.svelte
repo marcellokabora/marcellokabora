@@ -8,7 +8,7 @@
   let { title = "Title", slogan = "Slogan", zoom = 1 }: Props = $props();
 </script>
 
-<header data-aos="fade-up" data-aos-duration="1000">
+<header data-aos="fade" data-aos-delay="200">
   <div class="flexone" style:zoom>
     <div class="title">{title}</div>
     <hr />

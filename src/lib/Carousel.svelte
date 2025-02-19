@@ -23,21 +23,12 @@
   }
 </script>
 
-<main
-  data-aos="fade-down"
-  data-aos-duration="1000"
-  style="background-image: url({cover})"
->
+<main data-aos="fade-down" style="background-image: url({cover})">
   <section>
     <Header {title} {slogan} />
     <div class="gallery">
       {#each items as item}
-        <div
-          class="item"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          data-aos-delay="200"
-        >
+        <div class="item" data-aos="fade-up">
           <a href={item.link} target="_blank">
             <img src={item.logo} alt={item.logo} />
             <div class="company">{item.company}</div>

@@ -39,11 +39,6 @@
   ];
   let y: number = $state(0);
   let showNav: boolean = $state(false);
-
-  function onLogout() {
-    // supabase.auth.signOut();
-    // user.set(null);
-  }
 </script>
 
 <header>
@@ -83,7 +78,7 @@
               Create</button
             >
             <form method="POST" action="/?/logout">
-              <button onclick={onLogout}>
+              <button>
                 <i class="material-icons">logout</i>
                 Logout</button
               >

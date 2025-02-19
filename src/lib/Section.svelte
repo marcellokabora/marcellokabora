@@ -20,13 +20,7 @@
   }: Props = $props();
 </script>
 
-<div
-  class="section"
-  class:side={aside}
-  data-aos="fade-up"
-  data-aos-duration="1000"
-  class:small
->
+<div class="section" class:side={aside} data-aos="fade-up" class:small>
   <div class="photo">
     {#if link}
       <a href={link} target="_blank">

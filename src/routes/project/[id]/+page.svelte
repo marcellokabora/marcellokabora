@@ -49,7 +49,7 @@
     title={project.title}
     slogan={project.slogan}
   />
-  <section data-aos="fade-up" data-aos-duration="1000">
+  <section data-aos="fade-up">
     <div class="visual">
       <div class="flexo">
         <div class="header">
@@ -107,7 +107,7 @@
       <div class="gallery">
         <div class="header">Gallery</div>
         {#each [...project.gallery].sort() as photo}
-          <div class="photo" data-aos="fade-up">
+          <div class="photo">
             <img src={getImg(photo)} alt="" />
             {#if $user}
               <form

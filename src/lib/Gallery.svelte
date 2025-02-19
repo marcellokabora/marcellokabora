@@ -63,7 +63,7 @@
   }
 </script>
 
-<div class="gallery" data-aos="fade-down" data-aos-duration="1000">
+<div class="gallery" data-aos="fade-down">
   <div class="scrolled" bind:this={scrolled}>
     {#each gallery as item}
       <a href={item.link}>
