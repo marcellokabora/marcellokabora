@@ -58,7 +58,6 @@ export const productPlaceholder: Projecto = {
   link: "",
   cover: "",
   type: "",
-  more: [],
   date: new Date().toISOString(),
   gallery: [],
   user_id: "",

@@ -131,17 +131,6 @@
           autocomplete="off"
         />
       </label>
-      {#if projects}
-        <label>
-          <span>Related</span>
-          <input
-            name="more"
-            type="text"
-            bind:value={data.more}
-            autocomplete="off"
-          />
-        </label>
-      {/if}
     </div>
     <label>
       <span>Infos</span>

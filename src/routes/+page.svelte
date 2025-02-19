@@ -91,7 +91,7 @@
       {
         logo: "/flag/sp.png",
         company: "Spanish",
-        title: "40%",
+        title: "50%",
       },
     ],
   };

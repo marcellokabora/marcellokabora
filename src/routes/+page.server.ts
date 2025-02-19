@@ -23,7 +23,6 @@ export const actions: Actions = {
       info: form.get("info")?.toString(),
       link: form.get("link")?.toString(),
       code: form.get("code")?.toString(),
-      more: form.get("more")?.toString().split(","),
       user_id: form.get("user_id")?.toString(),
       email: form.get("email")?.toString(),
     };

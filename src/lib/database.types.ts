@@ -19,7 +19,6 @@ export type Projecto = {
   info?: string;
   link?: string;
   code?: string;
-  more?: string[];
   user_id?: string;
   email?: string;
 };
