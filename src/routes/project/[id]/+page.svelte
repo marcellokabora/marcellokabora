@@ -53,7 +53,7 @@
     <div class="visual">
       <div class="flexo">
         <h2>Description</h2>
-        <div>{project.info}</div>
+        <div class="description">{project.info}</div>
         <h2>Details</h2>
         <div class="infos">
           {#if project.date}
@@ -127,7 +127,7 @@
       </div>
     {/if}
     <div class="related">
-      <div class="header">Realted</div>
+      <h2>Realted</h2>
       <div class="main">
         <Projects projects={related} hideSearch />
       </div>
@@ -292,9 +292,6 @@
     }
   }
   .gallery {
-    h2 {
-      margin-bottom: 2em;
-    }
     .photo {
       position: relative;
       img {
@@ -315,8 +312,14 @@
   }
 
   @media (max-width: 1000px) {
-    .visual {
-      flex-direction: column;
+    section {
+      text-align: center;
+    }
+    .infos {
+      justify-content: center;
+    }
+    .description {
+      text-align: justify;
     }
   }
 </style>
