@@ -80,6 +80,14 @@
         />
       </label>
       <label>
+        <span>Type</span>
+        <select name="type" bind:value={data.type}>
+          <option value="design">Design</option>
+          <option value="website">Website</option>
+          <option value="webapp">Webapp</option>
+        </select>
+      </label>
+      <label>
         <span>Title*</span>
         <input
           name="title"
@@ -114,14 +122,6 @@
           bind:value={data.code}
           autocomplete="off"
         />
-      </label>
-      <label>
-        <span>Type</span>
-        <select name="type" bind:value={data.type}>
-          <option value="design">Design</option>
-          <option value="website">Website</option>
-          <option value="webapp">Webapp</option>
-        </select>
       </label>
       <label>
         <span>Link</span>
