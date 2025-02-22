@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { Projecto } from "$lib/database.types.js";
   import { formatDate, getImg, imgPlaceholder } from "$lib/functions";
-  import { description } from "$lib/mocks";
 
   interface Props {
     projects: Projecto[];
@@ -25,13 +24,6 @@
       .filter((item) => (filter ? item.type === filter : item));
   });
 </script>
-
-<svelte:head>
-  <title>Marcello Kabora | Projects</title>
-  <meta name="description" content={description} />
-  <meta name="thumbnail" content="/gallery/projects.jpeg" />
-  <meta property="og:image" content="/gallery/projects.jpeg" />
-</svelte:head>
 
 <div class="projects">
   {#if !hideSearch}

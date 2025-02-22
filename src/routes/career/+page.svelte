@@ -170,8 +170,8 @@
             team.
           </p>
           <p>
-            <b>Technologies</b>: React, Next, Vue, GraphQL, Docker, Builder,
-            Github, Jira, Styled, Figma
+            <b>Technologies</b>: React, Vue, GraphQL, Docker, Builder, Github,
+            Jira, Styled, Figma
           </p>
         {:else if company.name === "Buildingminds"}
           <p>

@@ -180,7 +180,9 @@
 
   <Section photo="/photo/framework.gif" title="Framework">
     <p>
-      <a href="https://svelte.dev" target="_blank">Svelte</a> and
+      <a href="https://svelte.dev" target="_blank">Svelte</a>,
+      <a href="https://nuxt.com" target="_blank">Nuxt</a>
+      and
       <a href="//angular.io" target="_blank">Angular</a> are my preferred frameworks
       for scalable projects, enabling seamless integration with leading market providers.
       Their unit testing capabilities and extensibility with authentication and pipes
@@ -190,7 +192,7 @@
   <Section photo="/photo/styles.jpg" title="Styling" aside>
     <p>
       <a href="//material.io" target="_blank">Material</a> and
-      <a href="//flowbite.com" target="_blank">Flowbite</a>
+      <a href="//flowbite-svelte.com" target="_blank">Flowbite</a>
       are my collection of ready-to-use components and seamless responsive design
       integration, making it perfect for any project. Additionally, it provides tools
       that empower developers to create custom components with familiar interaction
