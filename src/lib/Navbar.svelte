@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from "$app/state";
+  import Icon from "@iconify/svelte";
   import Create from "./Create.svelte";
   import type { Projecto } from "./database.types";
   import Dialog from "./Dialog.svelte";
@@ -17,7 +18,7 @@
       link: "/",
     },
     {
-      icon: "dynamic_form",
+      icon: "dynamic-form",
       name: "Knowledge",
       link: "/knowledge",
     },
@@ -32,7 +33,7 @@
       link: "/projects",
     },
     {
-      icon: "account_box",
+      icon: "account-box",
       name: "Curriculum",
       link: "/curriculum",
     },
@@ -56,7 +57,7 @@
       {#each menus as menu}
         <li class:active={page.url.pathname === menu.link}>
           <a href={menu.link}>
-            <span class="material-icons">{menu.icon}</span>
+            <Icon icon="material-symbols:{menu.icon}" />
             <span>{menu.name}</span>
           </a>
         </li>
@@ -67,21 +68,21 @@
         class="user"
         onclick={() => ($user ? (showModal = false) : (showModal = true))}
       >
-        <i class="material-icons">account_circle</i>
+        <Icon icon="material-symbols:account-circle" />
       </button>
       {#if $user}
         <div class="dropdown">
           <div class="email">{$user.email}</div>
           <div class="actions">
             <button type="submit" onclick={() => (showCreate = true)}>
-              <i class="material-icons">add_circle</i>
-              Create</button
-            >
+              <Icon icon="material-symbols:add-circle" />
+              <span>Create</span>
+            </button>
             <form method="POST" action="/?/logout">
               <button>
-                <i class="material-icons">logout</i>
-                Logout</button
-              >
+                <Icon icon="material-symbols:logout" />
+                <span>Logout</span>
+              </button>
             </form>
           </div>
         </div>
@@ -94,7 +95,7 @@
         <div class="menu" class:active={page.url.pathname === menu.link}>
           <a href={menu.link} onclick={() => (showNav = false)}>
             <span>{menu.name}</span>
-            <span class="material-icons">{menu.icon}</span>
+            <Icon icon="material-symbols:{menu.icon}" />
           </a>
         </div>
       {/each}
@@ -175,7 +176,7 @@
             background-color: rgba(255, 255, 255, 0.4);
             color: rgba(0, 0, 0, 0.8);
           }
-          .material-icons {
+          :global(.iconify) {
             margin-right: 10px;
           }
           a {
@@ -198,6 +199,7 @@
         }
         .user {
           color: white;
+          font-size: 1.2em;
         }
         .dropdown {
           position: absolute;
@@ -260,7 +262,7 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         padding-left: 50px;
       }
-      .material-icons {
+      :global(.iconify) {
         margin-left: 20px;
       }
     }

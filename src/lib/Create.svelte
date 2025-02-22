@@ -5,6 +5,7 @@
   import { user } from "./store";
   import { page } from "$app/state";
   import { enhance } from "$app/forms";
+  import Icon from "@iconify/svelte";
 
   let {
     showCreate = $bindable(),
@@ -106,7 +107,7 @@
         />
       </label>
       <label>
-        <span>Code</span>
+        <span>Github</span>
         <input
           name="code"
           type="text"
@@ -128,6 +129,15 @@
           name="link"
           type="text"
           bind:value={data.link}
+          autocomplete="off"
+        />
+      </label>
+      <label>
+        <span>Youtube</span>
+        <input
+          name="youtube"
+          type="text"
+          bind:value={data.youtube}
           autocomplete="off"
         />
       </label>
@@ -153,12 +163,12 @@
               class="confirm"
               onclick={() => formDelete?.requestSubmit()}
             >
-              <i class="material-icons">check</i>
+              <Icon icon="material-symbols:check" />
               <span>Confirm</span>
             </button>
           {:else}
             <button class="delete" onclick={() => (showConfirm = true)}>
-              <i class="material-icons">delete</i>
+              <Icon icon="material-symbols:delete" />
               <!-- <span>Delete</span> -->
             </button>
           {/if}
@@ -181,7 +191,7 @@
         {:else}
           <span>{project ? "Update" : "Create"}</span>
         {/if}
-        <i class="material-icons">save</i>
+        <Icon icon="material-symbols:save" />
       </button>
     </div>
   </div>

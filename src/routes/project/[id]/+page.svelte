@@ -7,6 +7,7 @@
   import { formatDate, getImg, getLang, imgPlaceholder } from "$lib/functions";
   import Projects from "$lib/Projects.svelte";
   import { user } from "$lib/store";
+  import Icon from "@iconify/svelte";
 
   let { data } = $props();
   let project: Projecto = $state(data.project);
@@ -58,25 +59,19 @@
         <div class="infos">
           {#if project.date}
             <div class="info">
-              <span class="material-icons">event</span>
+              <Icon icon="material-symbols:event" />
               <span>{formatDate(project.date)}</span>
-            </div>
-          {/if}
-          {#if project.type}
-            <div class="info">
-              <span class="material-icons">topic</span>
-              <span>{project.type}</span>
             </div>
           {/if}
           {#if project.link}
             <div class="info">
-              <span class="material-icons">web</span>
-              <a class="lang" href={project.link} target="_blank">Preview</a>
+              <Icon icon="material-symbols:captive-portal" />
+              <a class="lang" href={project.link} target="_blank">Website</a>
             </div>
           {/if}
           {#if project.code}
             <div class="info">
-              <img class="icon" src="/icon/github.svg" alt="github" />
+              <Icon icon="mdi:github" />
               <a
                 class="lang"
                 href={`//github.com/marcellokabora/${project.code}`}
@@ -87,7 +82,7 @@
           {/if}
           {#if project.lang}
             <div class="info">
-              <span class="material-icons" title="Technology">code</span>
+              <Icon icon="material-symbols:code" />
               {#each project.lang.split(",") as lang}
                 <a class="lang" href={getLang(lang)} target="_blank">{lang}</a>
               {/each}
@@ -96,6 +91,20 @@
         </div>
       </div>
     </div>
+
+    {#if project.youtube}
+      <div class="youtube">
+        <h2>Video</h2>
+        <iframe
+          src="https://www.youtube.com/embed/{project.youtube}"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    {/if}
 
     {#if project.gallery}
       <div class="gallery">
@@ -116,7 +125,9 @@
                   };
                 }}
               >
-                <button class="material-icons" type="submit">delete</button>
+                <button type="submit">
+                  <Icon icon="material-symbols:delete" />
+                </button>
                 <div class="hidden">
                   <input type="text" name="name" value={photo} />
                 </div>
@@ -151,21 +162,20 @@
         };
       }}
     >
-      <button class="material-icons"
-        >photo <input
+      <button>
+        <Icon icon="material-symbols:add-photo-alternate" />
+        <input
           bind:this={inputCover}
           onchange={() => formCover?.requestSubmit()}
           type="file"
           title="Cover"
           name="cover"
-        /></button
-      >
+        />
+      </button>
     </form>
-    <button
-      onclick={() => (showCreate = true)}
-      class="material-icons"
-      title="Edit">edit</button
-    >
+    <button onclick={() => (showCreate = true)} title="Edit">
+      <Icon icon="material-symbols:edit" />
+    </button>
     <form
       method="POST"
       action="?/gallery"
@@ -179,8 +189,9 @@
         };
       }}
     >
-      <button class="material-icons" title="Gallery"
-        >photo_library <input
+      <button title="Gallery">
+        <Icon icon="material-symbols:add-to-photos" />
+        <input
           multiple
           bind:this={inputGallery}
           onchange={() => formGallery?.requestSubmit()}
@@ -264,16 +275,9 @@
       margin-bottom: 10px;
       flex-wrap: wrap;
       text-wrap: nowrap;
-      .material-icons {
-        margin-right: 10px;
-      }
+      gap: 0.5em;
       a {
         text-decoration: none;
-      }
-      .icon {
-        width: 23px;
-        height: 23px;
-        margin-right: 10px;
       }
       .lang:not(:last-child)::after {
         content: ",";
@@ -289,6 +293,12 @@
       transition: all 0.3s;
       box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
       border-radius: 3px;
+    }
+  }
+  .youtube {
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
     }
   }
   .gallery {

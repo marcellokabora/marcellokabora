@@ -28,6 +28,10 @@ export function getLang(lang: string) {
     ? "//highcharts.com"
     : lang === "google map"
     ? "//developers.google.com/maps"
+    : lang === "nuxt"
+    ? "//developers.google.com/maps"
+    : lang === "aws"
+    ? "//aws.com"
     : "";
 }
 

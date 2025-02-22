@@ -1,5 +1,6 @@
 <script lang="ts">
   import Header from "$lib/Header.svelte";
+  import Icon from "@iconify/svelte";
   const gallery = [
     {
       photo: "/blured/keyboard.jpg",
@@ -78,11 +79,13 @@
   </div>
   <div class="radios">
     {#each gallery as item, index}
-      <button class="material-icons" onclick={() => onScroll(index)}
-        >{counter === index
-          ? "radio_button_checked"
-          : "radio_button_unchecked"}</button
-      >
+      <button onclick={() => onScroll(index)}>
+        <Icon
+          icon="material-symbols:{counter === index
+            ? 'radio_button_checked'
+            : 'radio_button_unchecked'}"
+        />
+      </button>
     {/each}
   </div>
   <img class="arcbot" src="/shape/arc_bot.png" alt="arcbot" />

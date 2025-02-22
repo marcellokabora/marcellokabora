@@ -2,6 +2,7 @@
   import { enhance } from "$app/forms";
   import type { User } from "@supabase/supabase-js";
   import { user } from "./store";
+  import Icon from "@iconify/svelte";
 
   let { showModal = $bindable() } = $props();
   let email = $state("");
@@ -56,7 +57,7 @@
       <span>Loading...</span>
     {:else}
       <span>Login</span>
-      <i class="material-icons">login</i>
+      <Icon icon="material-symbols:login" />
     {/if}
   </button>
   {#if error}
@@ -96,10 +97,11 @@
       gap: 1em;
       padding: 1em 1.5em;
       position: relative;
-      i {
+      :global(.iconify) {
         zoom: 0.8;
         position: absolute;
         right: 1em;
+        font-size: 2em;
       }
     }
     .error {

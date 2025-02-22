@@ -21,6 +21,7 @@ export type Projecto = {
   code?: string;
   user_id?: string;
   email?: string;
+  youtube?: string;
 };
 
 export type Database = {

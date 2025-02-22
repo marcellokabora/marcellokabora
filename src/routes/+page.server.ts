@@ -25,6 +25,7 @@ export const actions: Actions = {
       code: form.get("code")?.toString(),
       user_id: form.get("user_id")?.toString(),
       email: form.get("email")?.toString(),
+      youtube: form.get("youtube")?.toString(),
     };
     const id = Number(form.get("id"));
     if (id) {
