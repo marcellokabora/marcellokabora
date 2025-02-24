@@ -10,7 +10,7 @@
 
   let projects = data.projects?.sort(
     (a: Projecto, b: Projecto) =>
-      new Date(b.date).valueOf() - new Date(a.date).valueOf()
+      new Date(b.date).valueOf() - new Date(a.date).valueOf(),
   );
 
   const company = {
@@ -101,11 +101,11 @@
   <title>Marcello Kabora | Fronted Developer</title>
   <meta
     name="description"
-    content="Frontend Developer with over 12 years of experience in frontend development, user interface, graphic design, data visualization, and progressive web app"
+    content="Senior Frontend Engineer with a decade of experience in software development, UI/UX, and data visualization.  Passionate about building high-performance UI libraries and PWAs for SaaS and B2B, using frameworks like Vue, Svelte, Angular, and React."
   />
   <meta
     name="keywords"
-    content="Software, Developer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, Material, D3,, NX, Firebase, Data Visualization"
+    content="Software, Developer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, Vue, React, Material, Firebase"
   />
   <meta name="thumbnail" content="/gallery/keyboard.jpg" />
   <meta property="og:image" content="/gallery/keyboard.jpg" />
