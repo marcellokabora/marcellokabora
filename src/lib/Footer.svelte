@@ -1,28 +1,30 @@
 <script>
+  import Icon from "@iconify/svelte";
+
   const menus = [
     {
       name: "Linkedin",
-      icon: "/icon/linkedin.svg",
+      icon: "mdi:linkedin",
       link: "//linkedin.com/in/marcellokabora/",
     },
     {
       name: "Github",
-      icon: "/icon/github.svg",
+      icon: "mdi:github",
       link: "//github.com/marcellokabora",
     },
     {
       name: "Stackoverflow",
-      icon: "/icon/stackoverflow.svg",
+      icon: "mdi:stackoverflow",
       link: "//stackoverflow.com/users/1359426/marcello-kabora?tab=profile",
     },
     {
       name: "Twitter",
-      icon: "/icon/twitter.svg",
+      icon: "mdi:twitter",
       link: "//twitter.com/marcellokabora",
     },
     {
       name: "Curriculum",
-      icon: "/icon/doc.svg",
+      icon: "material-symbols:account-box",
       link: "//marcellokabora.com/curriculum",
     },
   ];
@@ -35,7 +37,7 @@
   <div class="icons">
     {#each menus as menu}
       <a class="icon" href={menu.link} target="_blank" title={menu.name}>
-        <img src={menu.icon} alt={menu.icon} />
+        <Icon icon={menu.icon} />
       </a>
     {/each}
   </div>
