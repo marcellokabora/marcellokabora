@@ -2,9 +2,9 @@
   import Navbar from "$lib/Navbar.svelte";
   import Footer from "$lib/Footer.svelte";
   import "./app.css";
-
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";
+  import { injectSpeedInsights } from "@vercel/speed-insights";
 
   if (!dev) {
     inject({ mode: dev ? "development" : "production" });
@@ -18,6 +18,7 @@
   let { data, children } = $props();
   onMount(() => AOS.init());
   user.set(data.user);
+  injectSpeedInsights();
 </script>
 
 <Navbar projects={data.projects} />
