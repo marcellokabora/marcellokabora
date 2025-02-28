@@ -2,14 +2,14 @@
   import Banner from "$lib/Banner.svelte";
   import { description } from "$lib/mocks";
   const companies = [
-    {
-      logo: "/logo/7echno.png",
-      name: "7echno",
-      slogan: "Music Experience",
-      title: "Founder - Partime",
-      time: "From May 2024",
-      link: "//7echno.com",
-    },
+    // {
+    //   logo: "/logo/7echno.png",
+    //   name: "7echno",
+    //   slogan: "Music Experience",
+    //   title: "Founder - Partime",
+    //   time: "From May 2024",
+    //   link: "//7echno.com",
+    // },
     {
       logo: "/company/evaglobal.png",
       name: "Eva Global",
