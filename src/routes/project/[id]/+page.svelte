@@ -22,15 +22,15 @@
         ...data.projects.filter((value) =>
           value.title
             .toLocaleLowerCase()
-            .includes(project.title.toLocaleLowerCase())
+            .includes(project.title.toLocaleLowerCase()),
         ),
         ...data.projects
           .filter((value) => value.type === project.type)
           .sort(() => 0.5 - Math.random()),
-      ])
+      ]),
     )
       .filter((value) => value.name !== project.name)
-      .splice(0, 9)
+      .splice(0, 9),
   );
 
   $effect(() => {
@@ -84,7 +84,9 @@
             <div class="info">
               <Icon icon="material-symbols:code" />
               {#each project.lang.split(",") as lang}
-                <a class="lang" href={getLang(lang)} target="_blank">{lang}</a>
+                <a class="lang" href={getLang(lang)?.url} target="_blank"
+                  >{lang}</a
+                >
               {/each}
             </div>
           {/if}
@@ -281,7 +283,6 @@
       }
       .lang:not(:last-child)::after {
         content: ",";
-        margin-right: 10px;
       }
     }
   }

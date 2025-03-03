@@ -1,39 +1,92 @@
 import type { Projecto } from "./database.types";
 
 export function getLang(lang: string) {
-  lang = lang.trim();
-  return lang === "angular"
-    ? "//angular.dev"
-    : lang === "svelte"
-    ? "//svelte.dev"
-    : lang === "firebase"
-    ? "//firebase.google.com"
-    : lang === "material"
-    ? "//material.io"
-    : lang === "d3"
-    ? "//d3js.org"
-    : lang === "figma"
-    ? "//d3js.org"
-    : lang === "react"
-    ? "//react.dev"
-    : lang === "builder"
-    ? "//builder.io"
-    : lang === "bootstrap"
-    ? "//getbootstrap.com"
-    : lang === "jquery"
-    ? "//jquery.com"
-    : lang === "mysql"
-    ? "//mysql.com"
-    : lang === "highcharts"
-    ? "//highcharts.com"
-    : lang === "google map"
-    ? "//developers.google.com/maps"
-    : lang === "nuxt"
-    ? "//developers.google.com/maps"
-    : lang === "aws"
-    ? "//aws.com"
-    : "";
+  return URLS.find(value => value.name === lang.trim())
 }
+
+export const URLS: { name: string, url: string }[] = [
+  {
+    name: "angular",
+    url: "//angular.dev"
+  },
+  {
+    name: "svelte",
+    url: "//svelte.dev"
+  },
+  {
+    name: "firebase",
+    url: "//firebase.google.com"
+  },
+  {
+    name: "material",
+    url: "//material.io"
+  },
+  {
+    name: "d3",
+    url: "//d3js.org"
+  },
+  {
+    name: "figma",
+    url: "//figma.com"
+  },
+  {
+    name: "react",
+    url: "//react.dev"
+  },
+  {
+    name: "builder",
+    url: "//builder.io"
+  },
+  {
+    name: "bootstrap",
+    url: "//getbootstrap.com"
+  },
+  {
+    name: "tailwindcss",
+    url: "//tailwindcss.com"
+  },
+  {
+    name: "jquery",
+    url: "//jquery.com"
+  },
+  {
+    name: "mysql",
+    url: "//mysql.com"
+  },
+  {
+    name: "highcharts",
+    url: "//highcharts.com"
+  },
+  {
+    name: "google map",
+    url: "//developers.google.com/maps"
+  },
+  {
+    name: "nuxt",
+    url: "//nuxt.com"
+  },
+  {
+    name: "aws",
+    url: "//aws.com"
+  },
+  {
+    name: "next",
+    url: "//nextjs.org"
+  },
+  {
+    name: "neon",
+    url: "//neon.tech"
+  },
+  {
+    name: "github",
+    url: "//github.com"
+  },
+  {
+    name: "vue",
+    url: "//vuejs.org"
+  },
+]
+
 
 export default function supabaseLoader({
   src = "",
