@@ -78,9 +78,6 @@
         &:hover {
           background-color: rgba(255, 255, 255, 1);
         }
-        img {
-          width: 13px;
-        }
       }
     }
 

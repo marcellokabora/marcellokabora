@@ -16,7 +16,7 @@
 
   interface Item {
     logo: string;
-    company: string;
+    company?: string;
     title?: string;
     time?: string;
     link?: string;
@@ -52,8 +52,10 @@
       margin-top: 80px;
       overflow: hidden;
       overflow-x: auto;
-      display: flex;
-      gap: 2em;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      gap: 4em;
       scroll-snap-type: x mandatory;
       &::-webkit-scrollbar {
         display: none;
@@ -70,11 +72,16 @@
           object-fit: contain;
           margin-bottom: 20px;
           height: 100px;
-          width: 100%;
+          width: 200px;
         }
         .title {
           opacity: 0.6;
         }
+      }
+    }
+    @media (width<1000px) {
+      .gallery {
+        grid-template-columns: 1fr;
       }
     }
   }
