@@ -100,7 +100,7 @@
 />
 
 <section>
-  {#each companies as company}
+  {#each companies as company (company.name)}
     <div class="item" data-aos="fade-up">
       <div class="logo">
         <div>

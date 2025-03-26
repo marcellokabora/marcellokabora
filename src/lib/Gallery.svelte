@@ -66,7 +66,7 @@
 
 <div class="gallery" data-aos="fade-down">
   <div class="scrolled" bind:this={scrolled}>
-    {#each gallery as item}
+    {#each gallery as item (item.title)}
       <a href={item.link}>
         <div class="item">
           <img src={item.photo} alt={item.photo} class="photo" />
@@ -78,7 +78,7 @@
     {/each}
   </div>
   <div class="radios">
-    {#each gallery as item, index}
+    {#each gallery as item, index (item.title)}
       <button onclick={() => onScroll(index)}>
         <Icon
           icon="material-symbols:{counter === index

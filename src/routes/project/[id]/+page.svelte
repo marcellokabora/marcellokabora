@@ -22,15 +22,15 @@
         ...data.projects.filter((value) =>
           value.title
             .toLocaleLowerCase()
-            .includes(project.title.toLocaleLowerCase()),
+            .includes(project.title.toLocaleLowerCase())
         ),
         ...data.projects
           .filter((value) => value.type === project.type)
           .sort(() => 0.5 - Math.random()),
-      ]),
+      ])
     )
       .filter((value) => value.name !== project.name)
-      .splice(0, 9),
+      .splice(0, 9)
   );
 
   $effect(() => {
@@ -83,7 +83,7 @@
           {#if project.lang}
             <div class="info">
               <Icon icon="material-symbols:code" />
-              {#each project.lang.split(",") as lang}
+              {#each project.lang.split(",") as lang (lang)}
                 <a class="lang" href={getLang(lang)?.url} target="_blank"
                   >{lang}</a
                 >
@@ -111,7 +111,7 @@
     {#if project.gallery}
       <div class="gallery">
         <h2>Gallery</h2>
-        {#each [...project.gallery].sort() as photo}
+        {#each [...project.gallery].sort() as photo (photo)}
           <div class="photo">
             <img src={getImg(photo)} alt="" />
             {#if $user}

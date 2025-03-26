@@ -53,7 +53,7 @@
 
   <div class="container" data-aos="fade-up">
     {#if filtered[0]}
-      {#each filtered as item}
+      {#each filtered as item (item.name)}
         <div class="item">
           <a href="/project/{item.name}" data-sveltekit-preload-data="hover">
             <div class="imgcont">

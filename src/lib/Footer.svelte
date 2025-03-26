@@ -35,7 +35,7 @@
     <span class="tito">© Marcello Kabora • 2025</span>
   </div>
   <div class="icons">
-    {#each menus as menu}
+    {#each menus as menu (menu.name)}
       <a class="icon" href={menu.link} target="_blank" title={menu.name}>
         <Icon icon={menu.icon} />
       </a>

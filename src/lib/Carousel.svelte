@@ -27,7 +27,7 @@
   <section>
     <Header {title} {slogan} />
     <div class="gallery">
-      {#each items as item}
+      {#each items as item (item.logo)}
         <div class="item" data-aos="fade-up">
           <a href={item.link} target="_blank">
             <img src={item.logo} alt={item.logo} />

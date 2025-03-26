@@ -54,7 +54,7 @@
   </div>
   <nav class="navbar" data-aos="fade-down" class:scrolled={y > 200}>
     <ul>
-      {#each menus as menu}
+      {#each menus as menu (menu.name)}
         <li class:active={page.url.pathname === menu.link}>
           <a href={menu.link}>
             <Icon icon="material-symbols:{menu.icon}" />
@@ -91,7 +91,7 @@
   </nav>
   {#if showNav}
     <nav class="navbig">
-      {#each menus as menu}
+      {#each menus as menu (menu.name)}
         <div class="menu" class:active={page.url.pathname === menu.link}>
           <a href={menu.link} onclick={() => (showNav = false)}>
             <span>{menu.name}</span>

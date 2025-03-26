@@ -28,7 +28,7 @@
     {/each}
   </div>
   <div class="items">
-    {#each items as item, id}
+    {#each items as item, id (item)}
       <div data-aos="fade-up" id={item.id}>
         <Section
           photo={item.photo}
@@ -110,7 +110,7 @@
           {:else if item.name === "ckeditor"}
             <p>
               CKEditor 5 builds are a set of ready-to-use rich text editors.
-              Every “build” provides a single type of editor with a set of
+              Every build provides a single type of editor with a set of
               features and a default configuration. They provide convenient
               solutions that can be installed with no effort and that satisfy
               the most common editing use cases.
