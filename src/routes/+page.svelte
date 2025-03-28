@@ -180,13 +180,17 @@
 
   <Section photo="/photo/framework.gif" title="Framework">
     <p>
-      <a href="https://svelte.dev" target="_blank">Svelte</a>,
-      <a href="https://nuxt.com" target="_blank">Nuxt</a>
-      and
-      <a href="//angular.io" target="_blank">Angular</a> are my preferred frameworks
-      for scalable projects, enabling seamless integration with leading market providers.
-      Their unit testing capabilities and extensibility with authentication and pipes
-      empower me to build and customize any project with precision and control.
+      I'm proficient in a wide array of front-end technologies, including
+      <a href="//react.dev" target="_blank">React</a>,
+      <a href="//vuejs.org" target="_blank">Vue</a>,
+      <a href="//angular.io" target="_blank">Angular</a>,
+      <a href="https://svelte.dev" target="_blank">Svelte</a>, and mobile
+      frameworks like <a href="//expo.dev" target="_blank">Expo</a>,
+      <a href="/flutter.dev" target="_blank">Flutter</a>, and
+      <a href="//ionicframework.com" target="_blank">Ionic</a>. My proficiency
+      in state management encompasses a comprehensive understanding of different
+      approaches and their trade-offs, enabling me to choose and implement
+      optimal solutions for varying application scales and complexities
     </p>
   </Section>
   <Section photo="/photo/styles.jpg" title="Styling" aside>
