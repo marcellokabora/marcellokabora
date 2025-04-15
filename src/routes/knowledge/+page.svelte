@@ -3,10 +3,17 @@
   import Section from "$lib/Section.svelte";
   import { description } from "$lib/mocks";
   import { items, menu } from "./data";
+  import Icon from "@iconify/svelte";
+  import { onMount } from "svelte";
+
+  let activeSection = "javascript";
 
   function scrollIntoView(value: string) {
     const el = document.getElementById(value);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      activeSection = value;
+    }
   }
 </script>
 
@@ -19,15 +26,26 @@
 
 <Banner cover="/gallery/develop.jpeg" title="Knowledge" slogan="Technologies" />
 
-<section class="knowledge">
-  <div class="menus" data-aos="fade-up">
+<section class="grid gap-8">
+  <div class="sticky top-20 flex justify-center gap-2 z-10" data-aos="fade-up">
     {#each menu as item}
-      <button onclick={() => scrollIntoView(item)}>
-        {item}
+      <button
+        class="bg-white text-sm font-medium px-4 py-2 cursor-pointer capitalize border border-gray-200 rounded-full
+               hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 flex items-center gap-2 group
+               {activeSection === item.name
+          ? 'border-blue-500 bg-blue-50 text-blue-600'
+          : 'text-gray-600'}"
+        onclick={() => scrollIntoView(item.name)}
+      >
+        <Icon
+          icon={item.icon}
+          class="w-4 h-4 transition-transform duration-200 group-hover:scale-110"
+        />
+        {item.name}
       </button>
     {/each}
   </div>
-  <div class="items">
+  <div class="flex-1 px-5 mr-5">
     {#each items as item, id (item)}
       <div data-aos="fade-up" id={item.id}>
         <Section
@@ -36,6 +54,7 @@
           link={item.link}
           aside={id % 2 == 1}
           small
+          objectFit="contain"
         >
           {#if item.name === "tinkercad"}
             <p>
@@ -380,47 +399,16 @@
   </div>
 </section>
 
-<style>
-  section {
-    display: grid;
-    gap: 2em;
+<!-- <style>
+  :global(.photo) {
+    @apply h-[230px] w-[230px];
   }
-  .menus {
-    position: sticky;
-    top: 80px;
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    z-index: 1;
-    button {
-      background-color: var(--bg-color);
-      text-align: right;
-      font-weight: bold;
-      padding: 1em 2em;
-      cursor: pointer;
-      text-transform: capitalize;
-      border: 1px solid silver;
-      border-radius: 100px;
-      &:hover {
-        border-color: black;
-      }
-    }
-  }
-  .items {
-    flex: 1;
-    padding: 0px 20px;
-    margin-right: 20px;
-  }
-  .knowledge :global(.photo) {
-    height: 230px;
-    width: 230px;
-  }
-  .knowledge :global(.photo img) {
-    object-fit: contain !important;
+  :global(.photo img) {
+    @apply object-contain;
   }
   @media (max-width: 1000px) {
-    .menus {
-      display: none;
+    .sticky {
+      @apply hidden;
     }
   }
-</style>
+</style> -->

@@ -1,4 +1,5 @@
 <script>
+  import { fade, scale } from "svelte/transition";
   let { showModal = $bindable(), children } = $props();
 
   let dialog = $state(); // HTMLDialogElement
@@ -19,44 +20,14 @@
   onclick={(e) => {
     if (e.target === dialog) dialog.close();
   }}
+  class="fixed inset-0 m-auto max-w-[80vw] rounded-lg border-0 p-0 shadow-lg bg-white/50 backdrop-blur-xl [&::backdrop]:bg-black/50"
+  transition:fade={{ duration: 200 }}
 >
-  {@render children?.()}
+  <div
+    class="relative flex items-center justify-center w-full h-full p-6"
+    in:scale={{ duration: 200, start: 0.95 }}
+    out:scale={{ duration: 200, start: 0.95 }}
+  >
+    {@render children?.()}
+  </div>
 </dialog>
-
-<style>
-  dialog {
-    max-width: 80vw;
-    border-radius: 0.5em;
-    border: none;
-    padding: 0;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    background-color: transparent;
-    backdrop-filter: blur(20px);
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  dialog::backdrop {
-    background: rgba(0, 0, 0, 0.3);
-  }
-  dialog[open] {
-    animation: zoom 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  @keyframes zoom {
-    from {
-      transform: scale(0.95);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-  dialog[open]::backdrop {
-    animation: fade 0.2s ease-out;
-  }
-  @keyframes fade {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-</style>

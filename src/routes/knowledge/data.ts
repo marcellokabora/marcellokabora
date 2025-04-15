@@ -1,9 +1,9 @@
 export const menu = [
-  "javascript",
-  "design",
-  "database",
-  "software",
-  "management",
+  { name: "javascript", icon: "mdi:language-javascript" },
+  { name: "design", icon: "mdi:palette" },
+  { name: "database", icon: "mdi:database" },
+  { name: "software", icon: "mdi:application" },
+  { name: "management", icon: "mdi:briefcase" },
 ];
 
 const javascript = [

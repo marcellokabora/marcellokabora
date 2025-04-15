@@ -13,37 +13,19 @@
   }: Props = $props();
 </script>
 
-<div class="banner" data-aos="fade-down">
-  <img class="cover" src={cover} alt="cover" />
+<div
+  class="h-[50vh] flex items-center justify-center text-white overflow-hidden relative text-center px-8 pb-10"
+  data-aos="fade-down"
+>
+  <img
+    class="absolute object-cover h-[110%] w-[105%] -z-10 saturate-100 brightness-80 blur-2xl"
+    src={cover}
+    alt="cover"
+  />
   <Header {title} {slogan} zoom={1.2} />
-  <img class="arcbot" src="/shape/arc_bot.png" alt="arcbot" />
+  <img
+    class="absolute bottom-[-1px] w-full z-10"
+    src="/shape/arc_bot.png"
+    alt="arcbot"
+  />
 </div>
-
-<style>
-  .banner {
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    padding: 0 2em;
-    padding-bottom: 40px;
-  }
-  .cover {
-    position: absolute;
-    object-fit: cover;
-    height: 110%;
-    width: 105%;
-    z-index: -1;
-    filter: saturate(1) brightness(0.8) blur(8px);
-  }
-  .arcbot {
-    position: absolute;
-    bottom: -1px;
-    width: 100%;
-    z-index: 1;
-  }
-</style>

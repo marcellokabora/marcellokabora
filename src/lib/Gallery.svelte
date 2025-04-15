@@ -64,102 +64,49 @@
   }
 </script>
 
-<div class="gallery" data-aos="fade-down">
-  <div class="scrolled" bind:this={scrolled}>
+<div class="relative text-white" data-aos="fade-down">
+  <div
+    class="relative overflow-auto flex snap-x snap-mandatory overflow-x-hidden"
+    bind:this={scrolled}
+  >
     {#each gallery as item (item.title)}
-      <a href={item.link}>
-        <div class="item">
-          <img src={item.photo} alt={item.photo} class="photo" />
-          <div class="header">
+      <a href={item.link} class="text-white no-underline">
+        <div
+          class="snap-center relative w-screen h-[60vh] flex overflow-hidden items-center justify-center"
+        >
+          <img
+            src={item.photo}
+            alt={item.photo}
+            class="absolute object-cover w-full h-full saturate-100 brightness-80 -z-10"
+          />
+          <div
+            class="h-[calc(100%-50px)] flex items-center justify-center px-5 mb-8 md:pt-0 pt-5 text-white"
+          >
             <Header title={item.title} slogan={item.slogan} zoom={1.2} />
           </div>
         </div>
       </a>
     {/each}
   </div>
-  <div class="radios">
+  <div
+    class="absolute bottom-[100px] flex items-center justify-center w-full md:flex hidden"
+  >
     {#each gallery as item, index (item.title)}
-      <button onclick={() => onScroll(index)}>
+      <button
+        onclick={() => onScroll(index)}
+        class="bg-transparent border-none text-white cursor-pointer scale-60 opacity-50"
+      >
         <Icon
           icon="material-symbols:{counter === index
-            ? 'radio_button_checked'
-            : 'radio_button_unchecked'}"
+            ? 'radio-button-checked'
+            : 'radio-button-unchecked'}"
         />
       </button>
     {/each}
   </div>
-  <img class="arcbot" src="/shape/arc_bot.png" alt="arcbot" />
+  <img
+    class="w-full z-[999] absolute bottom-[-1px]"
+    src="/shape/arc_bot.png"
+    alt="arcbot"
+  />
 </div>
-
-<style>
-  .gallery {
-    position: relative;
-    color: white;
-    .scrolled {
-      position: relative;
-      overflow: auto;
-      display: flex;
-      scroll-snap-type: x mandatory;
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
-    .item {
-      scroll-snap-align: center;
-      position: relative;
-      width: 100vw;
-      height: 500px;
-      display: flex;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    a {
-      color: white;
-      text-decoration: none;
-    }
-    .photo {
-      position: absolute;
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-      filter: saturate(1) brightness(0.8);
-      z-index: -1;
-    }
-    .header {
-      height: calc(100% - 50px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 20px;
-      margin-bottom: 2em;
-    }
-    .arcbot {
-      width: 100%;
-      z-index: 999;
-      position: absolute;
-      bottom: -1px;
-    }
-    .radios {
-      position: absolute;
-      bottom: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      button {
-        background-color: transparent;
-        border: none;
-        color: white;
-        cursor: pointer;
-        zoom: 0.6;
-      }
-    }
-  }
-  @media (max-width: 1000px) {
-    .header {
-      padding-top: 20px;
-    }
-  }
-</style>

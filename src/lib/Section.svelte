@@ -7,6 +7,7 @@
     photo?: string;
     title?: string;
     small?: boolean;
+    objectFit?: "cover" | "contain";
     children?: Snippet;
   }
 
@@ -16,117 +17,57 @@
     photo = "",
     title = "",
     small = false,
+    objectFit = "cover",
     children,
   }: Props = $props();
 </script>
 
-<div class="section" class:side={aside} data-aos="fade-up" class:small>
-  <div class="photo">
+<div
+  class="flex justify-center items-center my-0 gap-16 flex-col md:flex-row"
+  class:text-right={aside}
+  class:gap-8={small}
+  data-aos="fade-up"
+>
+  <div
+    class="rounded-lg overflow-hidden flex items-center justify-center order-1 z-[-1] h-[200px] w-full md:w-[300px] md:h-[300px]"
+    class:md:order-2={aside}
+    class:md:mt-0={aside}
+  >
     {#if link}
-      <a href={link} target="_blank">
-        <img src={photo} alt="" />
+      <a href={link} target="_blank" class="w-full h-full">
+        <img
+          src={photo}
+          alt=""
+          class="object-{objectFit} w-full h-full"
+          class:scale-75={small}
+        />
       </a>
     {:else}
-      <img src={photo} alt="" />
+      <img
+        src={photo}
+        alt=""
+        class="object-{objectFit} w-full h-full"
+        class:scale-75={small}
+      />
     {/if}
   </div>
-  <div class="info">
-    <div class="tito">
+  <div
+    class="flex-1 order-2 mb-5 text-center md:text-left md:mb-0"
+    class:md:order-1={aside}
+    class:md:text-right={aside}
+  >
+    <div class="font-bold text-2xl md:text-xl">
       {#if link}
-        <a href={link} target="_blank">
+        <a href={link} target="_blank" class="text-black no-underline">
           {title}
         </a>
       {:else}
         {title}
       {/if}
     </div>
-    <hr />
-    <div class="desc">
+    <hr class="opacity-20 my-2" />
+    <div>
       {@render children?.()}
     </div>
   </div>
 </div>
-
-<style>
-  .section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 0px;
-    gap: 4em;
-    &.small {
-      gap: 2em;
-      .photo img {
-        height: 200px;
-        width: 200px;
-      }
-    }
-  }
-  .side {
-    text-align: right;
-  }
-  .side .photo {
-    order: 2;
-    margin: 0;
-    margin-right: 0;
-  }
-  .photo {
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {
-      object-fit: cover;
-      height: 300px;
-      width: 300px;
-    }
-  }
-  .info {
-    flex: 1;
-  }
-  .tito {
-    font-weight: bold;
-    font-size: 1.2em;
-  }
-  .tito a {
-    color: black;
-    text-decoration: none;
-  }
-  hr {
-    opacity: 0.2;
-  }
-  @media (max-width: 800px) {
-    .section {
-      flex-direction: column;
-      &.small {
-        img {
-          position: relative !important;
-        }
-      }
-    }
-    .tito {
-      font-size: 2em;
-    }
-    .side {
-      margin-top: 2em;
-    }
-    .photo {
-      order: 1;
-      margin: 0;
-      order: 2;
-      z-index: -1;
-      height: 200px;
-      img {
-        position: absolute;
-        width: 100vw;
-        height: 250px;
-      }
-    }
-    .info {
-      order: 2;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-  }
-</style>

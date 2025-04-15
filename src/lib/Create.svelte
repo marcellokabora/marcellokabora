@@ -42,7 +42,7 @@
 </script>
 
 <form
-  class="form"
+  class="flex flex-col text-[rgb(20,20,20)]"
   method="POST"
   action="/?/create"
   use:enhance={() => {
@@ -59,92 +59,110 @@
     };
   }}
 >
-  <div class="main">
-    <div class="columns">
-      <label>
-        <span>Name*</span>
+  <div
+    class="flex flex-col gap-6 overflow-auto w-[80vw] max-h-[100vw] max-w-[600px]"
+  >
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-6">
+      <label class="flex flex-col gap-1">
+        <span class="text-sm font-medium text-gray-700">Name*</span>
         <input
           name="name"
           type="text"
           bind:value={data.name}
           autocomplete="off"
+          class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
         />
       </label>
-      <label>
-        <span>Date*</span>
+      <label class="flex flex-col gap-1">
+        <span class="text-sm font-medium text-gray-700">Date*</span>
         <input
           name="date"
           type="date"
           bind:value={data.date}
           autocomplete="off"
+          class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
         />
       </label>
-      <label>
-        <span>Type</span>
-        <select name="type" bind:value={data.type}>
+      <label class="flex flex-col gap-1">
+        <span class="text-sm font-medium text-gray-700">Type</span>
+        <select
+          name="type"
+          bind:value={data.type}
+          class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+        >
           <option value="design">Design</option>
           <option value="website">Website</option>
           <option value="webapp">Webapp</option>
         </select>
       </label>
-      <label>
-        <span>Title*</span>
+      <label class="flex flex-col gap-1">
+        <span class="text-sm font-medium text-gray-700">Title*</span>
         <input
           name="title"
           type="text"
           bind:value={data.title}
           autocomplete="off"
+          class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
         />
       </label>
-      <label>
-        <span>Slogan</span>
+      <label class="flex flex-col gap-1">
+        <span class="text-sm font-medium text-gray-700">Slogan</span>
         <input
           name="slogan"
           type="text"
           bind:value={data.slogan}
           autocomplete="off"
+          class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
         />
       </label>
-      <label>
-        <span>Lang</span>
+      <label class="flex flex-col gap-1">
+        <span class="text-sm font-medium text-gray-700">Lang</span>
         <input
           name="lang"
           type="text"
           bind:value={data.lang}
           autocomplete="off"
+          class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
         />
       </label>
-      <label>
-        <span>Github</span>
+      <label class="flex flex-col gap-1">
+        <span class="text-sm font-medium text-gray-700">Github</span>
         <input
           name="code"
           type="text"
           bind:value={data.code}
           autocomplete="off"
+          class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
         />
       </label>
-      <label>
-        <span>Link</span>
+      <label class="flex flex-col gap-1">
+        <span class="text-sm font-medium text-gray-700">Link</span>
         <input
           name="link"
           type="text"
           bind:value={data.link}
           autocomplete="off"
+          class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
         />
       </label>
-      <label>
-        <span>Youtube</span>
+      <label class="flex flex-col gap-1">
+        <span class="text-sm font-medium text-gray-700">Youtube</span>
         <input
           name="youtube"
           type="text"
           bind:value={data.youtube}
           autocomplete="off"
+          class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
         />
       </label>
     </div>
-    <label>
-      <span>Infos</span>
-      <textarea name="info" bind:value={data.info} autocomplete="off"
+    <label class="flex flex-col gap-1">
+      <span class="text-sm font-medium text-gray-700">Infos</span>
+      <textarea
+        name="info"
+        bind:value={data.info}
+        autocomplete="off"
+        class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none min-h-[80px] resize-y"
       ></textarea>
     </label>
     <div class="hidden">
@@ -153,21 +171,26 @@
       <input name="email" type="text" value={$user?.email} />
     </div>
   </div>
-  <div class="actions">
-    <div class="block">
+  <div
+    class="flex justify-between items-center gap-4 border-t border-gray-200 pt-6"
+  >
+    <div class="flex items-center gap-4">
       {#if project}
         <div>
           {#if showConfirm}
             <button
               type="button"
-              class="confirm"
+              class="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white rounded-lg px-4 py-2 cursor-pointer transition-colors"
               onclick={() => formDelete?.requestSubmit()}
             >
               <Icon icon="material-symbols:check" />
               <span>Confirm</span>
             </button>
           {:else}
-            <button class="delete" onclick={() => (showConfirm = true)}>
+            <button
+              class="flex items-center gap-2 border border-red-500 text-red-500 hover:bg-red-50 rounded-lg px-4 py-2 bg-transparent cursor-pointer transition-colors"
+              onclick={() => (showConfirm = true)}
+            >
               <Icon icon="material-symbols:delete" />
               <!-- <span>Delete</span> -->
             </button>
@@ -175,15 +198,19 @@
         </div>
       {/if}
       {#if error}
-        <span class="error">{error}</span>
+        <span class="text-red-500 text-sm font-medium">{error}</span>
       {/if}
     </div>
-    <div class="block">
-      <button onclick={() => (showCreate = false)}>Cancel </button>
+    <div class="flex items-center gap-4">
       <button
-        class="login"
+        onclick={() => (showCreate = false)}
+        class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors cursor-pointer"
+      >
+        Cancel
+      </button>
+      <button
+        class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition-colors"
         disabled={!isValid}
-        style:opacity={!isValid ? 0.2 : 1}
         type="submit"
       >
         {#if loading}
@@ -198,7 +225,7 @@
 </form>
 
 <form
-  class="form"
+  class="flex flex-col text-[rgb(20,20,20)]"
   method="POST"
   action="/project/[id]?/delete"
   bind:this={formDelete}
@@ -210,89 +237,3 @@
     };
   }}
 ></form>
-
-<style>
-  .form {
-    display: flex;
-    flex-direction: column;
-    color: rgb(20, 20, 20);
-  }
-  .main {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    overflow: auto;
-    padding: 2em;
-    width: 80vw;
-    max-height: 100vw;
-    max-width: 600px;
-  }
-  .columns {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1em;
-  }
-  label {
-    display: flex;
-    flex-direction: column;
-    span {
-      font-size: small;
-    }
-    input,
-    textarea,
-    select {
-      padding: 1em;
-      border-radius: 0.5em;
-      border: none;
-      background-color: rgba(255, 255, 255, 0.4);
-      border: 1px solid silver;
-    }
-    select {
-      height: 45px;
-    }
-    textarea {
-      field-sizing: content;
-      min-height: 80px;
-      resize: vertical;
-    }
-  }
-  .actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1em;
-    padding: 2em;
-    padding-top: 0;
-    .error {
-      color: red;
-      font-size: x-small;
-    }
-    .block {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-    }
-    button {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-      &.login,
-      &.delete,
-      &.confirm {
-        background-color: rgb(41, 41, 41);
-        color: white;
-        border-radius: 100px;
-        padding: 1em 1.5em;
-      }
-      &.delete {
-        color: red;
-        border: 1px solid red;
-        background-color: transparent;
-      }
-      &.confirm {
-        color: white;
-        background-color: red;
-      }
-    }
-  }
-</style>

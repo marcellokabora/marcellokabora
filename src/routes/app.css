@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import "tailwindcss";
 
 :root {
   --bg-color: #fafafa;
@@ -18,9 +19,9 @@ a {
   color: black;
 }
 
-a:hover {
+/* a:hover {
   color: rgb(0, 128, 255);
-}
+} */
 
 section {
   max-width: 1000px;
@@ -33,11 +34,11 @@ section {
   display: none;
 }
 
-button {
+/* button {
   cursor: pointer;
   background-color: transparent;
   border: none;
-}
+} */
 
 .iconify {
   font-size: 1.5em;
