@@ -153,19 +153,26 @@
       position: fixed;
       display: flex;
       align-items: center;
-      color: white;
       top: 0;
       width: 100%;
       height: 60px;
       backdrop-filter: blur(50px);
       &.scrolled {
-        background-color: rgba(61, 61, 61, 0.8);
+        /* background-color: rgba(61, 61, 61, 0.8); */
+        a {
+          color: black;
+        }
+        .account {
+          .user {
+            color: black;
+          }
+        }
       }
       > ul {
         display: flex;
         align-items: center;
         flex: 1;
-        margin-left: 180px;
+        margin-left: 220px;
         li {
           display: flex;
           align-items: center;

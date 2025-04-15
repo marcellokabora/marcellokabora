@@ -200,7 +200,7 @@
 {/if}
 
 {#if $user}
-  <div class="absolute left-12 top-[150px] flex flex-col items-center gap-4">
+  <div class="absolute left-12 top-[120px] flex flex-col items-center gap-4">
     <form
       method="POST"
       action="?/cover"

@@ -29,6 +29,10 @@ section {
   padding: 0px 25px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .hidden {
   visibility: hidden;
   display: none;
