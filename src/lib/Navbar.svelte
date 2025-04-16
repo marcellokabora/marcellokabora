@@ -42,44 +42,65 @@
   let showNav: boolean = $state(false);
 </script>
 
-<header>
-  <div class="logo" data-aos="fade-down">
+<header class="fixed z-[999]">
+  <div class="fixed top-0 left-0 z-[999] logo" data-aos="fade-down">
     <a
       href={showNav ? "" : "/"}
       onclick={() => (showNav = window.screen.width < 1000)}
     >
-      <img src="/icon/mk.png" alt="Marcello Kabora" />
+      <img
+        src="/icon/mk.svg"
+        alt="Marcello Kabora"
+        class="w-[250px] cursor-pointer"
+      />
     </a>
-    <div class="arrow"></div>
   </div>
-  <nav class="navbar" data-aos="fade-down" class:scrolled={y > 200}>
-    <ul>
+  <nav
+    class="fixed flex items-center top-0 w-full h-[60px] backdrop-blur-[50px] navbar"
+    data-aos="fade-down"
+    style={y > 200 ? "color: white" : "color: black"}
+  >
+    <ul class="flex items-center flex-1 ml-[180px]">
       {#each menus as menu (menu.name)}
-        <li class:active={page.url.pathname === menu.link}>
-          <a href={menu.link}>
-            <Icon icon="material-symbols:{menu.icon}" />
+        <li class="flex items-center justify-center flex-1 scale-80">
+          <a
+            href={menu.link}
+            class="no-underline flex items-center p-[10px_20px] rounded-full"
+            style={page.url.pathname === menu.link
+              ? "background-color: rgba(255,255,255,0.4)"
+              : ""}
+          >
+            <Icon icon="material-symbols:{menu.icon}" class="mr-[10px]" />
             <span>{menu.name}</span>
           </a>
         </li>
       {/each}
     </ul>
-    <div class="account">
+    <div class="relative pr-4 account">
       <button
-        class="user"
+        class="text-white text-[1.2em] user"
         onclick={() => ($user ? (showModal = false) : (showModal = true))}
       >
         <Icon icon="material-symbols:account-circle" />
       </button>
       {#if $user}
-        <div class="dropdown">
-          <div class="email">{$user.email}</div>
-          <div class="actions">
-            <button type="submit" onclick={() => (showCreate = true)}>
+        <div
+          class="absolute right-0 invisible transition-all duration-500 mt-5 mr-4 shadow-[0px_0px_2px_rgba(0,0,0,0.5)] bg-[rgba(255,255,255,0.8)] text-black rounded-[0.5em] dropdown"
+        >
+          <div class="text-sm p-4 email">{$user.email}</div>
+          <div class="flex gap-4 border-t border-[rgba(0,0,0,0.1)] actions">
+            <button
+              type="submit"
+              onclick={() => (showCreate = true)}
+              class="p-4 w-full flex items-center gap-4 text-[rgb(61,61,61)] hover:text-black"
+            >
               <Icon icon="material-symbols:add-circle" />
               <span>Create</span>
             </button>
             <form method="POST" action="/?/logout">
-              <button>
+              <button
+                class="p-4 w-full flex items-center gap-4 text-[rgb(61,61,61)] hover:text-black"
+              >
                 <Icon icon="material-symbols:logout" />
                 <span>Logout</span>
               </button>
@@ -90,12 +111,21 @@
     </div>
   </nav>
   {#if showNav}
-    <nav class="navbig">
+    <nav
+      class="fixed h-full w-full bg-[rgb(0_0_0_/_95%)] text-white flex flex-col items-end pt-5 navbig"
+    >
       {#each menus as menu (menu.name)}
-        <div class="menu" class:active={page.url.pathname === menu.link}>
-          <a href={menu.link} onclick={() => (showNav = false)}>
+        <div
+          class="whitespace-nowrap p-[10px] m-0 mr-5 menu"
+          class:active={page.url.pathname === menu.link}
+        >
+          <a
+            href={menu.link}
+            onclick={() => (showNav = false)}
+            class="text-white no-underline flex items-center pb-5 border-b border-[rgba(255,255,255,0.2)] pl-[50px]"
+          >
             <span>{menu.name}</span>
-            <Icon icon="material-symbols:{menu.icon}" />
+            <Icon icon="material-symbols:{menu.icon}" class="ml-5" />
           </a>
         </div>
       {/each}
@@ -117,163 +147,19 @@
 
 <svelte:window bind:scrollY={y} />
 
-<style>
-  header {
-    position: fixed;
-    z-index: 999;
-    .logo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100px;
-      background-color: #1b1b1b;
-      width: 180px;
-      zoom: 0.9;
-      z-index: 999;
-      img {
-        width: 100px;
-        position: relative;
-        left: 50px;
-        top: 23px;
-        z-index: 1;
-        cursor: pointer;
-      }
-      .arrow {
-        position: absolute;
-        top: 0;
-        right: -100px;
-        width: 0;
-        height: 0;
-        border-left: 100px solid transparent;
-        border-right: 100px solid transparent;
-        border-top: 100px solid #1b1b1b;
-      }
-    }
+<!-- <style>
+  .account:hover .dropdown {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+
+  @media (max-width: 800px) {
     .navbar {
-      position: fixed;
-      display: flex;
-      align-items: center;
-      color: white;
-      top: 0;
-      width: 100%;
-      height: 60px;
-      backdrop-filter: blur(50px);
-      &.scrolled {
-        background-color: rgba(61, 61, 61, 0.8);
-      }
-      > ul {
-        display: flex;
-        align-items: center;
-        flex: 1;
-        margin-left: 180px;
-        li {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex: 1;
-          zoom: 0.8;
-          &.active a {
-            background-color: rgba(255, 255, 255, 0.4);
-            color: rgba(0, 0, 0, 0.8);
-          }
-          :global(.iconify) {
-            margin-right: 10px;
-          }
-          a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            border-radius: 100px;
-          }
-        }
-      }
-      .account {
-        position: relative;
-        padding-right: 1em;
-        &:hover .dropdown {
-          visibility: visible;
-          opacity: 1;
-          display: block;
-        }
-        .user {
-          color: white;
-          font-size: 1.2em;
-        }
-        .dropdown {
-          position: absolute;
-          right: 0;
-          visibility: hidden;
-          transition: all 0.5s ease;
-          margin-top: 20px;
-          margin-right: 1em;
-          box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
-          background-color: rgba(255, 255, 255, 0.8);
-          color: black;
-          border-radius: 0.5em;
-          .email {
-            font-size: small;
-            padding: 1em;
-          }
-          .actions {
-            display: flex;
-            gap: 1em;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            button {
-              padding: 1em;
-              padding: 1em;
-              width: 100%;
-              display: flex;
-              align-items: center;
-              gap: 1em;
-              color: rgb(61, 61, 61);
-              &:hover {
-                color: black;
-              }
-            }
-          }
-        }
-      }
+      display: none;
     }
-
-    .navbig {
-      position: fixed;
-      height: 100%;
-      width: 100%;
-      background-color: rgb(0 0 0 / 95%);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      padding-top: 20px;
-      .menu {
-        white-space: nowrap;
-        padding: 10px;
-        margin: 0;
-        margin-right: 20px;
-      }
-      a {
-        color: white;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        padding-bottom: 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        padding-left: 50px;
-      }
-      :global(.iconify) {
-        margin-left: 20px;
-      }
-    }
-
-    @media (max-width: 800px) {
-      .navbar {
-        display: none;
-      }
-      .logo {
-        zoom: 0.7;
-      }
+    .logo {
+      zoom: 0.7;
     }
   }
-</style>
+</style> -->

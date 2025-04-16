@@ -203,8 +203,9 @@
     </div>
     <div class="flex items-center gap-4">
       <button
-        onclick={() => (showCreate = false)}
+        onclick={(e) => (showCreate = false)}
         class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors cursor-pointer"
+        type="button"
       >
         Cancel
       </button>
