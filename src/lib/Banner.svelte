@@ -14,14 +14,16 @@
 </script>
 
 <div
-  class="h-[50vh] flex items-center justify-center text-white overflow-hidden relative text-center px-8 pb-10"
+  class="h-[55vh] flex items-center justify-center text-white overflow-hidden relative text-center px-8 pb-10 pt-11"
   data-aos="fade-down"
 >
-  <img
-    class="absolute object-cover h-[110%] w-[105%] -z-10 saturate-100 brightness-80 blur-2xl"
-    src={cover}
-    alt="cover"
-  />
+  <div class="absolute inset-0 overflow-hidden -z-10">
+    <img
+      class="w-full h-full object-cover saturate-100 brightness-80 blur-lg scale-110"
+      src={cover}
+      alt="cover"
+    />
+  </div>
   <Header {title} {slogan} zoom={1.2} />
   <img
     class="absolute bottom-[-1px] w-full z-10"

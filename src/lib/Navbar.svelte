@@ -58,7 +58,7 @@
   <nav
     class="fixed flex items-center top-0 w-full h-[60px] backdrop-blur-[50px] navbar"
     data-aos="fade-down"
-    style={y > 200 ? "color: white" : "color: black"}
+    style={y > 200 ? "color: black" : "color: white"}
   >
     <ul class="flex items-center flex-1 ml-[180px]">
       {#each menus as menu (menu.name)}
@@ -67,7 +67,7 @@
             href={menu.link}
             class="no-underline flex items-center p-[10px_20px] rounded-full"
             style={page.url.pathname === menu.link
-              ? "background-color: rgba(255,255,255,0.4)"
+              ? "background-color: rgba(255,255,255,0.4); color: black"
               : ""}
           >
             <Icon icon="material-symbols:{menu.icon}" class="mr-[10px]" />
@@ -122,7 +122,7 @@
           <a
             href={menu.link}
             onclick={() => (showNav = false)}
-            class="text-white no-underline flex items-center pb-5 border-b border-[rgba(255,255,255,0.2)] pl-[50px]"
+            class="no-underline flex items-center pb-5 border-b border-[rgba(255,255,255,0.2)] pl-[50px]"
           >
             <span>{menu.name}</span>
             <Icon icon="material-symbols:{menu.icon}" class="ml-5" />
@@ -147,7 +147,7 @@
 
 <svelte:window bind:scrollY={y} />
 
-<!-- <style>
+<style>
   .account:hover .dropdown {
     visibility: visible;
     opacity: 1;
@@ -162,4 +162,4 @@
       zoom: 0.7;
     }
   }
-</style> -->
+</style>

@@ -38,18 +38,18 @@
           <div class="text-xl font-bold mt-4">{company.name}</div>
           <div class="text-xl opacity-50 mt-2">{company.slogan}</div>
           <div
-            class="absolute bottom-[-30px] right-[-3px] w-1.5 h-1.5 rounded-full bg-gray-400 sm:block hidden"
+            class="absolute bottom-[-30px] right-[-3px] w-1.5 h-1.5 rounded-full bg-gray-400"
           ></div>
         </div>
       </div>
       <div class="flex-1 md:pl-10 w-full text-center md:text-left">
         <div
-          class="flex flex-col md:flex-row justify-between items-center md:items-end border-b border-gray-300 pb-4 mb-4"
+          class="flex flex-col md:flex-row justify-between items-center md:items-end"
         >
           <div class="text-xl font-bold flex-1 mb-2 md:mb-0">
             {company.title}
           </div>
-          <div class="opacity-50 text-lg">{company.time}</div>
+          <div class="opacity-50 text-base">{company.time}</div>
         </div>
         <div class="text-center md:text-left">
           <CompanyDescription {company} />

@@ -15,9 +15,9 @@ body {
   outline: 0;
 }
 
-a {
+/* a {
   color: black;
-}
+} */
 
 /* a:hover {
   color: rgb(0, 128, 255);
@@ -27,6 +27,10 @@ section {
   max-width: 1000px;
   margin: auto;
   padding: 0px 25px;
+}
+
+button {
+  cursor: pointer;
 }
 
 .hidden {

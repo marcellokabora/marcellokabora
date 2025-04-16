@@ -72,7 +72,7 @@
     {#each gallery as item (item.title)}
       <a href={item.link} class="text-white no-underline">
         <div
-          class="snap-center relative w-screen h-[60vh] flex overflow-hidden items-center justify-center"
+          class="snap-center relative w-screen h-[70vh] flex overflow-hidden items-center justify-center"
         >
           <img
             src={item.photo}
@@ -88,13 +88,13 @@
       </a>
     {/each}
   </div>
-  <div
-    class="absolute bottom-[100px] flex items-center justify-center w-full md:flex hidden"
-  >
+  <div class="absolute bottom-[100px] flex items-center justify-center w-full">
     {#each gallery as item, index (item.title)}
       <button
         onclick={() => onScroll(index)}
-        class="bg-transparent border-none text-white cursor-pointer scale-60 opacity-50"
+        class="bg-transparent border-none text-white cursor-pointer scale-75 hover:opacity-100 transition-opacity"
+        class:opacity-100={counter === index}
+        class:opacity-50={counter !== index}
       >
         <Icon
           icon="material-symbols:{counter === index
