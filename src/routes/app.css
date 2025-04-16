@@ -3,6 +3,12 @@
 
 :root {
   --bg-color: #fafafa;
+  --background-secondary: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --primary-color: #3b82f6;
+  --primary-color-hover: #2563eb;
+  --border-color: #e5e7eb;
 }
 
 body {
@@ -15,14 +21,6 @@ body {
   outline: 0;
 }
 
-/* a {
-  color: black;
-} */
-
-/* a:hover {
-  color: rgb(0, 128, 255);
-} */
-
 section {
   max-width: 1000px;
   margin: auto;
@@ -32,17 +30,6 @@ section {
 button {
   cursor: pointer;
 }
-
-.hidden {
-  visibility: hidden;
-  display: none;
-}
-
-/* button {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-} */
 
 .iconify {
   font-size: 1.5em;

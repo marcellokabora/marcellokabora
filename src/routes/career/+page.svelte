@@ -25,7 +25,7 @@
       data-aos="fade-up"
     >
       <div
-        class="w-full md:w-[250px] h-[380px] border-r-0 md:border-r border-gray-300 flex items-center justify-center relative mb-10 md:mb-0"
+        class="w-full md:w-[250px] h-[500px] border-r-0 md:border-r border-gray-300 flex items-center justify-center relative mb-10 md:mb-0"
       >
         <div class="text-center">
           <a href={company.link} target="_black" class="block">
@@ -38,7 +38,7 @@
           <div class="text-xl font-bold mt-4">{company.name}</div>
           <div class="text-xl opacity-50 mt-2">{company.slogan}</div>
           <div
-            class="absolute bottom-[-30px] right-[-3px] w-1.5 h-1.5 rounded-full bg-gray-400"
+            class="absolute bottom-[-35px] right-[-3px] w-1.5 h-1.5 rounded-full bg-gray-400"
           ></div>
         </div>
       </div>

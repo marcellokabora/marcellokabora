@@ -56,10 +56,10 @@
             <p>
                 I started work with the core of the team rebuilding the new UI
                 and working on the new <a
-                    href="https://marcellokabora.com/project/linus"
-                    >registration</a
+                    href="https://marcellokabora.com/project/linus-registration"
+                    >Registration</a
                 >, my next task was to build the template of the main
-                <a href="//marcellokabora.com/project/linus-product">product</a>
+                <a href="//marcellokabora.com/project/linus-product">Product</a>
                 using Builder.io and React.js. and after I had rebuilt several landing
                 pages for the
                 <a href="//marcellokabora.com/project/linus-marketing"
@@ -134,9 +134,7 @@
                 provides the best solution in Germany to find the right credit online
                 with more than 50 bank accounts. My position as Frontend Developer
                 was fundamental for the creation of the new
-                <a href="https://marcellokabora.com/project/smava-website"
-                    >homepage</a
-                >.
+                <a href="https://marcellokabora.com/project/smava">Homepage</a>.
             </p>
             <p>
                 My team was responsible for the conversion from the design to
@@ -280,16 +278,11 @@
         padding: 2rem;
         background-color: var(--background-secondary);
         border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         margin: 1.5rem 0;
         transition:
             transform 0.2s ease,
             box-shadow 0.2s ease;
-    }
-
-    .company-description:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
     .description-content {
@@ -306,7 +299,6 @@
 
     .description-content a {
         color: var(--primary-color);
-        text-decoration: none;
         font-weight: 500;
         transition: all 0.2s ease;
         position: relative;
