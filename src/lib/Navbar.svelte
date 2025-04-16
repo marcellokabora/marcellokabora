@@ -42,6 +42,8 @@
   let showNav: boolean = $state(false);
 </script>
 
+<svelte:window bind:scrollY={y} />
+
 <header class="fixed z-[999]">
   <div class="fixed top-0 left-0 z-[999] logo" data-aos="fade-down">
     <a
@@ -56,7 +58,7 @@
     </a>
   </div>
   <nav
-    class="fixed flex items-center top-0 w-full h-[60px] backdrop-blur-[50px] navbar"
+    class="fixed items-center top-0 w-full h-[60px] backdrop-blur-[50px] flex invisible lg:visible"
     data-aos="fade-down"
     style={y > 200 ? "color: black" : "color: white"}
   >
@@ -76,16 +78,16 @@
         </li>
       {/each}
     </ul>
-    <div class="relative pr-4 account">
+    <div class="relative pr-4 account group">
       <button
-        class="text-white text-[1.2em] user"
+        class="text-lg user"
         onclick={() => ($user ? (showModal = false) : (showModal = true))}
       >
         <Icon icon="material-symbols:account-circle" />
       </button>
       {#if $user}
         <div
-          class="absolute right-0 invisible transition-all duration-500 mt-5 mr-4 shadow-[0px_0px_2px_rgba(0,0,0,0.5)] bg-[rgba(255,255,255,0.8)] text-black rounded-[0.5em] dropdown"
+          class="absolute right-0 invisible transition-all duration-500 mt-5 mr-4 shadow-[0px_0px_2px_rgba(0,0,0,0.5)] bg-[rgba(255,255,255,0.8)] text-black rounded-[0.5em] group-hover:visible group-hover:opacity-100 group-hover:block"
         >
           <div class="text-sm p-4 email">{$user.email}</div>
           <div class="flex gap-4 border-t border-[rgba(0,0,0,0.1)] actions">
@@ -112,11 +114,11 @@
   </nav>
   {#if showNav}
     <nav
-      class="fixed h-full w-full bg-[rgb(0_0_0_/_95%)] text-white flex flex-col items-end pt-5 navbig"
+      class="fixed h-full w-full bg-[rgb(0_0_0_/_95%)] flex flex-col items-end pt-5 navbig"
     >
       {#each menus as menu (menu.name)}
         <div
-          class="whitespace-nowrap p-[10px] m-0 mr-5 menu"
+          class="whitespace-nowrap p-[10px] m-0 mr-5 menu text-white"
           class:active={page.url.pathname === menu.link}
         >
           <a
@@ -144,22 +146,3 @@
     <Create bind:showCreate {projects} />
   </Dialog>
 {/if}
-
-<svelte:window bind:scrollY={y} />
-
-<style>
-  .account:hover .dropdown {
-    visibility: visible;
-    opacity: 1;
-    display: block;
-  }
-
-  @media (max-width: 800px) {
-    .navbar {
-      display: none;
-    }
-    .logo {
-      zoom: 0.7;
-    }
-  }
-</style>
