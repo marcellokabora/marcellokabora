@@ -8,7 +8,7 @@
 
   let projects = data.projects?.sort(
     (a: Projecto, b: Projecto) =>
-      new Date(b.date).valueOf() - new Date(a.date).valueOf()
+      new Date(b.date).valueOf() - new Date(a.date).valueOf(),
   );
 </script>
 

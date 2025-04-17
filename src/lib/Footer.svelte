@@ -30,65 +30,22 @@
   ];
 </script>
 
-<footer>
-  <div class="priva">
-    <span class="tito">© Marcello Kabora • 2025</span>
+<footer
+  class="bg-[#1b1b1b] flex flex-col md:flex-row justify-between items-center text-white mt-16"
+>
+  <div class="flex flex-col md:flex-row items-center p-10">
+    <span class="font-bold opacity-50">© Marcello Kabora • 2025</span>
   </div>
-  <div class="icons">
+  <div class="flex p-10 -mt-10 md:mt-0">
     {#each menus as menu (menu.name)}
-      <a class="icon" href={menu.link} target="_blank" title={menu.name}>
+      <a
+        class="w-[35px] h-[35px] flex items-center justify-center bg-white/50 text-black mx-2.5 rounded-full cursor-pointer transition-all duration-500 hover:bg-white"
+        href={menu.link}
+        target="_blank"
+        title={menu.name}
+      >
         <Icon icon={menu.icon} />
       </a>
     {/each}
   </div>
 </footer>
-
-<style>
-  footer {
-    background-color: #1b1b1b;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    margin-top: 4em;
-    .priva {
-      display: flex;
-      align-items: center;
-      padding: 40px;
-      .tito {
-        font-weight: bold;
-        opacity: 0.5;
-      }
-    }
-    .icons {
-      display: flex;
-      padding: 40px;
-      a {
-        width: 35px;
-        height: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgba(255, 255, 255, 0.5);
-        color: black;
-        margin: 0px 10px;
-        border-radius: 100px;
-        cursor: pointer;
-        transition: all 0.5s;
-        &:hover {
-          background-color: rgba(255, 255, 255, 1);
-        }
-      }
-    }
-
-    @media (max-width: 1000px) {
-      flex-direction: column;
-      .priva {
-        flex-direction: column;
-      }
-      .icons {
-        margin-top: -40px;
-      }
-    }
-  }
-</style>

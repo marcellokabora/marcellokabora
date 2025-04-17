@@ -27,7 +27,10 @@
 <Banner cover="/gallery/develop.jpeg" title="Knowledge" slogan="Technologies" />
 
 <section class="grid gap-8">
-  <div class="sticky top-20 flex justify-center gap-2 z-10" data-aos="fade-up">
+  <div
+    class="sticky top-20 flex justify-center gap-2 z-10 max-[1000px]:hidden"
+    data-aos="fade-up"
+  >
     {#each menu as item}
       <button
         class="bg-white text-sm font-medium px-4 py-2 cursor-pointer capitalize border border-gray-200 rounded-full
@@ -398,17 +401,3 @@
     {/each}
   </div>
 </section>
-
-<!-- <style>
-  :global(.photo) {
-    @apply h-[230px] w-[230px];
-  }
-  :global(.photo img) {
-    @apply object-contain;
-  }
-  @media (max-width: 1000px) {
-    .sticky {
-      @apply hidden;
-    }
-  }
-</style> -->

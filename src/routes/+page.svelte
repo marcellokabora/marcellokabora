@@ -119,7 +119,7 @@
     slogan="I am passionate about user interface and web application"
   />
 
-  <div class="space"></div>
+  <div class="h-[70px]"></div>
 
   <Section photo="/photo/software.jpg" title="Development">
     <p>
@@ -163,20 +163,20 @@
     </p>
   </Section>
 
-  <div class="space"></div>
+  <div class="h-[70px]"></div>
 </section>
 
 <Carousel title={company.title} slogan={company.slogan} items={company.items} />
 
 <section>
-  <div class="space"></div>
+  <div class="h-[70px]"></div>
 
   <Header
     title="ENVIROMENT"
     slogan="Develop programs by analysing and identifying areas for modification"
   />
 
-  <div class="space"></div>
+  <div class="h-[70px]"></div>
 
   <Section photo="/photo/framework.gif" title="Framework">
     <p>
@@ -226,20 +226,12 @@
     </p>
   </Section>
 
-  <div class="space"></div>
+  <div class="h-[70px]"></div>
 </section>
 
 <Carousel title={language.title} items={language.items} />
 
-<section>
-  <div class="space"></div>
+<section class="py-8">
   <Header title="PROJECTS" slogan="A collection of my successful projects" />
-  <br /><br />
   <Projects {projects} />
 </section>
-
-<style>
-  .space {
-    height: 70px;
-  }
-</style>
