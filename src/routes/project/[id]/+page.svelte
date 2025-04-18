@@ -54,17 +54,13 @@
   <section data-aos="fade-up" class="min-h-screen mb-16">
     <div class="mt-5 flex flex-wrap gap-8">
       <div class="flex-1">
-        <h2
-          class="border-b border-gray-300 opacity-50 pt-4 pb-4 font-bold text-xl mb-8"
-        >
+        <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
           Description
         </h2>
         <div class="markdown">
           {@html marked.parse(project.info ?? "")}
         </div>
-        <h2
-          class="border-b border-gray-300 opacity-50 pt-4 pb-4 font-bold text-xl mb-8"
-        >
+        <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
           Details
         </h2>
         <div class="flex flex-wrap gap-4">
@@ -126,9 +122,7 @@
 
     {#if project.youtube}
       <div class="youtube">
-        <h2
-          class="border-b border-gray-300 opacity-50 pt-4 pb-4 font-bold text-xl mb-8"
-        >
+        <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
           Video
         </h2>
         <iframe
@@ -145,9 +139,7 @@
 
     {#if project.gallery}
       <div class="gallery">
-        <h2
-          class="border-b border-gray-300 opacity-50 pt-4 pb-4 font-bold text-xl mb-8"
-        >
+        <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
           Gallery
         </h2>
         {#each [...project.gallery].sort() as photo (photo)}
@@ -190,9 +182,7 @@
       </div>
     {/if}
     <div class="related">
-      <h2
-        class="border-b border-gray-300 opacity-50 pt-4 pb-4 font-bold text-xl mb-8"
-      >
+      <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
         Related
       </h2>
       <div class="main">
