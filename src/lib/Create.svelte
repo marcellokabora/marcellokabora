@@ -6,6 +6,7 @@
   import { page } from "$app/state";
   import { enhance } from "$app/forms";
   import Icon from "@iconify/svelte";
+  import { marked } from "marked";
 
   let {
     showCreate = $bindable(),
@@ -23,6 +24,8 @@
   let isValid = $derived(data.name && data.date && data.title);
   let showConfirm = $state(false);
   let formDelete: HTMLFormElement | undefined = $state();
+  let showPreview = $state(false);
+  let textarea: HTMLTextAreaElement | undefined = $state();
 
   $effect(() => {
     if (showCreate) {
@@ -38,6 +41,23 @@
           user_id: $user?.id,
           email: $user?.email ?? "",
         };
+  }
+
+  function insertText(text: string) {
+    if (!textarea) return;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const before = data.info?.slice(0, start) || "";
+    const after = data.info?.slice(end) || "";
+    data.info = before + text + after;
+    // Set cursor position after the inserted text
+    setTimeout(() => {
+      if (textarea) {
+        textarea.selectionStart = start + text.length;
+        textarea.selectionEnd = start + text.length;
+        textarea.focus();
+      }
+    });
   }
 </script>
 
@@ -157,13 +177,92 @@
       </label>
     </div>
     <label class="flex flex-col gap-1">
-      <span class="text-sm font-medium text-gray-700">Infos</span>
-      <textarea
-        name="info"
-        bind:value={data.info}
-        autocomplete="off"
-        class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none min-h-[80px] resize-y"
-      ></textarea>
+      <div class="flex justify-between items-center">
+        <span class="text-sm font-medium text-gray-700">Infos</span>
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            class="p-1 hover:bg-gray-100 rounded"
+            onclick={() => insertText("**")}
+            title="Bold"
+          >
+            <Icon icon="material-symbols:format-bold" />
+          </button>
+          <button
+            type="button"
+            class="p-1 hover:bg-gray-100 rounded"
+            onclick={() => insertText("*")}
+            title="Italic"
+          >
+            <Icon icon="material-symbols:format-italic" />
+          </button>
+          <button
+            type="button"
+            class="p-1 hover:bg-gray-100 rounded"
+            onclick={() => insertText("`")}
+            title="Code"
+          >
+            <Icon icon="material-symbols:code" />
+          </button>
+          <button
+            type="button"
+            class="p-1 hover:bg-gray-100 rounded"
+            onclick={() => insertText("- ")}
+            title="List"
+          >
+            <Icon icon="material-symbols:format-list-bulleted" />
+          </button>
+          <button
+            type="button"
+            class="p-1 hover:bg-gray-100 rounded"
+            onclick={() => insertText("> ")}
+            title="Quote"
+          >
+            <Icon icon="material-symbols:format-quote" />
+          </button>
+          <button
+            type="button"
+            class="p-1 hover:bg-gray-100 rounded"
+            onclick={() => insertText("[link](url)")}
+            title="Link"
+          >
+            <Icon icon="material-symbols:link" />
+          </button>
+          <button
+            type="button"
+            class="p-1 hover:bg-gray-100 rounded"
+            onclick={() => (showPreview = !showPreview)}
+            title="Toggle Preview"
+          >
+            <Icon
+              icon={showPreview
+                ? "material-symbols:edit"
+                : "material-symbols:preview"}
+            />
+          </button>
+        </div>
+      </div>
+      <div class="relative">
+        {#if showPreview}
+          <div
+            class="p-2.5 rounded-lg border border-gray-300 bg-white/80 min-h-[300px] max-h-[500px] overflow-y-auto prose max-w-none"
+          >
+            {@html marked(data.info || "")}
+          </div>
+        {:else}
+          <textarea
+            bind:this={textarea}
+            name="info"
+            bind:value={data.info}
+            autocomplete="off"
+            placeholder="Enter project details, features, and any additional information... (Markdown supported)"
+            class="p-2.5 rounded-lg border border-gray-300 bg-white/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none min-h-[300px] max-h-[500px] resize-y w-full font-mono"
+          ></textarea>
+        {/if}
+        <div class="absolute bottom-2 right-2 text-xs text-gray-500">
+          {data.info?.length || 0}/1000
+        </div>
+      </div>
     </label>
     <div class="hidden">
       <input name="id" type="text" value={data.id} />

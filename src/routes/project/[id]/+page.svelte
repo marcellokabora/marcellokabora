@@ -8,6 +8,7 @@
   import Projects from "$lib/Projects.svelte";
   import { user } from "$lib/store";
   import Icon from "@iconify/svelte";
+  import { marked } from "marked";
 
   let { data } = $props();
   let project: Projecto = $state(data.project);
@@ -58,7 +59,9 @@
         >
           Description
         </h2>
-        <div class="description">{project.info}</div>
+        <div class="markdown">
+          {@html marked.parse(project.info ?? "")}
+        </div>
         <h2
           class="border-b border-gray-300 opacity-50 pt-4 pb-4 font-bold text-xl mb-8"
         >

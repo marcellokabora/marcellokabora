@@ -5,5 +5,8 @@ export default {
         './src/**/*.{js,ts,svelte}',
     ],
     theme: {},
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/forms'),
+    ],
 } 

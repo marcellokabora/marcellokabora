@@ -1,7 +1,7 @@
 <script>
   import Navbar from "$lib/Navbar.svelte";
   import Footer from "$lib/Footer.svelte";
-  import "./app.css";
+  import "$lib/styles/app.css";
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";
   import { injectSpeedInsights } from "@vercel/speed-insights";
