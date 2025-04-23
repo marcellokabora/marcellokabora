@@ -18,10 +18,6 @@
                 for the new features like the
                 <a href="/project/heatmap/">Heatmap</a>.
             </p>
-            <p class="technologies">
-                <b>Technologies</b>: Angular, Material, NX, GraphQL, Storybook,
-                Gitlab, Jira, Figma
-            </p>
         </div>
     </div>
 {:else if company.name === "7echno"}
@@ -37,9 +33,6 @@
                 and artist showcases. Finally, a themed bar and restaurant offers
                 music-inspired food, drinks, and live performances, creating an immersive,
                 creative community for all music lovers.
-            </p>
-            <p class="technologies">
-                <b>Technologies</b>: Svelte, Firebase, Vercel, Github, Figma
             </p>
         </div>
     </div>
@@ -67,10 +60,6 @@
                 >
                 team.
             </p>
-            <p class="technologies">
-                <b>Technologies</b>: React, Vue, GraphQL, Docker, Builder,
-                Github, Jira, Styled, Figma
-            </p>
         </div>
     </div>
 {:else if company.name === "Buildingminds"}
@@ -94,10 +83,6 @@
                     >appmanagement</a
                 >.
             </p>
-            <p class="technologies">
-                <b>Technologies</b>: Angular, Redux, Bootstrap, Azure, Abstract,
-                Material, Firebase, Jest
-            </p>
         </div>
     </div>
 {:else if company.name === "Yukkalab"}
@@ -120,10 +105,6 @@
                 receive concrete recommendations for losses due to loss-limiting
                 signals and an investment rate.
             </p>
-            <p class="technologies">
-                <b>Technologies</b>: Angular, Material, MySql, Jira, D3,
-                Highcharts, Github, Firebase
-            </p>
         </div>
     </div>
 {:else if company.name === "Smava"}
@@ -141,9 +122,6 @@
                 web application, my focus was mostly on HTML, CSS, and JS. I
                 worked on all the animation, events in jquery and for the mail
                 campaign building different templates for the marketing area.
-            </p>
-            <p class="technologies">
-                <b>Technologies</b>: HTML, CSS, Javascript, Foundation, Github
             </p>
         </div>
     </div>
@@ -178,9 +156,6 @@
                 Months in remote from Berlin after i decided to find a Full Time
                 employment job.
             </p>
-            <p class="technologies">
-                <b>Technologies</b>: Jquery, CSS, Javascript, MySql
-            </p>
         </div>
     </div>
 {:else if company.name === "Maggiolino"}
@@ -206,9 +181,6 @@
                 and improving the design every month, before the company decide
                 to close the sell online.
             </p>
-            <p class="technologies">
-                <b>Technologies</b>: Jquery, Bootstrap, Javascript, MySql
-            </p>
         </div>
     </div>
 {:else if company.name === "Annunci Animali"}
@@ -226,9 +198,6 @@
                 I worked for this company for more than one year and i also work
                 on the advertising department building the flyer and the
                 business card.
-            </p>
-            <p class="technologies">
-                <b>Technologies</b>: Jquery, Javascript, MySql
             </p>
         </div>
     </div>
@@ -249,9 +218,6 @@
                 the right way to show all the information necessary and focus on
                 the deadline.
             </p>
-            <p class="technologies">
-                <b>Technologies</b>: HTMl, CSS, Jquery
-            </p>
         </div>
     </div>
 {:else if company.name === "Shipchandler"}
@@ -266,9 +232,6 @@
                 nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-            <p class="technologies">
-                <b>Technologies</b>: HTMl, CSS
-            </p>
         </div>
     </div>
 {/if}
@@ -278,7 +241,7 @@
         padding: 2rem;
         background-color: var(--background-secondary);
         border-radius: 12px;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         margin: 1.5rem 0;
         transition:
             transform 0.2s ease,
@@ -325,19 +288,6 @@
     .description-content a:hover::after {
         transform: scaleX(1);
         transform-origin: left;
-    }
-
-    .technologies {
-        margin-top: 1.75rem;
-        padding-top: 1.25rem;
-        border-top: 1px solid var(--border-color);
-        color: var(--text-secondary);
-        font-size: 0.95rem;
-    }
-
-    .technologies b {
-        color: var(--text-primary);
-        font-weight: 600;
     }
 
     @media (max-width: 768px) {

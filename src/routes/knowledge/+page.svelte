@@ -4,7 +4,6 @@
   import { description } from "$lib/mocks";
   import { items, menu } from "./data";
   import Icon from "@iconify/svelte";
-  import { onMount } from "svelte";
 
   let activeSection = "javascript";
 
@@ -26,11 +25,8 @@
 
 <Banner cover="/gallery/develop.jpeg" title="Knowledge" slogan="Technologies" />
 
-<section class="grid gap-8">
-  <div
-    class="sticky top-20 flex justify-center gap-2 z-10 max-[1000px]:hidden"
-    data-aos="fade-up"
-  >
+<section class="grid gap-8" data-aos="fade-up">
+  <div class="sticky top-20 flex justify-center gap-2 z-10 max-[1000px]:hidden">
     {#each menu as item}
       <button
         class="bg-white text-sm font-medium px-4 py-2 cursor-pointer capitalize border border-gray-200 rounded-full
