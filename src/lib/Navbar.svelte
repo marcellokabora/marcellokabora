@@ -62,7 +62,7 @@
     data-aos="fade-down"
     style={y > 200 ? "color: black" : "color: white"}
   >
-    <ul class="flex items-center flex-1 ml-[180px]">
+    <ul class="flex items-center flex-1 ml-[200px]">
       {#each menus as menu (menu.name)}
         <li class="flex items-center justify-center flex-1 scale-80">
           <a

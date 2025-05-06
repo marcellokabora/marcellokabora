@@ -21,7 +21,7 @@
       link: "/project/monitoring",
     },
     {
-      photo: "/blured/appmanager.webp",
+      photo: "/blured/appmanager.jpg",
       title: "Building Minds",
       slogan: "App Manager",
       link: "/project/appmanager",
