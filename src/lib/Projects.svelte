@@ -46,7 +46,7 @@
   });
 </script>
 
-<div class="grid gap-16">
+<div class="grid gap-16 mb-16">
   {#if !hideSearch}
     <div
       class="flex items-center justify-center flex-col gap-4"

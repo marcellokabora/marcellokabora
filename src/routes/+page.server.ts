@@ -13,6 +13,7 @@ export const actions: Actions = {
   create: async ({ request }) => {
     const form = await request.formData();
     const data: Projecto = {
+      id: Number(form.get("id")),
       name: form.get("name")?.toString() ?? "",
       date: form.get("date")?.toString() ?? "",
       title: form.get("title")?.toString() ?? "",
@@ -27,12 +28,16 @@ export const actions: Actions = {
       email: form.get("email")?.toString(),
       youtube: form.get("youtube")?.toString(),
     };
-    const id = Number(form.get("id"));
-    if (id) {
-      data.id = id;
-      await supabase.from("projects").update(data).eq("id", data.id);
+    if (data.id) {
+      const { error } = await supabase.from("projects").update(data).eq("id", data.id);
+      if (error) {
+        return { success: false, error: error.message };
+      }
     } else {
-      await supabase.from("projects").insert(data);
+      const { error } = await supabase.from("projects").insert(data);
+      if (error) {
+        return { success: false, error: error.message };
+      }
     }
     return { success: true };
   },

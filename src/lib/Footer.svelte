@@ -31,7 +31,7 @@
 </script>
 
 <footer
-  class="bg-[#1b1b1b] flex flex-col md:flex-row justify-between items-center text-white mt-16"
+  class="bg-[#1b1b1b] flex flex-col md:flex-row justify-between items-center text-white"
 >
   <div class="flex flex-col md:flex-row items-center p-10">
     <span class="font-bold opacity-50">© Marcello Kabora • 2025</span>
