@@ -66,7 +66,7 @@
 
 <div class="relative text-white" data-aos="fade-down">
   <div
-    class="relative overflow-auto flex snap-x snap-mandatory overflow-x-hidden"
+    class="relative overflow-auto flex snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
     bind:this={scrolled}
   >
     {#each gallery as item (item.title)}
@@ -80,7 +80,7 @@
             class="absolute object-cover w-full h-full saturate-100 brightness-80 -z-10"
           />
           <div
-            class="h-[calc(100%-50px)] flex items-center justify-center px-5 mb-8 md:pt-0 pt-5 text-white"
+            class="h-[calc(100%-50px)] flex items-center justify-center px-5 md:pt-0 pt-5 text-white"
           >
             <Header title={item.title} slogan={item.slogan} zoom={1.2} />
           </div>
@@ -88,7 +88,9 @@
       </a>
     {/each}
   </div>
-  <div class="absolute bottom-[100px] flex items-center justify-center w-full">
+  <div
+    class="absolute bottom-[100px] flex items-center justify-center w-full hidden"
+  >
     {#each gallery as item, index (item.title)}
       <button
         onclick={() => onScroll(index)}

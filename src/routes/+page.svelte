@@ -19,57 +19,28 @@
     slogan: "I worked for different startup in Berlin and Italy",
     items: [
       {
+        logo: "/logo/7echno.png",
+        link: "//7echno.com",
+      },
+      {
         logo: "/company/evaglobal.png",
-        // company: "Eva Global",
-        // title: "Frontend Developer",
-        // time: "Oct 2022 - May 2024",
         link: "//evaglobal.com",
       },
       {
         logo: "/company/linus.png",
-        // company: "Linus",
-        // title: "Frontend Developer",
-        // time: "Sep 2021 - Aug 2022",
         link: "//linus-finance.com",
       },
       {
         logo: "/company/buildingminds.png",
-        // company: "Buildingminds",
-        // title: "Frontend Developer ",
-        // time: "Jan 2020 - Aug 2021",
         link: "//buildingminds.com",
       },
       {
         logo: "/company/yukka.png",
-        // company: "Yukkalab",
-        // title: "Frontend Developer",
-        // time: "Jun 2017 - Nov 2019",
         link: "//yukka.ai",
       },
       {
         logo: "/company/smava.png",
-        // company: "Smava",
-        // title: "Frontend Developer",
-        // time: "Feb 2016 - Nov 2016",
         link: "//smava.de",
-      },
-      // {
-      //   logo: "/company/tanglang.png",
-      //   company: "Tang Lang",
-      //   // title: "Fullstack Developer",
-      //   // time: "Apr 2014 - Dec 2015",
-      // },
-      // {
-      //   logo: "/company/maggiolino.png",
-      //   company: "Maggiolino",
-      //   // title: "Fullstack Developer",
-      //   // time: "Aug 2013 - Jan 2015",
-      // },
-      {
-        logo: "/company/airesis.png",
-        // company: "Airesis",
-        // title: "UI Designer",
-        // time: "Apr 2011 - Apr 2012",
       },
     ],
   };
