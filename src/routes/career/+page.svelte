@@ -18,43 +18,92 @@
   slogan="I worked for different startup in Berlin and Italy"
 />
 
-<section class="mt-5 mb-1 flex flex-col gap-8">
-  {#each companies as company (company.name)}
-    <div
-      class="flex flex-col md:flex-row items-center group"
-      data-aos="fade-up"
-    >
+<section class="max-w-6xl mx-auto px-4 py-12">
+  <div class="space-y-16">
+    {#each companies as company (company.name)}
       <div
-        class="w-full md:w-[250px] border-r-0 md:border-r border-gray-300 flex items-center justify-center relative mb-10 md:mb-0"
+        class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
+        data-aos="fade-up"
       >
-        <div class="text-center">
-          <a href={company.link} target="_black" class="block">
-            <img
-              src={company.logo}
-              alt={company.logo}
-              class="w-[150px] h-[100px] object-contain filter"
-            />
-          </a>
-          <div class="text-xl font-bold mt-4">{company.name}</div>
-          <div class="text-xl opacity-50 mt-2">{company.slogan}</div>
-          <div class="opacity-50 text-sm mt-2">{company.time}</div>
-        </div>
-      </div>
-      <div class="flex-1 md:pl-10 w-full text-center md:text-left">
-        <div
-          class="flex flex-col md:flex-row justify-between items-center md:items-end relative"
-        >
-          <div class="text-xl font-bold flex-1 mb-2 md:mb-0 pl-4">
-            {company.title}
+        <div class="flex flex-col lg:flex-row">
+          <!-- Company Info Section -->
+          <div
+            class="lg:w-80 bg-gradient-to-br from-white to-gray-50 p-8 flex flex-col items-center justify-center text-center border-b lg:border-b-0 lg:border-r border-gray-100"
+          >
+            <div class="space-y-4">
+              <a
+                href={company.link}
+                target="_blank"
+                class="block group transition-transform duration-300 hover:scale-105"
+              >
+                <div
+                  class="bg-gray-50 p-6 rounded-xl shadow-sm group-hover:shadow-md transition-shadow duration-300"
+                >
+                  <img
+                    src={company.logo}
+                    alt={`${company.name} logo`}
+                    class="w-32 h-20 object-contain mx-auto"
+                  />
+                </div>
+              </a>
+
+              <div class="space-y-2">
+                <h3 class="text-2xl font-bold text-gray-900">
+                  {company.name}
+                </h3>
+                <p class="text-lg text-gray-600 font-medium">
+                  {company.slogan}
+                </p>
+                <div
+                  class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium"
+                >
+                  {company.time}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job Details Section -->
+          <div class="flex-1 p-8">
+            <div class="space-y-6">
+              <!-- Job Title -->
+              <div class="border-b border-gray-100 pb-4">
+                <h4 class="text-2xl font-bold text-gray-900 mb-2">
+                  {company.title}
+                </h4>
+              </div>
+              <!-- Technologies -->
+              <div class="space-y-3">
+                <h5
+                  class="text-sm font-semibold text-gray-500 uppercase tracking-wide"
+                >
+                  Technologies Used
+                </h5>
+                <div class="flex flex-wrap gap-2">
+                  {#each company.technologies.split(", ") as tech}
+                    <span
+                      class="px-3 py-1 bg-gray-50 text-gray-600 rounded-full text-sm font-medium"
+                    >
+                      {tech.trim()}
+                    </span>
+                  {/each}
+                </div>
+              </div>
+              <!-- Description -->
+              <div class="space-y-3">
+                <h5
+                  class="text-sm font-semibold text-gray-500 uppercase tracking-wide"
+                >
+                  Experience
+                </h5>
+                <div class="prose prose-gray max-w-none">
+                  <CompanyDescription {company} />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="text-sm opacity-50 pl-4 mt-4 mb-4">
-          {company.technologies}
-        </div>
-        <div class="text-center md:text-left">
-          <CompanyDescription {company} />
-        </div>
       </div>
-    </div>
-  {/each}
+    {/each}
+  </div>
 </section>

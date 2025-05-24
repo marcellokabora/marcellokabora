@@ -9,14 +9,15 @@ interface Company {
 }
 
 export const companies: Company[] = [
-    // {
-    //   logo: "/logo/7echno.png",
-    //   name: "7echno",
-    //   slogan: "Music Experience",
-    //   title: "Founder - Partime",
-    //   time: "From May 2024",
-    //   link: "//7echno.com",
-    // },
+    {
+        logo: "/logo/7echno.png",
+        name: "7echno",
+        slogan: "Music Experience",
+        title: "Founder - Partime",
+        time: "From May 2024",
+        link: "//7echno.com",
+        technologies: "Svelte, Gitlab, Figma, Tailwind, Typescript, Supabase"
+    },
     {
         logo: "/company/evaglobal.png",
         name: "Eva Global",

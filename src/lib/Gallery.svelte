@@ -89,7 +89,7 @@
     {/each}
   </div>
   <div
-    class="absolute bottom-[100px] flex items-center justify-center w-full hidden"
+    class="absolute bottom-[100px] items-center justify-center w-full hidden"
   >
     {#each gallery as item, index (item.title)}
       <button
