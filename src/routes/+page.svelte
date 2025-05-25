@@ -82,127 +82,166 @@
   <meta property="og:image" content="/gallery/keyboard.jpg" />
 </svelte:head>
 
+<!-- Gallery component fills full width -->
 <Gallery />
 
-<section>
-  <Header
-    title="ABOUT"
-    slogan="I am passionate about user interface and web application"
-  />
+<!-- ABOUT section with container -->
+<div class="container mx-auto max-w-6xl px-6">
+  <section class="flex flex-col py-16">
+    <Header
+      title="ABOUT"
+      slogan="I am passionate about user interface and web application"
+    />
+    <Section photo="/photo/software.jpg" title="Development">
+      <p>
+        I specialize in building modern web applications that leverage the power
+        of browser-native technologies. From sophisticated SaaS platforms to
+        enterprise B2B solutions, I create scalable applications that provide
+        seamless cross-device experiences. My focus is on delivering
+        high-performance, maintainable codebases using cutting-edge frameworks
+        and tools. Whether it's real-time data dashboards, e-commerce platforms,
+        or collaborative business tools, I architect solutions that scale with
+        your needs.
+      </p>
+    </Section>
+    <Section photo="/photo/styling.jpg" title="Design" aside>
+      <p>
+        I believe exceptional UI/UX design is the foundation of any successful
+        digital product. My design philosophy centers on creating interfaces
+        that are both aesthetically pleasing and functionally intuitive. I focus
+        on accessibility, responsive design principles, and user-centered
+        workflows that reduce cognitive load while maximizing productivity. From
+        wireframing to pixel-perfect implementation, I ensure every interaction
+        feels natural and purposeful, resulting in interfaces that users love to
+        engage with.
+      </p>
+    </Section>
+    <Section photo="/photo/visualization.jpeg" title="Visualization">
+      <p>
+        I transform complex data into compelling visual narratives that drive
+        business decisions. My expertise spans from interactive dashboards and
+        real-time analytics to custom charting solutions for financial, IoT, and
+        enterprise applications. Using powerful libraries like
+        <a href="//d3js.org" target="_blank" class="underline">D3.js</a>
+        and
+        <a href="//highcharts.com" target="_blank" class="underline"
+          >Highcharts</a
+        >, I create responsive, performant visualizations that handle large
+        datasets with smooth animations and intuitive interactions. From
+        time-series analysis to geospatial mapping, I make data accessible and
+        actionable.
+      </p>
+    </Section>
+    <Section photo="/photo/develop.jpeg" title="Management" aside>
+      <p>
+        I excel at architecting technical solutions and leading development
+        teams to deliver exceptional results. My approach involves strategic
+        technology selection, evaluating frameworks like <a
+          href="//svelte.com"
+          target="_blank"
+          class="underline">Svelte</a
+        >,
+        <a href="//reactjs.org" target="_blank" class="underline">React</a>,
+        <a href="//vuejs.org" target="_blank" class="underline">Vue</a> and
+        <a href="//angular.io" target="_blank" class="underline">Angular</a> based
+        on performance requirements, team expertise, and long-term maintainability.
+        I focus on establishing robust development workflows, code quality standards,
+        and scalable architectures that enable teams to deliver consistently high-quality
+        applications.
+      </p>
+    </Section>
+  </section>
+</div>
 
-  <div class="h-[70px]"></div>
-
-  <Section photo="/photo/software.jpg" title="Development">
-    <p>
-      Web-based developer applications, such as Sass or B2B platforms,
-      streamline software access. Because they run in web browsers, users can
-      access them from any internet-connected device. Updates are handled
-      seamlessly by the provider. These applications support a range of
-      functions, from online shopping to data analysis.
-    </p>
-  </Section>
-  <Section photo="/photo/styling.jpg" title="Design" aside>
-    <p>
-      A well-crafted user interface is the cornerstone of a successful
-      application, seamlessly blending clarity with intuitive navigation. This
-      design approach not only fosters a positive user experience but also
-      empowers users to unleash their creativity and fully explore the
-      application's rich features.
-    </p>
-  </Section>
-  <Section photo="/photo/visualization.jpeg" title="Visualization">
-    <p>
-      I specialize in data visualization, a field that uses graphical
-      representations to make data more understandable. This is especially
-      useful for large datasets, like time series. I leverage tools like D3.js
-      and Highcharts to create clear and effective statistical graphics, plots,
-      and information graphics.
-    </p>
-  </Section>
-  <Section photo="/photo/develop.jpeg" title="Management" aside>
-    <p>
-      To build complex and scalable applications, I must choose the appropriate
-      framework based on the specific project. Frameworks such as <a
-        href="//svelte.com"
-        target="_blank">Svelte</a
-      >,
-      <a href="//reactjs.org" target="_blank">React</a>,
-      <a href="//vuejs.org" target="_blank">Vue</a> and
-      <a href="//angular.io" target="_blank">Angular</a> are suitable for a range
-      of projects, from complex web applications to simple server-side rendered landing
-      pages.
-    </p>
-  </Section>
-
-  <div class="h-[70px]"></div>
-</section>
-
+<!-- Carousel component fills full width -->
 <Carousel title={company.title} slogan={company.slogan} items={company.items} />
 
-<section>
-  <div class="h-[70px]"></div>
+<!-- ENVIRONMENT section with container -->
+<div class="container mx-auto max-w-6xl px-6">
+  <section class="flex flex-col py-16">
+    <Header
+      title="ENVIROMENT"
+      slogan="Develop programs by analysing and identifying areas for modification"
+    />
 
-  <Header
-    title="ENVIROMENT"
-    slogan="Develop programs by analysing and identifying areas for modification"
-  />
+    <Section photo="/photo/framework.gif" title="Framework">
+      <p>
+        I excel in a comprehensive range of modern front-end technologies,
+        including
+        <a href="//react.dev" target="_blank" class="underline">React</a>,
+        <a href="//vuejs.org" target="_blank" class="underline">Vue</a>,
+        <a href="//angular.io" target="_blank" class="underline">Angular</a>,
+        and
+        <a href="https://svelte.dev" target="_blank" class="underline">Svelte</a
+        >. My expertise extends to cross-platform mobile development with
+        frameworks like
+        <a href="//expo.dev" target="_blank" class="underline">Expo</a>,
+        <a href="//flutter.dev" target="_blank" class="underline">Flutter</a>,
+        and
+        <a href="//ionicframework.com" target="_blank" class="underline"
+          >Ionic</a
+        >. I bring deep expertise in state management patterns and
+        architectures, allowing me to architect robust, scalable solutions
+        tailored to each project's unique requirements and complexity level.
+      </p>
+    </Section>
+    <Section photo="/photo/styles.jpg" title="Styling" aside>
+      <p>
+        I leverage powerful design systems like <a
+          href="//material.io"
+          target="_blank"
+          class="underline">Material Design</a
+        >
+        and
+        <a href="//flowbite-svelte.com" target="_blank" class="underline"
+          >Flowbite</a
+        > to deliver polished, professional interfaces. These comprehensive component
+        libraries provide extensive collections of pre-built, accessible components
+        with seamless responsive design integration, accelerating development while
+        maintaining design consistency. Beyond ready-made solutions, these systems
+        offer robust tooling for creating custom components that follow established
+        interaction patterns and accessibility standards.
+      </p>
+    </Section>
+    <Section photo="/photo/database.webp" title="Database">
+      <p>
+        I leverage modern Backend-as-a-Service platforms like
+        <a href="//firebase.google.com" target="_blank" class="underline"
+          >Firebase</a
+        >
+        and
+        <a href="https://supabase.com/" target="_blank" class="underline"
+          >Supabase</a
+        > to build robust, scalable data architectures. These platforms enable me
+        to rapidly develop real-time applications with authentication, serverless
+        functions, and secure database operations. From implementing complex queries
+        and data relationships to managing user permissions and real-time synchronization,
+        I create seamless backend integrations that power dynamic, data-driven user
+        experiences.
+      </p>
+    </Section>
 
-  <div class="h-[70px]"></div>
+    <Section photo="/photo/deployment.webp" title="Deployment" aside>
+      <p>
+        <a href="//vercel.com" target="_blank" class="underline">Vercel</a> or
+        <a href="//github.com" target="_blank" class="underline">Github</a> is my
+        go-to tool for deployments, simplifying the process of pushing projects live.
+        It provides insightful analytics, helping me understand user interaction
+        and optimize performance. I also appreciate Vercel's continuous evolution,
+        with new features like integrated commenting for streamlined collaboration
+        and multi-branch management for flexible development.
+      </p>
+    </Section>
+  </section>
+</div>
 
-  <Section photo="/photo/framework.gif" title="Framework">
-    <p>
-      I'm proficient in a wide array of front-end technologies, including
-      <a href="//react.dev" target="_blank">React</a>,
-      <a href="//vuejs.org" target="_blank">Vue</a>,
-      <a href="//angular.io" target="_blank">Angular</a>,
-      <a href="https://svelte.dev" target="_blank">Svelte</a>, and mobile
-      frameworks like <a href="//expo.dev" target="_blank">Expo</a>,
-      <a href="/flutter.dev" target="_blank">Flutter</a>, and
-      <a href="//ionicframework.com" target="_blank">Ionic</a>. My proficiency
-      in state management encompasses a comprehensive understanding of different
-      approaches and their trade-offs, enabling me to choose and implement
-      optimal solutions for varying application scales and complexities
-    </p>
-  </Section>
-  <Section photo="/photo/styles.jpg" title="Styling" aside>
-    <p>
-      <a href="//material.io" target="_blank">Material</a> and
-      <a href="//flowbite-svelte.com" target="_blank">Flowbite</a>
-      are my collection of ready-to-use components and seamless responsive design
-      integration, making it perfect for any project. Additionally, it provides tools
-      that empower developers to create custom components with familiar interaction
-      patterns.
-    </p>
-  </Section>
-
-  <Section photo="/photo/database.webp" title="Database">
-    <p>
-      <a href="//firebase.google.com" target="_blank">Firebase</a> and
-      <a href="https://supabase.com/" target="_blank">Superbase</a> are my favorite
-      tools for working with databases that allow me to deliver richer app experiences.
-      Firebase manages its own infrastructure with a nice set of tools to simplify
-      the workflow of the developer by providing them with development kits and an
-      online dashboard.
-    </p>
-  </Section>
-
-  <Section photo="/photo/deployment.webp" title="Deployment" aside>
-    <p>
-      <a href="//vercel.com" target="_blank">Vercel</a> or
-      <a href="//github.com" target="_blank">Github</a> is my go-to tool for deployments,
-      simplifying the process of pushing projects live. It provides insightful analytics,
-      helping me understand user interaction and optimize performance. I also appreciate
-      Vercel's continuous evolution, with new features like integrated commenting
-      for streamlined collaboration and multi-branch management for flexible development.
-    </p>
-  </Section>
-
-  <div class="h-[70px]"></div>
-</section>
-
+<!-- Carousel component fills full width -->
 <Carousel title={language.title} items={language.items} />
 
-<section class="py-8">
-  <Header title="PROJECTS" slogan="A collection of my successful projects" />
-  <Projects {projects} />
-</section>
+<!-- PROJECTS section with container -->
+<div class="container mx-auto max-w-6xl px-6">
+  <section class="py-16">
+    <Header title="PROJECTS" slogan="A collection of my successful projects" />
+    <Projects {projects} />
+  </section>
+</div>

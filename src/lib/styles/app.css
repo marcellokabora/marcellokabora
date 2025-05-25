@@ -22,12 +22,6 @@ body {
   outline: 0;
 }
 
-section {
-  max-width: 1000px;
-  margin: auto;
-  padding: 0px 25px;
-}
-
 .iconify {
   font-size: 1.5em;
 }

@@ -24,7 +24,9 @@
   title="Projects"
   slogan="A collection of my successful projects"
 />
-<br />
-<section>
-  <Projects {projects} />
-</section>
+
+<div class="container mx-auto max-w-6xl px-6">
+  <section class="py-16">
+    <Projects {projects} />
+  </section>
+</div>

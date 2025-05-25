@@ -24,7 +24,7 @@
       alt="cover"
     />
   </div>
-  <Header {title} {slogan} zoom={1.2} />
+  <Header {title} {slogan} />
   <img
     class="absolute bottom-[-1px] w-full z-10"
     src="/shape/arc_bot.png"
