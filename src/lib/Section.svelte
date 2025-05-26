@@ -28,7 +28,7 @@
 >
   <!-- Image Container -->
   <div
-    class="relative order-1 h-[300px] sm:h-[350px] w-full sm:w-[400px] md:w-[450px] lg:w-[500px] lg:h-[400px] overflow-hidden group z-10"
+    class="relative order-1 h-[300px] sm:h-[350px] w-full sm:w-[400px] md:w-[450px] lg:w-[500px] lg:h-[400px] group z-10"
     class:lg:order-2={aside}
   >
     <div
@@ -39,7 +39,7 @@
           <img
             src={photo}
             alt=""
-            class="object-{objectFit} w-full h-full transition-all duration-500 brightness-90 group-hover:brightness-100"
+            class="object-{objectFit} w-full h-full rounded-2xl ring-2 ring-blue-200 shadow-xl transition-all duration-300 transform group-hover:scale-105 group-hover:ring-blue-400 group-hover:shadow-2xl group-hover:brightness-100"
             class:scale-75={small}
           />
         </a>
@@ -47,7 +47,7 @@
         <img
           src={photo}
           alt=""
-          class="object-{objectFit} w-full h-full transition-all duration-500 brightness-90 hover:brightness-100"
+          class="object-{objectFit} w-full h-full rounded-2xl ring-2 ring-blue-200 shadow-xl transition-all duration-300 transform hover:scale-105 hover:ring-blue-400 hover:shadow-2xl hover:brightness-100"
           class:scale-75={small}
         />
       {/if}
