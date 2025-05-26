@@ -4,4 +4,6 @@ export interface CarouselItem {
     title?: string;
     time?: string;
     link?: string;
-} 
+    description?: string;
+    tags?: string[];
+}

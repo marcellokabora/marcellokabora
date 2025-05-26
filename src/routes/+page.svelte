@@ -5,6 +5,7 @@
   import Carousel from "$lib/Carousel.svelte";
   import Projects from "$lib/Projects.svelte";
   import type { Projecto } from "$lib/database.types";
+  import { companies } from "./career/companies";
 
   let { data } = $props();
 
@@ -17,32 +18,16 @@
     cover: "/photo/back2.jpg",
     title: "CAREER",
     slogan: "I worked for different startup in Berlin and Italy",
-    items: [
-      {
-        logo: "/logo/7echno.png",
-        link: "//7echno.com",
-      },
-      {
-        logo: "/company/evaglobal.png",
-        link: "//evaglobal.com",
-      },
-      {
-        logo: "/company/linus.png",
-        link: "//linus-finance.com",
-      },
-      {
-        logo: "/company/buildingminds.png",
-        link: "//buildingminds.com",
-      },
-      {
-        logo: "/company/yukka.png",
-        link: "//yukka.ai",
-      },
-      {
-        logo: "/company/smava.png",
-        link: "//smava.de",
-      },
-    ],
+    items: companies.slice(0, 6).map((c) => ({
+      logo: c.logo,
+      company: c.name,
+      title: c.title,
+      link: c.link,
+      description: c.slogan,
+      tags: c.technologies
+        ? c.technologies.split(",").map((t) => t.trim())
+        : undefined,
+    })),
   };
 
   const language = {
@@ -87,7 +72,7 @@
 
 <!-- ABOUT section with container -->
 <div class="container mx-auto max-w-6xl px-6">
-  <section class="flex flex-col py-16">
+  <section class="flex flex-col py-16 -mt-20">
     <Header
       title="ABOUT"
       slogan="I am passionate about user interface and web application"

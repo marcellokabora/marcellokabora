@@ -76,7 +76,7 @@
     {#each gallery as item (item.title)}
       <a href={item.link} class="text-white no-underline">
         <div
-          class="snap-center relative w-screen h-[70vh] flex overflow-hidden items-center justify-center carousel-mask"
+          class="snap-center relative w-screen h-[70vh] flex overflow-hidden items-center justify-center"
         >
           <img
             src={item.photo}
@@ -96,7 +96,7 @@
   <div class="absolute inset-y-0 left-4 flex items-center">
     <button
       onclick={() => onScroll(counter - 1)}
-      class="arrow-button"
+      class="flex items-center justify-center w-12 h-12 rounded-full bg-black/30 backdrop-blur-md border border-white/20 text-white cursor-pointer transition-all duration-300 ease-out shadow-lg hover:bg-white/10 hover:border-white/40 hover:scale-110 hover:shadow-xl disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-black/30 disabled:hover:border-white/20"
       aria-label="Previous slide"
       disabled={counter === 0}
     >
@@ -107,45 +107,16 @@
   <div class="absolute inset-y-0 right-4 flex items-center">
     <button
       onclick={() => onScroll(counter + 1)}
-      class="arrow-button"
+      class="flex items-center justify-center w-12 h-12 rounded-full bg-black/30 backdrop-blur-md border border-white/20 text-white cursor-pointer transition-all duration-300 ease-out shadow-lg hover:bg-white/10 hover:border-white/40 hover:scale-110 hover:shadow-xl disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-black/30 disabled:hover:border-white/20"
       aria-label="Next slide"
       disabled={counter === gallery.length - 1}
     >
       <Icon icon="mdi:chevron-right" class="w-8 h-8" />
     </button>
   </div>
+  <img
+    class="absolute bottom-[-1px] w-full z-10"
+    src="/shape/arc_bot.png"
+    alt="arcbot"
+  />
 </div>
-
-<style>
-  .arrow-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  .arrow-button:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: scale(1.1);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  }
-
-  .arrow-button:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
-
-  .carousel-mask {
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
-  }
-</style>
