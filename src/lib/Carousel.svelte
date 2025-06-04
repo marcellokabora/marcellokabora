@@ -27,17 +27,13 @@
     src="/shape/arc_bot.png"
     alt="arcbot top"
   />
-  <section class="py-20">
+  <section class="py-20 mb-10">
     <Header {title} {slogan} />
     <div
-      class="container m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch gap-10 snap-x snap-mandatory"
+      class="container m-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 snap-x snap-mandatory"
     >
       {#each items as item (item.logo)}
-        <a
-          href={item.link}
-          target="_blank"
-          class="text-white no-underline h-full"
-        >
+        <a href={item.link} target="_blank" class="text-white no-underline">
           <div
             class="w-full h-full snap-center flex flex-col items-center justify-center p-6 bg-gradient-to-br from-neutral-200/20 to-neutral-700/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 group"
           >

@@ -25,7 +25,7 @@
       style="height: 3px; border-radius: 2px;"
     />
     <div
-      class="px-12 text-lg md:text-xl leading-relaxed max-w-3xl animate-fade-in-delay header-slogan"
+      class="px-12 text-lg md:text-xl leading-relaxed max-w-2xl animate-fade-in-delay header-sloga text-balance"
     >
       {slogan}
     </div>
