@@ -1,4 +1,5 @@
-# Marcello Annicchiarico - Senior Frontend Developer
+# Marcello Annicchiarico 
+**Senior Frontend Developer UI/UX Expert**
 
 Hey there! I'm Marcello, a senior frontend developer with a deep-seated passion for crafting intuitive and performant web experiences. I love tackling complex problems and transforming ideas into clean, efficient code.
 
