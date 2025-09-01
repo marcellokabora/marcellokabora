@@ -4,7 +4,7 @@
   const gallery = [
     {
       photo: "/blured/keyboard.jpg",
-      title: "Marcello Kabora",
+      title: "Marcello Annicchiarico",
       slogan: "Frontend Developer",
       link: "/curriculum",
     },

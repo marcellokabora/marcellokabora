@@ -9,21 +9,21 @@ interface Company {
 }
 
 export const companies: Company[] = [
-    {
-        logo: "/logo/7echno.png",
-        name: "7echno",
-        slogan: "Music Experience",
-        title: "Founder - Partime",
-        time: "From May 2024",
-        link: "//7echno.com",
-        technologies: "Svelte, Gitlab, Figma, Tailwind, Typescript, Supabase"
-    },
+    // {
+    //     logo: "/logo/7echno.png",
+    //     name: "7echno",
+    //     slogan: "Music Experience",
+    //     title: "Founder - Partime",
+    //     time: "From May 2024",
+    //     link: "//7echno.com",
+    //     technologies: "Svelte, Gitlab, Figma, Tailwind, Typescript, Supabase"
+    // },
     {
         logo: "/company/evaglobal.png",
         name: "Eva Global",
         slogan: "eMobility",
         title: "Full Time - Frontend Developer",
-        time: "Oct 2022 - May 2024",
+        time: "Oct 2022 - Feb 2025",
         link: "//linkedin.com/company/evaglobal",
         technologies: "Angular, Material, NX, GraphQL, Storybook, Gitlab, Jira, Figma"
     },
