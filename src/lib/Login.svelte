@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { enhance } from "$app/forms";
+  import { signInWithEmailAndPassword } from "firebase/auth";
+  import { auth } from "./firebase";
   import type { User } from "firebase/auth";
   import { user } from "./authStore";
   import Icon from "@iconify/svelte";
@@ -10,27 +11,28 @@
   let error = $state();
   let loading = $state(false);
   let valid = $derived(email && password);
-</script>
 
-<form
-  method="POST"
-  action="/?/login"
-  use:enhance={() => {
+  async function handleLogin(event: Event) {
+    event.preventDefault();
+
+    if (!valid) return;
+
     loading = true;
     error = null;
-    return async ({ result }) => {
+
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      user.set(result.user as User);
+      showModal = false;
+    } catch (err: any) {
+      error = "Invalid email or password";
+    } finally {
       loading = false;
-      if (result.type === "success") {
-        error = result?.data?.error;
-        if (!error) {
-          showModal = false;
-          if (result?.data?.user) user.set(result.data.user as User);
-        }
-      }
-    };
-  }}
-  class="flex flex-col gap-4 p-8"
->
+    }
+  }
+</script>
+
+<form onsubmit={handleLogin} class="flex flex-col gap-4 p-8">
   <label class="flex flex-col">
     <span class="text-sm">Email</span>
     <!-- svelte-ignore a11y_autofocus -->

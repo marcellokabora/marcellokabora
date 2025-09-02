@@ -11,7 +11,7 @@
 
   let projects = data.projects?.sort(
     (a: Projecto, b: Projecto) =>
-      new Date(b.date).valueOf() - new Date(a.date).valueOf(),
+      new Date(b.date).valueOf() - new Date(a.date).valueOf()
   );
 
   const company = {
@@ -193,11 +193,7 @@
         I leverage modern Backend-as-a-Service platforms like
         <a href="//firebase.google.com" target="_blank" class="underline"
           >Firebase</a
-        >
-        and
-        <a href="https://supabase.com/" target="_blank" class="underline"
-          >Supabase</a
-        > to build robust, scalable data architectures. These platforms enable me
+        > to build robust, scalable data architectures. This platform enables me
         to rapidly develop real-time applications with authentication, serverless
         functions, and secure database operations. From implementing complex queries
         and data relationships to managing user permissions and real-time synchronization,

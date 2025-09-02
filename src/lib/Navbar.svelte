@@ -4,16 +4,16 @@
   import Create from "./Create.svelte";
   import type { Projecto } from "./database.types";
   import Dialog from "./Dialog.svelte";
-  import Login from "./Login.svelte";
   import { auth } from "./firebase";
   import { signOut, type User } from "firebase/auth";
   import { onMount } from "svelte";
 
   let { projects }: { projects: Projecto[] } = $props();
 
-  let showModal = $state(false);
   let showCreate = $state(false);
+  let showDropdown = $state(false);
   let user: User | null = $state(null);
+  let dropdownRef: HTMLDivElement;
 
   onMount(() => {
     // Listen to auth state changes
@@ -21,15 +21,40 @@
       user = firebaseUser;
     });
 
-    return unsubscribe;
+    // Handle click outside to close dropdown
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef &&
+        !dropdownRef.contains(event.target as Node) &&
+        showDropdown
+      ) {
+        showDropdown = false;
+      }
+    }
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      unsubscribe();
+      document.removeEventListener("click", handleClickOutside);
+    };
   });
 
   async function handleLogout() {
     try {
       await signOut(auth);
+      showDropdown = false;
     } catch (error) {
       console.error("Error signing out:", error);
     }
+  }
+
+  function toggleDropdown() {
+    showDropdown = !showDropdown;
+  }
+
+  function closeDropdown() {
+    showDropdown = false;
   }
 
   const menus = [
@@ -99,40 +124,74 @@
         </li>
       {/each}
     </ul>
-    <div class="relative pr-4 account group">
+    <div class="relative pr-4 account" bind:this={dropdownRef}>
       {#if user}
-        <button class="text-lg user" onclick={() => (showModal = false)}>
+        <button
+          class="text-lg user flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200 cursor-pointer"
+          style={y > 200
+            ? "background-color: rgba(0,0,0,0.1); color: black;"
+            : "background-color: rgba(255,255,255,0.2); color: white;"}
+          onclick={toggleDropdown}
+        >
           <Icon icon="material-symbols:account-circle" />
         </button>
-        <div
-          class="absolute right-0 invisible transition-all duration-500 mt-5 mr-4 shadow-[0px_0px_2px_rgba(0,0,0,0.5)] bg-[rgba(255,255,255,0.8)] text-black rounded-[0.5em] group-hover:visible group-hover:opacity-100 group-hover:block"
-        >
-          <div class="text-sm p-4 email">{user.email}</div>
-          <div class="flex gap-4 border-t border-[rgba(0,0,0,0.1)] actions">
-            <button
-              type="submit"
-              onclick={() => (showCreate = true)}
-              class="p-4 w-full flex items-center gap-4 text-[rgb(61,61,61)] hover:text-black"
-            >
-              <Icon icon="material-symbols:add-circle" />
-              <span>Create</span>
-            </button>
-            <button
-              onclick={handleLogout}
-              class="p-4 w-full flex items-center gap-4 text-[rgb(61,61,61)] hover:text-black"
-            >
-              <Icon icon="material-symbols:logout" />
-              <span>Logout</span>
-            </button>
+
+        {#if showDropdown}
+          <div
+            class="absolute right-0 top-12 z-[999] min-w-[200px] bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden animate-in slide-in-from-top-2 duration-200"
+          >
+            <!-- User info header -->
+            <div class="px-4 py-3 bg-gray-50 border-b border-gray-200">
+              <div class="flex items-center gap-3">
+                <Icon
+                  icon="material-symbols:account-circle"
+                  class="text-2xl text-gray-600"
+                />
+                <div>
+                  <div class="text-sm font-medium text-gray-900">
+                    Signed in as
+                  </div>
+                  <div class="text-xs text-gray-600 truncate">{user.email}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Menu items -->
+            <div class="py-1">
+              <button
+                type="button"
+                onclick={() => {
+                  showCreate = true;
+                  closeDropdown();
+                }}
+                class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-3 transition-colors cursor-pointer"
+              >
+                <Icon icon="material-symbols:add-circle" class="text-lg" />
+                <span>Create Project</span>
+              </button>
+
+              <button
+                onclick={() => {
+                  handleLogout();
+                  closeDropdown();
+                }}
+                class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-red-50 hover:text-red-700 flex items-center gap-3 transition-colors border-t border-gray-100 cursor-pointer"
+              >
+                <Icon icon="material-symbols:logout" class="text-lg" />
+                <span>Sign Out</span>
+              </button>
+            </div>
           </div>
-        </div>
+        {/if}
       {:else}
         <a
           href="/login"
-          class="text-lg flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+          class="text-lg flex items-center justify-center w-10 h-10 rounded-full transition-colors"
+          style={y > 200
+            ? "background-color: rgba(0,0,0,0.1); color: black;"
+            : "background-color: rgba(255,255,255,0.2); color: white;"}
         >
           <Icon icon="material-symbols:login" />
-          <span>Login</span>
         </a>
       {/if}
     </div>
@@ -181,12 +240,6 @@
     </nav>
   {/if}
 </header>
-
-{#if showModal}
-  <Dialog bind:showModal>
-    <Login bind:showModal />
-  </Dialog>
-{/if}
 
 {#if showCreate}
   <Dialog bind:showModal={showCreate}>

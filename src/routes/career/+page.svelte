@@ -15,7 +15,7 @@
 <Banner
   cover="/gallery/styling.jpg"
   title="Career"
-  slogan="I worked for different startup in Berlin and Italy"
+  slogan="I worked for different startup in Berlin, Barcelona and Italy"
 />
 
 <section class="max-w-6xl mx-auto px-4 py-12">

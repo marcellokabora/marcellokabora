@@ -111,10 +111,7 @@
 
 <svelte:head>
   <title>Migrate Projects | Marcello Kabora</title>
-  <meta
-    name="description"
-    content="Migrate projects from Supabase to Firestore"
-  />
+  <meta name="description" content="View migrated projects in Firestore" />
 </svelte:head>
 
 <div class="min-h-screen bg-gray-50 py-8">
@@ -126,11 +123,11 @@
 
       <div class="mb-6">
         <h2 class="text-xl font-semibold text-gray-700 mb-4">
-          Supabase → Firestore Migration
+          Firebase Projects
         </h2>
         <p class="text-gray-600 mb-4">
-          This tool will migrate all projects from Supabase to Firestore. The
-          document ID in Firestore will be based on the project name.
+          This page displays all projects stored in Firestore. The migration
+          from Supabase has been completed.
         </p>
       </div>
 
@@ -152,7 +149,7 @@
           </div>
           <div class="ml-3">
             <h3 class="text-sm font-medium text-blue-800">
-              Found {data.projects?.length || 0} projects in Supabase
+              Found {data.projects?.length || 0} projects in Firebase
             </h3>
             {#if data.error}
               <p class="text-sm text-red-600 mt-1">Error: {data.error}</p>

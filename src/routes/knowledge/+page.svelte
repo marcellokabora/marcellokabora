@@ -383,14 +383,6 @@
                 founded in 2011. In 2014, Google acquired the platform and it is
                 now their flagship offering for app development.
               </p>
-            {:else if item.name === "supabase"}
-              <p>
-                Supabase is an open-source alternative to Firebase that provides
-                developers with the tools they need to build, scale, and manage
-                their applications. At its core, Supabase offers a Postgres
-                database, which is a powerful and reliable relational database
-                management system.
-              </p>
             {:else if item.name === "vercel"}
               <p>
                 Vercel is the platform for frontend developers, providing the

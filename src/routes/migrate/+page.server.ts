@@ -1,22 +1,26 @@
-import { supabase } from '$lib/server/supabaseClient.js';
+import { db } from '$lib/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-    // Fetch all projects from Supabase
-    const { data: projects, error } = await supabase
-        .from('projects')
-        .select('*');
+    try {
+        // Fetch all projects from Firebase
+        const projectsCollection = collection(db, 'projects');
+        const projectsSnapshot = await getDocs(projectsCollection);
+        const projects = projectsSnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
 
-    if (error) {
-        console.error('Error fetching projects from Supabase:', error);
+        return {
+            projects: projects || [],
+            error: null
+        };
+    } catch (error) {
+        console.error('Error fetching projects from Firebase:', error);
         return {
             projects: [],
-            error: error.message
+            error: 'Failed to fetch projects from Firebase'
         };
     }
-
-    return {
-        projects: projects || [],
-        error: null
-    };
 };

@@ -16,7 +16,7 @@ export const companies: Company[] = [
     //     title: "Founder - Partime",
     //     time: "From May 2024",
     //     link: "//7echno.com",
-    //     technologies: "Svelte, Gitlab, Figma, Tailwind, Typescript, Supabase"
+    //     technologies: "Svelte, Gitlab, Figma, Tailwind, Typescript, Firebase"
     // },
     {
         logo: "/company/evaglobal.png",

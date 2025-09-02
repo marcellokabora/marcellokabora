@@ -168,12 +168,6 @@ const database = [
     link: "//firebase.google.com",
   },
   {
-    name: "supabase",
-    title: "Supabase",
-    photo: "/photo/supabase.jpg",
-    link: "//supabase.com",
-  },
-  {
     name: "php",
     title: "PHP",
     photo: "/photo/php.svg",
