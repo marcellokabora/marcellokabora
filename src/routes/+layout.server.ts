@@ -1,13 +1,27 @@
 import type { Projecto } from "$lib/database.types";
-import { supabase } from "$lib/server/supabaseClient";
+import { db } from "$lib/firebase";
+import { collection, getDocs } from "firebase/firestore";
 import type { LayoutServerLoad } from "./$types";
 
 export const load: LayoutServerLoad = async () => {
-  const { data } = await supabase.auth.getUser();
-  let { data: projects } = await supabase.from("projects").select();
+  try {
+    // Fetch all projects from Firestore
+    const projectsCollection = collection(db, "projects");
+    const projectsSnapshot = await getDocs(projectsCollection);
+    const projects = projectsSnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    })) as unknown as Projecto[];
 
-  return {
-    user: data.user,
-    projects: projects as Projecto[],
-  };
+    return {
+      user: null, // Firebase Auth will be handled client-side
+      projects: projects,
+    };
+  } catch (error) {
+    console.error("Error fetching projects from Firestore:", error);
+    return {
+      user: null,
+      projects: [],
+    };
+  }
 };

@@ -6,7 +6,7 @@
   import Dialog from "$lib/Dialog.svelte";
   import { formatDate, getImg, getLang, imgPlaceholder } from "$lib/functions";
   import Projects from "$lib/Projects.svelte";
-  import { user } from "$lib/store";
+  import { user } from "$lib/authStore";
   import Icon from "@iconify/svelte";
   import { marked } from "marked";
 
@@ -18,20 +18,27 @@
   let formCover: HTMLFormElement | undefined = $state();
   let formGallery: HTMLFormElement | undefined = $state();
   let related = $derived(
-    Array.from(
-      new Set([
-        ...data.projects.filter((value) =>
-          value.title
-            .toLocaleLowerCase()
-            .includes(project.title.toLocaleLowerCase()),
-        ),
-        ...data.projects
-          .filter((value) => value.type === project.type)
-          .sort(() => 0.5 - Math.random()),
-      ]),
-    )
-      .filter((value) => value.name !== project.name)
-      .splice(0, 9),
+    (() => {
+      const relatedProjects = Array.from(
+        new Set([
+          ...data.projects.filter((value) =>
+            value.title
+              .toLocaleLowerCase()
+              .includes(project.title.toLocaleLowerCase())
+          ),
+          ...data.projects
+            .filter((value) => value.type === project.type)
+            .sort(() => 0.5 - Math.random()),
+        ])
+      ).filter((value) => value.name !== project.name);
+
+      // Ensure the number is a multiple of 3 for better grid layout
+      const maxItems = 9;
+      const count = Math.min(relatedProjects.length, maxItems);
+      const multipleOfThree = Math.floor(count / 3) * 3;
+
+      return relatedProjects.slice(0, multipleOfThree || 3);
+    })()
   );
 
   $effect(() => {

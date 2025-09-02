@@ -1,7 +1,7 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import type { User } from "@supabase/supabase-js";
-  import { user } from "./store";
+  import type { User } from "firebase/auth";
+  import { user } from "./authStore";
   import Icon from "@iconify/svelte";
 
   let { showModal = $bindable() } = $props();

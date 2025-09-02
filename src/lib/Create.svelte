@@ -2,7 +2,7 @@
   import { goto } from "$app/navigation";
   import type { Projecto } from "./database.types";
   import { productPlaceholder } from "./functions";
-  import { user } from "./store";
+  import { user } from "./authStore";
   import { page } from "$app/state";
   import { enhance } from "$app/forms";
   import Icon from "@iconify/svelte";
@@ -38,7 +38,7 @@
       ? project
       : {
           ...productPlaceholder,
-          user_id: $user?.id,
+          user_id: $user?.uid,
           email: $user?.email ?? "",
         };
   }
@@ -186,7 +186,7 @@
     </label>
     <div class="hidden">
       <input name="id" type="text" value={data.id} />
-      <input name="user_id" type="text" value={$user?.id} />
+      <input name="user_id" type="text" value={$user?.uid} />
       <input name="email" type="text" value={$user?.email} />
     </div>
   </div>

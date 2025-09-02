@@ -12,16 +12,6 @@
 
   let search = $state("");
   let filter = $state("");
-  let selectedShadow = $state("hover:shadow-sm");
-
-  const shadowOptions = [
-    { name: "None", value: "" },
-    { name: "Subtle", value: "hover:shadow-sm" },
-    { name: "Default", value: "hover:shadow" },
-    { name: "Medium", value: "hover:shadow-md" },
-    { name: "Large", value: "hover:shadow-lg" },
-    { name: "Extra Large", value: "hover:shadow-xl" },
-  ];
 
   const filterOptions = [
     { type: "webapp", icon: "mdi:web", label: "Webapp" },
@@ -29,21 +19,24 @@
     { type: "design", icon: "mdi:palette", label: "Design" },
   ];
 
-  let filtered: Projecto[] = $state([]);
+  let filtered: Projecto[] = $derived(
+    projects
+      .filter(
+        (item) =>
+          item.name.toLowerCase().includes(search.toLowerCase()) ||
+          item.title.toLowerCase().includes(search.toLowerCase())
+      )
+      .filter((item) => (filter ? item.type === filter : item))
+  );
 
   function toggleFilter(type: string) {
     filter = filter === type ? "" : type;
   }
 
-  $effect(() => {
-    filtered = projects
-      .filter(
-        (item) =>
-          item.name.includes(search.toLowerCase()) ||
-          item.title.toLocaleLowerCase().includes(search.toLowerCase()),
-      )
-      .filter((item) => (filter ? item.type === filter : item));
-  });
+  function getProjectImageUrl(project: Projecto): string {
+    if (!project.cover) return imgPlaceholder;
+    return getImg(project.cover);
+  }
 </script>
 
 <div class="grid gap-16">
@@ -95,10 +88,26 @@
           >
             <div class="relative">
               <img
-                src={item.cover ? getImg(item.cover) : imgPlaceholder}
+                src={getProjectImageUrl(item)}
                 alt={item.name}
                 class="w-full h-64 object-cover transition-all duration-500 group-hover:brightness-50"
+                onerror={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  if (target.src !== imgPlaceholder) {
+                    target.src = imgPlaceholder;
+                  }
+                }}
               />
+              {#if !item.cover}
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center"
+                >
+                  <Icon
+                    icon="mdi:image-outline"
+                    class="text-6xl text-gray-400"
+                  />
+                </div>
+              {/if}
               <div
                 class="absolute inset-0 flex items-center justify-center flex-col text-white opacity-0 transition-opacity duration-500 hover:opacity-100 z-10"
               >

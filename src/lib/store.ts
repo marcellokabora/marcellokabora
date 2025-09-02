@@ -1,4 +1,5 @@
-import type { User } from "@supabase/supabase-js";
+// This file is deprecated - use authStore.ts for Firebase auth instead
 import { writable } from "svelte/store";
 
-export let user = writable<User | null>(null);
+// Legacy store - no longer used
+export let user = writable<any>(null);

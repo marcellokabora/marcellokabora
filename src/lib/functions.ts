@@ -1,4 +1,6 @@
 import type { Projecto } from "./database.types";
+import { storage } from "./firebase";
+import { ref, getDownloadURL } from "firebase/storage";
 
 export function getLang(lang: string) {
   return URLS.find(value => value.name === lang.trim())
@@ -87,20 +89,24 @@ export const URLS: { name: string, url: string }[] = [
   },
 ]
 
-
-export default function supabaseLoader({
-  src = "",
-  width = 500,
-  quality = 100,
-}) {
-  return `https://iluuzburwyhjbrpihdte.supabase.co/storage/v1/object/public/marcellokabora/${src}?width=${width}&quality=${quality}`;
+// Firebase Storage image URL generator
+export async function getFirebaseImageUrl(imagePath: string): Promise<string> {
+  try {
+    const imageRef = ref(storage, imagePath);
+    const url = await getDownloadURL(imageRef);
+    return url;
+  } catch (error) {
+    console.error("Error getting image URL from Firebase Storage:", error);
+    return imgPlaceholder;
+  }
 }
 
-export function getImg(img: String) {
-  return (
-    "https://iluuzburwyhjbrpihdte.supabase.co/storage/v1/object/public/marcellokabora/" +
-    img
-  );
+// Synchronous function for immediate use (returns Firebase Storage URL pattern)
+export function getImg(img: string) {
+  if (!img) return imgPlaceholder;
+  // Firebase Storage URL pattern - you might need to adjust the bucket name
+  const bucketName = import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || 'your-project.appspot.com';
+  return `https://firebasestorage.googleapis.com/v0/b/${bucketName}/o/${encodeURIComponent(img)}?alt=media`;
 }
 
 export const imgPlaceholder = "/gallery/styling.jpg";

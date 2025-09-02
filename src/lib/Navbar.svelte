@@ -5,12 +5,33 @@
   import type { Projecto } from "./database.types";
   import Dialog from "./Dialog.svelte";
   import Login from "./Login.svelte";
-  import { user } from "./store";
+  import { auth } from "./firebase";
+  import { signOut, type User } from "firebase/auth";
+  import { onMount } from "svelte";
 
   let { projects }: { projects: Projecto[] } = $props();
 
   let showModal = $state(false);
   let showCreate = $state(false);
+  let user: User | null = $state(null);
+
+  onMount(() => {
+    // Listen to auth state changes
+    const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
+      user = firebaseUser;
+    });
+
+    return unsubscribe;
+  });
+
+  async function handleLogout() {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  }
+
   const menus = [
     {
       icon: "home",
@@ -79,17 +100,14 @@
       {/each}
     </ul>
     <div class="relative pr-4 account group">
-      <button
-        class="text-lg user"
-        onclick={() => ($user ? (showModal = false) : (showModal = true))}
-      >
-        <Icon icon="material-symbols:account-circle" />
-      </button>
-      {#if $user}
+      {#if user}
+        <button class="text-lg user" onclick={() => (showModal = false)}>
+          <Icon icon="material-symbols:account-circle" />
+        </button>
         <div
           class="absolute right-0 invisible transition-all duration-500 mt-5 mr-4 shadow-[0px_0px_2px_rgba(0,0,0,0.5)] bg-[rgba(255,255,255,0.8)] text-black rounded-[0.5em] group-hover:visible group-hover:opacity-100 group-hover:block"
         >
-          <div class="text-sm p-4 email">{$user.email}</div>
+          <div class="text-sm p-4 email">{user.email}</div>
           <div class="flex gap-4 border-t border-[rgba(0,0,0,0.1)] actions">
             <button
               type="submit"
@@ -99,16 +117,23 @@
               <Icon icon="material-symbols:add-circle" />
               <span>Create</span>
             </button>
-            <form method="POST" action="/?/logout">
-              <button
-                class="p-4 w-full flex items-center gap-4 text-[rgb(61,61,61)] hover:text-black"
-              >
-                <Icon icon="material-symbols:logout" />
-                <span>Logout</span>
-              </button>
-            </form>
+            <button
+              onclick={handleLogout}
+              class="p-4 w-full flex items-center gap-4 text-[rgb(61,61,61)] hover:text-black"
+            >
+              <Icon icon="material-symbols:logout" />
+              <span>Logout</span>
+            </button>
           </div>
         </div>
+      {:else}
+        <a
+          href="/login"
+          class="text-lg flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+        >
+          <Icon icon="material-symbols:login" />
+          <span>Login</span>
+        </a>
       {/if}
     </div>
   </nav>
@@ -131,6 +156,28 @@
           </a>
         </div>
       {/each}
+
+      <!-- Mobile auth section -->
+      <div class="whitespace-nowrap p-[10px] m-0 mr-5 menu text-white">
+        {#if user}
+          <div class="pb-5 border-b border-[rgba(255,255,255,0.2)] pl-[50px]">
+            <div class="text-sm mb-2">{user.email}</div>
+            <button onclick={handleLogout} class="flex items-center text-white">
+              <span>Logout</span>
+              <Icon icon="material-symbols:logout" class="ml-5" />
+            </button>
+          </div>
+        {:else}
+          <a
+            href="/login"
+            onclick={() => (showNav = false)}
+            class="no-underline flex items-center pb-5 border-b border-[rgba(255,255,255,0.2)] pl-[50px]"
+          >
+            <span>Login</span>
+            <Icon icon="material-symbols:login" class="ml-5" />
+          </a>
+        {/if}
+      </div>
     </nav>
   {/if}
 </header>

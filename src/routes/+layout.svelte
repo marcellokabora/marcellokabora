@@ -14,10 +14,14 @@
   import AOS from "aos";
   import "aos/dist/aos.css";
   import { onMount } from "svelte";
-  import { user } from "$lib/store";
+  import { initAuth } from "$lib/authStore";
   let { data, children } = $props();
-  onMount(() => AOS.init());
-  user.set(data.user);
+
+  onMount(() => {
+    AOS.init();
+    initAuth(); // Initialize Firebase auth
+  });
+
   injectSpeedInsights();
 </script>
 
