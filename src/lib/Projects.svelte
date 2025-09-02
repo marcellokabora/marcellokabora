@@ -98,16 +98,6 @@
                   }
                 }}
               />
-              {#if !item.cover}
-                <div
-                  class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center"
-                >
-                  <Icon
-                    icon="mdi:image-outline"
-                    class="text-6xl text-gray-400"
-                  />
-                </div>
-              {/if}
               <div
                 class="absolute inset-0 flex items-center justify-center flex-col text-white opacity-0 transition-opacity duration-500 hover:opacity-100 z-10"
               >

@@ -12,7 +12,7 @@
     slogan = "Slogan",
   }: Props = $props();
 
-  let imageLoaded = true;
+  let imageLoaded = $state(true);
 </script>
 
 <div
@@ -26,7 +26,7 @@
       class="w-full h-full object-cover saturate-100 brightness-80 blur-lg scale-110"
       src={cover}
       alt="cover"
-      on:error={() => (imageLoaded = false)}
+      onerror={() => (imageLoaded = false)}
       class:opacity-0={!imageLoaded}
     />
   </div>
