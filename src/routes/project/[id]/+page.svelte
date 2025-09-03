@@ -109,19 +109,18 @@
                 class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
               >
                 <Icon icon="material-symbols:code" />
-                {#each project.lang.split(",") as lang, i (lang)}
-                  <a
-                    class="no-underline hover:!text-blue-500 !transition-colors duration-200"
-                    href={getLang(lang)?.url}
-                    target="_blank"
-                  >
-                    {lang.trim().charAt(0).toUpperCase() +
-                      lang.trim().slice(1).toLowerCase()}
-                  </a>
-                  {#if i < project.lang.split(",").length - 1}
-                    <span class="opacity-70">,</span>
-                  {/if}
-                {/each}
+                <div class="flex flex-wrap gap-2">
+                  {#each project.lang.split(",") as lang, i (lang)}
+                    <a
+                      class="no-underline text-gray-700 dark:text-gray-200 bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm font-medium"
+                      href={getLang(lang)?.url}
+                      target="_blank"
+                    >
+                      {lang.trim().charAt(0).toUpperCase() +
+                        lang.trim().slice(1).toLowerCase()}
+                    </a>
+                  {/each}
+                </div>
               </div>
             {/if}
           </div>
@@ -151,7 +150,7 @@
             Gallery
           </h2>
           {#each [...project.gallery].sort() as photo (photo)}
-            <div class="relative mb-5">
+            <div class="relative mb-5 group">
               <img
                 src={getImg(photo)}
                 alt=""
@@ -178,7 +177,7 @@
                 >
                   <button
                     type="submit"
-                    class="scale-80 h-12 w-12 bg-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md"
+                    class="scale-80 h-12 w-12 bg-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   >
                     <Icon icon="material-symbols:delete" />
                   </button>

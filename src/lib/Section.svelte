@@ -32,14 +32,14 @@
     class:lg:order-2={aside}
   >
     <div
-      class="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-500 group-hover:scale-105"
+      class="absolute inset-0 rounded-2xl overflow-hidden transform transition-transform duration-500 group-hover:scale-102"
     >
       {#if link}
         <a href={link} target="_blank" class="block w-full h-full">
           <img
             src={photo}
             alt=""
-            class="object-{objectFit} w-full h-full rounded-2xl ring-2 ring-blue-200 shadow-xl transition-all duration-300 transform group-hover:scale-105 group-hover:ring-blue-400 group-hover:shadow-2xl group-hover:brightness-100"
+            class="object-{objectFit} w-full h-full rounded-2xl transition-all duration-300 transform group-hover:scale-102 group-hover:brightness-100"
             class:scale-75={small}
           />
         </a>
@@ -47,7 +47,7 @@
         <img
           src={photo}
           alt=""
-          class="object-{objectFit} w-full h-full rounded-2xl ring-2 ring-blue-200 shadow-xl transition-all duration-300 transform hover:scale-105 hover:ring-blue-400 hover:shadow-2xl hover:brightness-100"
+          class="object-{objectFit} w-full h-full rounded-2xl transition-all duration-300 transform hover:scale-102 hover:brightness-100"
           class:scale-75={small}
         />
       {/if}
