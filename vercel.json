@@ -1,7 +1,0 @@
-{
-    "functions": {
-        "src/routes/**/*.js": {
-            "runtime": "nodejs22.x"
-        }
-    }
-}
