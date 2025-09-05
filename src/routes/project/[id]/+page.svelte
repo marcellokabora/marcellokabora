@@ -112,7 +112,7 @@
                 <div class="flex flex-wrap gap-2">
                   {#each project.lang.split(",") as lang, i (lang)}
                     <a
-                      class="no-underline text-gray-700 dark:text-gray-200 bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm font-medium"
+                      class="no-underline text-gray-200 bg-gray-500 px-3 py-1 rounded-full text-sm font-medium"
                       href={getLang(lang)?.url}
                       target="_blank"
                     >
@@ -149,45 +149,55 @@
           <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
             Gallery
           </h2>
-          {#each [...project.gallery].sort() as photo (photo)}
-            <div class="relative mb-5 group">
-              <img
-                src={getImg(photo)}
-                alt=""
-                class="w-full transition-all duration-300 shadow-md rounded"
-              />
-              {#if $user}
-                <form
-                  method="POST"
-                  action="?/remove"
-                  use:enhance={({ cancel }) => {
-                    if (
-                      !confirm("Are you sure you want to delete this photo?")
-                    ) {
-                      cancel();
-                      return;
+          <div class="flex flex-wrap gap-4 justify-center">
+            {#each [...project.gallery].sort() as photo (photo)}
+              <div class="relative group">
+                <img
+                  src={getImg(photo)}
+                  alt=""
+                  class="w-auto transition-all duration-300 shadow-md rounded"
+                  onload={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    if (img && img.naturalHeight > img.naturalWidth) {
+                      img.classList.add("max-h-120");
+                    } else if (img) {
+                      img.classList.remove("max-h-120");
                     }
-                    return async ({ result }) => {
-                      if (result.type === "success") {
-                        if (result?.data?.project)
-                          project = result.data.project as Projecto;
-                      }
-                    };
                   }}
-                >
-                  <button
-                    type="submit"
-                    class="scale-80 h-12 w-12 bg-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
+                {#if $user}
+                  <form
+                    method="POST"
+                    action="?/remove"
+                    use:enhance={({ cancel }) => {
+                      if (
+                        !confirm("Are you sure you want to delete this photo?")
+                      ) {
+                        cancel();
+                        return;
+                      }
+                      return async ({ result }) => {
+                        if (result.type === "success") {
+                          if (result?.data?.project)
+                            project = result.data.project as Projecto;
+                        }
+                      };
+                    }}
                   >
-                    <Icon icon="material-symbols:delete" />
-                  </button>
-                  <div class="hidden">
-                    <input type="text" name="name" value={photo} />
-                  </div>
-                </form>
-              {/if}
-            </div>
-          {/each}
+                    <button
+                      type="submit"
+                      class="scale-80 h-12 w-12 bg-red-500 text-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-600"
+                    >
+                      <Icon icon="material-symbols:delete" />
+                    </button>
+                    <div class="hidden">
+                      <input type="text" name="name" value={photo} />
+                    </div>
+                  </form>
+                {/if}
+              </div>
+            {/each}
+          </div>
         </div>
       {/if}
       <div class="related">
