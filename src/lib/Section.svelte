@@ -24,7 +24,6 @@
 
 <div
   class="relative flex justify-center items-center my-12 lg:my-20 gap-6 sm:gap-8 lg:gap-16 flex-col lg:flex-row transition-all duration-500 ease-in-out"
-  data-aos="fade-up"
 >
   <!-- Image Container -->
   <div

@@ -10,15 +10,11 @@
     inject({ mode: dev ? "development" : "production" });
   }
 
-  // @ts-ignore
-  import AOS from "aos";
-  import "aos/dist/aos.css";
   import { onMount } from "svelte";
   import { initAuth } from "$lib/authStore";
   let { data, children } = $props();
 
   onMount(() => {
-    AOS.init();
     initAuth(); // Initialize Firebase auth
   });
 

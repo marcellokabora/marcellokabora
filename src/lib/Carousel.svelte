@@ -18,7 +18,6 @@
 </script>
 
 <main
-  data-aos="fade-down"
   class="relative text-white text-center py-[100px] bg-cover bg-center"
   style="background-image: url({cover});"
 >

@@ -91,7 +91,7 @@
 <svelte:window bind:scrollY={y} />
 
 <header class="fixed z-[999]">
-  <div class="fixed top-0 left-0 z-[999] logo" data-aos="fade-down">
+  <div class="fixed top-0 left-0 z-[999] logo">
     <a
       href={showNav ? "" : "/"}
       onclick={() => (showNav = window.screen.width < 1000)}
@@ -105,7 +105,6 @@
   </div>
   <nav
     class="fixed items-center top-0 w-full h-[60px] backdrop-blur-[50px] flex invisible lg:visible"
-    data-aos="fade-down"
     style={y > 200 ? "color: black" : "color: white"}
   >
     <ul class="flex items-center flex-1 ml-[200px]">

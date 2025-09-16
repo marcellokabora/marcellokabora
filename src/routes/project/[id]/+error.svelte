@@ -84,7 +84,7 @@
     </div>
 
     <!-- Error Description -->
-    <div class="space-y-4">
+    <!-- <div class="space-y-4">
       <p class="text-gray-600 leading-relaxed">
         {getErrorDescription(page.status)}
       </p>
@@ -95,7 +95,7 @@
           </p>
         </div>
       {/if}
-    </div>
+    </div> -->
 
     <!-- Action Buttons -->
     <div class="space-y-3">

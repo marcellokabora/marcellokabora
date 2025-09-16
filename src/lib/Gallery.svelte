@@ -68,7 +68,7 @@
   }
 </script>
 
-<div class="relative text-white" data-aos="fade-down">
+<div class="relative text-white">
   <div
     class="relative overflow-auto flex snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
     bind:this={scrolled}

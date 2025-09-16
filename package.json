@@ -31,7 +31,6 @@
     "@tailwindcss/vite": "^4.1.13",
     "@vercel/analytics": "^1.0.2",
     "@vercel/speed-insights": "^1.2.0",
-    "aos": "^2.3.4",
     "easymde": "^2.20.0",
     "firebase": "^12.2.1",
     "marked": "^15.0.12",

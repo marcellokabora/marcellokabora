@@ -9,6 +9,7 @@
   import { user } from "$lib/authStore";
   import Icon from "@iconify/svelte";
   import { marked } from "marked";
+  import { fly } from "svelte/transition";
 
   let { data } = $props();
   let project: Projecto = $state(data.project);
@@ -52,165 +53,163 @@
   <meta property="og:image" content={getImg(project.cover!)} />
 </svelte:head>
 
-{#if project}
-  <Banner
-    cover={project?.cover ? getImg(project.cover) : imgPlaceholder}
-    title={project.title}
-    slogan={project.slogan}
-  />
-  <section data-aos="fade-up" class="min-h-screen mb-16">
-    <div class="container mx-auto max-w-6xl px-6">
-      <div class="mt-5 flex flex-wrap gap-8">
-        <div class="flex-1">
-          <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
-            Description
-          </h2>
-          <div class="markdown">
-            {@html marked.parse(project.info ?? "")}
-          </div>
-          <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
-            Details
-          </h2>
-          <div class="flex flex-wrap gap-4">
-            {#if project.date}
-              <div
-                class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-              >
-                <Icon icon="material-symbols:event" />
-                <span>{formatDate(project.date)}</span>
-              </div>
-            {/if}
-            {#if project.link}
-              <div
-                class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-              >
-                <Icon icon="material-symbols:captive-portal" />
-                <a
-                  class="no-underline hover:!text-blue-500 !transition-colors duration-200"
-                  href={project.link}
-                  target="_blank">Website</a
-                >
-              </div>
-            {/if}
-            {#if project.code}
-              <div
-                class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-              >
-                <Icon icon="mdi:github" />
-                <a
-                  class="no-underline hover:!text-blue-500 !transition-colors duration-200"
-                  href={`//github.com/marcellokabora/${project.code}`}
-                  target="_blank">Github</a
-                >
-              </div>
-            {/if}
-            {#if project.lang}
-              <div
-                class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-              >
-                <Icon icon="material-symbols:code" />
-                <div class="flex flex-wrap gap-2">
-                  {#each project.lang.split(",") as lang, i (lang)}
-                    <a
-                      class="no-underline text-gray-200 bg-gray-500 px-3 py-1 rounded-full text-sm font-medium"
-                      href={getLang(lang)?.url}
-                      target="_blank"
-                    >
-                      {lang.trim().charAt(0).toUpperCase() +
-                        lang.trim().slice(1).toLowerCase()}
-                    </a>
-                  {/each}
-                </div>
-              </div>
-            {/if}
-          </div>
-        </div>
-      </div>
-
-      {#if project.youtube}
-        <div class="youtube">
-          <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
-            Video
-          </h2>
-          <iframe
-            src="https://www.youtube.com/embed/{project.youtube}"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-            class="w-full aspect-video"
-          ></iframe>
-        </div>
-      {/if}
-
-      {#if project.gallery}
-        <div class="gallery">
-          <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
-            Gallery
-          </h2>
-          <div class="flex flex-wrap gap-4 justify-center">
-            {#each [...project.gallery].sort() as photo (photo)}
-              <div class="relative group">
-                <img
-                  src={getImg(photo)}
-                  alt=""
-                  class="w-auto transition-all duration-300 shadow-md rounded"
-                  onload={(e) => {
-                    const img = e.target as HTMLImageElement;
-                    if (img && img.naturalHeight > img.naturalWidth) {
-                      img.classList.add("max-h-120");
-                    } else if (img) {
-                      img.classList.remove("max-h-120");
-                    }
-                  }}
-                />
-                {#if $user}
-                  <form
-                    method="POST"
-                    action="?/remove"
-                    use:enhance={({ cancel }) => {
-                      if (
-                        !confirm("Are you sure you want to delete this photo?")
-                      ) {
-                        cancel();
-                        return;
-                      }
-                      return async ({ result }) => {
-                        if (result.type === "success") {
-                          if (result?.data?.project)
-                            project = result.data.project as Projecto;
-                        }
-                      };
-                    }}
-                  >
-                    <button
-                      type="submit"
-                      class="scale-80 h-12 w-12 bg-red-500 text-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-600"
-                    >
-                      <Icon icon="material-symbols:delete" />
-                    </button>
-                    <div class="hidden">
-                      <input type="text" name="name" value={photo} />
-                    </div>
-                  </form>
-                {/if}
-              </div>
-            {/each}
-          </div>
-        </div>
-      {/if}
-      <div class="related">
+<Banner
+  cover={project?.cover ? getImg(project.cover) : imgPlaceholder}
+  title={project.title}
+  slogan={project.slogan}
+/>
+<section class="mb-16" in:fly={{ y: 100, duration: 1000, delay: 100 }}>
+  <div class="container mx-auto max-w-6xl px-6">
+    <div class="mt-5 flex flex-wrap gap-8">
+      <div class="flex-1">
         <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
-          Related
+          Description
         </h2>
-        <div class="main">
-          <Projects projects={related} hideSearch />
+        <div class="markdown">
+          {@html marked.parse(project.info ?? "")}
+        </div>
+        <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
+          Details
+        </h2>
+        <div class="flex flex-wrap gap-4">
+          {#if project.date}
+            <div
+              class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
+            >
+              <Icon icon="material-symbols:event" />
+              <span>{formatDate(project.date)}</span>
+            </div>
+          {/if}
+          {#if project.link}
+            <div
+              class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
+            >
+              <Icon icon="material-symbols:captive-portal" />
+              <a
+                class="no-underline hover:!text-blue-500 !transition-colors duration-200"
+                href={project.link}
+                target="_blank">Website</a
+              >
+            </div>
+          {/if}
+          {#if project.code}
+            <div
+              class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
+            >
+              <Icon icon="mdi:github" />
+              <a
+                class="no-underline hover:!text-blue-500 !transition-colors duration-200"
+                href={`//github.com/marcellokabora/${project.code}`}
+                target="_blank">Github</a
+              >
+            </div>
+          {/if}
+          {#if project.lang}
+            <div
+              class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
+            >
+              <Icon icon="material-symbols:code" />
+              <div class="flex flex-wrap gap-2">
+                {#each project.lang.split(",") as lang, i (lang)}
+                  <a
+                    class="no-underline text-gray-200 bg-gray-500 px-3 py-1 rounded-full text-sm font-medium"
+                    href={getLang(lang)?.url}
+                    target="_blank"
+                  >
+                    {lang.trim().charAt(0).toUpperCase() +
+                      lang.trim().slice(1).toLowerCase()}
+                  </a>
+                {/each}
+              </div>
+            </div>
+          {/if}
         </div>
       </div>
     </div>
-  </section>
-{/if}
+
+    {#if project.youtube}
+      <div class="youtube">
+        <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
+          Video
+        </h2>
+        <iframe
+          src="https://www.youtube.com/embed/{project.youtube}"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          class="w-full aspect-video"
+        ></iframe>
+      </div>
+    {/if}
+
+    {#if project.gallery}
+      <div class="gallery">
+        <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
+          Gallery
+        </h2>
+        <div class="flex flex-wrap gap-4 justify-center">
+          {#each [...project.gallery].sort() as photo (photo)}
+            <div class="relative group">
+              <img
+                src={getImg(photo)}
+                alt=""
+                class="w-auto transition-all duration-300 shadow-md rounded"
+                onload={(e) => {
+                  const img = e.target as HTMLImageElement;
+                  if (img && img.naturalHeight > img.naturalWidth) {
+                    img.classList.add("max-h-120");
+                  } else if (img) {
+                    img.classList.remove("max-h-120");
+                  }
+                }}
+              />
+              {#if $user}
+                <form
+                  method="POST"
+                  action="?/remove"
+                  use:enhance={({ cancel }) => {
+                    if (
+                      !confirm("Are you sure you want to delete this photo?")
+                    ) {
+                      cancel();
+                      return;
+                    }
+                    return async ({ result }) => {
+                      if (result.type === "success") {
+                        if (result?.data?.project)
+                          project = result.data.project as Projecto;
+                      }
+                    };
+                  }}
+                >
+                  <button
+                    type="submit"
+                    class="scale-80 h-12 w-12 bg-red-500 text-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-600"
+                  >
+                    <Icon icon="material-symbols:delete" />
+                  </button>
+                  <div class="hidden">
+                    <input type="text" name="name" value={photo} />
+                  </div>
+                </form>
+              {/if}
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/if}
+    <div class="related">
+      <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
+        Related
+      </h2>
+      <div class="main">
+        <Projects projects={related} hideSearch />
+      </div>
+    </div>
+  </div>
+</section>
 
 {#if $user}
   <div class="absolute left-12 top-[120px] flex flex-col items-center gap-4">

@@ -9,7 +9,6 @@
 </script>
 
 <header
-  data-aos="slide-up"
   class="text-center flex justify-center py-12 transition-all duration-500 ease-in-out"
   class:theme-light={theme === "light"}
   class:theme-dark={theme === "dark"}

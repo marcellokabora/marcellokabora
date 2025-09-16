@@ -1,6 +1,7 @@
 <script>
   import Banner from "$lib/Banner.svelte";
   import { description } from "$lib/mocks";
+  import { fly } from "svelte/transition";
   import { companies } from "./companies";
   import CompanyDescription from "./CompanyDescription.svelte";
 </script>
@@ -18,7 +19,10 @@
   slogan="I worked for different startup in Berlin, Barcelona and Italy"
 />
 
-<section class="max-w-6xl mx-auto px-4 py-12">
+<section
+  class="max-w-6xl mx-auto px-4 py-12"
+  in:fly={{ y: 100, duration: 1000, delay: 100 }}
+>
   <div class="relative">
     <!-- Timeline Line connecting all cards -->
     <div

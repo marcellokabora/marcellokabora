@@ -2,6 +2,7 @@
   import Banner from "$lib/Banner.svelte";
   import Section from "$lib/Section.svelte";
   import { description } from "$lib/mocks";
+  import { fly } from "svelte/transition";
   import { items, menu } from "./data";
   import Icon from "@iconify/svelte";
 
@@ -23,12 +24,13 @@
   <meta property="og:image" content="/gallery/develop.jpeg" />
 </svelte:head>
 
-<!-- Banner component fills full width -->
 <Banner cover="/gallery/develop.jpeg" title="Knowledge" slogan="Technologies" />
 
-<!-- Knowledge section with container -->
-<div class="container mx-auto max-w-6xl px-6">
-  <section class="grid gap-8 py-16" data-aos="fade-up">
+<div
+  class="container mx-auto max-w-6xl px-6"
+  in:fly={{ y: 100, duration: 1000, delay: 100 }}
+>
+  <section class="grid gap-8 py-16">
     <div
       class="sticky top-20 flex justify-center gap-2 z-10 max-[1000px]:hidden"
     >
@@ -51,7 +53,7 @@
     </div>
     <div class="flex-1 px-5 mr-5">
       {#each items as item, id (item)}
-        <div data-aos="fade-up" id={item.id}>
+        <div id={item.id}>
           <Section
             photo={item.photo}
             title={item.title}

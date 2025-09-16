@@ -2,6 +2,7 @@
   import type { Projecto } from "$lib/database.types.js";
   import { formatDate, getImg, imgPlaceholder } from "$lib/functions";
   import Icon from "@iconify/svelte";
+  import { fly } from "svelte/transition";
 
   interface Props {
     projects: Projecto[];
@@ -39,12 +40,9 @@
   }
 </script>
 
-<div class="grid gap-16">
+<div class="grid gap-16" in:fly={{ y: 100, duration: 1000, delay: 100 }}>
   {#if !hideSearch}
-    <div
-      class="flex items-center justify-center flex-col gap-4"
-      data-aos="fade-up"
-    >
+    <div class="flex items-center justify-center flex-col gap-4">
       <div
         class="h-10 border border-gray-300 flex rounded-full overflow-hidden w-full max-w-md"
       >
@@ -74,7 +72,6 @@
 
   <div
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8"
-    data-aos="fade-up"
   >
     {#if filtered[0]}
       {#each filtered as item (item.name)}
