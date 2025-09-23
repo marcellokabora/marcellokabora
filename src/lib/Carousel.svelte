@@ -10,7 +10,7 @@
   }
 
   let {
-    cover = "/gallery/blur002.jpg",
+    cover = "/gallery/waves.jpg",
     title = "",
     slogan = "",
     items = [],
@@ -34,10 +34,10 @@
       {#each items as item (item.logo)}
         <a href={item.link} target="_blank" class="text-white no-underline">
           <div
-            class="w-full h-full snap-center flex flex-col items-center justify-center p-6 bg-gradient-to-br from-neutral-200/20 to-neutral-700/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 group"
+            class="w-full h-full snap-center flex flex-col items-center justify-center p-6 bg-black/10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 group"
           >
             <div
-              class="w-[90px] h-[90px] rounded-full bg-white/10 flex items-center justify-center mb-6 border-2 border-neutral-500/30 group-hover:border-white/40 transition-all"
+              class="w-[90px] h-[90px] rounded-full bg-white/10 flex items-center justify-center mb-6 border-2 border-black/10 group-hover:border-white/40 transition-all"
             >
               <img
                 src={item.logo}

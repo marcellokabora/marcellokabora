@@ -25,7 +25,7 @@ export const companies: Company[] = [
         title: "Full Time - Frontend Developer",
         time: "Oct 2022 - Feb 2025",
         link: "//linkedin.com/company/evaglobal",
-        technologies: "Angular, Material, NX, GraphQL, Storybook, Gitlab, Jira, Figma"
+        technologies: "Vue, Nuxt, GraphQL, Storybook, Gitlab, Jira, Figma"
     },
     {
         logo: "/logo/linus.png",
