@@ -10,7 +10,7 @@
   }
 
   let {
-    cover = "/gallery/waves.jpg",
+    cover = "/gallery/bluedot.jpg",
     title = "",
     slogan = "",
     items = [],
@@ -37,7 +37,7 @@
             class="w-full h-full snap-center flex flex-col items-center justify-center p-6 bg-black/10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 group"
           >
             <div
-              class="w-[90px] h-[90px] rounded-full bg-white/10 flex items-center justify-center mb-6 border-2 border-black/10 group-hover:border-white/40 transition-all"
+              class="w-[90px] h-[90px] rounded-full bg-white/10 flex items-center justify-center mb-6 border-2 border-white/10 group-hover:border-white/40 transition-all"
             >
               <img
                 src={item.logo}

@@ -16,12 +16,12 @@
 
   const company = {
     cover: "/photo/back2.jpg",
-    title: "CAREER",
-    slogan: "I worked for different startup in Berlin and Italy",
+    title: "Building Startups",
+    // slogan: "Building European Startups",
     items: companies.slice(0, 6).map((c) => ({
       logo: c.logo,
       company: c.name,
-      title: c.title,
+      // title: c.title,
       link: c.link,
       description: c.slogan,
       tags: c.technologies
@@ -32,7 +32,7 @@
 
   const language = {
     cover: "/gallery/back2.jpg",
-    title: "LANGUAGE",
+    title: "Language Skills",
     items: [
       {
         logo: "/flag/it.png",
@@ -139,7 +139,7 @@
 </div>
 
 <!-- Carousel component fills full width -->
-<Carousel title={company.title} slogan={company.slogan} items={company.items} />
+<Carousel title={company.title} items={company.items} />
 
 <!-- ENVIRONMENT section with container -->
 <div class="container mx-auto max-w-6xl px-6">
@@ -226,3 +226,24 @@
     <Projects {projects} />
   </section>
 </div>
+
+<style>
+  a {
+    color: rgb(37, 99, 235);
+    transition: color 300ms ease-in-out;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: rgb(29, 78, 216);
+    text-decoration: underline;
+  }
+
+  a[target="_blank"] {
+    color: rgb(59, 130, 246);
+  }
+
+  a[target="_blank"]:hover {
+    color: rgb(30, 64, 175);
+  }
+</style>

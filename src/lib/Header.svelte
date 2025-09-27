@@ -19,10 +19,9 @@
     >
       {title}
     </div>
-    <hr
-      class="w-24 my-6 transition-all duration-300 hover:w-32 header-divider"
-      style="height: 3px; border-radius: 2px;"
-    />
+    <div
+      class="w-80 my-6 transition-all duration-300 header-divider h-[2px] rounded-sm bg-gradient-to-r from-transparent via-current to-transparent opacity-60"
+    ></div>
     <div
       class="px-12 text-lg md:text-xl leading-relaxed max-w-2xl animate-fade-in-delay header-sloga text-balance"
     >
