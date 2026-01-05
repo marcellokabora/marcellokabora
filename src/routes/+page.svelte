@@ -193,10 +193,13 @@
         I leverage modern Backend-as-a-Service platforms like
         <a href="//firebase.google.com" target="_blank" class="underline"
           >Firebase</a
-        > to build robust, scalable data architectures. This platform enables me
-        to rapidly develop real-time applications with authentication, serverless
-        functions, and secure database operations. From implementing complex queries
-        and data relationships to managing user permissions and real-time synchronization,
+        >
+        or
+        <a href="//supabase.com" target="_blank" class="underline">Supabase</a> to
+        build robust, scalable data architectures. This platform enables me to rapidly
+        develop real-time applications with authentication, serverless functions,
+        and secure database operations. From implementing complex queries and data
+        relationships to managing user permissions and real-time synchronization,
         I create seamless backend integrations that power dynamic, data-driven user
         experiences.
       </p>

@@ -50,7 +50,7 @@
           type="text"
           bind:value={search}
           placeholder="Search..."
-          class="px-4 border-none focus:outline-none w-full"
+          class="px-4 border-none focus:outline-none w-full text-center"
         />
       </div>
       <div class="flex flex-wrap justify-center gap-2">
