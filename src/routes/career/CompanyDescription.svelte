@@ -12,7 +12,7 @@
         Developer, I was responsible for building the UI library using Angular
         Material and building multiple features for the
         <a href="/project/monitoring/">Monitoring</a>
-        project . I also worked as a UX designer providing multiple designs for the
+        project. I also worked as a UX designer providing multiple designs for the
         new features like the
         <a href="/project/heatmap/">Heatmap</a>.
       </p>
@@ -26,9 +26,11 @@
         design and production by utilizing AI-driven workflows. I focused on
         converting Figma designs into high-quality code with tools like GitHub
         Copilot and implemented MCP protocols to ensure robust connectivity
-        between the frontend and backend. Additionally, I took ownership of the
-        Design System documentation and established the foundational guidelines
-        for AI agent protocols to optimize team-wide AI integration
+        between the frontend and backend for the <a href="/project/fasttrack/"
+          >Fast Track</a
+        > project. Additionally, I took ownership of the Design System documentation
+        and established the foundational guidelines for AI agent protocols to optimize
+        team-wide AI integration.
       </p>
     </div>
   </div>

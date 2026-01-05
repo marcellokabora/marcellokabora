@@ -68,6 +68,20 @@
                 coding. It's beginner-friendly with an intuitive interface for
                 creating 3D models, simulating circuits, and learning to code.
               </p>
+            {:else if item.name === "deno"}
+              <p>
+                Deno is a secure runtime for JavaScript and TypeScript that uses
+                V8 and is built in Rust. It aims to be a productive and secure
+                scripting environment for the modern programmer.
+              </p>
+            {:else if item.name === "turborepo"}
+              <p>
+                Turborepo is a high-performance, incremental build system for
+                JavaScript and TypeScript codebases. Developed by Vercel and
+                written in Rust, it is designed to make managing monorepos
+                (repositories containing multiple projects/packages) faster and
+                more efficient.
+              </p>
             {:else if item.name === "nodejs"}
               <p>
                 Node. js is primarily used for non-blocking, event-driven

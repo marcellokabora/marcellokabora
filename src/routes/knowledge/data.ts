@@ -15,6 +15,12 @@ const javascript = [
     link: "//nodejs.org",
   },
   {
+    name: "deno",
+    title: "Deno",
+    photo: "/logo/deno.webp",
+    link: "//deno.land",
+  },
+  {
     id: "javascript",
     name: "svelte",
     title: "Svelte",
@@ -26,12 +32,6 @@ const javascript = [
     title: "Angular",
     photo: "/photo/angular.png",
     link: "//angular.io",
-  },
-  {
-    name: "nx",
-    title: "NX",
-    photo: "/logo/nx.png",
-    link: "//nx.dev",
   },
   {
     name: "vue",
@@ -50,6 +50,18 @@ const javascript = [
     title: "Next",
     photo: "/photo/next.png",
     link: "//nextjs.org",
+  },
+  {
+    name: "turborepo",
+    title: "Turborepo",
+    photo: "/logo/turborepo.png",
+    link: "//turborepo.com",
+  },
+  {
+    name: "nx",
+    title: "NX",
+    photo: "/logo/nx.png",
+    link: "//nx.dev",
   },
   {
     name: "jquery",

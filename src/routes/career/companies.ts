@@ -13,16 +13,16 @@ export const companies: Company[] = [
         logo: "/logo/7echno.png",
         name: "7echno",
         slogan: "Music Experience",
-        title: "Founder - Partime",
+        title: "Partime - Founder Developer",
         time: "From May 2024",
         link: "//7echno.com",
-        technologies: "Svelte, Github, Figma, Tailwind, Typescript, Firebase"
+        technologies: "Svelte, Github, Tailwind, Typescript, Firebase, Youtube"
     },
     {
         logo: "/logo/fasttrack.png",
         name: "Fast Track",
         slogan: "Flight Tickets",
-        title: "Full Time - Frontned Developer",
+        title: "Full Time - Leader Frontend AI",
         time: "From June 2024 - Jan 2025",
         link: "//fasttrack.flights",
         technologies: "Vue, Nuxt, Github, Figma, Tailwind, Typescript"
@@ -34,7 +34,7 @@ export const companies: Company[] = [
         title: "Full Time - Frontend Developer",
         time: "Oct 2022 - Feb 2025",
         link: "//linkedin.com/company/evaglobal",
-        technologies: "Vue, Nuxt, GraphQL, Storybook, Gitlab, Jira, Figma"
+        technologies: "Angular, Storybook, Gitlab, Jira, Figma"
     },
     {
         logo: "/logo/linus.png",
