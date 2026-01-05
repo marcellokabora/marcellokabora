@@ -9,15 +9,24 @@ interface Company {
 }
 
 export const companies: Company[] = [
-    // {
-    //     logo: "/logo/7echno.png",
-    //     name: "7echno",
-    //     slogan: "Music Experience",
-    //     title: "Founder - Partime",
-    //     time: "From May 2024",
-    //     link: "//7echno.com",
-    //     technologies: "Svelte, Gitlab, Figma, Tailwind, Typescript, Firebase"
-    // },
+    {
+        logo: "/logo/7echno.png",
+        name: "7echno",
+        slogan: "Music Experience",
+        title: "Founder - Partime",
+        time: "From May 2024",
+        link: "//7echno.com",
+        technologies: "Svelte, Github, Figma, Tailwind, Typescript, Firebase"
+    },
+    {
+        logo: "/logo/fasttrack.png",
+        name: "Fast Track",
+        slogan: "Flight Tickets",
+        title: "Full Time - Frontned Developer",
+        time: "From June 2024 - Jan 2025",
+        link: "//fasttrack.flights",
+        technologies: "Vue, Nuxt, Github, Figma, Tailwind, Typescript"
+    },
     {
         logo: "/company/evaglobal.png",
         name: "Eva Global",

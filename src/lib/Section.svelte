@@ -27,7 +27,7 @@
 >
   <!-- Image Container -->
   <div
-    class="relative order-1 h-[300px] sm:h-[350px] w-full sm:w-[400px] md:w-[450px] lg:w-[500px] lg:h-[400px] group z-10 image-container"
+    class="relative order-1 h-[300px] sm:h-[350px] w-full sm:w-[400px] md:w-[450px] lg:w-[500px] lg:h-[400px] group image-container"
     class:lg:order-2={aside}
   >
     <!-- Animated background glow -->
@@ -41,20 +41,16 @@
     >
       <!-- Overlay gradient that appears on hover -->
       <div
-        class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"
+        class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
       ></div>
 
       <!-- Shimmer effect -->
       <div
-        class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 z-20"
+        class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
       ></div>
 
       {#if link}
-        <a
-          href={link}
-          target="_blank"
-          class="block w-full h-full relative z-30"
-        >
+        <a href={link} target="_blank" class="block w-full h-full relative">
           <img
             src={photo}
             alt=""
@@ -66,37 +62,15 @@
         <img
           src={photo}
           alt=""
-          class="object-{objectFit} w-full h-full rounded-2xl transition-all duration-500 transform hover:scale-110 hover:brightness-110 hover:contrast-110 hover:saturate-110 relative z-30"
+          class="object-{objectFit} w-full h-full rounded-2xl transition-all duration-500 transform hover:scale-110 hover:brightness-110 hover:contrast-110 hover:saturate-110 relative"
           class:scale-75={small}
         />
       {/if}
     </div>
-
-    <!-- Floating particles effect -->
-    <div
-      class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000"
-    >
-      <div
-        class="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-bounce"
-        style="animation-delay: 0s;"
-      ></div>
-      <div
-        class="absolute top-1/3 right-1/4 w-1 h-1 bg-purple-400 rounded-full animate-bounce"
-        style="animation-delay: 0.2s;"
-      ></div>
-      <div
-        class="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-pink-400 rounded-full animate-bounce"
-        style="animation-delay: 0.4s;"
-      ></div>
-      <div
-        class="absolute bottom-1/4 right-1/3 w-1 h-1 bg-cyan-400 rounded-full animate-bounce"
-        style="animation-delay: 0.6s;"
-      ></div>
-    </div>
   </div>
   <!-- Content Container with Overlap -->
   <div
-    class="relative order-2 flex-1 px-4 sm:px-6 lg:px-0 z-20 group"
+    class="relative order-2 flex-1 px-4 sm:px-6 lg:px-0 group"
     class:lg:order-1={aside}
   >
     <!-- Title with Overlap Effect -->
@@ -117,7 +91,7 @@
         </div>
 
         <!-- Main title -->
-        <div class="relative z-10 text-gray-800">
+        <div class="relative text-gray-800">
           {#if link}
             <a
               href={link}
