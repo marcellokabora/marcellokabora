@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { Projecto } from "$lib/types/database.types.js";
+  import type { Project } from "$lib/types/project.types.js";
   import { formatDate, getImg, imgPlaceholder } from "$lib/utils/functions";
   import Icon from "@iconify/svelte";
   import { fly } from "svelte/transition";
 
   interface Props {
-    projects: Projecto[];
+    projects: Project[];
     hideSearch?: boolean;
   }
 
@@ -20,7 +20,7 @@
     { type: "design", icon: "mdi:palette", label: "Design" },
   ];
 
-  let filtered: Projecto[] = $derived(
+  let filtered: Project[] = $derived(
     projects
       .filter(
         (item) =>
@@ -34,7 +34,7 @@
     filter = filter === type ? "" : type;
   }
 
-  function getProjectImageUrl(project: Projecto): string {
+  function getProjectImageUrl(project: Project): string {
     if (!project.cover) return imgPlaceholder;
     return getImg(project.cover);
   }

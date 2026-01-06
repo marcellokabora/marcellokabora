@@ -1,11 +1,11 @@
-import type { Projecto } from "$lib/types/database.types";
+import type { Project } from "$lib/types/project.types";
 import { db, storage } from "$lib/config/firebase";
 import { doc, deleteDoc, updateDoc, getDoc } from "firebase/firestore";
 import { ref, uploadBytes, deleteObject } from "firebase/storage";
 import { error, type Actions } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 
-let project: Projecto;
+let project: Project;
 
 // Firebase Storage helper functions
 async function uploadToFirebaseStorage(file: File, path: string): Promise<string> {
@@ -37,7 +37,7 @@ export const load: PageServerLoad = async ({ params, parent }) => {
     project = {
       id: projectSnap.id,
       ...projectSnap.data()
-    } as unknown as Projecto;
+    } as unknown as Project;
 
   } catch (err) {
     console.error("Error fetching project:", err);

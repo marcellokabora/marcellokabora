@@ -1,6 +1,6 @@
 <script lang="ts">
   import Header from "$lib/components/Header.svelte";
-  import type { CarouselItem } from "$lib/types/types";
+  import type { CarouselItem } from "$lib/types/carousel.types";
 
   interface Props {
     cover?: string;

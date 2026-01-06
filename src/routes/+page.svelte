@@ -4,13 +4,13 @@
   import Header from "$lib/components/Header.svelte";
   import Carousel from "$lib/components/Carousel.svelte";
   import Projects from "$lib/components/Projects.svelte";
-  import type { Projecto } from "$lib/types/database.types";
+  import type { Project } from "$lib/types/project.types";
   import { companies } from "./career/companies";
 
   let { data } = $props();
 
   let projects = data.projects?.sort(
-    (a: Projecto, b: Projecto) =>
+    (a: Project, b: Project) =>
       new Date(b.date).valueOf() - new Date(a.date).valueOf()
   );
 

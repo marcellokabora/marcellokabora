@@ -1,4 +1,4 @@
-import type { Projecto } from "$lib/types/database.types";
+import type { Project } from "$lib/types/project.types";
 import { db } from "$lib/config/firebase";
 import { doc, getDoc, setDoc, collection, getDocs } from "firebase/firestore";
 import type { Actions, PageServerLoad } from "./$types";
@@ -11,7 +11,7 @@ export const load: PageServerLoad = async () => {
         const projects = projectsSnapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
-        })) as unknown as Projecto[];
+        })) as unknown as Project[];
 
         return { projects };
     } catch (error) {
@@ -39,7 +39,7 @@ export const actions: Actions = {
                 return { success: false, error: `Document with ID ${oldId} not found` };
             }
 
-            const projectData = oldDocSnap.data() as Projecto;
+            const projectData = oldDocSnap.data() as Project;
 
             // Create new document with name as ID
             const newDocRef = doc(db, "projects", newId);

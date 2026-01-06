@@ -1,6 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  import type { Projecto } from "$lib/types/database.types";
+  import type { Project } from "$lib/types/project.types";
   import {
     productPlaceholder,
     saveProject,
@@ -17,13 +17,13 @@
     projects,
   }: {
     showCreate: boolean;
-    project?: Projecto | null;
-    projects: Projecto[] | null;
+    project?: Project | null;
+    projects: Project[] | null;
   } = $props();
 
   let loading = $state(false);
   let error = $state();
-  let data: Projecto = $state(initData());
+  let data: Project = $state(initData());
   let isValid = $derived(
     data.name && data.date && data.title && data.type && data.slogan
   );

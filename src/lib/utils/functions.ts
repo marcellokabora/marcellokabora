@@ -1,4 +1,4 @@
-import type { Projecto } from "$lib/types/database.types";
+import type { Project } from "$lib/types/project.types";
 import { storage, db } from "$lib/config/firebase";
 import { ref, getDownloadURL, deleteObject } from "firebase/storage";
 import { collection, addDoc, updateDoc, doc, deleteDoc, setDoc } from "firebase/firestore";
@@ -112,7 +112,7 @@ export function getImg(img: string) {
 
 export const imgPlaceholder = "/gallery/styling.jpg";
 
-export const productPlaceholder: Projecto = {
+export const productPlaceholder: Project = {
   name: "",
   title: "",
   slogan: "",
@@ -137,7 +137,7 @@ export function formatDate(date: string) {
 }
 
 // Client-side function to save/update projects
-export async function saveProject(projectData: Projecto): Promise<{ success: boolean; error?: string; id?: string }> {
+export async function saveProject(projectData: Project): Promise<{ success: boolean; error?: string; id?: string }> {
   try {
     // Use the name as the document ID
     const projectRef = doc(db, "projects", projectData.name);
@@ -173,7 +173,7 @@ export async function saveProject(projectData: Projecto): Promise<{ success: boo
 }
 
 // Client-side function to delete projects
-export async function deleteProject(projectData: Projecto): Promise<{ success: boolean; error?: string }> {
+export async function deleteProject(projectData: Project): Promise<{ success: boolean; error?: string }> {
   try {
     if (!projectData.name) {
       return { success: false, error: "Project name is required for deletion" };

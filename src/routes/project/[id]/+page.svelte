@@ -2,7 +2,7 @@
   import { enhance } from "$app/forms";
   import Banner from "$lib/components/Banner.svelte";
   import Create from "$lib/components/Create.svelte";
-  import type { Projecto } from "$lib/types/database.types";
+  import type { Project } from "$lib/types/project.types";
   import Dialog from "$lib/components/Dialog.svelte";
   import {
     formatDate,
@@ -17,7 +17,7 @@
   import { fly } from "svelte/transition";
 
   let { data } = $props();
-  let project: Projecto = $state(data.project);
+  let project: Project = $state(data.project);
   let showCreate = $state(false);
   let inputCover: HTMLInputElement | undefined = $state();
   let inputGallery: HTMLInputElement | undefined = $state();
@@ -182,7 +182,7 @@
                     return async ({ result }) => {
                       if (result.type === "success") {
                         if (result?.data?.project)
-                          project = result.data.project as Projecto;
+                          project = result.data.project as Project;
                       }
                     };
                   }}
@@ -259,7 +259,7 @@
       use:enhance={() => {
         return async ({ result }) => {
           if (result.type === "success") {
-            if (result.data) project = result.data.project as Projecto;
+            if (result.data) project = result.data.project as Project;
           }
         };
       }}

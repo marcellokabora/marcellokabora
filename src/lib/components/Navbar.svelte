@@ -2,13 +2,13 @@
   import { page } from "$app/state";
   import Icon from "@iconify/svelte";
   import Create from "./Create.svelte";
-  import type { Projecto } from "$lib/types/database.types";
+  import type { Project } from "$lib/types/project.types";
   import Dialog from "./Dialog.svelte";
   import { auth } from "$lib/config/firebase";
   import { signOut, type User } from "firebase/auth";
   import { onMount } from "svelte";
 
-  let { projects }: { projects: Projecto[] } = $props();
+  let { projects }: { projects: Project[] } = $props();
 
   let showCreate = $state(false);
   let showDropdown = $state(false);
