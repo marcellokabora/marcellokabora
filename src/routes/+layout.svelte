@@ -5,20 +5,28 @@
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";
   import { injectSpeedInsights } from "@vercel/speed-insights";
-
-  if (!dev) {
-    inject({ mode: dev ? "development" : "production" });
-  }
-
   import { onMount } from "svelte";
-  import { initAuth } from "$lib/authStore";
+  import { initAuth, user } from "$lib/authStore";
+  import { browser } from "$app/environment";
+
   let { data, children } = $props();
 
   onMount(() => {
     initAuth(); // Initialize Firebase auth
   });
 
-  injectSpeedInsights();
+  // Check if we should inject analytics
+  $effect(() => {
+    if (browser) {
+      const isLoggedIn = $user !== null;
+
+      // Only inject analytics if in production and not logged in
+      if (!dev && !isLoggedIn) {
+        inject({ mode: "production" });
+        injectSpeedInsights();
+      }
+    }
+  });
 </script>
 
 <Navbar projects={data.projects} />
