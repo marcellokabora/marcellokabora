@@ -55,10 +55,9 @@
 
       if (result.success) {
         showCreate = false;
-        // Update the data with the new ID if it was a create operation
-        if (result.id && !data.id) {
-          data.id = result.id;
-        }
+        // Set the id to match the name
+        data.id = data.name;
+
         // Update the bound project with the modified data
         if (project) {
           project = { ...data };
@@ -78,7 +77,7 @@
   }
 
   async function handleDelete() {
-    if (!project?.id) return;
+    if (!project?.name) return;
 
     loading = true;
     error = undefined;

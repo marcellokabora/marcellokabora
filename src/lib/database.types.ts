@@ -7,8 +7,8 @@ export type Json =
   | Json[];
 
 export type Projecto = {
-  id?: string;
-  name: string;
+  id?: string; // Same as name - used as Firestore document ID
+  name: string; // Used as the Firestore document ID and URL slug
   cover?: string;
   date: string;
   gallery?: string[];

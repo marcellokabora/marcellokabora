@@ -1,6 +1,6 @@
 import type { Projecto } from "$lib/database.types";
 import { db, storage } from "$lib/firebase";
-import { doc, deleteDoc, updateDoc, collection, query, where, getDocs, addDoc } from "firebase/firestore";
+import { doc, deleteDoc, updateDoc, getDoc } from "firebase/firestore";
 import { ref, uploadBytes, deleteObject } from "firebase/storage";
 import { error, type Actions } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
@@ -24,21 +24,19 @@ export const load: PageServerLoad = async ({ params, parent }) => {
   const id = params.id ? params.id : "";
 
   try {
-    // Query Firestore for project with matching name
-    const projectsCollection = collection(db, "projects");
-    const q = query(projectsCollection, where("name", "==", id));
-    const querySnapshot = await getDocs(q);
+    // Get project directly using name as document ID
+    const projectRef = doc(db, "projects", id);
+    const projectSnap = await getDoc(projectRef);
 
-    if (querySnapshot.empty) {
+    if (!projectSnap.exists()) {
       error(404, {
         message: "Not found",
       });
     }
 
-    const projectDoc = querySnapshot.docs[0];
     project = {
-      id: projectDoc.id,
-      ...projectDoc.data()
+      id: projectSnap.id,
+      ...projectSnap.data()
     } as unknown as Projecto;
 
   } catch (err) {
@@ -54,8 +52,8 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 export const actions: Actions = {
   delete: async () => {
     try {
-      // Delete document from Firestore
-      const projectDoc = doc(db, "projects", String(project.id));
+      // Delete document from Firestore using name as document ID
+      const projectDoc = doc(db, "projects", String(project.name));
       await deleteDoc(projectDoc);
 
       // Delete images from Firebase Storage
@@ -97,8 +95,8 @@ export const actions: Actions = {
         await uploadToFirebaseStorage(cover, coverPath);
         project.cover = coverPath;
 
-        // Update project in Firestore
-        const projectDoc = doc(db, "projects", String(project.id));
+        // Update project in Firestore using name as document ID
+        const projectDoc = doc(db, "projects", String(project.name));
         await updateDoc(projectDoc, { cover: coverPath });
 
         return { cover: coverPath };
@@ -121,8 +119,8 @@ export const actions: Actions = {
     try {
       await Promise.all(uploadPromises);
 
-      // Update project in Firestore
-      const projectDoc = doc(db, "projects", String(project.id));
+      // Update project in Firestore using name as document ID
+      const projectDoc = doc(db, "projects", String(project.name));
       await updateDoc(projectDoc, { gallery: project.gallery });
 
       return { project };
@@ -144,7 +142,7 @@ export const actions: Actions = {
     // Remove from project gallery and update Firestore
     project.gallery = project.gallery?.filter((value) => value !== name);
 
-    const projectDoc = doc(db, "projects", String(project.id));
+    const projectDoc = doc(db, "projects", String(project.name));
     await updateDoc(projectDoc, { gallery: project.gallery });
 
     return { project };

@@ -27,9 +27,7 @@
               .toLocaleLowerCase()
               .includes(project.title.toLocaleLowerCase())
           ),
-          ...data.projects
-            .filter((value) => value.type === project.type)
-            .sort(() => 0.5 - Math.random()),
+          ...data.projects.filter((value) => value.type === project.type),
         ])
       ).filter((value) => value.name !== project.name);
 

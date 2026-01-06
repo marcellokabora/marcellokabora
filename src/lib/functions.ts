@@ -1,7 +1,7 @@
 import type { Projecto } from "./database.types";
 import { storage, db } from "./firebase";
 import { ref, getDownloadURL, deleteObject } from "firebase/storage";
-import { collection, addDoc, updateDoc, doc, deleteDoc } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc, deleteDoc, setDoc } from "firebase/firestore";
 
 export function getLang(lang: string) {
   return URLS.find(value => value.name === lang.trim())
@@ -139,16 +139,18 @@ export function formatDate(date: string) {
 // Client-side function to save/update projects
 export async function saveProject(projectData: Projecto): Promise<{ success: boolean; error?: string; id?: string }> {
   try {
-    if (projectData.id) {
-      // Update existing project
-      const projectRef = doc(db, "projects", projectData.id);
-      await updateDoc(projectRef, projectData);
-      return { success: true, id: projectData.id };
-    } else {
-      // Create new project
-      const docRef = await addDoc(collection(db, "projects"), projectData);
-      return { success: true, id: docRef.id };
-    }
+    // Use the name as the document ID
+    const projectRef = doc(db, "projects", projectData.name);
+
+    // Set the id to match the name for consistency
+    const dataToSave = {
+      ...projectData,
+      id: projectData.name
+    };
+
+    // setDoc will create or update the document (merge: true for updates)
+    await setDoc(projectRef, dataToSave, { merge: true });
+    return { success: true, id: projectData.name };
   } catch (error) {
     console.error("Error saving project:", error);
     let errorMessage = "Failed to save project";
@@ -173,12 +175,12 @@ export async function saveProject(projectData: Projecto): Promise<{ success: boo
 // Client-side function to delete projects
 export async function deleteProject(projectData: Projecto): Promise<{ success: boolean; error?: string }> {
   try {
-    if (!projectData.id) {
-      return { success: false, error: "Project ID is required for deletion" };
+    if (!projectData.name) {
+      return { success: false, error: "Project name is required for deletion" };
     }
 
-    // Delete document from Firestore
-    const projectRef = doc(db, "projects", projectData.id);
+    // Delete document from Firestore using name as document ID
+    const projectRef = doc(db, "projects", projectData.name);
     await deleteDoc(projectRef);
 
     // Delete images from Firebase Storage
