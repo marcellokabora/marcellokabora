@@ -22,8 +22,20 @@
 
       // Only inject analytics if in production and not logged in
       if (!dev && !isLoggedIn) {
-        inject({ mode: "production" });
-        injectSpeedInsights();
+        // Defer analytics until after page load to improve FCP
+        if (document.readyState === "complete") {
+          inject({ mode: "production" });
+          injectSpeedInsights();
+        } else {
+          window.addEventListener(
+            "load",
+            () => {
+              inject({ mode: "production" });
+              injectSpeedInsights();
+            },
+            { once: true }
+          );
+        }
       }
     }
   });
