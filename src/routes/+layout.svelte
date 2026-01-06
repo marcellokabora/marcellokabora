@@ -1,12 +1,12 @@
 <script>
-  import Navbar from "$lib/Navbar.svelte";
-  import Footer from "$lib/Footer.svelte";
+  import Navbar from "$lib/components/Navbar.svelte";
+  import Footer from "$lib/components/Footer.svelte";
   import "$lib/styles/app.css";
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";
   import { injectSpeedInsights } from "@vercel/speed-insights";
   import { onMount } from "svelte";
-  import { initAuth, user } from "$lib/authStore";
+  import { initAuth, user } from "$lib/stores/authStore";
   import { browser } from "$app/environment";
 
   let { data, children } = $props();

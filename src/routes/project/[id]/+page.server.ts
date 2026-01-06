@@ -1,5 +1,5 @@
-import type { Projecto } from "$lib/database.types";
-import { db, storage } from "$lib/firebase";
+import type { Projecto } from "$lib/types/database.types";
+import { db, storage } from "$lib/config/firebase";
 import { doc, deleteDoc, updateDoc, getDoc } from "firebase/firestore";
 import { ref, uploadBytes, deleteObject } from "firebase/storage";
 import { error, type Actions } from "@sveltejs/kit";

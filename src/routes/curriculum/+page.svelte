@@ -1,5 +1,5 @@
 <script>
-  import { description } from "$lib/mocks";
+  import { description } from "$lib/utils/mocks";
 </script>
 
 <svelte:head>

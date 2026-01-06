@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Projecto } from "$lib/database.types.js";
-  import { formatDate, getImg, imgPlaceholder } from "$lib/functions";
+  import type { Projecto } from "$lib/types/database.types.js";
+  import { formatDate, getImg, imgPlaceholder } from "$lib/utils/functions";
   import Icon from "@iconify/svelte";
   import { fly } from "svelte/transition";
 

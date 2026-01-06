@@ -2,9 +2,9 @@
   import { page } from "$app/state";
   import Icon from "@iconify/svelte";
   import Create from "./Create.svelte";
-  import type { Projecto } from "./database.types";
+  import type { Projecto } from "$lib/types/database.types";
   import Dialog from "./Dialog.svelte";
-  import { auth } from "./firebase";
+  import { auth } from "$lib/config/firebase";
   import { signOut, type User } from "firebase/auth";
   import { onMount } from "svelte";
 

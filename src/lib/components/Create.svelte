@@ -1,8 +1,12 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  import type { Projecto } from "./database.types";
-  import { productPlaceholder, saveProject, deleteProject } from "./functions";
-  import { user } from "./authStore";
+  import type { Projecto } from "$lib/types/database.types";
+  import {
+    productPlaceholder,
+    saveProject,
+    deleteProject,
+  } from "$lib/utils/functions";
+  import { user } from "$lib/stores/authStore";
   import { page } from "$app/state";
   import Icon from "@iconify/svelte";
   import { marked } from "marked";

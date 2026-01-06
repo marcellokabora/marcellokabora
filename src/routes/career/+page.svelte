@@ -1,6 +1,6 @@
 <script>
-  import Banner from "$lib/Banner.svelte";
-  import { description } from "$lib/mocks";
+  import Banner from "$lib/components/Banner.svelte";
+  import { description } from "$lib/utils/mocks";
   import { fly } from "svelte/transition";
   import { companies } from "./companies";
   import CompanyDescription from "./CompanyDescription.svelte";

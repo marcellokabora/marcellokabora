@@ -1,6 +1,6 @@
 <script lang="ts">
   import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-  import { auth } from "$lib/firebase";
+  import { auth } from "$lib/config/firebase";
   import { onMount } from "svelte";
 
   let email = "";

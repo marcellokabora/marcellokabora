@@ -1,8 +1,8 @@
 <script lang="ts">
   import { signInWithEmailAndPassword } from "firebase/auth";
-  import { auth } from "./firebase";
+  import { auth } from "$lib/config/firebase";
   import type { User } from "firebase/auth";
-  import { user } from "./authStore";
+  import { user } from "$lib/stores/authStore";
   import Icon from "@iconify/svelte";
 
   let { showModal = $bindable() } = $props();

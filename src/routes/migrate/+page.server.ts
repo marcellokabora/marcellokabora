@@ -1,5 +1,5 @@
-import type { Projecto } from "$lib/database.types";
-import { db } from "$lib/firebase";
+import type { Projecto } from "$lib/types/database.types";
+import { db } from "$lib/config/firebase";
 import { doc, getDoc, setDoc, collection, getDocs } from "firebase/firestore";
 import type { Actions, PageServerLoad } from "./$types";
 

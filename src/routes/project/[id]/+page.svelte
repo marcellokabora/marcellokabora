@@ -1,12 +1,17 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import Banner from "$lib/Banner.svelte";
-  import Create from "$lib/Create.svelte";
-  import type { Projecto } from "$lib/database.types";
-  import Dialog from "$lib/Dialog.svelte";
-  import { formatDate, getImg, getLang, imgPlaceholder } from "$lib/functions";
-  import Projects from "$lib/Projects.svelte";
-  import { user } from "$lib/authStore";
+  import Banner from "$lib/components/Banner.svelte";
+  import Create from "$lib/components/Create.svelte";
+  import type { Projecto } from "$lib/types/database.types";
+  import Dialog from "$lib/components/Dialog.svelte";
+  import {
+    formatDate,
+    getImg,
+    getLang,
+    imgPlaceholder,
+  } from "$lib/utils/functions";
+  import Projects from "$lib/components/Projects.svelte";
+  import { user } from "$lib/stores/authStore";
   import Icon from "@iconify/svelte";
   import { marked } from "marked";
   import { fly } from "svelte/transition";

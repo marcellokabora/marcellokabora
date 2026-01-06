@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Gallery from "$lib/Gallery.svelte";
-  import Section from "$lib/Section.svelte";
-  import Header from "$lib/Header.svelte";
-  import Carousel from "$lib/Carousel.svelte";
-  import Projects from "$lib/Projects.svelte";
-  import type { Projecto } from "$lib/database.types";
+  import Gallery from "$lib/components/Gallery.svelte";
+  import Section from "$lib/components/Section.svelte";
+  import Header from "$lib/components/Header.svelte";
+  import Carousel from "$lib/components/Carousel.svelte";
+  import Projects from "$lib/components/Projects.svelte";
+  import type { Projecto } from "$lib/types/database.types";
   import { companies } from "./career/companies";
 
   let { data } = $props();

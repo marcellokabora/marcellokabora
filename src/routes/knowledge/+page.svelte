@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Banner from "$lib/Banner.svelte";
-  import Section from "$lib/Section.svelte";
-  import { description } from "$lib/mocks";
+  import Banner from "$lib/components/Banner.svelte";
+  import Section from "$lib/components/Section.svelte";
+  import { description } from "$lib/utils/mocks";
   import { fly } from "svelte/transition";
   import { items, menu } from "./data";
   import Icon from "@iconify/svelte";

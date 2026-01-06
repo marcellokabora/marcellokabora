@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { auth } from '$lib/firebase';
+import { auth } from '$lib/config/firebase';
 import { onAuthStateChanged, type User } from 'firebase/auth';
 
 // Create a writable store for the user

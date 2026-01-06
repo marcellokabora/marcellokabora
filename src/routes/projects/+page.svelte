@@ -1,14 +1,14 @@
 <script lang="ts">
-  import Banner from "$lib/Banner.svelte";
-  import type { Projecto } from "$lib/database.types";
-  import { description } from "$lib/mocks";
-  import Projects from "$lib/Projects.svelte";
+  import Banner from "$lib/components/Banner.svelte";
+  import type { Projecto } from "$lib/types/database.types";
+  import { description } from "$lib/utils/mocks";
+  import Projects from "$lib/components/Projects.svelte";
 
   let { data } = $props();
 
   let projects = data.projects?.sort(
     (a: Projecto, b: Projecto) =>
-      new Date(b.date).valueOf() - new Date(a.date).valueOf(),
+      new Date(b.date).valueOf() - new Date(a.date).valueOf()
   );
 </script>
 
