@@ -60,6 +60,7 @@ export const companies: Company[] = [
         slogan: "News analytics",
         title: "Full Time - Frontend Developer",
         time: "Jun 2017 - Nov 2019",
+        link: "//linkedin.com/company/yukkalabag",
         technologies: "Angular, Material, MySql, Jira, D3, Highcharts, Github, Firebase"
     },
     {
@@ -68,6 +69,7 @@ export const companies: Company[] = [
         slogan: "Credit Online",
         title: "Full Time - Frontend Developer",
         time: "Feb 2016 - Feb 2017",
+        link: "//linkedin.com/company/smava",
         technologies: "HTML, CSS, Javascript, Foundation, Github"
     },
     {

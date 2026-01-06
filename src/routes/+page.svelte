@@ -54,7 +54,7 @@
 </script>
 
 <svelte:head>
-  <title>Marcello Kabora | Fronted Developer</title>
+  <title>Marcello Annicchiarico | Fronted AI Developer</title>
   <meta
     name="description"
     content="Senior Frontend Developer with a decade of experience in software development, UI/UX, and data visualization.  Passionate about building high-performance UI libraries and PWAs for SaaS and B2B, using frameworks like Vue, Svelte, Angular, and React."
