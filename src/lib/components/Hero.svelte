@@ -7,10 +7,10 @@
   <!-- Mesh Gradient Background -->
   <div class="absolute inset-0 bg-neutral-950 z-0"></div>
   <div
-    class="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-pulse"
+    class="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-primary-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-pulse"
   ></div>
   <div
-    class="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-cyan-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-pulse delay-1000"
+    class="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-secondary-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-pulse delay-1000"
   ></div>
 
   <div class="z-10 text-center px-4 max-w-5xl relative">
@@ -34,13 +34,13 @@
     <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
       <a
         href="/projects"
-        class="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-purple-600 hover:to-purple-700 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer"
+        class="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-primary-600 hover:to-primary-700 hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer"
       >
         View My Work
       </a>
       <a
         href="/contact"
-        class="px-8 py-4 rounded-xl font-semibold text-lg text-white border-2 border-cyan-500/50 bg-cyan-500/10 hover:bg-cyan-500/20 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all duration-300 cursor-pointer backdrop-blur-sm"
+        class="px-8 py-4 rounded-xl font-semibold text-lg text-white border-2 border-secondary-500/50 bg-secondary-500/10 hover:bg-secondary-500/20 hover:border-secondary-400 hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-all duration-300 cursor-pointer backdrop-blur-sm"
       >
         Let's Connect
       </a>

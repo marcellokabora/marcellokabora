@@ -12,13 +12,13 @@
       name: "GitHub",
       icon: "mdi:github",
       url: "https://github.com/marcellokabora",
-      color: "hover:text-purple-400",
+      color: "hover:text-primary-400",
     },
     {
       name: "Email",
       icon: "material-symbols:mail",
       url: "mailto:marcellokabora@gmail.com",
-      color: "hover:text-cyan-400",
+      color: "hover:text-secondary-400",
     },
     {
       name: "Twitter",
@@ -34,7 +34,9 @@
   class="py-24 px-4 w-full bg-neutral-950 border-t border-white/5"
 >
   <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-sm font-bold text-cyan-400 uppercase tracking-widest mb-4">
+    <h2
+      class="text-sm font-bold text-secondary-400 uppercase tracking-widest mb-4"
+    >
       Get In Touch
     </h2>
     <h3 class="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -48,7 +50,7 @@
     <!-- Primary Email CTA -->
     <a
       href="mailto:marcellokabora@gmail.com"
-      class="inline-flex items-center gap-3 px-8 py-4 bg-black/30 hover:bg-black/50 backdrop-blur-xl border border-white/10 hover:border-cyan-500/50 rounded-full text-zinc-400 hover:text-white font-medium text-lg transition-all duration-300 mb-16"
+      class="inline-flex items-center gap-3 px-8 py-4 bg-black/30 hover:bg-black/50 backdrop-blur-xl border border-white/10 hover:border-secondary-500/50 rounded-full text-zinc-400 hover:text-white font-medium text-lg transition-all duration-300 mb-16"
     >
       <Icon icon="material-symbols:mail" class="text-2xl" />
       <span>Send me an Email</span>

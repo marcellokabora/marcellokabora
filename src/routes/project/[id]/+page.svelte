@@ -229,7 +229,7 @@
                   onclick={() => scrollToImage(index)}
                   class="w-2 h-2 rounded-full transition-all duration-300 cursor-pointer border-0 p-0 hover:scale-125 {activeGalleryIndex ===
                   index
-                    ? 'bg-cyan-400'
+                    ? 'bg-secondary-400'
                     : 'bg-zinc-600 hover:bg-zinc-500'}"
                   aria-label="Go to image {index + 1}"
                 ></button>

@@ -48,7 +48,7 @@
 </svelte:head>
 
 <main
-  class="w-full min-h-screen bg-neutral-950 text-white overflow-hidden selection:bg-cyan-500 selection:text-black"
+  class="w-full min-h-screen bg-neutral-950 text-white overflow-hidden selection:bg-secondary-500 selection:text-black"
 >
   <!-- Navigation (Centered Logo) -->
 

@@ -8,7 +8,7 @@
 <section class="py-24 px-4 w-full bg-neutral-900">
   <div class="max-w-7xl mx-auto">
     <h2
-      class="text-sm font-bold text-purple-400 uppercase tracking-widest mb-2 text-center"
+      class="text-sm font-bold text-primary-400 uppercase tracking-widest mb-2 text-center"
     >
       Personal Side Project
     </h2>
@@ -38,9 +38,6 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           <!-- Left: Project Image -->
           <div class="relative group">
-            <div
-              class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-cyan-600/20 rounded-2xl blur-xl"
-            ></div>
             <div
               class="relative bg-neutral-950 border border-zinc-800 rounded-2xl overflow-hidden aspect-video"
             >
@@ -74,13 +71,13 @@
             <!-- Stats -->
             <div class="grid grid-cols-2 gap-4 mb-8">
               <div class="bg-neutral-950 border border-zinc-800 rounded-xl p-4">
-                <div class="text-3xl font-bold text-purple-400 mb-1">2+</div>
+                <div class="text-3xl font-bold text-primary-400 mb-1">2+</div>
                 <div class="text-sm text-zinc-500 uppercase tracking-wider">
                   Years Building
                 </div>
               </div>
               <div class="bg-neutral-950 border border-zinc-800 rounded-xl p-4">
-                <div class="text-3xl font-bold text-cyan-400 mb-1">2</div>
+                <div class="text-3xl font-bold text-secondary-400 mb-1">2</div>
                 <div class="text-sm text-zinc-500 uppercase tracking-wider">
                   Related Projects
                 </div>
@@ -89,12 +86,12 @@
 
             <!-- Call to Action -->
             <div
-              class="bg-gradient-to-br from-purple-900/20 to-cyan-900/20 border border-purple-500/30 rounded-xl p-6 mb-6"
+              class="bg-gradient-to-br from-primary-900/20 to-secondary-900/20 border border-primary-500/30 rounded-xl p-6 mb-6"
             >
               <div class="flex items-start gap-4">
                 <Icon
                   icon="mdi:handshake"
-                  class="w-8 h-8 text-purple-400 flex-shrink-0 mt-1"
+                  class="w-8 h-8 text-primary-400 flex-shrink-0 mt-1"
                 />
                 <div>
                   <h5 class="text-lg font-bold text-white mb-2">
@@ -110,7 +107,7 @@
 
             <a
               href="/project/7echno"
-              class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl font-semibold hover:from-purple-600 hover:to-purple-700 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all duration-300"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl font-semibold hover:from-primary-600 hover:to-primary-700 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all duration-300"
             >
               <span>View Full Project</span>
               <Icon icon="mdi:arrow-right" class="w-5 h-5" />
@@ -123,13 +120,13 @@
           {#if technoProject}
             <a
               href="/project/7echno"
-              class="group bg-neutral-950 border border-zinc-800 hover:border-purple-500/50 rounded-2xl p-6 transition-all duration-300"
+              class="group bg-neutral-950 border border-zinc-800 hover:border-primary-500/50 rounded-2xl p-6 transition-all duration-300"
             >
               <div class="flex items-center gap-4 mb-4">
                 <div
-                  class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center border border-purple-500/30"
+                  class="w-12 h-12 bg-primary-500/20 rounded-xl flex items-center justify-center border border-primary-500/30"
                 >
-                  <Icon icon="mdi:web" class="w-6 h-6 text-purple-400" />
+                  <Icon icon="mdi:web" class="w-6 h-6 text-primary-400" />
                 </div>
                 <div>
                   <h5 class="text-lg font-bold text-white">7echno Platform</h5>
@@ -143,13 +140,13 @@
           {#if musicProject}
             <a
               href="/project/7echno-music"
-              class="group bg-neutral-950 border border-zinc-800 hover:border-cyan-500/50 rounded-2xl p-6 transition-all duration-300"
+              class="group bg-neutral-950 border border-zinc-800 hover:border-secondary-500/50 rounded-2xl p-6 transition-all duration-300"
             >
               <div class="flex items-center gap-4 mb-4">
                 <div
-                  class="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center border border-cyan-500/30"
+                  class="w-12 h-12 bg-secondary-500/20 rounded-xl flex items-center justify-center border border-secondary-500/30"
                 >
-                  <Icon icon="mdi:music" class="w-6 h-6 text-cyan-400" />
+                  <Icon icon="mdi:music" class="w-6 h-6 text-secondary-400" />
                 </div>
                 <div>
                   <h5 class="text-lg font-bold text-white">7echno Music</h5>

@@ -37,9 +37,9 @@
       {#each menu as item}
         <button
           class="bg-zinc-900 text-sm font-medium px-4 py-2 cursor-pointer capitalize border border-zinc-800 rounded-full
-                 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-200 flex items-center gap-2 group
+                 hover:border-primary-500 hover:bg-primary-500/10 transition-all duration-200 flex items-center gap-2 group
                  {activeSection === item.name
-            ? 'border-purple-500 bg-purple-500/20 text-purple-400'
+            ? 'border-primary-500 bg-primary-500/20 text-primary-400'
             : 'text-zinc-400'}"
           onclick={() => scrollIntoView(item.name)}
         >

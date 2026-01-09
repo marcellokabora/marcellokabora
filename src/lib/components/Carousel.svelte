@@ -71,7 +71,7 @@
             >
               <!-- Animated background gradient -->
               <div
-                class="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-purple-400/0 to-pink-400/0 group-hover:from-blue-400/10 group-hover:via-purple-400/10 group-hover:to-pink-400/10 transition-all duration-700 rounded-2xl"
+                class="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-primary-400/0 to-pink-400/0 group-hover:from-blue-400/10 group-hover:via-primary-400/10 group-hover:to-pink-400/10 transition-all duration-700 rounded-2xl"
               ></div>
 
               <!-- Shimmer effect -->

@@ -22,7 +22,7 @@
 <section class="py-24 px-4 w-full">
   <div class="max-w-7xl mx-auto">
     <h2
-      class="text-sm font-bold text-cyan-400 uppercase tracking-widest mb-2 text-center"
+      class="text-sm font-bold text-secondary-400 uppercase tracking-widest mb-2 text-center"
     >
       About Me
     </h2>
@@ -68,7 +68,7 @@
         class="col-span-1 md:col-span-2 bg-neutral-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-center relative overflow-hidden group"
       >
         <div
-          class="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
+          class="absolute inset-0 bg-gradient-to-r from-transparent via-secondary-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
         ></div>
         <h3 class="text-xl font-semibold text-zinc-100 mb-6">Technologies</h3>
         <div class="flex flex-wrap gap-3">
@@ -84,7 +84,7 @@
           {/each}
           <a
             href="/skills"
-            class="px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 border border-purple-500 rounded-full text-white text-sm font-mono hover:from-purple-600 hover:to-purple-700 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all cursor-pointer inline-flex items-center gap-1"
+            class="px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 border border-primary-500 rounded-full text-white text-sm font-mono hover:from-primary-600 hover:to-primary-700 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all cursor-pointer inline-flex items-center gap-1"
           >
             <span>+{totalSkills - techStack.length} more</span>
           </a>
@@ -110,7 +110,7 @@
         class="col-span-1 bg-neutral-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform"
       >
         <span
-          class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-cyan-300 to-blue-600"
+          class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-secondary-300 to-secondary-600"
           >{projectCount}</span
         >
         <span
@@ -124,7 +124,7 @@
         class="col-span-1 bg-neutral-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform"
       >
         <span
-          class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-purple-300 to-purple-600"
+          class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-primary-300 to-primary-600"
           >{companyCount}+</span
         >
         <span
@@ -157,16 +157,16 @@
       <a
         href="/Marcello Annicchiarico.pdf"
         download
-        class="col-span-1 md:col-span-2 bg-gradient-to-br from-purple-900/20 to-cyan-900/20 border border-purple-500/30 rounded-2xl p-6 flex flex-row items-center justify-between hover:border-purple-500/50 transition-all duration-300 group cursor-pointer relative overflow-hidden"
+        class="col-span-1 md:col-span-2 bg-gradient-to-br from-primary-900/20 to-secondary-900/20 border border-primary-500/30 rounded-2xl p-6 flex flex-row items-center justify-between hover:border-primary-500/50 transition-all duration-300 group cursor-pointer relative overflow-hidden"
       >
         <div
-          class="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
+          class="absolute inset-0 bg-gradient-to-r from-transparent via-primary-500/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
         ></div>
         <div class="flex items-center gap-4 z-10">
           <div
-            class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center border border-purple-500/30"
+            class="w-12 h-12 bg-primary-500/20 rounded-xl flex items-center justify-center border border-primary-500/30"
           >
-            <Icon icon="mdi:file-document" class="w-6 h-6 text-purple-400" />
+            <Icon icon="mdi:file-document" class="w-6 h-6 text-primary-400" />
           </div>
           <div>
             <h4 class="text-lg font-bold text-white">Download CV</h4>
@@ -175,7 +175,7 @@
         </div>
         <Icon
           icon="mdi:download"
-          class="w-6 h-6 text-purple-400 group-hover:translate-y-1 transition-transform z-10"
+          class="w-6 h-6 text-primary-400 group-hover:translate-y-1 transition-transform z-10"
         />
       </a>
     </div>

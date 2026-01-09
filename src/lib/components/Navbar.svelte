@@ -146,7 +146,7 @@
             <a
               href="/login"
               onclick={closeMobileMenu}
-              class="w-full px-4 py-2 text-center text-sm text-white bg-cyan-500 hover:bg-cyan-600 rounded-lg flex items-center justify-center gap-2 transition-all"
+              class="w-full px-4 py-2 text-center text-sm text-white bg-secondary-500 hover:bg-secondary-600 rounded-lg flex items-center justify-center gap-2 transition-all"
             >
               <Icon icon="material-symbols:login" class="text-lg" />
               <span>Sign In</span>
@@ -199,7 +199,7 @@
     <div class="relative p-2">
       <!-- Animated gradient glow -->
       <div
-        class="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-all duration-500 animate-pulse scale-150"
+        class="absolute inset-0 bg-gradient-to-r from-secondary-400 via-blue-500 to-primary-600 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-all duration-500 animate-pulse scale-150"
       ></div>
       <!-- Logo -->
       <img

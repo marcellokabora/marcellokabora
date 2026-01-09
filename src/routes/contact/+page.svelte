@@ -15,14 +15,14 @@
       name: "GitHub",
       url: "https://github.com/marcellokabora",
       icon: "mdi:github",
-      color: "from-purple-500 to-purple-600",
+      color: "from-primary-500 to-primary-600",
       description: "Check out my repositories",
     },
     {
       name: "Twitter",
       url: "https://twitter.com/marcellokabora",
       icon: "mdi:twitter",
-      color: "from-cyan-500 to-cyan-600",
+      color: "from-secondary-500 to-secondary-600",
       description: "Follow my updates",
     },
   ];
@@ -49,7 +49,7 @@
         href={social.url}
         target="_blank"
         rel="noopener noreferrer"
-        class="group relative p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl backdrop-blur-sm hover:border-purple-500/50 transition-all duration-300 hover:scale-105"
+        class="group relative p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl backdrop-blur-sm hover:border-primary-500/50 transition-all duration-300 hover:scale-105"
       >
         <div class="flex flex-col items-center text-center space-y-4">
           <!-- Icon with Gradient Background -->
@@ -72,7 +72,7 @@
 
           <!-- Hover Arrow -->
           <div class="opacity-0 group-hover:opacity-100 transition-opacity">
-            <Icon icon="mdi:arrow-right" class="w-6 h-6 text-purple-400" />
+            <Icon icon="mdi:arrow-right" class="w-6 h-6 text-primary-400" />
           </div>
         </div>
       </a>
@@ -98,13 +98,13 @@
         class="p-4 border-b border-zinc-800 flex items-center justify-between"
       >
         <div class="flex items-center gap-3">
-          <Icon icon="mdi:file-document" class="w-6 h-6 text-purple-400" />
+          <Icon icon="mdi:file-document" class="w-6 h-6 text-primary-400" />
           <span class="text-white font-medium">Curriculum Vitae</span>
         </div>
         <a
           href="/Marcello Annicchiarico.pdf"
           download
-          class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]"
         >
           <Icon icon="mdi:download" class="w-5 h-5" />
           Download PDF

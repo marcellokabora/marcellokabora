@@ -26,7 +26,7 @@
 <section class="py-24 px-4 w-full">
   <div class="max-w-4xl mx-auto">
     <h2
-      class="text-sm font-bold text-cyan-400 uppercase tracking-widest mb-2 text-center"
+      class="text-sm font-bold text-secondary-400 uppercase tracking-widest mb-2 text-center"
     >
       Career Journey
     </h2>
@@ -46,7 +46,7 @@
         >
           <!-- Year Bubble -->
           <div
-            class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-zinc-700 transform -translate-x-2 md:-translate-x-2 mt-1.5 group-hover:border-cyan-400 group-hover:bg-cyan-900 transition-colors z-10"
+            class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-zinc-700 transform -translate-x-2 md:-translate-x-2 mt-1.5 group-hover:border-secondary-400 group-hover:bg-secondary-900 transition-colors z-10"
           ></div>
 
           <!-- Content -->
@@ -60,7 +60,7 @@
               >{job.year}</span
             >
             <h3 class="text-xl font-bold text-white mt-2">{job.role}</h3>
-            <p class="text-cyan-400 text-sm mb-2">{job.company}</p>
+            <p class="text-secondary-400 text-sm mb-2">{job.company}</p>
             <p class="text-zinc-400 text-sm leading-relaxed">{job.desc}</p>
           </div>
         </div>
@@ -71,9 +71,9 @@
     <div class="flex justify-center mt-16">
       <a
         href="/career"
-        class="group inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-cyan-400 rounded-full text-white transition-all duration-300"
+        class="group inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-secondary-400 rounded-full text-white transition-all duration-300"
       >
-        <Icon icon="mdi:briefcase" class="w-5 h-5 text-cyan-400" />
+        <Icon icon="mdi:briefcase" class="w-5 h-5 text-secondary-400" />
         <span class="font-medium">Explore All {companies.length} Companies</span
         >
         <Icon

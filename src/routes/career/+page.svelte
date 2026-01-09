@@ -26,14 +26,14 @@
   <div class="relative">
     <!-- Timeline Line connecting all cards -->
     <div
-      class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-purple-500 to-cyan-400 transform -translate-x-1/2 z-0"
+      class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-secondary-400 via-primary-500 to-secondary-400 transform -translate-x-1/2 z-0"
     ></div>
 
     <div class="">
       {#each companies as company, index (company.name)}
         <div class="relative h-16 my-8">
           <div
-            class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg z-20 whitespace-nowrap"
+            class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-secondary-500 to-primary-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg z-20 whitespace-nowrap"
           >
             {company.time.includes(" - ")
               ? company.time.split(" - ")[1]
@@ -42,17 +42,17 @@
 
           <!-- Timeline Dot -->
           <div
-            class="absolute left-1/2 -bottom-8 transform -translate-x-1/2 translate-y-6 w-4 h-4 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full border-4 border-neutral-900 shadow-lg z-20"
+            class="absolute left-1/2 -bottom-8 transform -translate-x-1/2 translate-y-6 w-4 h-4 bg-gradient-to-br from-secondary-400 to-primary-500 rounded-full border-4 border-neutral-900 shadow-lg z-20"
           >
             <div
-              class="absolute inset-0 bg-cyan-500 rounded-full animate-ping opacity-30"
+              class="absolute inset-0 bg-secondary-500 rounded-full animate-ping opacity-30"
             ></div>
           </div>
         </div>
 
         <div class="relative group">
           <div
-            class="bg-neutral-900 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300 overflow-hidden border border-neutral-800 hover:border-cyan-500/50 relative z-10"
+            class="bg-neutral-900 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-secondary-500/10 transition-all duration-300 overflow-hidden border border-neutral-800 hover:border-secondary-500/50 relative z-10"
           >
             <div class="flex flex-col lg:flex-row">
               <!-- Company Info Section -->
@@ -66,7 +66,7 @@
                     class="block group/logo transition-transform duration-300 hover:scale-105"
                   >
                     <div
-                      class="bg-neutral-800/50 p-6 rounded-xl shadow-sm group-hover/logo:shadow-md group-hover/logo:shadow-cyan-500/20 transition-all duration-300 border border-neutral-700 group-hover/logo:border-cyan-500/50"
+                      class="bg-neutral-800/50 p-6 rounded-xl shadow-sm group-hover/logo:shadow-md group-hover/logo:shadow-secondary-500/20 transition-all duration-300 border border-neutral-700 group-hover/logo:border-secondary-500/50"
                     >
                       <img
                         src={company.logo}
@@ -84,7 +84,7 @@
                       {company.slogan}
                     </p>
                     <div
-                      class="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium border border-cyan-500/20"
+                      class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-500/10 text-secondary-400 text-sm font-medium border border-secondary-500/20"
                     >
                       {company.time}
                     </div>
@@ -111,7 +111,7 @@
                     <div class="flex flex-wrap gap-2">
                       {#each company.technologies.split(", ") as tech}
                         <span
-                          class="px-3 py-1 bg-neutral-800 text-neutral-300 rounded-full text-sm font-medium border border-neutral-700 hover:border-cyan-500/50 hover:bg-neutral-800/80 transition-colors"
+                          class="px-3 py-1 bg-neutral-800 text-neutral-300 rounded-full text-sm font-medium border border-neutral-700 hover:border-secondary-500/50 hover:bg-neutral-800/80 transition-colors"
                         >
                           {tech.trim()}
                         </span>

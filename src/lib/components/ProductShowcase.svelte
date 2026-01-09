@@ -14,11 +14,11 @@
   // Helper to generate gradient colors based on project type
   function getProjectColor(type?: string) {
     const colorMap: Record<string, string> = {
-      website: "from-blue-600 to-cyan-500",
-      app: "from-purple-600 to-pink-500",
-      dashboard: "from-orange-500 to-red-500",
-      ecommerce: "from-emerald-500 to-teal-500",
-      design: "from-violet-600 to-purple-500",
+      website: "from-primary-600 to-secondary-500",
+      app: "from-primary-600 to-primary-500",
+      dashboard: "from-secondary-500 to-secondary-600",
+      ecommerce: "from-primary-500 to-primary-600",
+      design: "from-secondary-600 to-secondary-500",
       default: "from-slate-600 to-zinc-500",
     };
     return colorMap[type?.toLowerCase() || "default"] || colorMap.default;
@@ -28,7 +28,7 @@
 <section class="py-24 px-4 w-full bg-neutral-900">
   <div class="max-w-7xl mx-auto">
     <h2
-      class="text-sm font-bold text-purple-400 uppercase tracking-widest mb-2 text-center"
+      class="text-sm font-bold text-primary-400 uppercase tracking-widest mb-2 text-center"
     >
       Selected Works
     </h2>
@@ -57,7 +57,7 @@
         {@const desktopHeight = desktopHeights[index % desktopHeights.length]}
         <a
           href="/project/{project.name}"
-          class="relative group rounded-2xl overflow-hidden cursor-pointer h-80 {desktopHeight} bg-zinc-900 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 block mb-6 break-inside-avoid"
+          class="relative group rounded-2xl overflow-hidden cursor-pointer h-80 {desktopHeight} bg-zinc-900 border border-slate-800 hover:border-secondary-500/50 transition-all duration-300 block mb-6 break-inside-avoid"
         >
           <!-- Project Cover Image -->
           {#if project.cover}
@@ -85,7 +85,7 @@
             class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8"
           >
             {#if project.type}
-              <span class="text-cyan-400 font-mono text-sm mb-2"
+              <span class="text-secondary-400 font-mono text-sm mb-2"
                 >{project.type}</span
               >
             {/if}
@@ -119,10 +119,10 @@
     <div class="flex justify-center mt-12">
       <a
         href="/projects"
-        class="group inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-purple-400 rounded-full text-white transition-all duration-300"
+        class="group inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-primary-400 rounded-full text-white transition-all duration-300"
       >
         <svg
-          class="w-5 h-5 text-purple-400"
+          class="w-5 h-5 text-primary-400"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

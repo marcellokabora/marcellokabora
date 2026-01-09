@@ -209,7 +209,7 @@
             name="info"
             bind:value={data.info}
             autocomplete="off"
-            class="p-4 rounded-lg border border-white/10 bg-black/20 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none resize-none w-full h-full font-mono text-sm leading-relaxed"
+            class="p-4 rounded-lg border border-white/10 bg-black/20 text-white focus:border-secondary-500 focus:ring-2 focus:ring-secondary-500/20 outline-none resize-none w-full h-full font-mono text-sm leading-relaxed"
           ></textarea>
         </div>
       </label>
