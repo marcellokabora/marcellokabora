@@ -30,7 +30,7 @@
 </script>
 
 <svelte:head>
-  <title>Marcello Kabora | {project?.title} | {project?.slogan}</title>
+  <title>Marcello Annicchiarico | {project?.title} | {project?.slogan}</title>
   <meta name="thumbnail" content={getImg(project.cover!)} />
   <meta property="og:image" content={getImg(project.cover!)} />
 </svelte:head>

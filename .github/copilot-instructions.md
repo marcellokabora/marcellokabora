@@ -1,4 +1,4 @@
-# Marcello Kabora Portfolio - Design System & Development Guide
+# Marcello Annicchiarico Portfolio - Design System & Development Guide
 
 This document outlines the strategic and visual shift from the current "legacy" layout to a modern, high-conversion, and aesthetically premium portfolio.
 

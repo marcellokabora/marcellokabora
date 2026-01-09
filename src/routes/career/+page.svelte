@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-  <title>Marcello Kabora | Career</title>
+  <title>Marcello Annicchiarico | Career</title>
   <meta name="description" content={description} />
   <meta name="thumbnail" content="/gallery/keyboard3.jpg" />
   <meta property="og:image" content="/gallery/keyboard3.jpg" />

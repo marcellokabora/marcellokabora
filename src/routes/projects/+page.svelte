@@ -20,7 +20,7 @@
 <svelte:window bind:scrollY bind:innerWidth />
 
 <svelte:head>
-  <title>Marcello Kabora | Projects</title>
+  <title>Marcello Annicchiarico | Projects</title>
   <meta name="description" content={description} />
   <meta name="thumbnail" content="/gallery/keyboard2.jpg" />
   <meta property="og:image" content="/gallery/keyboard2.jpg" />

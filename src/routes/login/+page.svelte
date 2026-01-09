@@ -46,7 +46,7 @@
 </script>
 
 <svelte:head>
-  <title>Login - Marcello Kabora</title>
+  <title>Login - Marcello Annicchiarico</title>
 </svelte:head>
 
 <div

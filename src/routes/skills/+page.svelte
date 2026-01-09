@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-  <title>Marcello Kabora | Skills</title>
+  <title>Marcello Annicchiarico | Skills</title>
   <meta name="description" content={description} />
   <meta name="thumbnail" content="/gallery/develop.jpeg" />
   <meta property="og:image" content="/gallery/develop.jpeg" />

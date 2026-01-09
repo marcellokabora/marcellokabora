@@ -1,4 +1,4 @@
-# Website Redesign Specification: Marcello Kabora
+# Website Redesign Specification: Marcello Annicchiarico
 
 This document outlines the strategic and visual shift from the current "legacy" layout to a modern, high-conversion, and aesthetically premium portfolio.
 

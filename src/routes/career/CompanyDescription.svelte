@@ -56,13 +56,12 @@
         whilst providing a best-in-class investing experience through our digital
         platform. I started work with the core of the team rebuilding the new UI
         and working on the new
-        <a href="https://marcellokabora.com/project/linus-registration"
-          >Registration</a
-        >, my next task was to build the template of the main
-        <a href="//marcellokabora.com/project/linus-product">Product</a>
+        <a href="/project/linus-registration">Registration</a>, my next task was
+        to build the template of the main
+        <a href="/project/linus-product">Product</a>
         using Builder.io and React.js. and after I had rebuilt several landing pages
         for the
-        <a href="//marcellokabora.com/project/linus-marketing">marketing</a>
+        <a href="/project/linus-marketing">marketing</a>
         team.
       </p>
     </div>
@@ -77,9 +76,9 @@
         level from a single building to the entire portfolio. The application is
         built in Angular and Microsoft services, I worked on the implementation of
         many features moving around different teams, focusing on different
-        <a href="//marcellokabora.com/project/uicomponents">components</a>
+        <a href="/project/uicomponents">components</a>
         and the creation of the
-        <a href="//marcellokabora.com/project/appmanager">appmanagement</a>.
+        <a href="/project/appmanager">appmanagement</a>.
       </p>
     </div>
   </div>
@@ -91,13 +90,12 @@
         for desktop and mobile built-in Angular that runs on top of an algorithm
         that shows the sentiment of the news and displays different kinds of
         data visualization like the
-        <a href="//marcellokabora.com/project/chartmap">Chartmap</a>, the
-        <a href="//marcellokabora.com/project/network">Network</a>, or the
-        <a href="//marcellokabora.com/project/signals">Signals</a>. These
-        technologies often highlight the market mood before the stock exchanges
-        follow a few weeks later. As a result, you receive concrete
-        recommendations for losses due to loss-limiting signals and an
-        investment rate.
+        <a href="/project/chartmap">Chartmap</a>, the
+        <a href="/project/network">Network</a>, or the
+        <a href="/project/signals">Signals</a>. These technologies often
+        highlight the market mood before the stock exchanges follow a few weeks
+        later. As a result, you receive concrete recommendations for losses due
+        to loss-limiting signals and an investment rate.
       </p>
     </div>
   </div>
@@ -109,11 +107,11 @@
         provides the best solution in Germany to find the right credit online with
         more than 50 bank accounts. My position as Frontend Developer was fundamental
         for the creation of the new
-        <a href="https://marcellokabora.com/project/smava">Homepage</a>. My team
-        was responsible for the conversion from the design to web application,
-        my focus was mostly on HTML, CSS, and JS. I worked on all the animation,
-        events in jquery and for the mail campaign building different templates
-        for the marketing area.
+        <a href="/project/smava">Homepage</a>. My team was responsible for the
+        conversion from the design to web application, my focus was mostly on
+        HTML, CSS, and JS. I worked on all the animation, events in jquery and
+        for the mail campaign building different templates for the marketing
+        area.
       </p>
     </div>
   </div>
@@ -131,14 +129,12 @@
         several statment like the age or number of customers, the date and the time
         of the travel, the position of the pickup and the payment offcourse. Here
         the list of all the website i builded for this company :
-        <a href="https://marcellokabora.com/project/oktoberfest">Oktoberfest</a
-        >, <a href="https://marcellokabora.com/project/iaa">IAA</a>,
-        <a href="https://marcellokabora.com/project/christmas"
-          >Christmas Markets</a
-        >,
-        <a href="https://marcellokabora.com/project/loretdemar">Loret De Mar</a
-        >. I worked in Italy for the first 8 Months and the after 4 Months in
-        remote from Berlin after i decided to find a Full Time employment job.
+        <a href="/project/oktoberfest">Oktoberfest</a>,
+        <a href="/project/iaa">IAA</a>,
+        <a href="/project/christmas">Christmas Markets</a>,
+        <a href="/project/loretdemar">Loret De Mar</a>. I worked in Italy for
+        the first 8 Months and the after 4 Months in remote from Berlin after i
+        decided to find a Full Time employment job.
       </p>
     </div>
   </div>
@@ -178,7 +174,7 @@
   <div class="company-description">
     <div class="description-content">
       <p>
-        <a href="https://marcellokabora.com/project/airesis">Airesis</a>
+        <a href="/project/airesis">Airesis</a>
         is a open source democracy platform where anyone can open a discussion and
         involve users to vote and discuss about it. My position inside the company
         was UI/UX Designer and i worked with them for 6 months. Currently my design

@@ -57,7 +57,7 @@
         >
           <img
             src="/selfie/selfie-styled.png"
-            alt="Marcello Kabora"
+            alt="Marcello Annicchiarico"
             class="w-full h-full object-cover"
           />
         </div>

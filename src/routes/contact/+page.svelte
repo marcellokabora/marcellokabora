@@ -29,7 +29,7 @@
 </script>
 
 <svelte:head>
-  <title>Marcello Kabora | Contacts</title>
+  <title>Marcello Annicchiarico | Contacts</title>
   <meta name="description" content={description} />
   <meta name="thumbnail" content="/gallery/keyboard.jpg" />
   <meta property="og:image" content="/gallery/keyboard.jpg" />
