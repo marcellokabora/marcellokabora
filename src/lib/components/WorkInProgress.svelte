@@ -76,12 +76,12 @@
 
             <!-- Logo Overlay -->
             <div
-              class="absolute bottom-8 right-8 z-40 bg-neutral-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl p-4 shadow-xl"
+              class="absolute -bottom-0 right-8 z-40 bg-neutral-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl shadow-xl overflow-hidden"
             >
               <img
                 src="/project/7echno-logo/logo1.png"
                 alt="7echno Logo"
-                class="h-16 w-auto"
+                class="h-50 w-auto"
               />
             </div>
           </div>

@@ -80,35 +80,53 @@
             </div>
           {/if}
 
-          <!-- Hover Overlay -->
+          <!-- Gradient Overlay (Always Visible) -->
           <div
-            class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-8"
+            class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent transition-all duration-300 group-hover:from-black/90 group-hover:via-black/60"
+          ></div>
+
+          <!-- Content Overlay -->
+          <div
+            class="absolute inset-0 flex flex-col justify-end p-6 pb-5 transform transition-all duration-300"
           >
-            {#if project.type}
-              <span class="text-secondary-400 font-mono text-sm mb-2"
-                >{project.type}</span
-              >
-            {/if}
-            <h4 class="text-3xl font-bold text-white mb-2">{project.title}</h4>
-            {#if project.slogan}
-              <p class="text-zinc-300 text-sm mb-4">{project.slogan}</p>
-            {/if}
             <div
-              class="flex items-center gap-2 text-zinc-300 mt-4 font-semibold"
+              class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
             >
-              View Project
-              <svg
-                class="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                ><path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                ></path></svg
+              {#if project.type}
+                <span
+                  class="text-secondary-400 font-mono text-xs uppercase tracking-wider mb-1.5 inline-block opacity-80 group-hover:opacity-100"
+                  >{project.type}</span
+                >
+              {/if}
+              <h4
+                class="text-2xl md:text-3xl font-bold text-white mb-1 opacity-90 group-hover:opacity-100 transition-opacity duration-300"
               >
+                {project.title}
+              </h4>
+              {#if project.slogan}
+                <p
+                  class="text-zinc-300 text-sm mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                  {project.slogan}
+                </p>
+              {/if}
+              <div
+                class="flex items-center gap-2 text-white font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                View Project
+                <svg
+                  class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  ></path></svg
+                >
+              </div>
             </div>
           </div>
         </a>

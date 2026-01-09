@@ -6,7 +6,7 @@
       name: "LinkedIn",
       icon: "mdi:linkedin",
       url: "https://www.linkedin.com/in/marcellokabora/",
-      color: "hover:text-blue-400",
+      color: "hover:text-secondary-400",
     },
     {
       name: "GitHub",
@@ -14,17 +14,17 @@
       url: "https://github.com/marcellokabora",
       color: "hover:text-primary-400",
     },
-    {
-      name: "Email",
-      icon: "material-symbols:mail",
-      url: "mailto:marcellokabora@gmail.com",
-      color: "hover:text-secondary-400",
-    },
+    // {
+    //   name: "Email",
+    //   icon: "material-symbols:mail",
+    //   url: "mailto:marcellokabora@gmail.com",
+    //   color: "hover:text-secondary-400",
+    // },
     {
       name: "Twitter",
       icon: "mdi:twitter",
       url: "https://twitter.com/marcellokabora",
-      color: "hover:text-sky-400",
+      color: "hover:text-secondary-400",
     },
   ];
 </script>
@@ -50,7 +50,7 @@
     <!-- Primary Email CTA -->
     <a
       href="mailto:marcellokabora@gmail.com"
-      class="inline-flex items-center gap-3 px-8 py-4 bg-black/30 hover:bg-black/50 backdrop-blur-xl border border-white/10 hover:border-secondary-500/50 rounded-full text-zinc-400 hover:text-white font-medium text-lg transition-all duration-300 mb-16"
+      class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-600 text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-[0_0_40px_rgba(99,102,241,0.4)] transition-all duration-300 mb-16 transform hover:scale-105"
     >
       <Icon icon="material-symbols:mail" class="text-2xl" />
       <span>Send me an Email</span>
@@ -63,10 +63,10 @@
           href={social.url}
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex flex-col items-center gap-3 p-6 bg-black/30 hover:bg-black/50 backdrop-blur-xl border border-white/10 hover:border-white/30 rounded-2xl transition-all duration-300 min-w-[140px]"
+          class="group flex flex-col items-center gap-3 p-6 bg-neutral-900/80 backdrop-blur-sm hover:bg-neutral-800 border-2 border-zinc-700/70 hover:border-secondary-500 rounded-2xl transition-all duration-300 min-w-[140px] shadow-xl hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transform hover:scale-105"
         >
           <div
-            class="flex items-center justify-center w-16 h-16 rounded-full bg-white/5 group-hover:bg-white/10 transition-all duration-300"
+            class="flex items-center justify-center w-16 h-16 rounded-full bg-zinc-800 group-hover:bg-secondary-500/20 transition-all duration-300 border border-zinc-700 group-hover:border-secondary-400"
           >
             <Icon
               icon={social.icon}
@@ -74,7 +74,7 @@
             />
           </div>
           <span
-            class="text-zinc-400 group-hover:text-white font-medium transition-colors duration-300"
+            class="text-zinc-300 group-hover:text-white font-medium transition-colors duration-300"
           >
             {social.name}
           </span>

@@ -3,16 +3,12 @@
   import Icon from "@iconify/svelte";
 
   // Get the last 5 companies (most recent)
-  const recentCompanies = companies.slice(0, 5);
+  const recentCompanies = companies.slice(0, 6);
 
   // Transform companies data to match the experience format
   let experience = recentCompanies.map((company) => {
-    // Extract year from time string
-    const yearMatch = company.time.match(/(\d{4})/);
-    const year = yearMatch ? yearMatch[1] : "";
-
     return {
-      year: year,
+      timeRange: company.time.replace(/From /g, ""),
       role: company.title,
       company: company.name,
       desc: company.slogan,
@@ -42,26 +38,47 @@
 
       {#each experience as job, i}
         <div
-          class="relative flex flex-col md:flex-row gap-8 mb-16 last:mb-0 group"
+          class="relative flex flex-col md:flex-row gap-8 mb-0 last:mb-0 group"
         >
-          <!-- Year Bubble -->
+          <!-- Logo Bubble (replaces year bubble) -->
           <div
-            class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-zinc-700 transform -translate-x-2 md:-translate-x-2 mt-1.5 group-hover:border-secondary-400 group-hover:bg-secondary-900 transition-colors z-10"
-          ></div>
+            class="absolute left-8 md:left-1/2 w-16 h-16 rounded-full bg-neutral-900 border-2 border-zinc-700 transform -translate-x-8 md:-translate-x-8 group-hover:border-secondary-400 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300 z-10 p-2 flex items-center justify-center overflow-hidden shadow-xl"
+          >
+            {#if job.logo}
+              <img
+                src={job.logo}
+                alt={job.company}
+                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+              />
+            {:else}
+              <Icon
+                icon="mdi:domain"
+                class="w-8 h-8 text-zinc-600 group-hover:text-secondary-400 transition-colors"
+              />
+            {/if}
+          </div>
 
           <!-- Content -->
           <div
-            class="ml-20 md:ml-0 md:w-1/2 {i % 2 === 0
-              ? 'md:pr-12 md:text-right'
-              : 'md:pl-12 md:col-start-2 md:ml-auto'}"
+            class="ml-24 md:ml-0 md:w-1/2 {i % 2 === 0
+              ? 'md:pr-16 md:text-right'
+              : 'md:pl-16 md:col-start-2 md:ml-auto'}"
           >
-            <span
-              class="text-4xl font-bold text-zinc-700 group-hover:text-zinc-500 transition-colors"
-              >{job.year}</span
+            <div
+              class="bg-neutral-900/80 backdrop-blur-sm border-2 border-zinc-700/70 rounded-2xl p-6 group-hover:border-secondary-500 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.2)] transition-all duration-300 shadow-2xl"
             >
-            <h3 class="text-xl font-bold text-white mt-2">{job.role}</h3>
-            <p class="text-secondary-400 text-sm mb-2">{job.company}</p>
-            <p class="text-zinc-400 text-sm leading-relaxed">{job.desc}</p>
+              <span
+                class="inline-block text-xs font-semibold text-secondary-400 bg-secondary-400/10 px-3 py-1 rounded-full mb-3 border border-secondary-400/20"
+                >{job.timeRange}</span
+              >
+              <h3 class="text-2xl font-bold text-white mb-2">
+                {job.company}
+              </h3>
+              <p class="text-zinc-200 text-base font-medium mb-3">
+                {job.role}
+              </p>
+              <p class="text-zinc-400 text-sm leading-relaxed">{job.desc}</p>
+            </div>
           </div>
         </div>
       {/each}
