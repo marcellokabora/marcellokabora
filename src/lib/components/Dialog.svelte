@@ -20,7 +20,7 @@
   onclick={(e) => {
     if (e.target === dialog) dialog.close();
   }}
-  class="fixed top-0 right-0 h-screen w-[500px] max-w-[100vw] m-0 border-0 p-0 shadow-2xl bg-white/95 backdrop-blur-xl [&::backdrop]:bg-black/50 translate-x-0"
+  class="fixed top-0 right-0 h-screen w-[500px] max-w-[100vw] m-0 border-0 p-0 shadow-2xl bg-neutral-950 backdrop-blur-xl border-l border-white/10 [&::backdrop]:bg-black/50 translate-x-0"
   style="inset: 0 0 0 auto; height: 100vh; min-height: 100vh;"
   transition:fly={{ x: 500, duration: 400, delay: 100 }}
 >

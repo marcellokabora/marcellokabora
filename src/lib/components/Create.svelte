@@ -105,7 +105,7 @@
   }
 </script>
 
-<form class="flex flex-col h-full text-[rgb(20,20,20)]" onsubmit={handleSubmit}>
+<form class="flex flex-col h-full text-white" onsubmit={handleSubmit}>
   <!-- Scrollable content area -->
   <div class="flex-1 overflow-auto p-6">
     <div class="flex flex-col gap-6 h-full">
@@ -209,7 +209,7 @@
             name="info"
             bind:value={data.info}
             autocomplete="off"
-            class="p-4 rounded-lg border border-gray-300 bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none resize-none w-full h-full font-mono text-sm leading-relaxed"
+            class="p-4 rounded-lg border border-white/10 bg-black/20 text-white focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none resize-none w-full h-full font-mono text-sm leading-relaxed"
           ></textarea>
         </div>
       </label>
@@ -217,7 +217,7 @@
   </div>
 
   <!-- Fixed actions at bottom -->
-  <div class="border-t border-gray-200 bg-white">
+  <div class="border-t border-white/10 bg-neutral-950">
     <div class="flex justify-between items-center gap-4 p-6">
       <div class="flex items-center gap-4">
         {#if project}
@@ -276,15 +276,16 @@
   .form-field {
     padding: 0.75rem;
     border-radius: 0.5rem;
-    border: 1px solid #d1d5db;
-    background-color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
     outline: none;
     transition: all 0.2s ease-in-out;
   }
 
   .form-field:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    border-color: #06b6d4;
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
   }
 
   .field-label {
@@ -296,6 +297,6 @@
   .label-text {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #374151;
+    color: #a0a0a0;
   }
 </style>

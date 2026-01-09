@@ -1,51 +1,36 @@
 <script>
   import Icon from "@iconify/svelte";
-
-  const menus = [
-    {
-      name: "Linkedin",
-      icon: "mdi:linkedin",
-      link: "//linkedin.com/in/marcellokabora/",
-    },
-    {
-      name: "Github",
-      icon: "mdi:github",
-      link: "//github.com/marcellokabora",
-    },
-    {
-      name: "Stackoverflow",
-      icon: "mdi:stackoverflow",
-      link: "//stackoverflow.com/users/1359426/marcello-kabora?tab=profile",
-    },
-    {
-      name: "Twitter",
-      icon: "mdi:twitter",
-      link: "//twitter.com/marcellokabora",
-    },
-    {
-      name: "Curriculum",
-      icon: "material-symbols:account-box",
-      link: "//marcellokabora.com/curriculum",
-    },
-  ];
 </script>
 
-<footer
-  class="bg-[#1b1b1b] flex flex-col md:flex-row justify-between items-center text-white mt-16"
->
-  <div class="flex flex-col md:flex-row items-center p-10">
-    <span class="font-bold opacity-50">© Marcello Kabora • 2025</span>
+<footer class="py-12 text-center text-zinc-600 text-sm border-t border-white/5">
+  <div class="flex justify-center gap-6 mb-6">
+    <a
+      href="https://github.com/marcellokabora"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-zinc-400 hover:text-cyan-400 transition-colors duration-300 transform hover:scale-110"
+      aria-label="GitHub"
+    >
+      <Icon icon="mdi:github" class="w-6 h-6" />
+    </a>
+    <a
+      href="https://linkedin.com/in/marcellokabora"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-zinc-400 hover:text-cyan-400 transition-colors duration-300 transform hover:scale-110"
+      aria-label="LinkedIn"
+    >
+      <Icon icon="mdi:linkedin" class="w-6 h-6" />
+    </a>
+    <a
+      href="https://twitter.com/marcellokabora"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-zinc-400 hover:text-cyan-400 transition-colors duration-300 transform hover:scale-110"
+      aria-label="Twitter"
+    >
+      <Icon icon="mdi:twitter" class="w-6 h-6" />
+    </a>
   </div>
-  <div class="flex p-10 -mt-10 md:mt-0">
-    {#each menus as menu (menu.name)}
-      <a
-        class="w-[35px] h-[35px] flex items-center justify-center bg-white/50 text-black mx-2.5 rounded-full cursor-pointer transition-all duration-500 hover:bg-white"
-        href={menu.link}
-        target="_blank"
-        title={menu.name}
-      >
-        <Icon icon={menu.icon} />
-      </a>
-    {/each}
-  </div>
+  <p>© 2026 Marcello Annicchiarico.</p>
 </footer>

@@ -16,14 +16,19 @@
   <div class="flex flex-col items-center max-w-4xl mx-auto px-6">
     <div
       class="text-4xl md:text-5xl font-bold px-12 min-w-[30vw] leading-tight tracking-tight mb-2 animate-fade-in header-title"
+      style={theme === "dark" ? "color: var(--text-primary);" : ""}
     >
       {title}
     </div>
     <div
-      class="w-80 my-6 transition-all duration-300 header-divider h-[2px] rounded-sm bg-gradient-to-r from-transparent via-current to-transparent opacity-60"
+      class="w-80 my-6 transition-all duration-300 header-divider h-[2px] rounded-sm opacity-60"
+      style={theme === "dark"
+        ? "background: linear-gradient(to right, transparent, var(--color-primary-500), transparent);"
+        : "background: linear-gradient(to right, transparent, currentColor, transparent);"}
     ></div>
     <div
       class="px-12 text-lg md:text-xl leading-relaxed max-w-2xl animate-fade-in-delay header-sloga text-balance"
+      style={theme === "dark" ? "color: var(--text-secondary);" : ""}
     >
       {slogan}
     </div>

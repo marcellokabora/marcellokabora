@@ -43,7 +43,7 @@
       placeholder="Email"
       autocomplete=""
       bind:value={email}
-      class="flex-1 p-4 px-6 rounded-lg bg-white/40 border border-gray-300"
+      class="flex-1 p-4 px-6 rounded-lg bg-black/20 border border-white/10 text-white placeholder:text-zinc-500"
     />
   </label>
   <label class="flex flex-col">
@@ -54,7 +54,7 @@
       placeholder="Email"
       autocomplete=""
       bind:value={password}
-      class="flex-1 p-4 px-6 rounded-lg bg-white/40 border border-gray-300"
+      class="flex-1 p-4 px-6 rounded-lg bg-black/20 border border-white/10 text-white placeholder:text-zinc-500"
     />
   </label>
   <button

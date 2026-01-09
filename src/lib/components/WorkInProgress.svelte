@@ -1,0 +1,168 @@
+<script lang="ts">
+  import Icon from "@iconify/svelte";
+  import { getImg } from "$lib/utils/functions";
+  import type { Project } from "$lib/types/project.types";
+  import { getProjects } from "$lib/data/projects.remote";
+</script>
+
+<section class="py-24 px-4 w-full bg-neutral-900">
+  <div class="max-w-7xl mx-auto">
+    <h2
+      class="text-sm font-bold text-purple-400 uppercase tracking-widest mb-2 text-center"
+    >
+      Personal Side Project
+    </h2>
+    <h3 class="text-4xl font-bold text-white mb-12 text-center">
+      Building in My Free Time
+    </h3>
+
+    <svelte:boundary>
+      {#snippet pending()}
+        <div class="text-center">
+          <p class="text-zinc-400">Loading project...</p>
+        </div>
+      {/snippet}
+
+      {#snippet failed(error)}
+        <div class="text-center">
+          <p class="text-red-400">Failed to load project</p>
+        </div>
+      {/snippet}
+
+      {@const projects = await getProjects()}
+      {@const technoProject = projects.find((p) => p.name === "7echno")}
+      {@const musicProject = projects.find((p) => p.name === "7echno-music")}
+
+      {#if technoProject}
+        <!-- Main Project Showcase -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <!-- Left: Project Image -->
+          <div class="relative group">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-cyan-600/20 rounded-2xl blur-xl"
+            ></div>
+            <div
+              class="relative bg-neutral-950 border border-zinc-800 rounded-2xl overflow-hidden aspect-video"
+            >
+              {#if technoProject.cover}
+                <img
+                  src="/project/7echno-logo/logo1.png"
+                  alt={technoProject.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              {/if}
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <!-- <div class="absolute bottom-6 left-6">
+                <img
+                  src="/project/7echno-logo/7echno-logo-1.png"
+                  alt="7echno"
+                  class="h-12 w-auto"
+                />
+              </div> -->
+            </div>
+          </div>
+
+          <!-- Right: Project Info -->
+          <div class="flex flex-col justify-center">
+            <h4 class="text-3xl font-bold text-white mb-4">
+              {technoProject.title}
+            </h4>
+            <p class="text-zinc-400 text-lg mb-6">{technoProject.slogan}</p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="bg-neutral-950 border border-zinc-800 rounded-xl p-4">
+                <div class="text-3xl font-bold text-purple-400 mb-1">2+</div>
+                <div class="text-sm text-zinc-500 uppercase tracking-wider">
+                  Years Building
+                </div>
+              </div>
+              <div class="bg-neutral-950 border border-zinc-800 rounded-xl p-4">
+                <div class="text-3xl font-bold text-cyan-400 mb-1">2</div>
+                <div class="text-sm text-zinc-500 uppercase tracking-wider">
+                  Related Projects
+                </div>
+              </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div
+              class="bg-gradient-to-br from-purple-900/20 to-cyan-900/20 border border-purple-500/30 rounded-xl p-6 mb-6"
+            >
+              <div class="flex items-start gap-4">
+                <Icon
+                  icon="mdi:handshake"
+                  class="w-8 h-8 text-purple-400 flex-shrink-0 mt-1"
+                />
+                <div>
+                  <h5 class="text-lg font-bold text-white mb-2">
+                    Looking for Partners & Investors
+                  </h5>
+                  <p class="text-zinc-400 text-sm">
+                    Join me in building the future of music technology. Let's
+                    create something extraordinary together.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="/project/7echno"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl font-semibold hover:from-purple-600 hover:to-purple-700 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all duration-300"
+            >
+              <span>View Full Project</span>
+              <Icon icon="mdi:arrow-right" class="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Related Projects -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {#if technoProject}
+            <a
+              href="/project/7echno"
+              class="group bg-neutral-950 border border-zinc-800 hover:border-purple-500/50 rounded-2xl p-6 transition-all duration-300"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center border border-purple-500/30"
+                >
+                  <Icon icon="mdi:web" class="w-6 h-6 text-purple-400" />
+                </div>
+                <div>
+                  <h5 class="text-lg font-bold text-white">7echno Platform</h5>
+                  <p class="text-sm text-zinc-500">Main Application</p>
+                </div>
+              </div>
+              <p class="text-zinc-400 text-sm">{technoProject.slogan}</p>
+            </a>
+          {/if}
+
+          {#if musicProject}
+            <a
+              href="/project/7echno-music"
+              class="group bg-neutral-950 border border-zinc-800 hover:border-cyan-500/50 rounded-2xl p-6 transition-all duration-300"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center border border-cyan-500/30"
+                >
+                  <Icon icon="mdi:music" class="w-6 h-6 text-cyan-400" />
+                </div>
+                <div>
+                  <h5 class="text-lg font-bold text-white">7echno Music</h5>
+                  <p class="text-sm text-zinc-500">Music Experience</p>
+                </div>
+              </div>
+              <p class="text-zinc-400 text-sm">
+                {musicProject?.slogan || "Discover and share amazing music"}
+              </p>
+            </a>
+          {/if}
+        </div>
+      {/if}
+    </svelte:boundary>
+  </div>
+</section>

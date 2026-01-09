@@ -46,7 +46,35 @@ export const load: PageServerLoad = async ({ params, parent }) => {
     });
   }
 
-  return { project: project, projects };
+  // Build related projects
+  const relatedProjects = Array.from(
+    new Set([
+      ...projects.filter((value) =>
+        value.title
+          .toLocaleLowerCase()
+          .includes(project.title.toLocaleLowerCase())
+      ),
+      ...projects.filter((value) => value.type === project.type),
+    ])
+  ).filter((value) => value.name !== project.name);
+
+  // Get at least 12 projects
+  let related = [...relatedProjects];
+
+  if (related.length < 12) {
+    // Get projects that are not already in related
+    const remaining = projects.filter(
+      (p) => p.name !== project.name && !related.some((r) => r.name === p.name)
+    );
+
+    // Shuffle and add random projects to reach 12
+    const shuffled = remaining.sort(() => Math.random() - 0.5);
+    related = [...related, ...shuffled].slice(0, 12);
+  } else {
+    related = related.slice(0, 12);
+  }
+
+  return { project: project, projects, related };
 };
 
 export const actions: Actions = {

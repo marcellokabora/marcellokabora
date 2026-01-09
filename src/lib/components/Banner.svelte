@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Header from "$lib/components/Header.svelte";
   import { fly } from "svelte/transition";
   import { page } from "$app/state";
 
@@ -27,7 +26,7 @@
 
 {#key animationKey}
   <div
-    class="h-[55vh] flex items-center justify-center text-white overflow-hidden relative text-center px-8 pb-10 pt-11"
+    class="h-[40vh] md:h-[55vh] flex items-center justify-center text-white overflow-hidden relative text-center px-8"
   >
     <div
       class="absolute inset-0 overflow-hidden -z-10 bg-gradient-to-br from-slate-700 to-slate-900"
@@ -41,12 +40,29 @@
         class:opacity-0={!imageLoaded}
       />
     </div>
-    <div in:fly={{ y: -50, duration: 1000, delay: 200 }}>
-      <Header {title} {slogan} />
+    <div
+      in:fly={{ y: -50, duration: 1000, delay: 200 }}
+      class="text-center flex justify-center -mt-12"
+    >
+      <div class="flex flex-col items-center max-w-4xl mx-auto px-6">
+        <h1
+          class="text-4xl md:text-5xl font-bold px-12 min-w-[30vw] leading-tight tracking-tight mb-2 text-white drop-shadow-lg"
+        >
+          {title}
+        </h1>
+        <div
+          class="w-80 my-6 h-[2px] rounded-sm bg-gradient-to-r from-transparent via-white to-transparent"
+        ></div>
+        <p
+          class="px-12 text-lg md:text-xl leading-relaxed max-w-2xl text-white drop-shadow-lg text-balance"
+        >
+          {slogan}
+        </p>
+      </div>
     </div>
     <img
       class="absolute bottom-[-1px] w-full z-10"
-      src="/shape/arc_bot.png"
+      src="/shape/arc.svg"
       alt="arcbot"
     />
   </div>

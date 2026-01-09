@@ -11,7 +11,15 @@ const config = {
 		// Using Vercel adapter for deployment to Vercel
 		adapter: adapter({
 			runtime: 'nodejs20.x'
-		})
+		}),
+		experimental: {
+			remoteFunctions: true
+		}
+	},
+	compilerOptions: {
+		experimental: {
+			async: true
+		}
 	},
 	vitePlugin:{
 		inspector:true

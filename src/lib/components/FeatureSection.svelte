@@ -38,7 +38,7 @@
 
     <!-- Main image container with enhanced animations -->
     <div
-      class="absolute inset-0 rounded-2xl overflow-hidden transform transition-all duration-700 ease-out group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-2xl group-hover:shadow-blue-500/25"
+      class="absolute inset-0 rounded-2xl overflow-hidden transform transition-all duration-700 ease-out group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-2xl group-hover:shadow-blue-500/25 bg-neutral-900"
     >
       <!-- Overlay gradient that appears on hover -->
       <div

@@ -1,9 +1,9 @@
 <script lang="ts">
   import Banner from "$lib/components/Banner.svelte";
-  import Section from "$lib/components/Section.svelte";
+  import FeatureSection from "$lib/components/FeatureSection.svelte";
   import { description } from "$lib/utils/mocks";
   import { fly } from "svelte/transition";
-  import { items, menu } from "./data";
+  import { items, menu } from "$lib/data/knowledge";
   import Icon from "@iconify/svelte";
 
   let activeSection = "javascript";
@@ -18,13 +18,13 @@
 </script>
 
 <svelte:head>
-  <title>Marcello Kabora | Knowledge</title>
+  <title>Marcello Kabora | Skills</title>
   <meta name="description" content={description} />
   <meta name="thumbnail" content="/gallery/develop.jpeg" />
   <meta property="og:image" content="/gallery/develop.jpeg" />
 </svelte:head>
 
-<Banner cover="/gallery/develop.jpeg" title="Knowledge" slogan="Technologies" />
+<Banner cover="/gallery/develop.jpeg" title="Skills" slogan="Technologies" />
 
 <div
   class="container mx-auto max-w-6xl px-6"
@@ -36,11 +36,11 @@
     >
       {#each menu as item}
         <button
-          class="bg-white text-sm font-medium px-4 py-2 cursor-pointer capitalize border border-gray-200 rounded-full
-                 hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 flex items-center gap-2 group
+          class="bg-zinc-900 text-sm font-medium px-4 py-2 cursor-pointer capitalize border border-zinc-800 rounded-full
+                 hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-200 flex items-center gap-2 group
                  {activeSection === item.name
-            ? 'border-blue-500 bg-blue-50 text-blue-600'
-            : 'text-gray-600'}"
+            ? 'border-purple-500 bg-purple-500/20 text-purple-400'
+            : 'text-zinc-400'}"
           onclick={() => scrollIntoView(item.name)}
         >
           <Icon
@@ -54,7 +54,7 @@
     <div class="flex-1 px-5 mr-5">
       {#each items as item, id (item)}
         <div id={item.id}>
-          <Section
+          <FeatureSection
             photo={item.photo}
             title={item.title}
             link={item.link}
@@ -407,7 +407,7 @@
                 preview, and ship delightful user experiences.
               </p>
             {/if}
-          </Section>
+          </FeatureSection>
         </div>
       {/each}
     </div>

@@ -10,7 +10,7 @@
     getLang,
     imgPlaceholder,
   } from "$lib/utils/functions";
-  import Projects from "$lib/components/Projects.svelte";
+  import ProductShowcase from "$lib/components//ProductShowcase.svelte";
   import { user } from "$lib/stores/authStore";
   import Icon from "@iconify/svelte";
   import { marked } from "marked";
@@ -23,27 +23,6 @@
   let inputGallery: HTMLInputElement | undefined = $state();
   let formCover: HTMLFormElement | undefined = $state();
   let formGallery: HTMLFormElement | undefined = $state();
-  let related = $derived(
-    (() => {
-      const relatedProjects = Array.from(
-        new Set([
-          ...data.projects.filter((value) =>
-            value.title
-              .toLocaleLowerCase()
-              .includes(project.title.toLocaleLowerCase())
-          ),
-          ...data.projects.filter((value) => value.type === project.type),
-        ])
-      ).filter((value) => value.name !== project.name);
-
-      // Ensure the number is a multiple of 3 for better grid layout
-      const maxItems = 9;
-      const count = Math.min(relatedProjects.length, maxItems);
-      const multipleOfThree = Math.floor(count / 3) * 3;
-
-      return relatedProjects.slice(0, multipleOfThree || 3);
-    })()
-  );
 
   $effect(() => {
     project = data.project;
@@ -61,23 +40,30 @@
   title={project.title}
   slogan={project.slogan}
 />
-<section class="mb-16" in:fly={{ y: 100, duration: 1000, delay: 100 }}>
+<section
+  class="mb-16 bg-neutral-900 text-white min-h-screen py-12"
+  in:fly={{ y: 100, duration: 1000, delay: 100 }}
+>
   <div class="container mx-auto max-w-6xl px-6">
     <div class="mt-5 flex flex-wrap gap-8">
       <div class="flex-1">
-        <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
+        <h2
+          class="border-b border-slate-700 pt-4 pb-4 font-bold text-xl mb-8 text-primary-400"
+        >
           Description
         </h2>
         <div class="markdown">
           {@html marked.parse(project.info ?? "")}
         </div>
-        <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
+        <h2
+          class="border-b border-slate-700 pt-4 pb-4 font-bold text-xl mb-8 text-primary-400"
+        >
           Details
         </h2>
         <div class="flex flex-wrap gap-4">
           {#if project.date}
             <div
-              class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
+              class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
             >
               <Icon icon="material-symbols:event" />
               <span>{formatDate(project.date)}</span>
@@ -85,11 +71,11 @@
           {/if}
           {#if project.link}
             <div
-              class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
+              class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
             >
               <Icon icon="material-symbols:captive-portal" />
               <a
-                class="no-underline hover:!text-blue-500 !transition-colors duration-200"
+                class="no-underline text-zinc-300 hover:!text-secondary-400 !transition-colors duration-200"
                 href={project.link}
                 target="_blank">Website</a
               >
@@ -97,11 +83,11 @@
           {/if}
           {#if project.code}
             <div
-              class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
+              class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
             >
               <Icon icon="mdi:github" />
               <a
-                class="no-underline hover:!text-blue-500 !transition-colors duration-200"
+                class="no-underline text-zinc-300 hover:!text-secondary-400 !transition-colors duration-200"
                 href={`//github.com/marcellokabora/${project.code}`}
                 target="_blank">Github</a
               >
@@ -109,13 +95,13 @@
           {/if}
           {#if project.lang}
             <div
-              class="opacity-70 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
+              class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
             >
               <Icon icon="material-symbols:code" />
               <div class="flex flex-wrap gap-2">
                 {#each project.lang.split(",") as lang, i (lang)}
                   <a
-                    class="no-underline text-gray-200 bg-gray-500 px-3 py-1 rounded-full text-sm font-medium"
+                    class="no-underline text-white bg-primary-600/50 hover:bg-primary-600 px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 border border-primary-500/30"
                     href={getLang(lang)?.url}
                     target="_blank"
                   >
@@ -132,7 +118,9 @@
 
     {#if project.youtube}
       <div class="youtube">
-        <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
+        <h2
+          class="border-b border-slate-700 pt-4 pb-4 font-bold text-xl mb-8 text-primary-400"
+        >
           Video
         </h2>
         <iframe
@@ -149,7 +137,9 @@
 
     {#if project.gallery}
       <div class="gallery">
-        <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
+        <h2
+          class="border-b border-slate-700 pt-4 pb-4 font-bold text-xl mb-8 text-primary-400"
+        >
           Gallery
         </h2>
         <div class="flex flex-wrap gap-4 justify-center">
@@ -158,7 +148,7 @@
               <img
                 src={getImg(photo)}
                 alt=""
-                class="w-auto transition-all duration-300 shadow-md rounded"
+                class="w-auto transition-all duration-300 shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
                 onload={(e) => {
                   const img = e.target as HTMLImageElement;
                   if (img && img.naturalHeight > img.naturalWidth) {
@@ -204,11 +194,16 @@
       </div>
     {/if}
     <div class="related">
-      <h2 class="border-b border-gray-300 pt-4 pb-4 font-bold text-xl mb-8">
+      <h2
+        class="border-b border-slate-700 pt-4 pb-4 font-bold text-xl mb-8 text-primary-400"
+      >
         Related
       </h2>
       <div class="main">
-        <Projects projects={related} hideSearch />
+        <ProductShowcase
+          projects={data.related}
+          totalCount={data.projects.length}
+        />
       </div>
     </div>
   </div>
@@ -231,7 +226,7 @@
       }}
     >
       <button
-        class="bg-white/50 rounded-full h-12 w-12 z-10 shadow-sm scale-80 relative overflow-hidden hover:bg-white/70 flex items-center justify-center"
+        class="bg-primary-600/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 relative overflow-hidden hover:bg-primary-500 flex items-center justify-center border border-primary-500/50 transition-all duration-200"
       >
         <Icon icon="material-symbols:add-photo-alternate" />
         <input
@@ -247,7 +242,7 @@
     <button
       onclick={() => (showCreate = true)}
       title="Edit"
-      class="bg-white/50 rounded-full h-12 w-12 z-10 shadow-sm scale-80 hover:bg-white/70 flex items-center justify-center"
+      class="bg-primary-600/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 hover:bg-primary-500 flex items-center justify-center border border-primary-500/50 transition-all duration-200"
     >
       <Icon icon="material-symbols:edit" />
     </button>
@@ -266,7 +261,7 @@
     >
       <button
         title="Gallery"
-        class="bg-white/50 rounded-full h-12 w-12 z-10 shadow-sm scale-80 hover:bg-white/70 flex items-center justify-center"
+        class="bg-primary-600/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 hover:bg-primary-500 flex items-center justify-center border border-primary-500/50 transition-all duration-200"
       >
         <Icon icon="material-symbols:add-to-photos" />
         <input
