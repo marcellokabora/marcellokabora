@@ -18,10 +18,10 @@
   let dropdownRef: HTMLDivElement;
 
   const menuItems = [
-    { href: "#about", label: "About" },
-    { href: "#work", label: "Work" },
+    { href: "/about", label: "About" },
+    { href: "/projects", label: "Projects" },
     { href: "/career", label: "Career" },
-    { href: "#contact", label: "Contact" },
+    { href: "/contact", label: "Contact" },
   ];
 
   onMount(() => {

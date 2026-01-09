@@ -40,24 +40,24 @@
       class="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6"
     >
       {#each showcaseProjects as project, index}
-        {@const heights = [
-          "h-64",
-          "h-80",
-          "h-72",
-          "h-96",
-          "h-64",
-          "h-88",
-          "h-72",
-          "h-80",
-          "h-96",
-          "h-64",
-          "h-88",
-          "h-72",
+        {@const desktopHeights = [
+          "md:h-64",
+          "md:h-80",
+          "md:h-72",
+          "md:h-96",
+          "md:h-64",
+          "md:h-88",
+          "md:h-72",
+          "md:h-80",
+          "md:h-96",
+          "md:h-64",
+          "md:h-88",
+          "md:h-72",
         ]}
-        {@const height = heights[index % heights.length]}
+        {@const desktopHeight = desktopHeights[index % desktopHeights.length]}
         <a
           href="/project/{project.name}"
-          class="relative group rounded-2xl overflow-hidden cursor-pointer {height} bg-zinc-900 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 block mb-6 break-inside-avoid"
+          class="relative group rounded-2xl overflow-hidden cursor-pointer h-80 {desktopHeight} bg-zinc-900 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 block mb-6 break-inside-avoid"
         >
           <!-- Project Cover Image -->
           {#if project.cover}

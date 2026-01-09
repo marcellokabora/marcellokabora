@@ -23,10 +23,38 @@
   let inputGallery: HTMLInputElement | undefined = $state();
   let formCover: HTMLFormElement | undefined = $state();
   let formGallery: HTMLFormElement | undefined = $state();
+  let scrollContainer: HTMLDivElement;
+  let activeGalleryIndex = $state(0);
 
   $effect(() => {
     project = data.project;
+    activeGalleryIndex = 0;
+    if (scrollContainer) {
+      scrollContainer.scrollTo({
+        left: 0,
+        behavior: "auto",
+      });
+    }
   });
+
+  function scrollToImage(index: number) {
+    if (scrollContainer) {
+      const imageWidth = scrollContainer.scrollWidth / project.gallery!.length;
+      scrollContainer.scrollTo({
+        left: imageWidth * index,
+        behavior: "smooth",
+      });
+      activeGalleryIndex = index;
+    }
+  }
+
+  function handleGalleryScroll() {
+    if (scrollContainer) {
+      const imageWidth = scrollContainer.scrollWidth / project.gallery!.length;
+      const currentIndex = Math.round(scrollContainer.scrollLeft / imageWidth);
+      activeGalleryIndex = currentIndex;
+    }
+  }
 </script>
 
 <svelte:head>
@@ -136,76 +164,85 @@
     {/if}
 
     {#if project.gallery}
-      <div class="gallery">
+      <div>
         <h2
           class="border-b border-slate-700 pt-4 pb-4 font-bold text-xl mb-8 text-primary-400"
         >
           Gallery
         </h2>
-        <div class="flex flex-wrap gap-4 justify-center">
-          {#each [...project.gallery].sort() as photo (photo)}
-            <div class="relative group">
-              <img
-                src={getImg(photo)}
-                alt=""
-                class="w-auto transition-all duration-300 shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
-                onload={(e) => {
-                  const img = e.target as HTMLImageElement;
-                  if (img && img.naturalHeight > img.naturalWidth) {
-                    img.classList.add("max-h-120");
-                  } else if (img) {
-                    img.classList.remove("max-h-120");
-                  }
-                }}
-              />
-              {#if $user}
-                <form
-                  method="POST"
-                  action="?/remove"
-                  use:enhance={({ cancel }) => {
-                    if (
-                      !confirm("Are you sure you want to delete this photo?")
-                    ) {
-                      cancel();
-                      return;
-                    }
-                    return async ({ result }) => {
-                      if (result.type === "success") {
-                        if (result?.data?.project)
-                          project = result.data.project as Project;
+
+        <!-- Carousel for all screen sizes -->
+        <div>
+          <div
+            bind:this={scrollContainer}
+            onscroll={handleGalleryScroll}
+            class="flex overflow-x-auto snap-x snap-mandatory scrollbar-none"
+            style="scrollbar-width: none; -ms-overflow-style: none;"
+          >
+            {#each [...project.gallery].sort() as photo (photo)}
+              <div class="relative group w-full flex-shrink-0 snap-center px-2">
+                <img
+                  src={getImg(photo)}
+                  alt=""
+                  class="w-full h-auto max-h-[70vh] mx-auto object-contain transition-all duration-300 shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
+                />
+                {#if $user}
+                  <form
+                    method="POST"
+                    action="?/remove"
+                    use:enhance={({ cancel }) => {
+                      if (
+                        !confirm("Are you sure you want to delete this photo?")
+                      ) {
+                        cancel();
+                        return;
                       }
-                    };
-                  }}
-                >
-                  <button
-                    type="submit"
-                    class="scale-80 h-12 w-12 bg-red-500 text-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-600"
+                      return async ({ result }) => {
+                        if (result.type === "success") {
+                          if (result?.data?.project)
+                            project = result.data.project as Project;
+                        }
+                      };
+                    }}
                   >
-                    <Icon icon="material-symbols:delete" />
-                  </button>
-                  <div class="hidden">
-                    <input type="text" name="name" value={photo} />
-                  </div>
-                </form>
-              {/if}
+                    <button
+                      type="submit"
+                      class="scale-[0.8] h-12 w-12 bg-red-500 text-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-600"
+                    >
+                      <Icon icon="material-symbols:delete" />
+                    </button>
+                    <div class="hidden">
+                      <input type="text" name="name" value={photo} />
+                    </div>
+                  </form>
+                {/if}
+              </div>
+            {/each}
+          </div>
+
+          <!-- Pagination dots -->
+          {#if project.gallery.length > 1}
+            <div class="flex justify-center gap-2 mt-6">
+              {#each [...project.gallery] as _, index}
+                <button
+                  type="button"
+                  onclick={() => scrollToImage(index)}
+                  class="w-2 h-2 rounded-full transition-all duration-300 cursor-pointer border-0 p-0 hover:scale-125 {activeGalleryIndex ===
+                  index
+                    ? 'bg-cyan-400'
+                    : 'bg-zinc-600 hover:bg-zinc-500'}"
+                  aria-label="Go to image {index + 1}"
+                ></button>
+              {/each}
             </div>
-          {/each}
+          {/if}
         </div>
       </div>
     {/if}
-    <div class="related">
-      <h2
-        class="border-b border-slate-700 pt-4 pb-4 font-bold text-xl mb-8 text-primary-400"
-      >
-        Related
-      </h2>
-      <div class="main">
-        <ProductShowcase
-          projects={data.related}
-          totalCount={data.projects.length}
-        />
-      </div>
-    </div>
+    <ProductShowcase
+      projects={data.related}
+      totalCount={data.projects.length}
+    />
   </div>
 </section>
 
@@ -282,3 +319,10 @@
     <Create bind:showCreate bind:project projects={data.projects} />
   </Dialog>
 {/if}
+
+<style>
+  /* Hide scrollbar for carousel */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+</style>
