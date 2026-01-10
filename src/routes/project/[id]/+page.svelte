@@ -23,8 +23,21 @@
   let inputGallery: HTMLInputElement | undefined = $state();
   let formCover: HTMLFormElement | undefined = $state();
   let formGallery: HTMLFormElement | undefined = $state();
-  let scrollContainer: HTMLDivElement;
+  let scrollContainer: HTMLDivElement | undefined = $state();
   let activeGalleryIndex = $state(0);
+
+  let galleryItems = $derived(() => {
+    const items = [];
+    if (project.youtube) {
+      items.push({ type: "video", url: project.youtube });
+    }
+    if (project.gallery) {
+      items.push(
+        ...project.gallery.map((photo) => ({ type: "image", url: photo }))
+      );
+    }
+    return items;
+  });
 
   $effect(() => {
     project = data.project;
@@ -39,7 +52,7 @@
 
   function scrollToImage(index: number) {
     if (scrollContainer) {
-      const imageWidth = scrollContainer.scrollWidth / project.gallery!.length;
+      const imageWidth = scrollContainer.scrollWidth / galleryItems().length;
       scrollContainer.scrollTo({
         left: imageWidth * index,
         behavior: "smooth",
@@ -50,7 +63,7 @@
 
   function handleGalleryScroll() {
     if (scrollContainer) {
-      const imageWidth = scrollContainer.scrollWidth / project.gallery!.length;
+      const imageWidth = scrollContainer.scrollWidth / galleryItems().length;
       const currentIndex = Math.round(scrollContainer.scrollLeft / imageWidth);
       activeGalleryIndex = currentIndex;
     }
@@ -144,26 +157,7 @@
       </div>
     </div>
 
-    {#if project.youtube}
-      <div class="youtube">
-        <h2
-          class="border-b border-slate-700 pt-4 pb-4 font-bold text-xl mb-8 text-primary-400"
-        >
-          Video
-        </h2>
-        <iframe
-          src="https://www.youtube.com/embed/{project.youtube}"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-          class="w-full aspect-video"
-        ></iframe>
-      </div>
-    {/if}
-
-    {#if project.gallery}
+    {#if project.youtube || project.gallery}
       <div>
         <h2
           class="border-b border-slate-700 pt-4 pb-4 font-bold text-xl mb-8 text-primary-400"
@@ -179,51 +173,65 @@
             class="flex overflow-x-auto snap-x snap-mandatory scrollbar-none"
             style="scrollbar-width: none; -ms-overflow-style: none;"
           >
-            {#each [...project.gallery].sort() as photo (photo)}
+            {#each galleryItems() as item, index (item.type === "video" ? `video-${item.url}` : item.url)}
               <div class="relative group w-full flex-shrink-0 snap-center px-2">
-                <img
-                  src={getImg(photo)}
-                  alt=""
-                  class="w-full h-auto max-h-[70vh] mx-auto object-contain transition-all duration-300 shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
-                />
-                {#if $user}
-                  <form
-                    method="POST"
-                    action="?/remove"
-                    use:enhance={({ cancel }) => {
-                      if (
-                        !confirm("Are you sure you want to delete this photo?")
-                      ) {
-                        cancel();
-                        return;
-                      }
-                      return async ({ result }) => {
-                        if (result.type === "success") {
-                          if (result?.data?.project)
-                            project = result.data.project as Project;
+                {#if item.type === "video"}
+                  <iframe
+                    src="https://www.youtube.com/embed/{item.url}"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                    class="w-full aspect-video max-h-[70vh] mx-auto shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
+                  ></iframe>
+                {:else}
+                  <img
+                    src={getImg(item.url)}
+                    alt=""
+                    class="w-full h-auto max-h-[70vh] mx-auto object-contain transition-all duration-300 shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
+                  />
+                  {#if $user}
+                    <form
+                      method="POST"
+                      action="?/remove"
+                      use:enhance={({ cancel }) => {
+                        if (
+                          !confirm(
+                            "Are you sure you want to delete this photo?"
+                          )
+                        ) {
+                          cancel();
+                          return;
                         }
-                      };
-                    }}
-                  >
-                    <button
-                      type="submit"
-                      class="scale-[0.8] h-12 w-12 bg-red-500 text-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-600"
+                        return async ({ result }) => {
+                          if (result.type === "success") {
+                            if (result?.data?.project)
+                              project = result.data.project as Project;
+                          }
+                        };
+                      }}
                     >
-                      <Icon icon="material-symbols:delete" />
-                    </button>
-                    <div class="hidden">
-                      <input type="text" name="name" value={photo} />
-                    </div>
-                  </form>
+                      <button
+                        type="submit"
+                        class="scale-[0.8] h-12 w-12 bg-red-500 text-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-600"
+                      >
+                        <Icon icon="material-symbols:delete" />
+                      </button>
+                      <div class="hidden">
+                        <input type="text" name="name" value={item.url} />
+                      </div>
+                    </form>
+                  {/if}
                 {/if}
               </div>
             {/each}
           </div>
 
           <!-- Pagination dots -->
-          {#if project.gallery.length > 1}
+          {#if galleryItems().length > 1}
             <div class="flex justify-center gap-2 mt-6">
-              {#each [...project.gallery] as _, index}
+              {#each galleryItems() as _, index}
                 <button
                   type="button"
                   onclick={() => scrollToImage(index)}
@@ -247,7 +255,7 @@
 </section>
 
 {#if $user}
-  <div class="absolute left-12 top-[120px] flex flex-col items-center gap-4">
+  <div class="absolute right-12 top-[120px] flex flex-col items-center gap-4">
     <form
       method="POST"
       action="?/cover"
@@ -263,7 +271,7 @@
       }}
     >
       <button
-        class="bg-primary-600/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 relative overflow-hidden hover:bg-primary-500 flex items-center justify-center border border-primary-500/50 transition-all duration-200"
+        class="bg-black/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 relative overflow-hidden hover:bg-zinc-800 flex items-center justify-center border border-zinc-700 transition-all duration-200"
       >
         <Icon icon="material-symbols:add-photo-alternate" />
         <input
@@ -279,7 +287,7 @@
     <button
       onclick={() => (showCreate = true)}
       title="Edit"
-      class="bg-primary-600/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 hover:bg-primary-500 flex items-center justify-center border border-primary-500/50 transition-all duration-200"
+      class="bg-black/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 hover:bg-zinc-800 flex items-center justify-center border border-zinc-700 transition-all duration-200"
     >
       <Icon icon="material-symbols:edit" />
     </button>
@@ -298,7 +306,7 @@
     >
       <button
         title="Gallery"
-        class="bg-primary-600/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 hover:bg-primary-500 flex items-center justify-center border border-primary-500/50 transition-all duration-200"
+        class="bg-black/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 hover:bg-zinc-800 flex items-center justify-center border border-zinc-700 transition-all duration-200"
       >
         <Icon icon="material-symbols:add-to-photos" />
         <input

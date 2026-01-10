@@ -50,16 +50,18 @@
 </svelte:head>
 
 <div
-  class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
+  class="min-h-screen flex items-center justify-center bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8"
 >
   <div class="max-w-md w-full space-y-8">
     {#if user}
       <!-- User is logged in -->
       <div class="text-center">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">Welcome!</h2>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <p class="text-gray-600 mb-4">You are logged in as:</p>
-          <p class="font-medium text-gray-900 mb-6">{user.email}</p>
+        <h2 class="text-3xl font-bold text-white mb-6">Welcome!</h2>
+        <div
+          class="bg-zinc-900 p-6 rounded-lg shadow-md border border-zinc-800"
+        >
+          <p class="text-zinc-400 mb-4">You are logged in as:</p>
+          <p class="font-medium text-white mb-6">{user.email}</p>
           <button
             on:click={handleSignOut}
             class="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors"
@@ -71,15 +73,13 @@
     {:else}
       <!-- Login form -->
       <div>
-        <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">
-          Sign In
-        </h2>
+        <h2 class="text-3xl font-bold text-center text-white mb-8">Sign In</h2>
 
         <form on:submit|preventDefault={handleLogin} class="space-y-6">
           <div>
             <label
               for="email"
-              class="block text-sm font-medium text-gray-700 mb-1"
+              class="block text-sm font-medium text-zinc-300 mb-1"
             >
               Email
             </label>
@@ -88,7 +88,7 @@
               type="email"
               bind:value={email}
               required
-              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="w-full px-3 py-2 bg-zinc-900 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white placeholder:text-zinc-500"
               placeholder="Enter your email"
             />
           </div>
@@ -96,7 +96,7 @@
           <div>
             <label
               for="password"
-              class="block text-sm font-medium text-gray-700 mb-1"
+              class="block text-sm font-medium text-zinc-300 mb-1"
             >
               Password
             </label>
@@ -105,14 +105,14 @@
               type="password"
               bind:value={password}
               required
-              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="w-full px-3 py-2 bg-zinc-900 border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white placeholder:text-zinc-500"
               placeholder="Enter your password"
             />
           </div>
 
           {#if error}
             <div
-              class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md text-sm"
+              class="bg-red-950/50 border border-red-800 text-red-400 px-4 py-3 rounded-md text-sm"
             >
               {error}
             </div>
@@ -121,7 +121,7 @@
           <button
             type="submit"
             disabled={loading}
-            class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            class="w-full bg-primary-600 text-white py-2 px-4 rounded-md hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>

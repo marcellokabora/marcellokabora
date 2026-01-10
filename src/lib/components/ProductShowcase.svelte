@@ -7,8 +7,8 @@
     totalCount,
   }: { projects: Project[]; totalCount?: number } = $props();
 
-  // Take first 12 projects for showcase
-  const showcaseProjects = projects.slice(0, 12);
+  // Show fewer projects on mobile for better performance
+  const showcaseProjects = $derived(projects.slice(0, 12));
   const total = totalCount ?? projects.length;
 
   // Helper to generate gradient colors based on project type
@@ -57,7 +57,10 @@
         {@const desktopHeight = desktopHeights[index % desktopHeights.length]}
         <a
           href="/project/{project.name}"
-          class="relative group rounded-2xl overflow-hidden cursor-pointer h-80 {desktopHeight} bg-zinc-900 border border-slate-800 hover:border-secondary-500/50 transition-all duration-300 block mb-6 break-inside-avoid"
+          class="relative group rounded-2xl overflow-hidden cursor-pointer h-80 {desktopHeight} bg-zinc-900 border border-slate-800 hover:border-secondary-500/50 transition-all duration-300 block mb-6 break-inside-avoid {index >=
+          6
+            ? 'hidden md:block'
+            : ''}"
         >
           <!-- Project Cover Image -->
           {#if project.cover}

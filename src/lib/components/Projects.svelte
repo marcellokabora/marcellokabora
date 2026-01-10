@@ -34,6 +34,10 @@
     filter = filter === type ? "" : type;
   }
 
+  function getProjectCount(type: string): number {
+    return projects.filter((project) => project.type === type).length;
+  }
+
   function getProjectImageUrl(project: Project): string {
     if (!project.cover) return imgPlaceholder;
     return getImg(project.cover);
@@ -64,6 +68,13 @@
           >
             <Icon icon={option.icon} class="text-lg" />
             {option.label}
+            <span
+              class="text-xs px-2 py-0.5 rounded-full {filter === option.type
+                ? 'bg-white/20'
+                : 'bg-zinc-700/50'}"
+            >
+              {getProjectCount(option.type)}
+            </span>
           </button>
         {/each}
       </div>

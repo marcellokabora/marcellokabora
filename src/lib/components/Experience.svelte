@@ -42,19 +42,16 @@
         >
           <!-- Logo Bubble (replaces year bubble) -->
           <div
-            class="absolute left-8 md:left-1/2 w-16 h-16 rounded-full bg-neutral-900 border-2 border-zinc-700 transform -translate-x-8 md:-translate-x-8 group-hover:border-secondary-400 transition-all duration-300 z-10 p-2 flex items-center justify-center overflow-hidden shadow-xl"
+            class="absolute left-8 md:left-1/2 w-16 h-16 rounded-full bg-neutral-900 border-2 border-zinc-700 transform -translate-x-8 md:-translate-x-8 z-10 p-2 flex items-center justify-center overflow-hidden shadow-xl"
           >
             {#if job.logo}
               <img
                 src={job.logo}
                 alt={job.company}
-                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                class="w-full h-full object-contain"
               />
             {:else}
-              <Icon
-                icon="mdi:domain"
-                class="w-8 h-8 text-zinc-600 group-hover:text-secondary-400 transition-colors"
-              />
+              <Icon icon="mdi:domain" class="w-8 h-8 text-zinc-600" />
             {/if}
           </div>
 
@@ -65,7 +62,7 @@
               : 'md:pl-16 md:col-start-2 md:ml-auto'}"
           >
             <div
-              class="bg-neutral-900/80 backdrop-blur-sm border-2 border-zinc-700/70 rounded-2xl p-6 group-hover:border-secondary-500 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.2)] transition-all duration-300 shadow-2xl"
+              class="bg-neutral-900/80 backdrop-blur-sm border-2 border-zinc-700/70 rounded-2xl p-6 shadow-2xl"
             >
               <span
                 class="inline-block text-xs font-semibold text-secondary-400 bg-secondary-400/10 px-3 py-1 rounded-full mb-3 border border-secondary-400/20"

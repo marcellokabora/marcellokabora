@@ -93,15 +93,23 @@
                 </div>
               </div>
               <div class="bg-neutral-950 border border-zinc-800 rounded-xl p-4">
-                <div class="text-3xl font-bold text-green-400 mb-1">700</div>
+                <div class="text-3xl font-bold text-green-400 mb-1">500+</div>
                 <div class="text-sm text-zinc-500 uppercase tracking-wider">
-                  DJ Mixes
+                  Mixes
                 </div>
               </div>
               <div class="bg-neutral-950 border border-zinc-800 rounded-xl p-4">
                 <div class="text-3xl font-bold text-green-500 mb-1">150+</div>
                 <div class="text-sm text-zinc-500 uppercase tracking-wider">
                   Events
+                </div>
+              </div>
+              <div
+                class="bg-neutral-950 border border-zinc-800 rounded-xl p-4 min-sm:hidden"
+              >
+                <div class="text-3xl font-bold text-green-500 mb-1">120+</div>
+                <div class="text-sm text-zinc-500 uppercase tracking-wider">
+                  Music
                 </div>
               </div>
             </div>
