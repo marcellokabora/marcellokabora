@@ -37,11 +37,11 @@
       <div
         class="col-span-1 md:col-span-2 row-span-2 bg-neutral-900 border border-slate-800 rounded-2xl p-8 flex flex-col md:flex-row gap-6 hover:border-zinc-600 transition-all duration-300 group overflow-hidden relative"
       >
-        <div
+        <!-- <div
           class="absolute bottom-0 left-0 p-8 opacity-5 group-hover:opacity-20 transition-opacity"
         >
           <Icon icon="carbon:cube" class="w-32 h-32 text-white" />
-        </div>
+        </div> -->
         <div class="flex-1 flex flex-col z-10">
           <h4 class="text-2xl font-bold text-white mb-4">The Architect</h4>
           <p class="text-zinc-400 leading-relaxed">
@@ -53,7 +53,7 @@
           </p>
         </div>
         <div
-          class="w-full md:w-64 h-48 md:h-full bg-zinc-800/50 rounded-xl flex items-center justify-center overflow-hidden border border-zinc-700/50 flex-shrink-0"
+          class="w-full md:w-64 h-100 md:h-full bg-zinc-800/50 rounded-xl flex items-center justify-center overflow-hidden border border-zinc-700/50 flex-shrink-0"
         >
           <img
             src="/selfie/selfie-styled.png"
@@ -135,7 +135,7 @@
 
       <!-- Small Card: Status -->
       <div
-        class="col-span-1 bg-neutral-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform relative overflow-hidden group"
+        class="col-span-1 bg-neutral-900 border max-md:hidden border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform relative overflow-hidden group"
       >
         <div class="absolute top-2 right-2">
           <span class="flex h-3 w-3">

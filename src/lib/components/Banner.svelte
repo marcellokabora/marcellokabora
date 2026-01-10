@@ -46,7 +46,7 @@
     >
       <div class="flex flex-col items-center max-w-4xl mx-auto px-6">
         <h1
-          class="text-4xl md:text-5xl font-bold px-12 min-w-[30vw] leading-tight tracking-tight mb-2 text-white drop-shadow-lg"
+          class="text-4xl md:text-4xl font-bold px-12 leading-tight tracking-tight mb-2 text-white drop-shadow-lg"
         >
           {title}
         </h1>
@@ -54,7 +54,7 @@
           class="w-80 my-6 h-[2px] rounded-sm bg-gradient-to-r from-transparent via-white to-transparent"
         ></div>
         <p
-          class="px-12 text-lg md:text-xl leading-relaxed max-w-2xl text-white drop-shadow-lg text-balance"
+          class="px-12 text-lg md:text-lg leading-relaxed max-w-2xl text-white drop-shadow-lg text-balance"
         >
           {slogan}
         </p>

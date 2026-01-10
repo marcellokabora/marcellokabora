@@ -160,7 +160,7 @@
 
 <!-- Desktop Navigation -->
 <nav
-  class="hidden lg:flex fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-black/50 backdrop-blur-xl border border-white/10 rounded-full px-8 py-3 items-center gap-8 shadow-2xl"
+  class="hidden lg:flex absolute top-6 left-1/2 transform -translate-x-1/2 z-50 px-8 py-3 items-center gap-8"
 >
   <!-- Left Navigation -->
   <a
@@ -174,8 +174,25 @@
     >Projects</a
   >
 
-  <!-- Spacer for logo -->
-  <div class="w-20"></div>
+  <!-- Logo in the middle -->
+  <a
+    href="/"
+    class="relative group px-2"
+    in:scale={{ duration: 800, easing: elasticOut, start: 0.3 }}
+  >
+    <div class="relative">
+      <!-- Animated gradient glow -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-secondary-400 via-blue-500 to-primary-600 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-all duration-500 animate-pulse scale-150"
+      ></div>
+      <!-- Logo -->
+      <img
+        src="/icon/mk.svg"
+        alt="MK"
+        class="h-10 w-auto relative z-10 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]"
+      />
+    </div>
+  </a>
 
   <!-- Right Navigation -->
   <a
@@ -190,29 +207,11 @@
   >
 </nav>
 
-<!-- Animated Logo - Centered -->
-<div
-  class="fixed top-2 left-1/2 transform -translate-x-1/2 z-[70] max-md:hidden"
-  in:scale={{ duration: 800, easing: elasticOut, start: 0.3 }}
->
-  <a href="/" class="block group">
-    <div class="relative p-2">
-      <!-- Animated gradient glow -->
-      <div
-        class="absolute inset-0 bg-gradient-to-r from-secondary-400 via-blue-500 to-primary-600 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-all duration-500 animate-pulse scale-150"
-      ></div>
-      <!-- Logo -->
-      <img
-        src="/icon/mk.svg"
-        alt="MK"
-        class="h-10 w-auto relative z-10 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]"
-      />
-    </div>
-  </a>
-</div>
-
 <!-- Login/Account Dropdown - Top Right Corner -->
-<div class="hidden lg:block fixed top-6 right-6 z-[60]" bind:this={dropdownRef}>
+<div
+  class="hidden lg:block absolute top-6 right-6 z-[60]"
+  bind:this={dropdownRef}
+>
   {#if user}
     <button
       class="text-lg flex items-center justify-center w-12 h-12 rounded-full transition-all duration-200 cursor-pointer bg-black/50 backdrop-blur-xl border border-white/10 hover:bg-black/60 shadow-2xl"

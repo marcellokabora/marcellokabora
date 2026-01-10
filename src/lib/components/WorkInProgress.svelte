@@ -1,7 +1,5 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
-  import { getImg } from "$lib/utils/functions";
-  import type { Project } from "$lib/types/project.types";
   import { getProjects } from "$lib/data/projects.remote";
 </script>
 
@@ -10,11 +8,9 @@
     <h2
       class="text-sm font-bold text-green-400 uppercase tracking-widest mb-2 text-center"
     >
-      Personal Side Project
+      Personal Project
     </h2>
-    <h3 class="text-4xl font-bold text-white mb-12 text-center">
-      Streaming Platform
-    </h3>
+    <h3 class="text-4xl font-bold text-white mb-12 text-center">7echno</h3>
 
     <svelte:boundary>
       {#snippet pending()}
@@ -37,7 +33,7 @@
         <!-- Main Project Showcase -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           <!-- Left: Project Images Stack -->
-          <div class="relative group h-[400px]">
+          <div class="relative group h-[350px]">
             <!-- Image 1 - Bottom Layer -->
             <div
               class="absolute top-8 left-8 w-[85%] h-[85%] bg-neutral-950 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl transform rotate-[-3deg] group-hover:rotate-[-6deg] transition-transform duration-500 z-10"
@@ -76,23 +72,18 @@
 
             <!-- Logo Overlay -->
             <div
-              class="absolute -bottom-0 right-8 z-40 bg-neutral-950/80 backdrop-blur-sm border border-zinc-800 rounded-xl shadow-xl overflow-hidden"
+              class="absolute -bottom-0 right-8 z-40 w-32 h-32 bg-neutral-950/80 backdrop-blur-sm border border-zinc-800 rounded-full shadow-xl overflow-hidden flex items-center justify-center"
             >
               <img
                 src="/project/7echno-logo/logo1.png"
                 alt="7echno Logo"
-                class="h-50 w-auto"
+                class="w-full h-full object-cover"
               />
             </div>
           </div>
 
           <!-- Right: Project Info -->
           <div class="flex flex-col justify-center">
-            <h4 class="text-3xl font-bold text-white mb-4">
-              {technoProject.title}
-            </h4>
-            <p class="text-zinc-400 text-lg mb-6">{technoProject.slogan}</p>
-
             <!-- Stats -->
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
               <div class="bg-neutral-950 border border-zinc-800 rounded-xl p-4">
@@ -181,8 +172,8 @@
                   <Icon icon="mdi:music" class="w-6 h-6 text-emerald-400" />
                 </div>
                 <div>
-                  <h5 class="text-lg font-bold text-white">7echno Music</h5>
-                  <p class="text-sm text-zinc-500">Music Experience</p>
+                  <h5 class="text-lg font-bold text-white">7echno Pitch</h5>
+                  <p class="text-sm text-zinc-500">Pitch Deck</p>
                 </div>
               </div>
               <p class="text-zinc-400 text-sm">
