@@ -83,7 +83,7 @@
             </a>
           {/each}
           <a
-            href="/skills"
+            href="/about#skills"
             class="px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 border border-primary-500 rounded-full text-white text-sm font-mono hover:from-primary-600 hover:to-primary-700 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all cursor-pointer inline-flex items-center gap-1"
           >
             <span>+{totalSkills - techStack.length} more</span>

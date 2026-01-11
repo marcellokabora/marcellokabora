@@ -9,12 +9,12 @@
 <svelte:head>
   <title>Marcello Annicchiarico | Career</title>
   <meta name="description" content={description} />
-  <meta name="thumbnail" content="/gallery/keyboard3.jpg" />
-  <meta property="og:image" content="/gallery/keyboard3.jpg" />
+  <meta name="thumbnail" content="/photo/coding-purple.jpg" />
+  <meta property="og:image" content="/photo/coding-purple.jpg" />
 </svelte:head>
 
 <Banner
-  cover="/gallery/keyboard3.jpg"
+  cover="/photo/coding-purple.jpg"
   title="Career"
   slogan="I worked for different startup in Berlin, Barcelona and Italy"
 />

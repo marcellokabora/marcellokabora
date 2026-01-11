@@ -22,8 +22,8 @@
 <svelte:head>
   <title>Marcello Annicchiarico | Projects</title>
   <meta name="description" content={description} />
-  <meta name="thumbnail" content="/gallery/keyboard2.jpg" />
-  <meta property="og:image" content="/gallery/keyboard2.jpg" />
+  <meta name="thumbnail" content="/photo/coding-blue.webp" />
+  <meta property="og:image" content="/photo/coding-blue.webp" />
 </svelte:head>
 
 <!-- Placeholder to prevent layout shift when banner becomes fixed -->
@@ -38,7 +38,7 @@
     : ""}
 >
   <Banner
-    cover="/gallery/keyboard2.jpg"
+    cover="/photo/coding-blue.webp"
     title="Projects"
     slogan="A collection of my successful projects"
   />

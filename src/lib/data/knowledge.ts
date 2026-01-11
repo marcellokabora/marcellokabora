@@ -1,4 +1,5 @@
 export const menu = [
+    { name: "ai", icon: "mdi:robot" },
     { name: "javascript", icon: "mdi:language-javascript" },
     { name: "design", icon: "mdi:palette" },
     { name: "database", icon: "mdi:database" },
@@ -159,6 +160,34 @@ const design = [
     },
 ];
 
+const ai = [
+    {
+        id: "ai",
+        name: "copilot",
+        title: "GitHub Copilot",
+        photo: "/photo/copilot.png",
+        link: "//github.com/features/copilot",
+    },
+    {
+        name: "chatgpt",
+        title: "ChatGPT",
+        photo: "/photo/chatgpt.png",
+        link: "//chat.openai.com",
+    },
+    {
+        name: "gemini",
+        title: "Gemini",
+        photo: "/photo/gemini.png",
+        link: "//deepmind.google/technologies/gemini",
+    },
+    {
+        name: "claude",
+        title: "Claude",
+        photo: "/photo/claude.png",
+        link: "//anthropic.com",
+    },
+];
+
 const database = [
     {
         id: "database",
@@ -310,6 +339,7 @@ const management = [
 ];
 
 export const items = [
+    ...ai,
     ...javascript,
     ...design,
     ...database,

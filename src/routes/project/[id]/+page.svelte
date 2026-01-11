@@ -82,7 +82,7 @@
   slogan={project.slogan}
 />
 <section
-  class="mb-16 bg-neutral-900 text-white min-h-screen py-12"
+  class="mb-16 bg-neutral-900 text-white"
   in:fly={{ y: 100, duration: 1000, delay: 100 }}
 >
   <div class="container mx-auto max-w-6xl px-6">

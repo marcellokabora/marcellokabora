@@ -31,14 +31,14 @@
 <svelte:head>
   <title>Marcello Annicchiarico | Contacts</title>
   <meta name="description" content={description} />
-  <meta name="thumbnail" content="/gallery/keyboard.jpg" />
-  <meta property="og:image" content="/gallery/keyboard.jpg" />
+  <meta name="thumbnail" content="/photo/coding-multi.jpg" />
+  <meta property="og:image" content="/photo/coding-multi.jpg" />
 </svelte:head>
 
 <Banner
   title="Contacts"
   slogan="Let's connect and explore opportunities"
-  cover="/gallery/keyboard.jpg"
+  cover="/photo/coding-multi.jpg"
 />
 
 <div class="pb-16 px-4 max-w-7xl mx-auto">
