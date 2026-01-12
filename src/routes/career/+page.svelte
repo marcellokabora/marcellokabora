@@ -1,17 +1,15 @@
 <script>
   import Banner from "$lib/components/Banner.svelte";
-  import { description } from "$lib/utils/mocks";
+  import MetaTags from "$lib/components/MetaTags.svelte";
   import { fly } from "svelte/transition";
   import { companies } from "$lib/data/companies";
   import CompanyDescription from "./CompanyDescription.svelte";
 </script>
 
-<svelte:head>
-  <title>Marcello Annicchiarico | Career</title>
-  <meta name="description" content={description} />
-  <meta name="thumbnail" content="/photo/coding-purple.jpg" />
-  <meta property="og:image" content="/photo/coding-purple.jpg" />
-</svelte:head>
+<MetaTags
+  title="Marcello Annicchiarico | Career"
+  url="https://marcellokabora.com/career"
+/>
 
 <Banner
   cover="/photo/coding-purple.jpg"

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { description } from "$lib/utils/mocks";
   import Icon from "@iconify/svelte";
   import Banner from "$lib/components/Banner.svelte";
+  import MetaTags from "$lib/components/MetaTags.svelte";
 
   const socialLinks = [
     {
@@ -28,12 +28,10 @@
   ];
 </script>
 
-<svelte:head>
-  <title>Marcello Annicchiarico | Contacts</title>
-  <meta name="description" content={description} />
-  <meta name="thumbnail" content="/photo/coding-multi.jpg" />
-  <meta property="og:image" content="/photo/coding-multi.jpg" />
-</svelte:head>
+<MetaTags
+  title="Marcello Annicchiarico | Contacts"
+  url="https://marcellokabora.com/contact"
+/>
 
 <Banner
   title="Contacts"

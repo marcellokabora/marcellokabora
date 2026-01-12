@@ -1,7 +1,7 @@
 <script lang="ts">
   import Banner from "$lib/components/Banner.svelte";
   import type { Project } from "$lib/types/project.types";
-  import { description } from "$lib/utils/mocks";
+  import MetaTags from "$lib/components/MetaTags.svelte";
   import Projects from "$lib/components/Projects.svelte";
 
   let { data } = $props();
@@ -19,12 +19,10 @@
 
 <svelte:window bind:scrollY bind:innerWidth />
 
-<svelte:head>
-  <title>Marcello Annicchiarico | Projects</title>
-  <meta name="description" content={description} />
-  <meta name="thumbnail" content="/photo/coding-blue.webp" />
-  <meta property="og:image" content="/photo/coding-blue.webp" />
-</svelte:head>
+<MetaTags
+  title="Marcello Annicchiarico | Projects"
+  url="https://marcellokabora.com/projects"
+/>
 
 <!-- Placeholder to prevent layout shift when banner becomes fixed -->
 {#if scrollY > 300 && isDesktop}

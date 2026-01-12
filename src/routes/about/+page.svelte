@@ -1,5 +1,6 @@
 <script lang="ts">
   import Banner from "$lib/components/Banner.svelte";
+  import MetaTags from "$lib/components/MetaTags.svelte";
   import { items, menu } from "$lib/data/knowledge";
   import Icon from "@iconify/svelte";
   import { onMount } from "svelte";
@@ -252,19 +253,10 @@
   ];
 </script>
 
-<svelte:head>
-  <title>Marcello Annicchiarico | About</title>
-  <meta
-    name="description"
-    content="Senior Frontend Developer with a decade of experience in software development, UI/UX, and data visualization.  Passionate about building high-performance UI libraries and PWAs for SaaS and B2B, using frameworks like Vue, Svelte, Angular, and React."
-  />
-  <meta
-    name="keywords"
-    content="Software, Developer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, Vue, React, Material, Firebase"
-  />
-  <meta name="thumbnail" content="/gallery/keyboard.jpg" />
-  <meta property="og:image" content="/gallery/keyboard.jpg" />
-</svelte:head>
+<MetaTags
+  title="Marcello Annicchiarico | About"
+  url="https://marcellokabora.com/about"
+/>
 
 <Banner
   cover="/gallery/keyboard.jpg"

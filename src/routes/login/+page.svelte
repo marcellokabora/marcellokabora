@@ -2,6 +2,7 @@
   import { signInWithEmailAndPassword, signOut } from "firebase/auth";
   import { auth } from "$lib/config/firebase";
   import { onMount } from "svelte";
+  import MetaTags from "$lib/components/MetaTags.svelte";
 
   let email = "";
   let password = "";
@@ -45,9 +46,10 @@
   }
 </script>
 
-<svelte:head>
-  <title>Login - Marcello Annicchiarico</title>
-</svelte:head>
+<MetaTags
+  title="Login | Marcello Annicchiarico"
+  url="https://marcellokabora.com/login"
+/>
 
 <div
   class="min-h-screen flex items-center justify-center bg-neutral-900 py-12 px-4 sm:px-6 lg:px-8"

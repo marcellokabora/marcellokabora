@@ -11,6 +11,7 @@
     imgPlaceholder,
   } from "$lib/utils/functions";
   import ProductShowcase from "$lib/components//ProductShowcase.svelte";
+  import MetaTags from "$lib/components/MetaTags.svelte";
   import { user } from "$lib/stores/authStore";
   import Icon from "@iconify/svelte";
   import { marked } from "marked";
@@ -70,11 +71,12 @@
   }
 </script>
 
-<svelte:head>
-  <title>Marcello Annicchiarico | {project?.title} | {project?.slogan}</title>
-  <meta name="thumbnail" content={getImg(project.cover!)} />
-  <meta property="og:image" content={getImg(project.cover!)} />
-</svelte:head>
+<MetaTags
+  title="Marcello Annicchiarico | {project?.title} | {project?.slogan}"
+  description={project?.slogan}
+  image={getImg(project.cover!)}
+  url={`https://marcellokabora.com/project/${project?.name}`}
+/>
 
 <Banner
   cover={project?.cover ? getImg(project.cover) : imgPlaceholder}
