@@ -12,29 +12,16 @@
   );
 
   let scrollY = $state(0);
-  let innerWidth = $state(0);
-
-  let isDesktop = $derived(innerWidth >= 1024);
 </script>
 
-<svelte:window bind:scrollY bind:innerWidth />
+<svelte:window bind:scrollY />
 
 <MetaTags
   title="Marcello Annicchiarico | Projects"
   url="https://marcellokabora.com/projects"
 />
 
-<!-- Placeholder to prevent layout shift when banner becomes fixed -->
-{#if scrollY > 300 && isDesktop}
-  <div style="height: 55vh;"></div>
-{/if}
-
-<div
-  class="transition-all duration-300"
-  style={scrollY > 300 && isDesktop
-    ? "position: fixed; top: calc(-55vh + 200px); left: 0; right: 0; z-index: 40;"
-    : ""}
->
+<div>
   <Banner
     cover="/photo/coding-blue.webp"
     title="Projects"

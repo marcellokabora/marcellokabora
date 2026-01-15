@@ -273,7 +273,7 @@
       }}
     >
       <button
-        class="bg-black/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 relative overflow-hidden hover:bg-zinc-800 flex items-center justify-center border border-zinc-700 transition-all duration-200"
+        class="bg-black/80 cursor-pointer text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 relative overflow-hidden hover:bg-zinc-800 flex items-center justify-center border border-zinc-700 transition-all duration-200"
       >
         <Icon icon="material-symbols:add-photo-alternate" />
         <input
@@ -289,7 +289,7 @@
     <button
       onclick={() => (showCreate = true)}
       title="Edit"
-      class="bg-black/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 hover:bg-zinc-800 flex items-center justify-center border border-zinc-700 transition-all duration-200"
+      class="bg-black/80 cursor-pointer text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 hover:bg-zinc-800 flex items-center justify-center border border-zinc-700 transition-all duration-200"
     >
       <Icon icon="material-symbols:edit" />
     </button>
@@ -308,7 +308,7 @@
     >
       <button
         title="Gallery"
-        class="bg-black/80 text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 hover:bg-zinc-800 flex items-center justify-center border border-zinc-700 transition-all duration-200"
+        class="bg-black/80 cursor-pointer text-white rounded-full h-12 w-12 z-10 shadow-lg scale-80 hover:bg-zinc-800 flex items-center justify-center border border-zinc-700 transition-all duration-200"
       >
         <Icon icon="material-symbols:add-to-photos" />
         <input
