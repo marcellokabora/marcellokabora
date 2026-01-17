@@ -1,5 +1,5 @@
 export const menu = [
-    { name: "ai", icon: "mdi:robot" },
+    { name: "ai tools", icon: "mdi:robot" },
     { name: "javascript", icon: "mdi:language-javascript" },
     { name: "design", icon: "mdi:palette" },
     { name: "database", icon: "mdi:database" },
@@ -162,7 +162,7 @@ const design = [
 
 const ai = [
     {
-        id: "ai",
+        id: "ai tools",
         name: "copilot",
         title: "GitHub Copilot",
         photo: "/photo/copilot.png",

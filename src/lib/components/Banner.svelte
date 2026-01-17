@@ -8,11 +8,7 @@
     slogan?: string;
   }
 
-  let {
-    cover = "/styling.jpg",
-    title = "Title",
-    slogan = "Slogan",
-  }: Props = $props();
+  let { cover = "/styling.jpg", title = "", slogan = "" }: Props = $props();
 
   let imageLoaded = $state(true);
   let animationKey = $state(0);
@@ -26,7 +22,9 @@
 
 {#key animationKey}
   <div
-    class="h-[40vh] md:h-[60vh] flex items-center justify-center text-white overflow-hidden relative text-center px-4"
+    class="{title || slogan
+      ? 'h-[40vh] md:h-[60vh]'
+      : 'h-[25vh] md:h-[30vh]'} flex items-center justify-center text-white overflow-hidden relative text-center px-4"
   >
     <!-- Background with overlay -->
     <div
@@ -44,39 +42,49 @@
       <div class="absolute inset-0 bg-black/20"></div>
     </div>
 
-    <!-- Content Container with glassmorphism -->
-    <div
-      in:fly={{ y: -50, duration: 1000, delay: 200 }}
-      class="text-center flex justify-center"
-    >
-      <div class="flex flex-col items-center max-w-5xl mx-auto">
-        <!-- Title with gradient -->
-        <h1
-          class="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6 bg-gradient-to-r from-white via-zinc-100 to-zinc-300 bg-clip-text text-transparent"
-          style="text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);"
+    {#if title || slogan}
+      <!-- Content Container with glassmorphism -->
+      <div
+        in:fly={{ y: -50, duration: 1000, delay: 200 }}
+        class="text-center flex justify-center"
+      >
+        <div
+          class="flex flex-col items-center max-w-5xl mx-auto p-8 text-balance"
         >
-          {title}
-        </h1>
+          {#if title}
+            <!-- Title with gradient -->
+            <h1
+              class="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6 bg-gradient-to-r from-white via-zinc-100 to-zinc-300 bg-clip-text text-transparent"
+              style="text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);"
+            >
+              {title}
+            </h1>
+          {/if}
 
-        <!-- Animated divider with gradient -->
-        <div class="relative w-full max-w-md my-6 h-px overflow-hidden">
-          <div
-            class="absolute inset-0 bg-gradient-to-r from-transparent via-primary-400/60 to-transparent"
-          ></div>
-          <div
-            class="absolute inset-0 bg-gradient-to-r from-transparent via-secondary-400/60 to-transparent animate-pulse"
-          ></div>
+          {#if title && slogan}
+            <!-- Animated divider with gradient -->
+            <div class="relative w-full max-w-md my-6 h-px overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-transparent via-primary-400/60 to-transparent"
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-transparent via-secondary-400/60 to-transparent animate-pulse"
+              ></div>
+            </div>
+          {/if}
+
+          {#if slogan}
+            <!-- Slogan with enhanced styling -->
+            <p
+              class="text-xl md:text-2xl leading-relaxed max-w-3xl text-zinc-200 font-light tracking-wide"
+              style="text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);"
+            >
+              {slogan}
+            </p>
+          {/if}
         </div>
-
-        <!-- Slogan with enhanced styling -->
-        <p
-          class="text-xl md:text-2xl leading-relaxed max-w-3xl text-zinc-200 font-light tracking-wide"
-          style="text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);"
-        >
-          {slogan}
-        </p>
       </div>
-    </div>
+    {/if}
 
     <!-- Bottom shape -->
     <img

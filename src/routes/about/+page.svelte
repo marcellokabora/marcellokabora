@@ -3,33 +3,45 @@
   import MetaTags from "$lib/components/MetaTags.svelte";
   import { items, menu } from "$lib/data/knowledge";
   import Icon from "@iconify/svelte";
-  import { onMount } from "svelte";
 
-  let activeSection = $state("ai");
-
-  onMount(() => {
-    // Handle URL hash on load
-    const hash = window.location.hash.slice(1);
-    if (hash === "skills" || hash === "skill") {
-      setTimeout(() => {
-        const el = document.getElementById("skills");
-        if (el) {
-          const y = el.getBoundingClientRect().top + window.scrollY - 100;
-          window.scrollTo({ top: y, behavior: "smooth" });
-        }
-      }, 100);
-    }
-  });
+  let activeSection = $state("features");
 
   function scrollIntoView(value: string) {
     const el = document.getElementById(value);
     if (el) {
       // Offset for sticky header/banner
-      const y = el.getBoundingClientRect().top + window.scrollY - 100;
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top: y, behavior: "smooth" });
       activeSection = value;
     }
   }
+
+  // Unified menu with features and skills
+  const unifiedMenu: Array<{ name: string; icon: string; label?: string }> = [
+    { name: "features", icon: "mdi:star-circle", label: "Features" },
+    {
+      name: "recommendations",
+      icon: "mdi:certificate",
+      label: "Recommendations",
+    },
+
+    ...menu.map((item) => ({ ...item, label: item.name })),
+  ];
+
+  const recommendations = [
+    {
+      company: "SMAVA",
+      file: "/recommendation/SMAVA recommendation.jpg",
+      type: "image",
+      description: "Recommendation letter from SMAVA",
+    },
+    {
+      company: "EVA Global",
+      file: "/recommendation/EVA recommendation.pdf",
+      type: "pdf",
+      description: "Recommendation letter from EVA Global",
+    },
+  ];
 
   const descriptions: Record<string, string> = {
     tinkercad:
@@ -258,58 +270,20 @@
   url="https://marcellokabora.com/about"
 />
 
-<Banner
-  cover="/gallery/keyboard.jpg"
-  title="ABOUT"
-  slogan="I am passionate about UI/UX and Web app"
-/>
+<Banner cover="/gallery/keyboard.jpg" />
 
 <div class="container mx-auto max-w-7xl px-4 py-16">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-    {#each features as feature}
-      <div
-        class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-neutral-900/50 transition-all duration-300 hover:border-primary-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]"
-      >
-        <!-- Image with Overlay -->
-        <div class="relative h-56 w-full overflow-hidden">
-          <img
-            src={feature.photo}
-            alt={feature.title}
-            class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/20 to-transparent opacity-80"
-          ></div>
-        </div>
-
-        <!-- Content -->
-        <div class="flex flex-1 flex-col p-6 pt-0">
-          <div class="-mt-8 relative z-10">
-            <h3
-              class="inline-block text-2xl font-bold text-white mb-3 bg-neutral-900/80 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/10 group-hover:border-primary-500/30 transition-colors"
-            >
-              {feature.title}
-            </h3>
-          </div>
-          <p class="text-zinc-400 leading-relaxed text-sm">
-            {@html feature.description}
-          </p>
-        </div>
-      </div>
-    {/each}
-  </div>
-
-  <div id="skills" class="flex flex-col lg:flex-row gap-12">
-    <!-- Sticky Menu -->
+  <div class="flex flex-col lg:flex-row gap-12">
+    <!-- Unified Sticky Menu -->
     <div
-      class="sticky top-24 self-start z-10 hidden lg:flex flex-col gap-2 min-w-[200px]"
+      class="sticky top-24 self-start z-10 hidden lg:flex flex-col gap-2 min-w-[220px]"
     >
       <h3
         class="text-xs font-bold text-secondary-400 uppercase tracking-widest mb-4 px-4"
       >
-        Categories
+        Explore
       </h3>
-      {#each menu as item}
+      {#each unifiedMenu as item}
         <button
           class="text-sm font-medium px-4 py-3 cursor-pointer capitalize rounded-xl text-left
                  transition-all duration-300 flex items-center gap-3 group
@@ -325,17 +299,17 @@
               ? 'scale-110 text-primary-400'
               : 'group-hover:scale-110'}"
           />
-          {item.name}
+          {item.label || item.name}
         </button>
       {/each}
     </div>
 
     <!-- Mobile Menu -->
     <div
-      class="lg:hidden sticky top-20 z-20 overflow-x-auto pb-4 -mx-4 px-4 bg-bg-color/90 backdrop-blur-md border-b border-white/5 pt-2"
+      class="lg:hidden sticky top-0 z-90 overflow-x-auto pb-4 pl-0 pr-4 bg-bg-color/90 backdrop-blur-md border-b border-white/5 pt-2"
     >
       <div class="flex gap-2">
-        {#each menu as item}
+        {#each unifiedMenu as item}
           <button
             class="whitespace-nowrap text-sm font-medium px-4 py-2 cursor-pointer capitalize rounded-full border transition-all duration-200 flex items-center gap-2
                  {activeSection === item.name
@@ -344,66 +318,160 @@
             onclick={() => scrollIntoView(item.name)}
           >
             <Icon icon={item.icon} class="w-4 h-4" />
-            {item.name}
+            {item.label || item.name}
           </button>
         {/each}
       </div>
     </div>
 
-    <!-- Grid Content -->
+    <!-- Unified Content -->
     <div class="flex-1">
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
-      >
-        {#each items as item}
-          <div
-            id={item.id}
-            class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-primary-500/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50 transition-all duration-300"
-          >
-            <!-- Card Header -->
+      <!-- Features Section -->
+      <div id="features" class="mb-16">
+        <h2 class="text-3xl font-bold text-white mb-8">
+          I am passionate about UI/UX and Web app
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
+        >
+          {#each features as feature}
             <div
-              class="relative h-48 bg-black/20 p-6 flex items-center justify-center group-hover:bg-black/30 transition-colors"
+              class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-neutral-900/50 transition-all duration-300 hover:border-primary-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]"
             >
-              <!-- Glow Effect -->
-              <div
-                class="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-900/90"
-              ></div>
-
-              <!-- Image -->
-              <img
-                src={item.photo}
-                alt={item.title}
-                class="relative z-10 h-24 w-auto object-contain drop-shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
-              />
-            </div>
-
-            <!-- Card Body -->
-            <div class="p-6 pt-0 flex-1 flex flex-col relative z-20">
-              <div class="flex items-center justify-between mb-3 -mt-6">
-                <h3
-                  class="text-xl font-bold text-white bg-neutral-900 px-3 py-1 rounded-lg border border-white/10 group-hover:border-primary-500/30 transition-colors shadow-lg"
-                >
-                  {item.title}
-                </h3>
-                {#if item.link}
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    class="text-zinc-500 hover:text-primary-400 transition-colors bg-neutral-900 p-2 rounded-lg border border-white/10 group-hover:border-primary-500/30 shadow-lg"
-                  >
-                    <Icon icon="mdi:external-link" class="w-5 h-5" />
-                  </a>
-                {/if}
+              <!-- Image with Overlay -->
+              <div class="relative h-48 w-full overflow-hidden">
+                <img
+                  src={feature.photo}
+                  alt={feature.title}
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/20 to-transparent opacity-80"
+                ></div>
               </div>
 
-              <p
-                class="text-sm text-zinc-400 leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300"
-              >
-                {descriptions[item.name] || item.title}
-              </p>
+              <!-- Content -->
+              <div class="flex flex-1 flex-col p-6 pt-0">
+                <div class="-mt-6 relative z-10 mb-3">
+                  <h3
+                    class="inline-block text-xl font-bold text-white bg-neutral-900/80 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/10 group-hover:border-primary-500/30 transition-colors"
+                  >
+                    {feature.title}
+                  </h3>
+                </div>
+                <p
+                  class="text-sm text-zinc-400 leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300"
+                >
+                  {@html feature.description}
+                </p>
+              </div>
             </div>
-          </div>
-        {/each}
+          {/each}
+        </div>
+      </div>
+
+      <!-- Recommendations Section -->
+      <div id="recommendations" class="mb-16">
+        <h2 class="text-3xl font-bold text-white mb-8">Recommendations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {#each recommendations as recommendation}
+            <a
+              href={recommendation.file}
+              target="_blank"
+              class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-primary-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-300 p-6"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="flex-shrink-0 w-16 h-16 rounded-full bg-primary-500/10 border border-primary-500/20 flex items-center justify-center group-hover:bg-primary-500/20 transition-colors"
+                >
+                  <Icon
+                    icon="mdi:file-pdf-box"
+                    class="w-8 h-8 text-primary-400 group-hover:scale-110 transition-transform"
+                  />
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-bold text-white mb-1">
+                    {recommendation.company}
+                  </h3>
+                  <p class="text-sm text-zinc-500">Recommendation Letter</p>
+                </div>
+                <Icon
+                  icon="mdi:open-in-new"
+                  class="w-5 h-5 text-zinc-500 group-hover:text-primary-400 transition-colors"
+                />
+              </div>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                {recommendation.description}
+              </p>
+              <div class="mt-4 pt-4 border-t border-white/5">
+                <span
+                  class="text-xs text-secondary-400 uppercase tracking-wider font-medium"
+                >
+                  Open {recommendation.type === "pdf" ? "PDF" : "Image"}
+                </span>
+              </div>
+            </a>
+          {/each}
+        </div>
+      </div>
+
+      <!-- Skills Grid Content -->
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold text-white mb-8">Skills</h2>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
+        >
+          {#each items as item}
+            <div
+              id={item.id}
+              class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-primary-500/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50 transition-all duration-300"
+            >
+              <!-- Card Header -->
+              <div
+                class="relative h-48 bg-black/20 p-6 flex items-center justify-center group-hover:bg-black/30 transition-colors"
+              >
+                <!-- Glow Effect -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-900/90"
+                ></div>
+
+                <!-- Image -->
+                <img
+                  src={item.photo}
+                  alt={item.title}
+                  class="relative z-10 h-24 w-auto object-contain drop-shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+                />
+              </div>
+
+              <!-- Card Body -->
+              <div class="p-6 pt-0 flex-1 flex flex-col relative z-20">
+                <div class="flex items-center justify-between mb-3 -mt-6">
+                  <h3
+                    class="text-xl font-bold text-white bg-neutral-900 px-3 py-1 rounded-lg border border-white/10 group-hover:border-primary-500/30 transition-colors shadow-lg"
+                  >
+                    {item.title}
+                  </h3>
+                  {#if item.link}
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      class="text-zinc-500 hover:text-primary-400 transition-colors bg-neutral-900 p-2 rounded-lg border border-white/10 group-hover:border-primary-500/30 shadow-lg"
+                    >
+                      <Icon icon="mdi:external-link" class="w-5 h-5" />
+                    </a>
+                  {/if}
+                </div>
+
+                <p
+                  class="text-sm text-zinc-400 leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300"
+                >
+                  {descriptions[item.name] || item.title}
+                </p>
+              </div>
+            </div>
+          {/each}
+        </div>
       </div>
     </div>
   </div>
