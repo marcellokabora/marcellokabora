@@ -18,14 +18,13 @@
 
   // Unified menu with features and skills
   const unifiedMenu: Array<{ name: string; icon: string; label?: string }> = [
-    { name: "features", icon: "mdi:star-circle", label: "Features" },
+    { name: "skills", icon: "mdi:star-circle", label: "Skills" },
+    ...menu.map((item) => ({ ...item, label: item.name })),
     {
       name: "recommendations",
       icon: "mdi:certificate",
       label: "Recommendations",
     },
-
-    ...menu.map((item) => ({ ...item, label: item.name })),
   ];
 
   const recommendations = [
@@ -270,7 +269,11 @@
   url="https://marcellokabora.com/about"
 />
 
-<Banner cover="/gallery/keyboard.jpg" />
+<Banner
+  cover="/gallery/keyboard.jpg"
+  title="About Me"
+  slogan="Learn more about my journey and expertise"
+/>
 
 <div class="container mx-auto max-w-7xl px-4 py-16">
   <div class="flex flex-col lg:flex-row gap-12">
@@ -327,10 +330,8 @@
     <!-- Unified Content -->
     <div class="flex-1">
       <!-- Features Section -->
-      <div id="features" class="mb-16">
-        <h2 class="text-3xl font-bold text-white mb-8">
-          I am passionate about UI/UX and Web app
-        </h2>
+      <div id="skills" class="mb-16">
+        <h2 class="text-3xl font-bold text-white mb-8">Skills</h2>
         <div
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
         >
@@ -370,54 +371,9 @@
         </div>
       </div>
 
-      <!-- Recommendations Section -->
-      <div id="recommendations" class="mb-16">
-        <h2 class="text-3xl font-bold text-white mb-8">Recommendations</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {#each recommendations as recommendation}
-            <a
-              href={recommendation.file}
-              target="_blank"
-              class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-primary-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-300 p-6"
-            >
-              <div class="flex items-center gap-4 mb-4">
-                <div
-                  class="flex-shrink-0 w-16 h-16 rounded-full bg-primary-500/10 border border-primary-500/20 flex items-center justify-center group-hover:bg-primary-500/20 transition-colors"
-                >
-                  <Icon
-                    icon="mdi:file-pdf-box"
-                    class="w-8 h-8 text-primary-400 group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <div class="flex-1">
-                  <h3 class="text-xl font-bold text-white mb-1">
-                    {recommendation.company}
-                  </h3>
-                  <p class="text-sm text-zinc-500">Recommendation Letter</p>
-                </div>
-                <Icon
-                  icon="mdi:open-in-new"
-                  class="w-5 h-5 text-zinc-500 group-hover:text-primary-400 transition-colors"
-                />
-              </div>
-              <p class="text-sm text-zinc-400 leading-relaxed">
-                {recommendation.description}
-              </p>
-              <div class="mt-4 pt-4 border-t border-white/5">
-                <span
-                  class="text-xs text-secondary-400 uppercase tracking-wider font-medium"
-                >
-                  Open {recommendation.type === "pdf" ? "PDF" : "Image"}
-                </span>
-              </div>
-            </a>
-          {/each}
-        </div>
-      </div>
-
       <!-- Skills Grid Content -->
       <div class="flex-1">
-        <h2 class="text-3xl font-bold text-white mb-8">Skills</h2>
+        <h2 class="text-3xl font-bold text-white mb-8">Tools</h2>
 
         <div
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
@@ -470,6 +426,51 @@
                 </p>
               </div>
             </div>
+          {/each}
+        </div>
+      </div>
+
+      <!-- Recommendations Section -->
+      <div id="recommendations" class="mb-16">
+        <h2 class="text-3xl font-bold text-white mb-8">Recommendations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {#each recommendations as recommendation}
+            <a
+              href={recommendation.file}
+              target="_blank"
+              class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-primary-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-300 p-6"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <div
+                  class="flex-shrink-0 w-16 h-16 rounded-full bg-primary-500/10 border border-primary-500/20 flex items-center justify-center group-hover:bg-primary-500/20 transition-colors"
+                >
+                  <Icon
+                    icon="mdi:file-pdf-box"
+                    class="w-8 h-8 text-primary-400 group-hover:scale-110 transition-transform"
+                  />
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-bold text-white mb-1">
+                    {recommendation.company}
+                  </h3>
+                  <p class="text-sm text-zinc-500">Recommendation Letter</p>
+                </div>
+                <Icon
+                  icon="mdi:open-in-new"
+                  class="w-5 h-5 text-zinc-500 group-hover:text-primary-400 transition-colors"
+                />
+              </div>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                {recommendation.description}
+              </p>
+              <div class="mt-4 pt-4 border-t border-white/5">
+                <span
+                  class="text-xs text-secondary-400 uppercase tracking-wider font-medium"
+                >
+                  Open {recommendation.type === "pdf" ? "PDF" : "Image"}
+                </span>
+              </div>
+            </a>
           {/each}
         </div>
       </div>

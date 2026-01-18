@@ -23,8 +23,8 @@
 {#key animationKey}
   <div
     class="{title || slogan
-      ? 'h-[40vh] md:h-[60vh]'
-      : 'h-[25vh] md:h-[30vh]'} flex items-center justify-center text-white overflow-hidden relative text-center px-4"
+      ? 'h-[30vh] md:h-[45vh]'
+      : 'h-[20vh] md:h-[25vh]'} flex items-center justify-center text-white overflow-hidden relative text-center px-4"
   >
     <!-- Background with overlay -->
     <div
@@ -49,12 +49,12 @@
         class="text-center flex justify-center"
       >
         <div
-          class="flex flex-col items-center max-w-5xl mx-auto p-8 text-balance"
+          class="flex flex-col items-center max-w-5xl mx-auto p-4 md:p-6 text-balance"
         >
           {#if title}
             <!-- Title with gradient -->
             <h1
-              class="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6 bg-gradient-to-r from-white via-zinc-100 to-zinc-300 bg-clip-text text-transparent"
+              class="text-3xl md:text-4xl font-bold leading-tight tracking-tight bg-gradient-to-r from-white via-zinc-100 to-zinc-300 bg-clip-text text-transparent"
               style="text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);"
             >
               {title}
@@ -63,7 +63,9 @@
 
           {#if title && slogan}
             <!-- Animated divider with gradient -->
-            <div class="relative w-full max-w-md my-6 h-px overflow-hidden">
+            <div
+              class="relative w-full max-w-md my-3 md:my-4 h-px overflow-hidden"
+            >
               <div
                 class="absolute inset-0 bg-gradient-to-r from-transparent via-primary-400/60 to-transparent"
               ></div>
@@ -76,7 +78,7 @@
           {#if slogan}
             <!-- Slogan with enhanced styling -->
             <p
-              class="text-xl md:text-2xl leading-relaxed max-w-3xl text-zinc-200 font-light tracking-wide"
+              class="text-base md:text-lg leading-relaxed max-w-3xl text-zinc-200 font-light tracking-wide"
               style="text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);"
             >
               {slogan}

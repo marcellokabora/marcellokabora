@@ -34,7 +34,7 @@
     }
     if (project.gallery) {
       items.push(
-        ...project.gallery.map((photo) => ({ type: "image", url: photo }))
+        ...project.gallery.map((photo) => ({ type: "image", url: photo })),
       );
     }
     return items;
@@ -200,7 +200,7 @@
                       use:enhance={({ cancel }) => {
                         if (
                           !confirm(
-                            "Are you sure you want to delete this photo?"
+                            "Are you sure you want to delete this photo?",
                           )
                         ) {
                           cancel();
@@ -257,7 +257,7 @@
 </section>
 
 {#if $user}
-  <div class="absolute right-12 top-[120px] flex flex-col items-center gap-4">
+  <div class="absolute md:right-6 md:top-25 flex flex-col items-center gap-4">
     <form
       method="POST"
       action="?/cover"
