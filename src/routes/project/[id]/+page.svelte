@@ -1,6 +1,6 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import Banner from "$lib/components/Banner.svelte";
+  import PageHero from "$lib/components/PageHero.svelte";
   import Create from "$lib/components/Create.svelte";
   import type { Project } from "$lib/types/project.types";
   import Dialog from "$lib/components/Dialog.svelte";
@@ -78,10 +78,11 @@
   url={`https://marcellokabora.com/project/${project?.name}`}
 />
 
-<Banner
-  cover={project?.cover ? getImg(project.cover) : imgPlaceholder}
+<PageHero
+  backgroundImage={project?.cover ? getImg(project.cover) : imgPlaceholder}
   title={project.title}
   slogan={project.slogan}
+  showScrollIndicator={false}
 />
 <section
   class="mb-16 bg-neutral-900 text-white"

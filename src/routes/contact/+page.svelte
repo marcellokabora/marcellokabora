@@ -1,7 +1,8 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
-  import Banner from "$lib/components/Banner.svelte";
+  import PageHero from "$lib/components/PageHero.svelte";
   import MetaTags from "$lib/components/MetaTags.svelte";
+  import { fly } from "svelte/transition";
 
   const socialLinks = [
     {
@@ -33,15 +34,19 @@
   url="https://marcellokabora.com/contact"
 />
 
-<Banner
+<PageHero
   title="Contacts"
   slogan="Let's connect and explore opportunities"
-  cover="/photo/coding-multi.jpg"
+  backgroundImage="/photo/coding-multi.jpg"
+  badge="Get in Touch"
 />
 
-<div class="pb-16 px-4 max-w-7xl mx-auto">
+<div
+  class="pb-16 px-4 max-w-7xl mx-auto"
+  in:fly={{ y: 100, duration: 1000, delay: 100 }}
+>
   <!-- Social Media Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-16">
     {#each socialLinks as social}
       <a
         href={social.url}

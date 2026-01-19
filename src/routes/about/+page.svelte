@@ -1,8 +1,9 @@
 <script lang="ts">
-  import Banner from "$lib/components/Banner.svelte";
+  import PageHero from "$lib/components/PageHero.svelte";
   import MetaTags from "$lib/components/MetaTags.svelte";
   import { items, menu } from "$lib/data/knowledge";
   import Icon from "@iconify/svelte";
+  import { fly } from "svelte/transition";
 
   let activeSection = $state("features");
 
@@ -269,13 +270,17 @@
   url="https://marcellokabora.com/about"
 />
 
-<Banner
-  cover="/gallery/keyboard.jpg"
+<PageHero
   title="About Me"
   slogan="Learn more about my journey and expertise"
+  backgroundImage="/gallery/keyboard.jpg"
+  badge="Full Stack Developer"
 />
 
-<div class="container mx-auto max-w-7xl px-4 py-16">
+<div
+  class="container mx-auto max-w-7xl px-4 py-16"
+  in:fly={{ y: 100, duration: 1000, delay: 100 }}
+>
   <div class="flex flex-col lg:flex-row gap-12">
     <!-- Unified Sticky Menu -->
     <div

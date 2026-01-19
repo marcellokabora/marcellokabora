@@ -1,5 +1,5 @@
 <script>
-  import Banner from "$lib/components/Banner.svelte";
+  import PageHero from "$lib/components/PageHero.svelte";
   import MetaTags from "$lib/components/MetaTags.svelte";
   import { fly } from "svelte/transition";
   import { companies } from "$lib/data/companies";
@@ -11,10 +11,11 @@
   url="https://marcellokabora.com/career"
 />
 
-<Banner
-  cover="/photo/coding-purple.jpg"
+<PageHero
   title="Career"
   slogan="I worked for different startup in Berlin, Barcelona and Italy"
+  backgroundImage="/photo/coding-purple.jpg"
+  badge="Professional Experience"
 />
 
 <section
