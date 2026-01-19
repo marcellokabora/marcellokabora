@@ -73,7 +73,7 @@
             <!-- Fallback Gradient -->
             <div
               class="absolute inset-0 bg-gradient-to-br {getProjectColor(
-                project.type
+                project.type,
               )} opacity-20 group-hover:opacity-30 transition-opacity duration-500"
             ></div>
             <div class="absolute inset-0 flex items-center justify-center p-10">
