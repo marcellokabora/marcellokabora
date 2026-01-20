@@ -71,22 +71,26 @@
       {/if}
 
       <!-- Title with Gradient -->
-      <h1
-        class="text-5xl md:text-7xl font-bold tracking-tight"
-        style="background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-secondary-400) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"
-        in:fly={{ y: 30, duration: 800, delay: 400, easing: cubicOut }}
-      >
-        {title}
-      </h1>
+      {#key title}
+        <h1
+          class="text-5xl md:text-7xl font-bold tracking-tight"
+          style="background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-secondary-400) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"
+          in:fly={{ y: 30, duration: 800, delay: 400, easing: cubicOut }}
+        >
+          {title}
+        </h1>
+      {/key}
 
       {#if slogan}
-        <!-- Slogan -->
-        <p
-          class="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed"
-          in:fly={{ y: 30, duration: 800, delay: 600, easing: cubicOut }}
-        >
-          {slogan}
-        </p>
+        {#key slogan}
+          <!-- Slogan -->
+          <p
+            class="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed"
+            in:fly={{ y: 30, duration: 800, delay: 600, easing: cubicOut }}
+          >
+            {slogan}
+          </p>
+        {/key}
       {/if}
 
       <!-- Decorative Line -->
