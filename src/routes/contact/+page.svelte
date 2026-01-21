@@ -82,6 +82,71 @@
     {/each}
   </div>
 
+  <!-- QR Codes Section (Mobile Only) -->
+  <div class="md:hidden my-16">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-bold mb-4 text-white">Quick Connect</h2>
+      <p class="text-zinc-400">Scan these QR codes to connect with me</p>
+    </div>
+
+    <div class="space-y-6">
+      <!-- LinkedIn QR Code (Featured) -->
+      <div
+        class="bg-zinc-900/50 border-2 border-primary-500/50 rounded-2xl p-6 backdrop-blur-sm"
+      >
+        <div class="flex flex-col items-center text-center space-y-4">
+          <div class="flex items-center gap-2 mb-2">
+            <Icon icon="mdi:linkedin" class="w-6 h-6 text-blue-500" />
+            <h3 class="text-xl font-bold text-white">LinkedIn Profile</h3>
+          </div>
+          <div class="bg-white p-4 rounded-xl">
+            <img
+              src="/qrcode/linkedin.png"
+              alt="LinkedIn QR Code"
+              class="w-48 h-48 mx-auto"
+            />
+          </div>
+          <p class="text-zinc-400 text-sm">Scan to connect on LinkedIn</p>
+        </div>
+      </div>
+
+      <!-- Portfolio & 7echno QR Codes -->
+      <div class="grid grid-cols-2 gap-4">
+        <div
+          class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 backdrop-blur-sm"
+        >
+          <div class="flex flex-col items-center text-center space-y-3">
+            <h3 class="text-sm font-bold text-white">Portfolio</h3>
+            <div class="bg-white p-3 rounded-lg">
+              <img
+                src="/qrcode/portfolio.png"
+                alt="Portfolio QR Code"
+                class="w-32 h-32"
+              />
+            </div>
+            <p class="text-zinc-400 text-xs">View my work</p>
+          </div>
+        </div>
+
+        <div
+          class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 backdrop-blur-sm"
+        >
+          <div class="flex flex-col items-center text-center space-y-3">
+            <h3 class="text-sm font-bold text-white">7echno</h3>
+            <div class="bg-white p-3 rounded-lg">
+              <img
+                src="/qrcode/7echno.png"
+                alt="7echno Project QR Code"
+                class="w-32 h-32"
+              />
+            </div>
+            <p class="text-zinc-400 text-xs">Check the project</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Curriculum Section -->
   <div class="mt-16">
     <div class="text-center mb-8">
