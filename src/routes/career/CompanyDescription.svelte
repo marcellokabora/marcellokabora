@@ -26,8 +26,8 @@
         design and production by utilizing AI-driven workflows. I focused on
         converting Figma designs into high-quality code with tools like GitHub
         Copilot and implemented MCP protocols to ensure robust connectivity
-        between the frontend and backend for the <a href="/project/fasttrack/"
-          >Fast Track</a
+        between the frontend and backend for the <a
+          href="/project/ticket-monorepo/">Ticket App</a
         > project. Additionally, I took ownership of the Design System documentation
         and established the foundational guidelines for AI agent protocols to optimize
         team-wide AI integration.

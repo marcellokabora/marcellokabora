@@ -25,7 +25,7 @@ export const companies: Company[] = [
         title: "Frontend AI Leader",
         time: "From June 2024 - Jan 2025",
         link: "//fasttrack.flights",
-        technologies: "Vue, Nuxt, Github, Figma, Tailwind, Typescript"
+        technologies: "Vue, Nuxt, Svelte, Github, Figma, Tailwind, Turborepo"
     },
     {
         logo: "/company/evaglobal.png",

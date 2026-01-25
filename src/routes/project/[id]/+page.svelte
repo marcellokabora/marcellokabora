@@ -89,7 +89,7 @@
   in:fly={{ y: 100, duration: 1000, delay: 100 }}
 >
   <div
-    class="container mx-auto max-w-6xl px-6 text-justify flex flex-col items-center gap-8"
+    class="container mx-auto max-w-6xl px-6 text-center flex flex-col items-center gap-8"
   >
     <div class="markdown max-w-[600px]">
       {@html marked.parse(project.info ?? "")}
@@ -196,7 +196,16 @@
                   >
                     <button
                       type="submit"
-                      class="scale-[0.8] h-12 w-12 bg-red-500 text-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-600"
+                      class="scale-[0.8] h-12 w-12 bg-neutral-500 text-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-600"
+                    >
+                      <Icon icon="material-symbols:delete" />
+                    </button>
+                    <div class="hidden">
+                      <input type="text" name="name" value={item.url} />
+                    </div>
+                    <button
+                      type="submit"
+                      class="scale-[0.8] h-12 w-12 bg-black/40 text-white/60 rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-red-500 hover:text-white border border-white/10 hover:border-red-500/30"
                     >
                       <Icon icon="material-symbols:delete" />
                     </button>

@@ -41,6 +41,12 @@
       type: "pdf",
       description: "Recommendation letter from EVA Global",
     },
+    {
+      company: "Passnfly",
+      file: "/recommendation/Passnfly recommendation.pdf",
+      type: "pdf",
+      description: "Recommendation letter from Passnfly",
+    },
   ];
 
   const descriptions: Record<string, string> = {

@@ -6,7 +6,15 @@ const config: UserConfig = {
 	plugins: [
 		tailwindcss(),
 		sveltekit(),
-	]
+	],
+	server: {
+		fs: {
+			strict: false
+		}
+	},
+	optimizeDeps: {
+		exclude: ['@sveltejs/kit']
+	}
 };
 
 export default config;
