@@ -175,6 +175,72 @@ color: var(--color-primary-300);
 - **Language:** TypeScript
 - **Backend:** Firebase (Authentication & Database)
 
+## 5.1 Code Style Rules
+
+### Always Use Tailwind Inline Classes
+
+**CRITICAL:** Never use `<style>` blocks in Svelte components. Always use Tailwind CSS utility classes directly in the HTML markup.
+
+**DO:**
+
+```svelte
+<div class="min-h-screen bg-[#0a0a0a] p-6 pt-24">
+  <h1 class="text-4xl font-bold text-white mb-4">Title</h1>
+  <button class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]">
+    Click me
+  </button>
+</div>
+```
+
+**DON'T:**
+
+```svelte
+<div class="container">
+  <h1>Title</h1>
+</div>
+
+<style>
+  .container {
+    min-height: 100vh;
+    padding: 6rem 1.5rem 4rem;
+  }
+</style>
+```
+
+### Tailwind Class Mapping for Design Tokens
+
+| CSS Variable             | Tailwind Equivalent                 |
+| ------------------------ | ----------------------------------- |
+| `--bg-color`             | `bg-[#0a0a0a]`                      |
+| `--background-secondary` | `bg-[#1a1a1a]`                      |
+| `--text-primary`         | `text-white`                        |
+| `--text-secondary`       | `text-[#a0a0a0]` or `text-zinc-400` |
+| `--border-color`         | `border-zinc-800`                   |
+| `--color-primary-400`    | `text-purple-400` / `bg-purple-400` |
+| `--color-primary-500`    | `text-purple-500` / `bg-purple-500` |
+| `--color-primary-600`    | `text-purple-600` / `bg-purple-600` |
+| `--color-secondary-400`  | `text-cyan-400` / `bg-cyan-400`     |
+| `--color-secondary-500`  | `text-cyan-500` / `bg-cyan-500`     |
+
+### Common Patterns
+
+```svelte
+<!-- Card -->
+<div class="bg-[#1a1a1a] border border-zinc-800 rounded-2xl backdrop-blur-xl p-6">
+
+<!-- Primary Button -->
+<button class="w-full py-3 px-6 bg-purple-500 hover:bg-purple-600 text-white rounded-lg font-semibold transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
+
+<!-- Input Field -->
+<input class="w-full py-3 px-4 bg-[#0a0a0a] border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-purple-400 focus:ring-[3px] focus:ring-purple-500/10 transition-all duration-300" />
+
+<!-- Error State -->
+<input class="border-red-500 focus:ring-red-500/10" />
+
+<!-- Link -->
+<a class="text-purple-400 hover:text-purple-300 transition-colors duration-200">
+```
+
 ## 6. Content Checklist
 
 - [ ] Replace low-res thumbnails with high-quality device mockups (showing sites inside laptops/phones)
