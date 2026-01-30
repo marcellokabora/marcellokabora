@@ -19,7 +19,7 @@
   const companyCount = companies.length;
 </script>
 
-<section class="py-24 px-4 w-full">
+<section class="py-24 px-4 w-full scroll-animate-container">
   <div class="max-w-7xl mx-auto">
     <h2
       class="text-sm font-bold text-secondary-400 uppercase tracking-widest mb-2 text-center"
@@ -35,7 +35,8 @@
     >
       <!-- Large Card: Bio -->
       <div
-        class="col-span-1 md:col-span-2 row-span-2 bg-neutral-900 border border-slate-800 rounded-2xl p-8 flex flex-col md:flex-row gap-6 hover:border-zinc-600 transition-all duration-300 group overflow-hidden relative"
+        class="col-span-1 md:col-span-2 row-span-2 bg-neutral-900 border border-slate-800 rounded-2xl p-8 flex flex-col md:flex-row gap-6 hover:border-zinc-600 transition-all duration-300 group overflow-hidden relative scroll-animate-item"
+        style="--animate-delay: 0ms;"
       >
         <!-- <div
           class="absolute bottom-0 left-0 p-8 opacity-5 group-hover:opacity-20 transition-opacity"
@@ -65,7 +66,8 @@
 
       <!-- Wide Card: Stack -->
       <div
-        class="col-span-1 md:col-span-2 bg-neutral-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-center relative overflow-hidden group"
+        class="col-span-1 md:col-span-2 bg-neutral-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-center relative overflow-hidden group scroll-animate-item"
+        style="--animate-delay: 100ms;"
       >
         <div
           class="absolute inset-0 bg-gradient-to-r from-transparent via-secondary-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
@@ -93,7 +95,8 @@
 
       <!-- Small Card: Exp -->
       <div
-        class="col-span-1 bg-neutral-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform"
+        class="col-span-1 bg-neutral-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform scroll-animate-item"
+        style="--animate-delay: 200ms;"
       >
         <span
           class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-600"
@@ -107,7 +110,8 @@
 
       <!-- Small Card: Products -->
       <div
-        class="col-span-1 bg-neutral-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform"
+        class="col-span-1 bg-neutral-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform scroll-animate-item"
+        style="--animate-delay: 250ms;"
       >
         <span
           class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-secondary-300 to-secondary-600"
@@ -121,7 +125,8 @@
 
       <!-- Small Card: Companies -->
       <div
-        class="col-span-1 bg-neutral-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform"
+        class="col-span-1 bg-neutral-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform scroll-animate-item"
+        style="--animate-delay: 300ms;"
       >
         <span
           class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-primary-300 to-primary-600"
@@ -135,7 +140,8 @@
 
       <!-- Small Card: Status -->
       <div
-        class="col-span-1 bg-neutral-900 border max-md:hidden border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform relative overflow-hidden group"
+        class="col-span-1 bg-neutral-900 border max-md:hidden border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform relative overflow-hidden group scroll-animate-item"
+        style="--animate-delay: 350ms;"
       >
         <div class="absolute top-2 right-2">
           <span class="flex h-3 w-3">
@@ -157,7 +163,8 @@
       <a
         href="/Marcello Annicchiarico.pdf"
         download
-        class="col-span-1 md:col-span-2 bg-gradient-to-br from-primary-900/20 to-secondary-900/20 border border-primary-500/30 rounded-2xl p-6 flex flex-row items-center justify-between hover:border-primary-500/50 transition-all duration-300 group cursor-pointer relative overflow-hidden"
+        class="col-span-1 md:col-span-2 bg-gradient-to-br from-primary-900/20 to-secondary-900/20 border border-primary-500/30 rounded-2xl p-6 flex flex-row items-center justify-between hover:border-primary-500/50 transition-all duration-300 group cursor-pointer relative overflow-hidden scroll-animate-item"
+        style="--animate-delay: 400ms;"
       >
         <div
           class="absolute inset-0 bg-gradient-to-r from-transparent via-primary-500/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
@@ -181,3 +188,41 @@
     </div>
   </div>
 </section>
+
+<style>
+  @supports (animation-timeline: view()) {
+    .scroll-animate-item {
+      animation: fade-slide-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+      animation-delay: var(--animate-delay, 0ms);
+    }
+  }
+
+  @keyframes fade-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Fallback for browsers without scroll-driven animations support */
+  @supports not (animation-timeline: view()) {
+    .scroll-animate-item {
+      opacity: 0;
+      transform: translateY(50px);
+      transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+    }
+
+    .scroll-animate-item.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
