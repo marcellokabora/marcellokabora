@@ -138,26 +138,32 @@
         >
       </div>
 
-      <!-- Small Card: Status -->
-      <div
-        class="col-span-1 bg-neutral-900 border max-md:hidden border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.02] transition-transform relative overflow-hidden group scroll-animate-item"
+      <!-- Small Card: Watch Video -->
+      <a
+        href="https://youtu.be/04E-zwMWM4o"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="col-span-1 bg-gradient-to-br from-primary-900/20 to-primary-600/10 border max-md:hidden border-primary-500/30 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:scale-[1.05] hover:border-primary-500/50 transition-all duration-300 relative overflow-hidden group cursor-pointer scroll-animate-item"
         style="--animate-delay: 350ms;"
       >
-        <div class="absolute top-2 right-2">
-          <span class="flex h-3 w-3">
-            <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
-            ></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
-            ></span>
-          </span>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-transparent via-primary-500/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"
+        ></div>
+        <div class="relative z-10 flex flex-col items-center">
+          <div
+            class="w-16 h-16 bg-primary-600/20 rounded-full flex items-center justify-center border border-primary-500/30 group-hover:bg-primary-600/30 transition-colors mb-3"
+          >
+            <Icon
+              icon="mdi:play"
+              class="w-8 h-8 text-primary-400 group-hover:scale-110 transition-transform"
+            />
+          </div>
+          <span
+            class="text-sm text-zinc-400 uppercase tracking-widest font-semibold"
+            >Watch Video</span
+          >
         </div>
-        <Icon icon="mdi:check-circle" class="w-12 h-12 text-green-400 mb-2" />
-        <span
-          class="text-sm text-zinc-400 mt-2 uppercase tracking-widest font-semibold"
-          >Available</span
-        >
-      </div>
+      </a>
 
       <!-- Small Card: CV Download -->
       <a

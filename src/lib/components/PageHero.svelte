@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { fade, fly, scale } from "svelte/transition";
-  import { cubicOut } from "svelte/easing";
+  import { fade } from "svelte/transition";
 
   interface Props {
     title: string;
@@ -22,14 +21,16 @@
 </script>
 
 <!-- Modern Hero Section with Blurred Background -->
-<div class="relative flex items-center justify-center overflow-hidden">
+<div
+  class="relative flex items-center justify-center overflow-hidden"
+  in:fade={{ duration: 600 }}
+>
   <!-- Blurred Background Image -->
   <div class="absolute inset-0 -z-10">
     <img
       src={backgroundImage}
       alt="{title} background"
       class="w-full h-full object-cover blur-2xl scale-110 opacity-50"
-      in:fade={{ duration: 1200, delay: 1000 }}
     />
     <!-- Gradient Overlay -->
     <div
@@ -48,10 +49,7 @@
     <div class="space-y-6">
       {#if badge || badgeCount}
         <!-- Badge -->
-        <div
-          class="flex justify-center mb-8"
-          in:scale={{ duration: 600, delay: 300, start: 0.8, easing: cubicOut }}
-        >
+        <div class="flex justify-center mb-8">
           <span
             class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--background-secondary)]/80 backdrop-blur-xl border border-[var(--border-color)]"
           >
@@ -75,7 +73,6 @@
         <h1
           class="text-5xl md:text-7xl font-bold tracking-tight"
           style="background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-secondary-400) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"
-          in:fly={{ y: 30, duration: 800, delay: 400, easing: cubicOut }}
         >
           {title}
         </h1>
@@ -86,7 +83,6 @@
           <!-- Slogan -->
           <p
             class="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed"
-            in:fly={{ y: 30, duration: 800, delay: 600, easing: cubicOut }}
           >
             {slogan}
           </p>
@@ -94,10 +90,7 @@
       {/if}
 
       <!-- Decorative Line -->
-      <div
-        class="flex justify-center pt-8"
-        in:scale={{ duration: 800, delay: 800, start: 0, easing: cubicOut }}
-      >
+      <div class="flex justify-center pt-8">
         <div
           class="w-32 h-1 rounded-full"
           style="background: linear-gradient(90deg, transparent, var(--color-primary-400), var(--color-secondary-400), transparent);"
@@ -108,10 +101,7 @@
 
   {#if showScrollIndicator}
     <!-- Scroll Indicator -->
-    <div
-      class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
-      in:fade={{ duration: 600, delay: 1000 }}
-    >
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
       <svg
         class="w-6 h-6 text-[var(--color-primary-400)]"
         fill="none"

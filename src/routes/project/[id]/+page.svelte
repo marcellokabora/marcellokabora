@@ -78,171 +78,176 @@
   url={`https://marcellokabora.com/project/${project?.name}`}
 />
 
-<PageHero
-  backgroundImage={project?.cover ? getImg(project.cover) : imgPlaceholder}
-  title={project.title}
-  slogan={project.slogan}
-  showScrollIndicator={false}
-/>
-<section
-  class="my-14 bg-neutral-900 text-white"
-  in:fly={{ y: 100, duration: 1000, delay: 100 }}
->
-  <div
-    class="container mx-auto max-w-6xl px-6 text-center flex flex-col items-center gap-8"
+{#key project.name}
+  <PageHero
+    backgroundImage={project?.cover ? getImg(project.cover) : imgPlaceholder}
+    title={project.title}
+    slogan={project.slogan}
+    showScrollIndicator={false}
+  />
+  <section
+    class="my-14 bg-neutral-900 text-white"
+    in:fly={{ y: 100, duration: 1000, delay: 100 }}
   >
-    <div class="markdown max-w-[600px]">
-      {@html marked.parse(project.info ?? "")}
-    </div>
-    <div class="flex flex-wrap gap-4">
-      {#if project.date}
-        <div
-          class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-        >
-          <Icon icon="material-symbols:event" />
-          <span>{formatDate(project.date)}</span>
-        </div>
-      {/if}
-      {#if project.link}
-        <div
-          class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-        >
-          <Icon icon="material-symbols:captive-portal" />
-          <a
-            class="no-underline text-zinc-300 hover:!text-secondary-400 !transition-colors duration-200"
-            href={project.link}
-            target="_blank">Website</a
+    <div
+      class="container mx-auto max-w-6xl px-6 text-center flex flex-col items-center gap-8"
+    >
+      <div class="markdown max-w-[600px]">
+        {@html marked.parse(project.info ?? "")}
+      </div>
+      <div class="flex flex-wrap gap-4">
+        {#if project.date}
+          <div
+            class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
           >
-        </div>
-      {/if}
-      {#if project.code}
-        <div
-          class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-        >
-          <Icon icon="mdi:github" />
-          <a
-            class="no-underline text-zinc-300 hover:!text-secondary-400 !transition-colors duration-200"
-            href={`//github.com/marcellokabora/${project.code}`}
-            target="_blank">Github Link</a
-          >
-        </div>
-      {/if}
-      {#if project.lang}
-        <div
-          class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-        >
-          <Icon icon="material-symbols:code" />
-          <div class="flex flex-wrap gap-2">
-            {#each project.lang.split(",") as lang, i (lang)}
-              <a
-                class="no-underline text-white bg-primary-600/50 hover:bg-primary-600 px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 border border-primary-500/30"
-                href={getLang(lang)?.url}
-                target="_blank"
-              >
-                {lang.trim().charAt(0).toUpperCase() +
-                  lang.trim().slice(1).toLowerCase()}
-              </a>
-            {/each}
+            <Icon icon="material-symbols:event" />
+            <span>{formatDate(project.date)}</span>
           </div>
-        </div>
-      {/if}
-    </div>
-
-    {#if project.youtube || project.gallery}
-      <!-- Carousel for all screen sizes -->
-      <div>
-        <div
-          bind:this={scrollContainer}
-          onscroll={handleGalleryScroll}
-          class="flex overflow-x-auto snap-x snap-mandatory scrollbar-none"
-          style="scrollbar-width: none; -ms-overflow-style: none;"
-        >
-          {#each galleryItems() as item, index (item.type === "video" ? `video-${item.url}` : item.url)}
-            <div class="relative group w-full flex-shrink-0 snap-center px-2">
-              {#if item.type === "video"}
-                <iframe
-                  src="https://www.youtube.com/embed/{item.url}"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                  class="w-full aspect-video max-h-[70vh] mx-auto shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
-                ></iframe>
-              {:else}
-                <img
-                  src={getImg(item.url)}
-                  alt=""
-                  class="w-full h-auto max-h-[70vh] mx-auto object-contain transition-all duration-300 shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
-                />
-                {#if $user}
-                  <form
-                    method="POST"
-                    action="?/remove"
-                    use:enhance={({ cancel }) => {
-                      if (
-                        !confirm("Are you sure you want to delete this photo?")
-                      ) {
-                        cancel();
-                        return;
-                      }
-                      return async ({ result }) => {
-                        if (result.type === "success") {
-                          if (result?.data?.project)
-                            project = result.data.project as Project;
-                        }
-                      };
-                    }}
-                  >
-                    <button
-                      type="submit"
-                      class="scale-[0.8] h-12 w-12 bg-neutral-500 text-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-600"
-                    >
-                      <Icon icon="material-symbols:delete" />
-                    </button>
-                    <div class="hidden">
-                      <input type="text" name="name" value={item.url} />
-                    </div>
-                    <button
-                      type="submit"
-                      class="scale-[0.8] h-12 w-12 bg-black/40 text-white/60 rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-red-500 hover:text-white border border-white/10 hover:border-red-500/30"
-                    >
-                      <Icon icon="material-symbols:delete" />
-                    </button>
-                    <div class="hidden">
-                      <input type="text" name="name" value={item.url} />
-                    </div>
-                  </form>
-                {/if}
-              {/if}
+        {/if}
+        {#if project.link}
+          <div
+            class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
+          >
+            <Icon icon="material-symbols:captive-portal" />
+            <a
+              class="no-underline text-zinc-300 hover:!text-secondary-400 !transition-colors duration-200"
+              href={project.link}
+              target="_blank">Website</a
+            >
+          </div>
+        {/if}
+        {#if project.code}
+          <div
+            class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
+          >
+            <Icon icon="mdi:github" />
+            <a
+              class="no-underline text-zinc-300 hover:!text-secondary-400 !transition-colors duration-200"
+              href={`//github.com/marcellokabora/${project.code}`}
+              target="_blank">Github Repo</a
+            >
+          </div>
+        {/if}
+        {#if project.lang}
+          <div
+            class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
+          >
+            <Icon icon="material-symbols:code" />
+            <div class="flex flex-wrap gap-2">
+              {#each project.lang.split(",") as lang, i (lang)}
+                <a
+                  class="no-underline text-white bg-primary-600/50 hover:bg-primary-600 px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 border border-primary-500/30"
+                  href={getLang(lang)?.url}
+                  target="_blank"
+                >
+                  {lang.trim().charAt(0).toUpperCase() +
+                    lang.trim().slice(1).toLowerCase()}
+                </a>
+              {/each}
             </div>
-          {/each}
-        </div>
-
-        <!-- Pagination dots -->
-        {#if galleryItems().length > 1}
-          <div class="flex justify-center gap-2 mt-6">
-            {#each galleryItems() as _, index}
-              <button
-                type="button"
-                onclick={() => scrollToImage(index)}
-                class="w-2 h-2 rounded-full transition-all duration-300 cursor-pointer border-0 p-0 hover:scale-125 {activeGalleryIndex ===
-                index
-                  ? 'bg-secondary-400'
-                  : 'bg-zinc-600 hover:bg-zinc-500'}"
-                aria-label="Go to image {index + 1}"
-              ></button>
-            {/each}
           </div>
         {/if}
       </div>
-    {/if}
-    <ProductShowcase
-      projects={data.related}
-      totalCount={data.projects.length}
-    />
-  </div>
-</section>
+
+      {#if project.youtube || project.gallery}
+        <!-- Carousel for all screen sizes -->
+        <div>
+          <div
+            bind:this={scrollContainer}
+            onscroll={handleGalleryScroll}
+            class="flex overflow-x-auto snap-x snap-mandatory scrollbar-none"
+            style="scrollbar-width: none; -ms-overflow-style: none;"
+          >
+            {#each galleryItems() as item, index (item.type === "video" ? `video-${item.url}` : item.url)}
+              <div class="relative group w-full flex-shrink-0 snap-center px-2">
+                {#if item.type === "video"}
+                  <iframe
+                    src="https://www.youtube.com/embed/{item.url}"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                    class="w-full aspect-video max-h-[70vh] mx-auto shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
+                  ></iframe>
+                {:else}
+                  <img
+                    src={getImg(item.url)}
+                    alt=""
+                    loading="lazy"
+                    class="w-full h-auto max-h-[70vh] mx-auto object-contain transition-all duration-300 shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
+                  />
+                  {#if $user}
+                    <form
+                      method="POST"
+                      action="?/remove"
+                      use:enhance={({ cancel }) => {
+                        if (
+                          !confirm(
+                            "Are you sure you want to delete this photo?",
+                          )
+                        ) {
+                          cancel();
+                          return;
+                        }
+                        return async ({ result }) => {
+                          if (result.type === "success") {
+                            if (result?.data?.project)
+                              project = result.data.project as Project;
+                          }
+                        };
+                      }}
+                    >
+                      <button
+                        type="submit"
+                        class="scale-[0.8] h-12 w-12 bg-neutral-500 text-white rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-red-600"
+                      >
+                        <Icon icon="material-symbols:delete" />
+                      </button>
+                      <div class="hidden">
+                        <input type="text" name="name" value={item.url} />
+                      </div>
+                      <button
+                        type="submit"
+                        class="scale-[0.8] h-12 w-12 bg-black/40 text-white/60 rounded-full absolute right-4 top-4 flex items-center justify-center cursor-pointer shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-red-500 hover:text-white border border-white/10 hover:border-red-500/30"
+                      >
+                        <Icon icon="material-symbols:delete" />
+                      </button>
+                      <div class="hidden">
+                        <input type="text" name="name" value={item.url} />
+                      </div>
+                    </form>
+                  {/if}
+                {/if}
+              </div>
+            {/each}
+          </div>
+
+          <!-- Pagination dots -->
+          {#if galleryItems().length > 1}
+            <div class="flex justify-center gap-2 mt-6">
+              {#each galleryItems() as _, index}
+                <button
+                  type="button"
+                  onclick={() => scrollToImage(index)}
+                  class="w-2 h-2 rounded-full transition-all duration-300 cursor-pointer border-0 p-0 hover:scale-125 {activeGalleryIndex ===
+                  index
+                    ? 'bg-secondary-400'
+                    : 'bg-zinc-600 hover:bg-zinc-500'}"
+                  aria-label="Go to image {index + 1}"
+                ></button>
+              {/each}
+            </div>
+          {/if}
+        </div>
+      {/if}
+      <ProductShowcase
+        projects={data.related}
+        totalCount={data.projects.length}
+      />
+    </div>
+  </section>
+{/key}
 
 {#if $user}
   <div class="absolute md:right-6 md:top-25 flex flex-col items-center gap-4">
