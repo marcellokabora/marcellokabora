@@ -147,126 +147,47 @@
     {
       title: "AI & Agents",
       photo: "/photo/ai-logo2.jpg",
-      description: `I integrate cutting-edge AI and LLM technologies into development workflows and applications. By leveraging tools like <a href="//github.com/features/copilot" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Copilot</a>, <a href="//anthropic.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Claude</a>, and <a href="//deepmind.google/technologies/gemini/" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Gemini</a>, I enhance productivity and build intelligent features. My focus extends to creating agentic systems that automate complex tasks, providing users with smart, context-aware assistance that evolves with their needs.`,
+      description: `I integrate AI and LLM technologies using <a href="//github.com/features/copilot" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Copilot</a>, <a href="//anthropic.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Claude</a>, and <a href="//deepmind.google/technologies/gemini/" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Gemini</a> to enhance productivity and create intelligent agentic systems.`,
     },
     {
       title: "Development",
       photo: "/photo/software.jpg",
-      description: `I specialize in building modern web applications that leverage the power
-        of browser-native technologies. From sophisticated SaaS platforms to
-        enterprise B2B solutions, I create scalable applications that provide
-        seamless cross-device experiences. My focus is on delivering
-        high-performance, maintainable codebases using cutting-edge frameworks
-        and tools. Whether it's real-time data dashboards, e-commerce platforms,
-        or collaborative business tools, I architect solutions that scale with
-        your needs.`,
+      description: `Building modern, scalable web applications from SaaS platforms to enterprise B2B solutions using cutting-edge frameworks and high-performance, maintainable codebases.`,
     },
     {
       title: "Design",
       photo: "/photo/styling.jpg",
-      description: `I believe exceptional UI/UX design is the foundation of any successful
-        digital product. My design philosophy centers on creating interfaces
-        that are both aesthetically pleasing and functionally intuitive. I focus
-        on accessibility, responsive design principles, and user-centered
-        workflows that reduce cognitive load while maximizing productivity. From
-        wireframing to pixel-perfect implementation, I ensure every interaction
-        feels natural and purposeful, resulting in interfaces that users love to
-        engage with.`,
+      description: `Creating accessible, intuitive interfaces focused on responsive design and user-centered workflows that reduce cognitive load and maximize productivity.`,
     },
     {
       title: "Visualization",
       photo: "/photo/visualization.jpeg",
-      description: `I transform complex data into compelling visual narratives that drive
-        business decisions. My expertise spans from interactive dashboards and
-        real-time analytics to custom charting solutions for financial, IoT, and
-        enterprise applications. Using powerful libraries like
-        <a href="//d3js.org" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">D3.js</a>
-        and
-        <a href="//highcharts.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Highcharts</a>,
-        I create responsive, performant visualizations that handle large
-        datasets with smooth animations and intuitive interactions. From
-        time-series analysis to geospatial mapping, I make data accessible and
-        actionable.`,
+      description: `Transforming complex data into compelling interactive dashboards and visualizations using <a href="//d3js.org" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">D3.js</a> and <a href="//highcharts.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Highcharts</a> for financial and enterprise applications.`,
     },
     {
       title: "Management",
       photo: "/photo/develop.jpeg",
-      description: `I excel at architecting technical solutions and leading development
-        teams to deliver exceptional results. My approach involves strategic
-        technology selection, evaluating frameworks like <a
-          href="//svelte.com"
-          target="_blank"
-          class="underline text-primary-400 hover:text-primary-300 transition-colors">Svelte</a
-        >,
-        <a href="//reactjs.org" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">React</a>,
-        <a href="//vuejs.org" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Vue</a> and
-        <a href="//angular.io" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Angular</a> based
-        on performance requirements, team expertise, and long-term maintainability.
-        I focus on establishing robust development workflows, code quality standards,
-        and scalable architectures that enable teams to deliver consistently high-quality
-        applications.`,
+      description: `Architecting technical solutions and leading teams with strategic framework selection and robust development workflows for consistent, high-quality applications.`,
     },
     {
       title: "Framework",
       photo: "/photo/framework.gif",
-      description: `I excel in a comprehensive range of modern front-end technologies,
-        including
-        <a href="//react.dev" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">React</a>,
-        <a href="//vuejs.org" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Vue</a>,
-        <a href="//angular.io" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Angular</a>,
-        and
-        <a href="https://svelte.dev" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Svelte</a>.
-        My expertise extends to cross-platform mobile development with
-        frameworks like
-        <a href="//expo.dev" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Expo</a>,
-        <a href="//flutter.dev" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Flutter</a>,
-        and
-        <a href="//ionicframework.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Ionic</a>.
-        I bring deep expertise in state management patterns and
-        architectures, allowing me to architect robust, scalable solutions
-        tailored to each project's unique requirements and complexity level.`,
+      description: `Mastering modern JavaScript frameworks with deep expertise in component architecture, state management, and performance optimization across web and mobile platforms.`,
     },
     {
       title: "Styling",
       photo: "/photo/styles.jpg",
-      description: `I leverage powerful design systems like <a
-          href="//material.io"
-          target="_blank"
-          class="underline text-primary-400 hover:text-primary-300 transition-colors">Material Design</a
-        >
-        and
-        <a href="//flowbite-svelte.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Flowbite</a>
-        to deliver polished, professional interfaces. These comprehensive component
-        libraries provide extensive collections of pre-built, accessible components
-        with seamless responsive design integration, accelerating development while
-        maintaining design consistency. Beyond ready-made solutions, these systems
-        offer robust tooling for creating custom components that follow established
-        interaction patterns and accessibility standards.`,
+      description: `Crafting beautiful, responsive interfaces with Tailwind CSS, SCSS, and modern design systems. Expert in creating accessible UI components, animations, and design-to-code implementation.`,
     },
     {
       title: "Database",
       photo: "/photo/database.webp",
-      description: `I leverage modern Backend-as-a-Service platforms like
-        <a href="//firebase.google.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Firebase</a>
-        or
-        <a href="//supabase.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Supabase</a> to
-        build robust, scalable data architectures. This platform enables me to rapidly
-        develop real-time applications with authentication, serverless functions,
-        and secure database operations. From implementing complex queries and data
-        relationships to managing user permissions and real-time synchronization,
-        I create seamless backend integrations that power dynamic, data-driven user
-        experiences.`,
+      description: `Designing robust data architectures with expertise in relational and NoSQL databases, real-time synchronization, authentication, and secure API integrations for scalable applications.`,
     },
     {
       title: "Deployment",
       photo: "/photo/deployment.webp",
-      description: `<a href="//vercel.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Vercel</a> or
-        <a href="//github.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Github</a> is my
-        go-to tool for deployments, simplifying the process of pushing projects live.
-        It provides insightful analytics, helping me understand user interaction
-        and optimize performance. I also appreciate Vercel's continuous evolution,
-        with new features like integrated commenting for streamlined collaboration
-        and multi-branch management for flexible development.`,
+      description: `Deploying production-ready applications with CI/CD pipelines, serverless functions, and cloud infrastructure. Expert in DevOps best practices, monitoring, and performance optimization.`,
     },
   ];
 </script>
@@ -371,9 +292,7 @@
                     {feature.title}
                   </h3>
                 </div>
-                <p
-                  class="text-sm text-zinc-400 leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300"
-                >
+                <p class="text-sm text-zinc-400 leading-relaxed">
                   {@html feature.description}
                 </p>
               </div>
@@ -430,9 +349,7 @@
                   {/if}
                 </div>
 
-                <p
-                  class="text-sm text-zinc-400 leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-300"
-                >
+                <p class="text-sm text-zinc-400 leading-relaxed">
                   {descriptions[item.name] || item.title}
                 </p>
               </div>
