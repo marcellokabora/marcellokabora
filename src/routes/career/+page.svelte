@@ -16,6 +16,10 @@
   slogan="I worked for different startup in Berlin, Barcelona and Italy"
   backgroundImage="/photo/coding-purple.jpg"
   badge="Professional Experience"
+  stats={[
+    { value: "3", label: "Countries", icon: "material-symbols:public" },
+    { value: "8+", label: "Companies", icon: "material-symbols:business" },
+  ]}
 />
 
 <section

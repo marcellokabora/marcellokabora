@@ -8,6 +8,7 @@
   import { onMount } from "svelte";
   import { scale, fly } from "svelte/transition";
   import { elasticOut, cubicOut } from "svelte/easing";
+  import { page } from "$app/stores";
 
   let { projects }: { projects: Project[] } = $props();
 
@@ -24,6 +25,10 @@
     { href: "/career", label: "Career" },
     { href: "/contact", label: "Contact" },
   ];
+
+  function isActive(href: string): boolean {
+    return $page.url.pathname === href;
+  }
 
   onMount(() => {
     mounted = true;
@@ -121,7 +126,9 @@
                 delay: 100 + i * 50,
                 easing: cubicOut,
               }}
-              class="text-zinc-400 hover:text-white hover:bg-white/5 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
+              class="{isActive(item.href)
+                ? 'text-white bg-primary-500/20'
+                : 'text-zinc-400'} hover:text-white hover:bg-white/5 px-4 py-3 rounded-full transition-all duration-200 font-medium"
             >
               {item.label}
             </a>
@@ -180,15 +187,21 @@
     <a
       href="/about"
       in:fly={{ y: -20, duration: 600, delay: 100, easing: cubicOut }}
-      class="text-sm font-medium text-zinc-400 hover:text-white transition-all duration-300 w-20 text-center"
-      >About</a
+      class="text-sm font-medium {isActive('/about')
+        ? 'text-white bg-primary-500/20'
+        : 'text-zinc-400'} hover:text-white hover:bg-white/5 transition-all duration-300 px-4 py-2 rounded-full"
     >
+      About
+    </a>
     <a
       href="/projects"
       in:fly={{ y: -20, duration: 600, delay: 200, easing: cubicOut }}
-      class="text-sm font-medium text-zinc-400 hover:text-white transition-all duration-300 w-20 text-center"
-      >Projects</a
+      class="text-sm font-medium {isActive('/projects')
+        ? 'text-white bg-primary-500/20'
+        : 'text-zinc-400'} hover:text-white hover:bg-white/5 transition-all duration-300 px-4 py-2 rounded-full"
     >
+      Projects
+    </a>
 
     <!-- Logo in the middle -->
     <a
@@ -214,15 +227,21 @@
     <a
       href="/career"
       in:fly={{ y: -20, duration: 600, delay: 400, easing: cubicOut }}
-      class="text-sm font-medium text-zinc-400 hover:text-white transition-all duration-300 w-20 text-center"
-      >Career</a
+      class="text-sm font-medium {isActive('/career')
+        ? 'text-white bg-primary-500/20'
+        : 'text-zinc-400'} hover:text-white hover:bg-white/5 transition-all duration-300 px-4 py-2 rounded-full"
     >
+      Career
+    </a>
     <a
       href="/contact"
       in:fly={{ y: -20, duration: 600, delay: 500, easing: cubicOut }}
-      class="text-sm font-medium text-zinc-400 hover:text-white transition-all duration-300 w-20 text-center"
-      >Contact</a
+      class="text-sm font-medium {isActive('/contact')
+        ? 'text-white bg-primary-500/20'
+        : 'text-zinc-400'} hover:text-white hover:bg-white/5 transition-all duration-300 px-4 py-2 rounded-full"
     >
+      Contact
+    </a>
   </nav>
 {/if}
 

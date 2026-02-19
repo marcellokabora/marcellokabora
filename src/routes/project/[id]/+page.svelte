@@ -83,6 +83,7 @@
     backgroundImage={project?.cover ? getImg(project.cover) : imgPlaceholder}
     title={project.title}
     slogan={project.slogan}
+    description={project.info}
     showScrollIndicator={false}
   />
   <section
@@ -92,9 +93,6 @@
     <div
       class="container mx-auto max-w-6xl px-6 text-center flex flex-col items-center gap-8"
     >
-      <div class="markdown max-w-[600px]">
-        {@html marked.parse(project.info ?? "")}
-      </div>
       <div class="flex flex-wrap gap-4">
         {#if project.date}
           <div
@@ -168,14 +166,14 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen
-                    class="w-full aspect-video max-h-[70vh] mx-auto shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
+                    class="w-full aspect-video max-h-[70vh] mx-auto shadow-xl rounded-lg"
                   ></iframe>
                 {:else}
                   <img
                     src={getImg(item.url)}
                     alt=""
                     loading="lazy"
-                    class="w-full h-auto max-h-[70vh] mx-auto object-contain transition-all duration-300 shadow-xl rounded-lg border border-slate-800 hover:border-secondary-500/50"
+                    class="w-full h-auto max-h-[70vh] mx-auto object-contain transition-all duration-300 shadow-xl rounded-lg"
                   />
                   {#if $user}
                     <form

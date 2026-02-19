@@ -39,6 +39,10 @@
   slogan="Let's connect and explore opportunities"
   backgroundImage="/photo/coding-multi.jpg"
   badge="Get in Touch"
+  stats={[
+    { value: "24/7", label: "Available", icon: "material-symbols:schedule" },
+    { value: "< 24h", label: "Response Time", icon: "material-symbols:speed" },
+  ]}
 />
 
 <div

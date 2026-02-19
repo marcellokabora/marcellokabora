@@ -12,6 +12,48 @@
   );
 
   let scrollY = $state(0);
+
+  // Calculate category counts
+  const categoryCounts = $derived(() => {
+    const counts: Record<string, number> = {};
+
+    projects.forEach((project: Project) => {
+      const type = project.type?.toLowerCase() || "other";
+      counts[type] = (counts[type] || 0) + 1;
+    });
+
+    return counts;
+  });
+
+  // Generate stats for PageHero
+  const heroStats = $derived(() => {
+    const counts = categoryCounts();
+    const stats = [];
+
+    if (counts.webapp) {
+      stats.push({
+        value: `${counts.webapp}`,
+        label: "Webapp",
+        icon: "material-symbols:web",
+      });
+    }
+    if (counts.website) {
+      stats.push({
+        value: `${counts.website}`,
+        label: "Website",
+        icon: "material-symbols:language",
+      });
+    }
+    if (counts.design) {
+      stats.push({
+        value: `${counts.design}`,
+        label: "Design",
+        icon: "material-symbols:palette-outline",
+      });
+    }
+
+    return stats;
+  });
 </script>
 
 <svelte:window bind:scrollY />
@@ -27,6 +69,7 @@
   badge="Projects Completed"
   badgeCount={projects.length}
   backgroundImage="/photo/coding-blue.webp"
+  stats={heroStats()}
 />
 
 <div class="container mx-auto max-w-6xl px-6">

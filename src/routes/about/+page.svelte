@@ -202,10 +202,27 @@
   slogan="Learn more about my journey and expertise"
   backgroundImage="/gallery/keyboard.jpg"
   badge="Full Stack Developer"
+  stats={[
+    {
+      value: "10+",
+      label: "Years Experience",
+      icon: "material-symbols:work-outline",
+    },
+    {
+      value: "50+",
+      label: "Projects Delivered",
+      icon: "material-symbols:rocket-launch-outline",
+    },
+    {
+      value: "30+",
+      label: "Happy Clients",
+      icon: "material-symbols:groups-outline",
+    },
+  ]}
 />
 
 <div
-  class="container mx-auto max-w-7xl px-4 py-16"
+  class="container mx-auto max-w-7xl px-4 py-20"
   in:fly={{ y: 100, duration: 1000, delay: 100 }}
 >
   <div class="flex flex-col lg:flex-row gap-12">
