@@ -12,7 +12,7 @@
 
   let { data, children } = $props();
 
-  let isFullscreen = $derived($page.url.pathname.startsWith("/smartclip"));
+  let isFullscreen = $derived($page.url.pathname.startsWith("/assistant"));
 
   onMount(() => {
     initAuth(); // Initialize Firebase auth

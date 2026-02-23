@@ -327,10 +327,10 @@
   </Dialog>
 {/if}
 
-<!-- Floating Chat CTA — hidden on the /smartclip page itself -->
-{#if mounted && !$page.url.pathname.startsWith("/smartclip")}
+<!-- Floating Chat CTA — hidden on the /assistant page itself -->
+{#if mounted && !$page.url.pathname.startsWith("/assistant")}
   <a
-    href="/smartclip"
+    href="/assistant"
     in:fly={{ y: 20, duration: 600, delay: 800, easing: cubicOut }}
     class="fixed bottom-6 right-6 z-[60] flex items-center gap-2.5 px-5 py-3 rounded-full bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold shadow-[0_0_28px_rgba(99,102,241,0.45)] hover:shadow-[0_0_36px_rgba(99,102,241,0.6)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group"
   >
