@@ -8,8 +8,11 @@
   import { onMount } from "svelte";
   import { initAuth, user } from "$lib/stores/authStore";
   import { browser } from "$app/environment";
+  import { page } from "$app/stores";
 
   let { data, children } = $props();
+
+  let isFullscreen = $derived($page.url.pathname.startsWith("/smartclip"));
 
   onMount(() => {
     initAuth(); // Initialize Firebase auth
@@ -33,7 +36,7 @@
               inject({ mode: "production" });
               injectSpeedInsights();
             },
-            { once: true }
+            { once: true },
           );
         }
       }
@@ -41,10 +44,14 @@
   });
 </script>
 
-<Navbar projects={data.projects} />
+{#if !isFullscreen}
+  <Navbar projects={data.projects} />
+{/if}
 
-<main>
+<main class={isFullscreen ? "h-[100dvh] overflow-hidden" : ""}>
   {@render children?.()}
 </main>
 
-<Footer />
+{#if !isFullscreen}
+  <Footer />
+{/if}
