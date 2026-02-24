@@ -3,6 +3,9 @@
   import { cubicOut } from "svelte/easing";
   import Icon from "@iconify/svelte";
   import { onMount } from "svelte";
+  import type { Project } from "$lib/types/project.types";
+
+  let { data } = $props();
 
   type ProjectCard = {
     id: string;
@@ -20,86 +23,61 @@
     isError?: boolean;
   };
 
-  // Used only for generative UI card matching — Gemini handles the text
-  const PROJECT_CARDS: { keywords: string[]; card: ProjectCard }[] = [
-    {
-      keywords: ["beathecue", "beat", "music", "dj", "cue"],
-      card: {
-        id: "beathecue-app",
-        title: "BeatHeCue",
-        slogan: "Real-time music cue management for DJs and event hosts",
-        cover: "/project/beathecue-app/beathecue-app-01.png",
-        link: "/project/beathecue-app",
-      },
-    },
-    {
-      keywords: ["smava", "loan", "finance", "credit", "fintech"],
-      card: {
-        id: "smava-website",
-        title: "Smava",
-        slogan: "Loan comparison platform — UX & frontend architecture",
-        cover: "/project/smava-website/_cover.jpeg",
-        link: "/project/smava-website",
-      },
-    },
-    {
-      keywords: ["mineko", "utility", "bill", "rent", "proptech"],
-      card: {
-        id: "mineko-website",
-        title: "Mineko",
-        slogan: "Proptech platform for utility bill verification",
-        cover: "/project/mineko-website/_cover.png",
-        link: "/project/mineko-website",
-      },
-    },
-    {
-      keywords: [
-        "portfolio",
-        "this site",
-        "your site",
-        "this website",
-        "sveltekit",
-      ],
-      card: {
-        id: "portfolio",
-        title: "Portfolio",
-        slogan: "Personal portfolio built with SvelteKit & Firebase",
-        cover: "/project/portfolio/portfolio.png",
-        link: "/",
-      },
-    },
-    {
-      keywords: [
-        "chartmap",
-        "chart",
-        "data",
-        "visualization",
-        "yukka",
-        "sentiment",
-      ],
-      card: {
-        id: "chartmap",
-        title: "ChartMap",
-        slogan: "Financial sentiment data visualization for Yukka Lab",
-        cover: "/project/chartmap/_cover.jpg",
-        link: "/project/chartmap",
-      },
-    },
-  ];
+  // Build PROJECT_CARDS dynamically from Firestore projects
+  function buildProjectCards(
+    projects: Project[],
+  ): { keywords: string[]; card: ProjectCard }[] {
+    return projects
+      .filter((p) => p.cover)
+      .map((p) => {
+        // Only use full identifiers — never split into fragments to avoid false matches
+        const keywords = [
+          ...new Set([
+            p.name ?? p.id ?? "",
+            p.id ?? p.name ?? "",
+            p.title?.toLowerCase() ?? "",
+          ]),
+        ].filter((k) => k.length > 2);
+
+        const rawCover = p.cover!;
+        const coverPath =
+          rawCover.startsWith("/") || rawCover.startsWith("http")
+            ? rawCover
+            : `https://firebasestorage.googleapis.com/v0/b/marcellokabora-portfolio.firebasestorage.app/o/${encodeURIComponent(rawCover)}?alt=media`;
+
+        const link = p.link?.startsWith("http")
+          ? p.link
+          : `/project/${p.name ?? p.id}`;
+
+        return {
+          keywords,
+          card: {
+            id: p.id ?? p.name ?? "",
+            title: p.title ?? p.name ?? "",
+            slogan: p.slogan ?? "",
+            cover: coverPath,
+            link,
+          },
+        };
+      });
+  }
+
+  const PROJECT_CARDS = buildProjectCards(data.projects ?? []);
 
   const SUGGESTED_QUESTIONS = [
-    "What projects have you built?",
-    "What technologies do you use?",
-    "What is your background?",
-    "What kind of work do you do?",
-    "How many years of experience?",
-    "What makes you stand out?",
+    "Tell me about 7echno",
+    "What projects has Marcello built?",
+    "What technologies does Marcello use?",
+    "What is Marcello's background?",
+    "How many years of experience does he have?",
+    "What makes Marcello stand out?",
   ];
 
   let messages = $state<Message[]>([]);
   let inputValue = $state("");
   let isTyping = $state(false);
   let messagesContainer = $state<HTMLDivElement | null>(null);
+  let inputEl = $state<HTMLInputElement | null>(null);
   let idCounter = 0;
 
   function nextId() {
@@ -129,6 +107,7 @@
     if (!text.trim() || isTyping) return;
     const query = text.trim();
     inputValue = "";
+    inputEl?.focus();
     messages.push({ id: nextId(), role: "user", text: query });
     isTyping = true;
 
@@ -146,7 +125,7 @@
         id: nextId(),
         role: "bot",
         text: data.text,
-        projectCard: getProjectCard(query),
+        projectCard: getProjectCard(data.text + " " + query),
       });
     } catch {
       messages.push({
@@ -157,6 +136,7 @@
       });
     } finally {
       isTyping = false;
+      setTimeout(() => inputEl?.focus(), 0);
     }
   }
 
@@ -181,10 +161,10 @@
 <div class="relative flex flex-col h-[100dvh] bg-[#0a0a0a] overflow-hidden">
   <!-- Decorative background blobs -->
   <div
-    class="pointer-events-none absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-primary-500 blur-[180px] opacity-[0.06] animate-pulse"
+    class="pointer-events-none absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-primary-500 blur-[300px] opacity-[0.02] animate-pulse"
   ></div>
   <div
-    class="pointer-events-none absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-secondary-500 blur-[140px] opacity-[0.05] animate-pulse"
+    class="pointer-events-none absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-secondary-500 blur-[250px] opacity-[0.02] animate-pulse"
     style="animation-delay: 2s"
   ></div>
 
@@ -203,10 +183,7 @@
       <div>
         <div class="flex items-center gap-2">
           <h1 class="text-white font-semibold text-base leading-none">
-            Portfolio <span
-              class="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent"
-              >AI</span
-            >
+            <span>Assistant</span>
           </h1>
         </div>
         <div class="flex items-center gap-1.5 mt-1">
@@ -217,13 +194,14 @@
       </div>
     </div>
 
-    <!-- Badge -->
-    <div
-      class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary-500/30 bg-primary-500/10 text-primary-400 text-xs font-medium"
+    <!-- Back to homepage -->
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-white hover:border-zinc-600 text-xs font-medium transition-all duration-200"
     >
-      <Icon icon="carbon:flash" class="text-sm" />
-      Generative UI Demo
-    </div>
+      <Icon icon="carbon:arrow-left" class="text-sm" />
+      Home
+    </a>
   </header>
 
   <!-- ── Messages feed ──────────────────────────────────────── -->
@@ -279,6 +257,7 @@
               {#if msg.projectCard}
                 <a
                   href={msg.projectCard.link}
+                  target="_blank"
                   in:fly={{
                     y: 16,
                     duration: 500,
@@ -376,6 +355,7 @@
         class="flex items-center gap-3 bg-[#1a1a1a] border border-zinc-800 rounded-xl px-4 py-3 focus-within:border-primary-500/50 focus-within:ring-2 focus-within:ring-primary-500/10 transition-all duration-300"
       >
         <input
+          bind:this={inputEl}
           bind:value={inputValue}
           onkeydown={handleKeydown}
           disabled={isTyping}
