@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
-  import PageHero from "$lib/components/PageHero.svelte";
+  import { fade, fly as flyAnim } from "svelte/transition";
   import MetaTags from "$lib/components/MetaTags.svelte";
   import { fly } from "svelte/transition";
 
@@ -34,19 +34,72 @@
   url="https://marcellokabora.com/contact"
 />
 
-<PageHero
-  title="Contacts"
-  slogan="Let's connect and explore opportunities"
-  backgroundImage="/photo/coding-multi.jpg"
-  badge="Get in Touch"
-  stats={[
-    { value: "24/7", label: "Available", icon: "material-symbols:schedule" },
-    { value: "< 24h", label: "Response Time", icon: "material-symbols:speed" },
-  ]}
-/>
+<div
+  class="relative flex items-end overflow-hidden min-h-[60vh]"
+  in:fade={{ duration: 800 }}
+>
+  <div class="absolute inset-0 -z-10">
+    <img
+      src="/photo/coding-multi.jpg"
+      alt="Contact background"
+      class="w-full h-full object-cover scale-105"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"
+    ></div>
+    <div
+      class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0a0a0a] pointer-events-none"
+    ></div>
+  </div>
+  <div class="container mx-auto max-w-6xl px-6 pb-14 pt-40 w-full">
+    <div in:flyAnim={{ y: -16, duration: 500, delay: 150 }}>
+      <span
+        class="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full text-xs font-semibold uppercase tracking-widest bg-cyan-500/20 border border-cyan-500/30 text-cyan-300"
+      >
+        <Icon icon="material-symbols:mail-outline" class="text-sm" />
+        Get in Touch
+      </span>
+    </div>
+    <h1
+      class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
+      in:flyAnim={{ y: 30, duration: 700, delay: 250 }}
+    >
+      Let's talk
+    </h1>
+    <p
+      class="text-lg text-zinc-300 max-w-xl mb-10"
+      in:flyAnim={{ y: 20, duration: 600, delay: 350 }}
+    >
+      Open to new opportunities, collaborations and interesting conversations
+    </p>
+    <div
+      class="flex flex-wrap gap-3"
+      in:flyAnim={{ y: 20, duration: 600, delay: 450 }}
+    >
+      <div
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-cyan-500/20"
+      >
+        <Icon icon="material-symbols:schedule" class="text-cyan-400 text-xl" />
+        <div>
+          <div class="text-xl font-bold text-white">24/7</div>
+          <div class="text-xs text-zinc-400">Available</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-cyan-500/20"
+      >
+        <Icon icon="material-symbols:speed" class="text-cyan-400 text-xl" />
+        <div>
+          <div class="text-xl font-bold text-white">&lt; 24h</div>
+          <div class="text-xs text-zinc-400">Response Time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div
-  class="pb-16 px-4 max-w-7xl mx-auto"
+  class="pb-16 px-4 max-w-6xl mx-auto"
   in:fly={{ y: 100, duration: 1000, delay: 100 }}
 >
   <!-- Social Media Cards -->

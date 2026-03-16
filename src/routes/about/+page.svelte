@@ -1,5 +1,5 @@
 <script lang="ts">
-  import PageHero from "$lib/components/PageHero.svelte";
+  import { fade, fly as flyAnim } from "svelte/transition";
   import MetaTags from "$lib/components/MetaTags.svelte";
   import { items, menu } from "$lib/data/knowledge";
   import Icon from "@iconify/svelte";
@@ -197,32 +197,90 @@
   url="https://marcellokabora.com/about"
 />
 
-<PageHero
-  title="About Me"
-  slogan="Learn more about my journey and expertise"
-  backgroundImage="/gallery/keyboard.jpg"
-  badge="Full Stack Developer"
-  stats={[
-    {
-      value: "10+",
-      label: "Years Experience",
-      icon: "material-symbols:work-outline",
-    },
-    {
-      value: "50+",
-      label: "Projects Delivered",
-      icon: "material-symbols:rocket-launch-outline",
-    },
-    {
-      value: "30+",
-      label: "Happy Clients",
-      icon: "material-symbols:groups-outline",
-    },
-  ]}
-/>
+<div
+  class="relative flex items-end overflow-hidden min-h-[60vh]"
+  in:fade={{ duration: 800 }}
+>
+  <div class="absolute inset-0 -z-10">
+    <img
+      src="/gallery/keyboard.jpg"
+      alt="About background"
+      class="w-full h-full object-cover scale-105"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"
+    ></div>
+    <div
+      class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0a0a0a] pointer-events-none"
+    ></div>
+  </div>
+  <div class="container mx-auto max-w-6xl px-6 pb-14 pt-40 w-full">
+    <div in:flyAnim={{ y: -16, duration: 500, delay: 150 }}>
+      <span
+        class="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full text-xs font-semibold uppercase tracking-widest bg-purple-500/20 border border-purple-500/30 text-purple-300"
+      >
+        <Icon icon="material-symbols:person-outline" class="text-sm" />
+        Full Stack Developer
+      </span>
+    </div>
+    <h1
+      class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
+      in:flyAnim={{ y: 30, duration: 700, delay: 250 }}
+    >
+      About Me
+    </h1>
+    <p
+      class="text-lg text-zinc-300 max-w-xl mb-10"
+      in:flyAnim={{ y: 20, duration: 600, delay: 350 }}
+    >
+      Learn more about my journey and expertise
+    </p>
+    <div
+      class="flex flex-wrap gap-3"
+      in:flyAnim={{ y: 20, duration: 600, delay: 450 }}
+    >
+      <div
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-purple-500/20"
+      >
+        <Icon
+          icon="material-symbols:work-outline"
+          class="text-purple-400 text-xl"
+        />
+        <div>
+          <div class="text-xl font-bold text-white">10+</div>
+          <div class="text-xs text-zinc-400">Years Experience</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-purple-500/20"
+      >
+        <Icon
+          icon="material-symbols:rocket-launch-outline"
+          class="text-purple-400 text-xl"
+        />
+        <div>
+          <div class="text-xl font-bold text-white">50+</div>
+          <div class="text-xs text-zinc-400">Projects Delivered</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-purple-500/20"
+      >
+        <Icon
+          icon="material-symbols:groups-outline"
+          class="text-purple-400 text-xl"
+        />
+        <div>
+          <div class="text-xl font-bold text-white">30+</div>
+          <div class="text-xs text-zinc-400">Happy Clients</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div
-  class="container mx-auto max-w-7xl px-4 py-20"
+  class="container mx-auto max-w-6xl px-4 py-20"
   in:fly={{ y: 100, duration: 1000, delay: 100 }}
 >
   <div class="flex flex-col lg:flex-row gap-12">

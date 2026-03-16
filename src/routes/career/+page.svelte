@@ -1,5 +1,6 @@
 <script>
-  import PageHero from "$lib/components/PageHero.svelte";
+  import { fade, fly as flyAnim } from "svelte/transition";
+  import Icon from "@iconify/svelte";
   import MetaTags from "$lib/components/MetaTags.svelte";
   import { fly } from "svelte/transition";
   import { companies } from "$lib/data/companies";
@@ -11,16 +12,83 @@
   url="https://marcellokabora.com/career"
 />
 
-<PageHero
-  title="Career"
-  slogan="I worked for different startup in Berlin, Barcelona and Italy"
-  backgroundImage="/photo/coding-purple.jpg"
-  badge="Professional Experience"
-  stats={[
-    { value: "3", label: "Countries", icon: "material-symbols:public" },
-    { value: "8+", label: "Companies", icon: "material-symbols:business" },
-  ]}
-/>
+<div
+  class="relative flex items-end overflow-hidden min-h-[60vh]"
+  in:fade={{ duration: 800 }}
+>
+  <div class="absolute inset-0 -z-10">
+    <img
+      src="/photo/coding-purple.jpg"
+      alt="Career background"
+      class="w-full h-full object-cover scale-105"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"
+    ></div>
+    <div
+      class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0a0a0a] pointer-events-none"
+    ></div>
+  </div>
+  <div class="container mx-auto max-w-6xl px-6 pb-14 pt-40 w-full">
+    <div in:flyAnim={{ y: -16, duration: 500, delay: 150 }}>
+      <span
+        class="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full text-xs font-semibold uppercase tracking-widest bg-purple-500/20 border border-purple-500/30 text-purple-300"
+      >
+        <Icon icon="material-symbols:work-history" class="text-sm" />
+        Professional Experience
+      </span>
+    </div>
+    <h1
+      class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
+      in:flyAnim={{ y: 30, duration: 700, delay: 250 }}
+    >
+      Career
+    </h1>
+    <p
+      class="text-lg text-zinc-300 max-w-xl mb-10"
+      in:flyAnim={{ y: 20, duration: 600, delay: 350 }}
+    >
+      I worked for different startups in Berlin, Barcelona and Italy
+    </p>
+    <div
+      class="flex flex-wrap gap-3"
+      in:flyAnim={{ y: 20, duration: 600, delay: 450 }}
+    >
+      <div
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-purple-500/20"
+      >
+        <Icon icon="material-symbols:public" class="text-purple-400 text-xl" />
+        <div>
+          <div class="text-xl font-bold text-white">3</div>
+          <div class="text-xs text-zinc-400">Countries</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-purple-500/20"
+      >
+        <Icon
+          icon="material-symbols:business"
+          class="text-purple-400 text-xl"
+        />
+        <div>
+          <div class="text-xl font-bold text-white">8+</div>
+          <div class="text-xs text-zinc-400">Companies</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-purple-500/20"
+      >
+        <Icon
+          icon="material-symbols:location-on-outline"
+          class="text-purple-400 text-xl"
+        />
+        <div class="text-sm text-zinc-300 font-medium">
+          Berlin · Barcelona · Italy
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <section
   class="max-w-6xl mx-auto px-4 py-12"
