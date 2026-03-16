@@ -40,7 +40,7 @@
     secondaryCtaText,
     secondaryCtaHref,
     align = "center",
-    minHeight = "80vh",
+    minHeight = "60vh",
     overlay = "dark",
     stats = [],
   }: Props = $props();

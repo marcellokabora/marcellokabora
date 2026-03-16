@@ -1,20 +1,14 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import PageHero from "$lib/components/PageHero.svelte";
+  import ProjectHero from "$lib/components/ProjectHero.svelte";
   import Create from "$lib/components/Create.svelte";
   import type { Project } from "$lib/types/project.types";
   import Dialog from "$lib/components/Dialog.svelte";
-  import {
-    formatDate,
-    getImg,
-    getLang,
-    imgPlaceholder,
-  } from "$lib/utils/functions";
+  import { getImg } from "$lib/utils/functions";
   import ProductShowcase from "$lib/components//ProductShowcase.svelte";
   import MetaTags from "$lib/components/MetaTags.svelte";
   import { user } from "$lib/stores/authStore";
   import Icon from "@iconify/svelte";
-  import { marked } from "marked";
   import { fly } from "svelte/transition";
 
   let { data } = $props();
@@ -69,6 +63,19 @@
       activeGalleryIndex = currentIndex;
     }
   }
+
+  function scrollPrev() {
+    const newIndex = Math.max(0, activeGalleryIndex - 1);
+    scrollToImage(newIndex);
+  }
+
+  function scrollNext() {
+    const newIndex = Math.min(
+      galleryItems().length - 1,
+      activeGalleryIndex + 1,
+    );
+    scrollToImage(newIndex);
+  }
 </script>
 
 <MetaTags
@@ -79,13 +86,7 @@
 />
 
 {#key project.name}
-  <PageHero
-    backgroundImage={project?.cover ? getImg(project.cover) : imgPlaceholder}
-    title={project.title}
-    slogan={project.slogan}
-    description={project.info}
-    showScrollIndicator={false}
-  />
+  <ProjectHero {project} />
   <section
     class="my-14 bg-neutral-900 text-white"
     in:fly={{ y: 100, duration: 1000, delay: 100 }}
@@ -93,63 +94,35 @@
     <div
       class="container mx-auto max-w-6xl px-6 text-center flex flex-col items-center gap-8"
     >
-      <div class="flex flex-wrap gap-4">
-        {#if project.date}
-          <div
-            class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-          >
-            <Icon icon="material-symbols:event" />
-            <span>{formatDate(project.date)}</span>
-          </div>
-        {/if}
-        {#if project.link}
-          <div
-            class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-          >
-            <Icon icon="material-symbols:captive-portal" />
-            <a
-              class="no-underline text-zinc-300 hover:!text-secondary-400 !transition-colors duration-200"
-              href={project.link}
-              target="_blank">Website</a
-            >
-          </div>
-        {/if}
-        {#if project.code}
-          <div
-            class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-          >
-            <Icon icon="mdi:github" />
-            <a
-              class="no-underline text-zinc-300 hover:!text-secondary-400 !transition-colors duration-200"
-              href={`//github.com/marcellokabora/${project.code}`}
-              target="_blank">Github Repo</a
-            >
-          </div>
-        {/if}
-        {#if project.lang}
-          <div
-            class="text-zinc-400 flex items-center flex-wrap text-wrap whitespace-nowrap gap-2 mb-2.5"
-          >
-            <Icon icon="material-symbols:code" />
-            <div class="flex flex-wrap gap-2">
-              {#each project.lang.split(",") as lang, i (lang)}
-                <a
-                  class="no-underline text-white bg-primary-600/50 hover:bg-primary-600 px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 border border-primary-500/30"
-                  href={getLang(lang)?.url}
-                  target="_blank"
-                >
-                  {lang.trim().charAt(0).toUpperCase() +
-                    lang.trim().slice(1).toLowerCase()}
-                </a>
-              {/each}
-            </div>
-          </div>
-        {/if}
-      </div>
-
       {#if project.youtube || project.gallery}
         <!-- Carousel for all screen sizes -->
-        <div>
+        <div class="relative w-full">
+          <!-- Left button -->
+          {#if galleryItems().length > 1}
+            <button
+              type="button"
+              onclick={scrollPrev}
+              class="absolute left-0 top-1/2 -translate-y-1/2 z-10 h-10 w-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-primary-600 text-white border border-white/10 hover:border-primary-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] disabled:opacity-30 disabled:cursor-not-allowed -translate-x-1"
+              disabled={activeGalleryIndex === 0}
+              aria-label="Previous image"
+            >
+              <Icon icon="material-symbols:chevron-left" class="text-xl" />
+            </button>
+          {/if}
+
+          <!-- Right button -->
+          {#if galleryItems().length > 1}
+            <button
+              type="button"
+              onclick={scrollNext}
+              class="absolute right-0 top-1/2 -translate-y-1/2 z-10 h-10 w-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-primary-600 text-white border border-white/10 hover:border-primary-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] disabled:opacity-30 disabled:cursor-not-allowed translate-x-1"
+              disabled={activeGalleryIndex === galleryItems().length - 1}
+              aria-label="Next image"
+            >
+              <Icon icon="material-symbols:chevron-right" class="text-xl" />
+            </button>
+          {/if}
+
           <div
             bind:this={scrollContainer}
             onscroll={handleGalleryScroll}
