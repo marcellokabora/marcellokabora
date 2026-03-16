@@ -370,9 +370,9 @@
           <Icon icon="carbon:send-filled" class="text-xl" />
         </button>
       </div>
-      <p class="text-zinc-700 text-xs text-center">
+      <!-- <p class="text-zinc-700 text-xs text-center">
         Powered by Gemini 2.0 Flash · responses may vary
-      </p>
+      </p> -->
     </div>
   </footer>
 </div>
