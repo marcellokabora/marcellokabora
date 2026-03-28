@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /anybotics
+Disallow: /skyscanner
+
+Sitemap: https://marcellokabora.com/sitemap.xml
