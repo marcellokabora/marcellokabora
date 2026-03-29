@@ -1,5 +1,19 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   let currentSlide = $state(0);
+
+  onMount(() => {
+    const params = new URLSearchParams(window.location.search);
+    const p = parseInt(params.get("slide") ?? "", 10);
+    if (!isNaN(p) && p >= 0 && p < slides.length) {
+      currentSlide = p;
+    }
+  });
+
+  $effect(() => {
+    history.replaceState({}, "", `?slide=${currentSlide}`);
+  });
 
   const slides = [
     { id: 0, component: "intro" },
@@ -47,8 +61,7 @@
       name: "Fast Track",
       title: "Frontend AI Leader",
       time: "Jun 2024 – Jan 2025",
-      highlight:
-        "Accelerated development cycles using AI-driven workflows and MCP protocols.",
+      highlight: "Accelerated development cycles using AI-driven workflows.",
       tag: "AI · MCP · Nuxt · Svelte",
     },
     {
@@ -57,7 +70,7 @@
       title: "Senior Frontend Developer",
       time: "Oct 2022 – Feb 2025",
       highlight:
-        "Built a comprehensive UI library for an EV charging platform, reducing bugs by 20%.",
+        "Built a comprehensive UI library for an EV charging platform.",
       tag: "Angular · Storybook · UI Library",
     },
     {
@@ -66,7 +79,7 @@
       title: "Frontend Developer",
       time: "Sep 2021 – Aug 2022",
       highlight:
-        "Rebuilt core investment UI, driving a 15% increase in user engagement.",
+        "Modernized core investment interfaces using RSC and Builder.io.",
       tag: "React · Vue · GraphQL",
     },
     {
@@ -118,11 +131,11 @@
       <img
         src="/logo/skyscanner.webp"
         alt="Skyscanner"
-        class="w-[380px] max-w-[60vw]"
+        class="w-[500px] max-w-[60vw]"
       />
       <div class="flex flex-col items-center gap-2">
         <p class="text-white/70 text-xl font-light tracking-wide">
-          Frontend Engineering &amp; AI — presented by
+          Frontend Engineering &amp; AI Specialist — presented by
         </p>
         <p class="text-white text-2xl font-semibold tracking-tight">
           Marcello Annicchiarico
@@ -164,7 +177,7 @@
         </div>
 
         <div class="flex flex-wrap gap-2">
-          {#each ["Interface Design", "Generative UI", "AI-native workflows"] as kw}
+          {#each ["Interface Design", "Generative UI", "Agentic Development"] as kw}
             <span
               class="px-4 py-1.5 rounded-full border border-white/15 text-white/70 text-sm font-medium tracking-wide"
             >
@@ -379,8 +392,8 @@
                     Design Systems
                   </p>
                   <p class="text-white/50 text-xs leading-relaxed">
-                    Proven experience building production-grade UI libraries (à
-                    la Backpack) with high consistency and zero regressions.
+                    Proven experience building production-grade UI libraries
+                    with high consistency and zero regressions.
                   </p>
                 </div>
               </div>
@@ -560,7 +573,7 @@
       <img
         src="/logo/skyscanner.webp"
         alt="Skyscanner"
-        class="w-[340px] max-w-[55vw]"
+        class="w-[500px] max-w-[55vw]"
       />
       <div class="flex flex-col items-center gap-3">
         <h2 class="text-white text-3xl font-bold tracking-tight text-center">
@@ -571,12 +584,6 @@
         </p>
       </div>
       <div class="flex items-center gap-6 mt-2">
-        <a
-          href="mailto:marcello@marcellokabora.com"
-          class="px-5 py-2 rounded-full border border-white/20 text-white/60 text-sm hover:border-white/50 hover:text-white/90 transition-colors duration-200"
-        >
-          marcello@marcellokabora.com
-        </a>
         <a
           href="//marcellokabora.com"
           target="_blank"
