@@ -29,7 +29,15 @@
     {
       label: "Frameworks",
       icon: "⬡",
-      skills: ["React", "Next.js", "Vue", "Nuxt", "Svelte", "Angular"],
+      skills: [
+        "React",
+        "Next.js",
+        "Vue",
+        "Nuxt",
+        "Svelte",
+        "SvelteKit",
+        "Angular",
+      ],
     },
     {
       label: "AI & Automation",
@@ -40,13 +48,20 @@
         "Gemini",
         "LLM Integration",
         "MCP",
-        "AI-augmented SDLC",
+        "AI-augmented",
       ],
     },
     {
       label: "Data & Visualization",
       icon: "◎",
-      skills: ["D3.js", "Highcharts", "Three.js", "Real-time Monitoring"],
+      skills: [
+        "D3.js",
+        "Three.js",
+        "Highcharts",
+        "VIZ Library",
+        "Chart.js",
+        "Recharts",
+      ],
     },
     {
       label: "Infrastructure",
