@@ -86,7 +86,7 @@
       time: "Oct 2022 – Feb 2025",
       highlight:
         "Built a comprehensive UI library for an EV charging platform.",
-      tag: "Angular · Storybook · UI Library",
+      tag: "React · Storybook · UI Library",
     },
     {
       logo: "/logo/linus.png",
@@ -509,7 +509,7 @@
               Interests
             </p>
             <div class="grid grid-cols-3 gap-3">
-              {#each [{ icon: "🎨", label: "Design" }, { icon: "🏛", label: "Architecture" }, { icon: "🎬", label: "Films" }] as item}
+              {#each [{ icon: "🎨", label: "Design" }, { icon: "📐", label: "Architecture" }, { icon: "✈️", label: "Travel" }] as item}
                 <div
                   class="flex flex-col items-center gap-2 p-3 rounded-xl bg-white/5 border border-white/8"
                 >
