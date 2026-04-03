@@ -1,21 +1,46 @@
-# Marcello Annicchiarico 
-**Senior Frontend Developer UI/UX Expert**
+# Marcello Annicchiarico
 
-Hey there! I'm Marcello, a senior frontend developer with a deep-seated passion for crafting intuitive and performant web experiences. I love tackling complex problems and transforming ideas into clean, efficient code.
+**Senior Frontend Engineer — UI/UX · 15 years**
 
-**What I bring to the table:**
+I build polished, scalable web products — from design systems to full product experiences. I care deeply about clean code, great UX, and shipping things that actually work.
 
-* **Experienced Frontend:** 15 Years of building robust and scalable applications.
-* **Continuous Learning:** Always exploring new technologies and staying up-to-date with industry best practices.
-* **Problem-Solving Mindset:** I thrive on challenges and enjoy finding creative solutions.
-* **Team Player:** I believe in collaborative development and open communication.
+```typescript
+const whoAmI = {
+  name: "Marcello Annicchiarico",
+  role: "Senior Frontend Engineer",
+  location: "Italy 🇮🇹",
+  experience: "15 years",
 
-**Let's Connect!**
+  stack: {
+    frameworks: ["SvelteKit", "React", "Next.js"],
+    languages: ["TypeScript", "JavaScript"],
+    styling: ["Tailwind CSS", "CSS-in-JS"],
+    backend: ["Firebase", "Node.js", "REST", "GraphQL"],
+  },
 
-* **LinkedIn:** [linkedin.com/in/marcellokabora](https://www.linkedin.com/in/marcellokabora/)
-* **Bluesky:** [marcellokabora.bsky.social](https://bsky.app/profile/marcellokabora.bsky.social)
-* **Portfolio:** [marcellokabora.com](https://marcellokabora.com/)
+  strengths: ["UI systems", "UX design", "Performance", "Product thinking"],
+  aiTooling: ["GitHub Copilot", "Cursor", "Vercel AI SDK"],
+  openTo: ["Freelance", "Consulting", "Collaborations"],
+};
+```
 
-**Explore My Projects 👇**
+---
 
-Dive into my repositories to see my latest projects and contributions. I'm excited to share my work and collaborate on future endeavors!
+### What I Do
+
+- **UI Engineering** — pixel-perfect interfaces, design systems, component architecture
+- **Product Thinking** — 15 years bridging design and engineering to ship complete products
+- **Modern Tooling** — AI-assisted development, fast iteration, clean output
+- **Full-Cycle Frontend** — from prototype to production, SvelteKit to React
+
+---
+
+### Connect
+
+- **Portfolio:** [marcellokabora.com](https://marcellokabora.com/)
+- **LinkedIn:** [linkedin.com/in/marcellokabora](https://www.linkedin.com/in/marcellokabora/)
+- **Bluesky:** [marcellokabora.bsky.social](https://bsky.app/profile/marcellokabora.bsky.social)
+
+---
+
+> _"The best engineers aren't the ones who write the most code — they're the ones who know which problems are worth solving."_
