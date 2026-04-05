@@ -158,7 +158,9 @@
   });
 </script>
 
-<div class="relative flex flex-col h-[100dvh] bg-[#0a0a0a] overflow-hidden">
+<div
+  class="relative flex flex-col h-[calc(100dvh-4rem)] bg-[#0a0a0a] overflow-hidden pt-16"
+>
   <!-- Decorative background blobs -->
   <div
     class="pointer-events-none absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-primary-500 blur-[300px] opacity-[0.02] animate-pulse"
@@ -167,42 +169,6 @@
     class="pointer-events-none absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-secondary-500 blur-[250px] opacity-[0.02] animate-pulse"
     style="animation-delay: 2s"
   ></div>
-
-  <!-- ── Top bar ─────────────────────────────────────────────── -->
-  <header
-    in:fly={{ y: -20, duration: 600, delay: 100, easing: cubicOut }}
-    class="relative z-10 flex-shrink-0 flex items-center justify-between gap-4 px-6 pt-6 pb-4 border-b border-zinc-800/60 bg-[#0a0a0a]/80 backdrop-blur-xl"
-  >
-    <!-- Bot identity -->
-    <div class="flex items-center gap-3">
-      <div
-        class="flex items-center justify-center w-10 h-10 rounded-full bg-primary-500/20 text-primary-400 ring-1 ring-primary-500/30 flex-shrink-0"
-      >
-        <Icon icon="mdi:robot" class="text-xl" />
-      </div>
-      <div>
-        <div class="flex items-center gap-2">
-          <h1 class="text-white font-semibold text-base leading-none">
-            <span>Assistant</span>
-          </h1>
-        </div>
-        <div class="flex items-center gap-1.5 mt-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
-          ></span>
-          <p class="text-zinc-500 text-xs">Online · responds instantly</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Back to homepage -->
-    <a
-      href="/"
-      class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/60 text-zinc-400 hover:text-white hover:border-zinc-600 text-xs font-medium transition-all duration-200"
-    >
-      <Icon icon="carbon:arrow-left" class="text-sm" />
-      Home
-    </a>
-  </header>
 
   <!-- ── Messages feed ──────────────────────────────────────── -->
   <div

@@ -13,8 +13,7 @@
   let { data, children } = $props();
 
   let isFullscreen = $derived(
-    $page.url.pathname.startsWith("/assistant") ||
-      $page.url.pathname.startsWith("/anybotics") ||
+    $page.url.pathname.startsWith("/anybotics") ||
       $page.url.pathname.startsWith("/skyscanner"),
   );
 
