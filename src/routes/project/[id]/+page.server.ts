@@ -158,7 +158,7 @@ export const actions: Actions = {
   },
   remove: async ({ request }) => {
     const form = await request.formData();
-    const name = form.getAll("name").toString();
+    const name = form.get("name") as string;
 
     // Delete from Firebase Storage
     try {
@@ -172,6 +172,20 @@ export const actions: Actions = {
 
     const projectDoc = doc(db, "projects", String(project.name));
     await updateDoc(projectDoc, { gallery: project.gallery });
+
+    return { project };
+  },
+  reorder: async ({ request }) => {
+    const form = await request.formData();
+    const gallery = (form.get("gallery") as string)
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    project.gallery = gallery;
+
+    const projectDoc = doc(db, "projects", String(project.name));
+    await updateDoc(projectDoc, { gallery });
 
     return { project };
   },
