@@ -159,7 +159,7 @@
 </script>
 
 <div
-  class="relative flex flex-col h-[calc(100dvh-4rem)] bg-[#0a0a0a] overflow-hidden pt-16"
+  class="relative flex flex-col h-[100dvh] bg-[#0a0a0a] overflow-hidden pt-16"
 >
   <!-- Decorative background blobs -->
   <div

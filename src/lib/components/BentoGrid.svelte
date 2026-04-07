@@ -218,10 +218,5 @@
         opacity 0.6s ease-out,
         transform 0.6s ease-out;
     }
-
-    .scroll-animate-item.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 </style>

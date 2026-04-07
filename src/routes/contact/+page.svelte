@@ -35,7 +35,7 @@
 />
 
 <div
-  class="relative flex items-end overflow-hidden min-h-[60vh]"
+  class="relative flex items-center overflow-hidden min-h-[60vh]"
   in:fade={{ duration: 800 }}
 >
   <div class="absolute inset-0 -z-10">
@@ -51,7 +51,7 @@
       class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0a0a0a] pointer-events-none"
     ></div>
   </div>
-  <div class="container mx-auto max-w-6xl px-6 pb-14 pt-40 w-full">
+  <div class="container mx-auto max-w-6xl px-6 py-20 pt-32 w-full text-center">
     <div in:flyAnim={{ y: -16, duration: 500, delay: 150 }}>
       <span
         class="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full text-xs font-semibold uppercase tracking-widest bg-cyan-500/20 border border-cyan-500/30 text-cyan-300"
@@ -67,13 +67,13 @@
       Let's talk
     </h1>
     <p
-      class="text-lg text-zinc-300 max-w-xl mb-10"
+      class="text-lg text-zinc-300 max-w-xl mx-auto mb-10"
       in:flyAnim={{ y: 20, duration: 600, delay: 350 }}
     >
       Open to new opportunities, collaborations and interesting conversations
     </p>
     <div
-      class="flex flex-wrap gap-3"
+      class="flex flex-wrap gap-3 justify-center"
       in:flyAnim={{ y: 20, duration: 600, delay: 450 }}
     >
       <div

@@ -17,6 +17,10 @@
       $page.url.pathname.startsWith("/skyscanner"),
   );
 
+  let hideFooter = $derived(
+    isFullscreen || $page.url.pathname.startsWith("/assistant"),
+  );
+
   onMount(() => {
     initAuth(); // Initialize Firebase auth
   });
@@ -55,6 +59,6 @@
   {@render children?.()}
 </main>
 
-{#if !isFullscreen}
+{#if !hideFooter}
   <Footer />
 {/if}

@@ -88,6 +88,14 @@ export const URLS: { name: string, url: string }[] = [
     name: "vue",
     url: "//vuejs.org"
   },
+  {
+    name: "vercel",
+    url: "//vercel.com"
+  },
+  {
+    name: "gemini",
+    url: "//gemini.google.com"
+  },
 ]
 
 // Firebase Storage image URL generator

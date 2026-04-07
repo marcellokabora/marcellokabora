@@ -17,7 +17,7 @@
 </script>
 
 <div
-  class="relative flex items-end overflow-hidden min-h-[60vh]"
+  class="relative flex items-center overflow-hidden min-h-[60vh]"
   in:fade={{ duration: 800 }}
 >
   <!-- Background Image -->
@@ -38,7 +38,7 @@
   </div>
 
   <!-- Content -->
-  <div class="container mx-auto max-w-6xl px-6 pb-14 pt-40 w-full">
+  <div class="container mx-auto max-w-6xl px-6 py-20 pt-32 w-full text-center">
     <!-- Project type badge -->
     {#if project.type}
       <div in:fly={{ y: -16, duration: 500, delay: 150 }}>
@@ -61,7 +61,7 @@
     <!-- Description -->
     {#if project.info}
       <p
-        class="text-lg md:text-xl text-zinc-300 max-w-2xl mb-10"
+        class="text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto mb-10"
         in:fly={{ y: 20, duration: 600, delay: 350 }}
       >
         {project.info.length > 260
@@ -70,65 +70,69 @@
       </p>
     {/if}
 
-    <!-- Metadata bar — mirrors the screenshot design -->
+    <!-- Metadata bar -->
     <div
-      class="flex flex-wrap items-center gap-2"
+      class="inline-flex flex-wrap items-center justify-center gap-x-1 gap-y-2"
       in:fly={{ y: 20, duration: 600, delay: 450 }}
     >
       <!-- Date -->
       {#if project.date}
-        <div
-          class="flex items-center gap-2 px-4 py-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-zinc-300 text-sm font-medium"
-        >
-          <Icon icon="material-symbols:event" class="text-zinc-400 text-base" />
+        <div class="flex items-center gap-1.5 text-zinc-500 text-sm">
+          <Icon
+            icon="material-symbols:event-outline"
+            class="text-base shrink-0"
+          />
           <span>{formatDate(project.date)}</span>
         </div>
       {/if}
 
       <!-- GitHub Repo -->
       {#if project.code}
+        <span class="text-zinc-700 px-1">·</span>
         <a
           href={`//github.com/marcellokabora/${project.code}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="no-underline flex items-center gap-2 px-4 py-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-zinc-300 text-sm font-medium hover:border-white/25 hover:text-white transition-all duration-200"
+          class="no-underline flex items-center gap-1.5 text-zinc-400 text-sm hover:text-white transition-colors duration-200"
         >
-          <Icon icon="mdi:github" class="text-base" />
-          <span>Github Repo</span>
+          <Icon icon="mdi:github" class="text-base shrink-0" />
+          <span>Github</span>
         </a>
       {/if}
 
       <!-- Website -->
       {#if project.link}
+        <span class="text-zinc-700 px-1">·</span>
         <a
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          class="no-underline flex items-center gap-2 px-4 py-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-zinc-300 text-sm font-medium hover:border-white/25 hover:text-white transition-all duration-200"
+          class="no-underline flex items-center gap-1.5 text-zinc-400 text-sm hover:text-white transition-colors duration-200"
         >
-          <Icon icon="material-symbols:captive-portal" class="text-base" />
+          <Icon
+            icon="material-symbols:captive-portal"
+            class="text-base shrink-0"
+          />
           <span>Website</span>
         </a>
       {/if}
 
-      <!-- Divider before language tags -->
+      <!-- Language tags -->
       {#if project.lang}
-        <div class="flex items-center text-zinc-600 px-1">
-          <Icon icon="material-symbols:code" class="text-base" />
+        <span class="text-zinc-700 px-1 mx-1">|</span>
+        <div class="flex flex-wrap items-center gap-1.5">
+          {#each project.lang.split(",") as lang (lang)}
+            <a
+              href={getLang(lang)?.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="no-underline px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-zinc-400 hover:bg-purple-500/15 hover:border-purple-500/30 hover:text-purple-300 transition-all duration-200"
+            >
+              {lang.trim().charAt(0).toUpperCase() +
+                lang.trim().slice(1).toLowerCase()}
+            </a>
+          {/each}
         </div>
-
-        <!-- Language pills -->
-        {#each project.lang.split(",") as lang (lang)}
-          <a
-            href={getLang(lang)?.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="no-underline px-4 py-2 rounded-full bg-purple-600/60 hover:bg-purple-500/80 text-white text-sm font-semibold border border-purple-500/30 hover:border-purple-400/50 backdrop-blur-md transition-all duration-200"
-          >
-            {lang.trim().charAt(0).toUpperCase() +
-              lang.trim().slice(1).toLowerCase()}
-          </a>
-        {/each}
       {/if}
     </div>
   </div>
