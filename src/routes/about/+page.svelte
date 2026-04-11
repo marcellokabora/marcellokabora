@@ -20,6 +20,7 @@
   // Unified menu with features and skills
   const unifiedMenu: Array<{ name: string; icon: string; label?: string }> = [
     { name: "skills", icon: "mdi:star-circle", label: "Skills" },
+    { name: "leadership", icon: "mdi:account-group", label: "Leadership" },
     ...menu.map((item) => ({ ...item, label: item.name })),
     {
       name: "recommendations",
@@ -193,7 +194,7 @@
 </script>
 
 <MetaTags
-  title="Marcello Annicchiarico | About"
+  title="Marcello Annicchiarico | About - Tech Leader & Frontend Architect"
   url="https://marcellokabora.com/about"
 />
 
@@ -220,7 +221,7 @@
         class="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full text-xs font-semibold uppercase tracking-widest bg-purple-500/20 border border-purple-500/30 text-purple-300"
       >
         <Icon icon="material-symbols:person-outline" class="text-sm" />
-        Full Stack Developer
+        Tech Leader & Senior Frontend Engineer
       </span>
     </div>
     <h1
@@ -271,8 +272,8 @@
           class="text-purple-400 text-xl"
         />
         <div>
-          <div class="text-xl font-bold text-white">30+</div>
-          <div class="text-xs text-zinc-400">Happy Clients</div>
+          <div class="text-xl font-bold text-white">4+</div>
+          <div class="text-xs text-zinc-400">Devs Mentored</div>
         </div>
       </div>
     </div>
@@ -373,6 +374,95 @@
               </div>
             </div>
           {/each}
+        </div>
+      </div>
+
+      <!-- Leadership & Process Section -->
+      <div id="leadership" class="mb-16">
+        <h2 class="text-3xl font-bold text-white mb-8">Leadership & Process</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-primary-500/30 transition-all duration-300"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-primary-500/20 rounded-xl flex items-center justify-center border border-primary-500/30"
+              >
+                <Icon
+                  icon="mdi:account-supervisor"
+                  class="w-5 h-5 text-primary-400"
+                />
+              </div>
+              <h3 class="text-lg font-bold text-white">Team Leadership</h3>
+            </div>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Led frontend teams of 3–4 developers across multiple products. I
+              focus on empowerment through clear architectural direction, code
+              review culture, and creating an environment where junior
+              developers grow into independent contributors.
+            </p>
+          </div>
+          <div
+            class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-primary-500/30 transition-all duration-300"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-secondary-500/20 rounded-xl flex items-center justify-center border border-secondary-500/30"
+              >
+                <Icon icon="mdi:school" class="w-5 h-5 text-secondary-400" />
+              </div>
+              <h3 class="text-lg font-bold text-white">Mentorship</h3>
+            </div>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Mentored 4+ frontend developers on Angular, React, and modern
+              component architecture. Established coding standards,
+              documentation practices, and pair programming sessions that
+              accelerated team velocity and skill development.
+            </p>
+          </div>
+          <div
+            class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-primary-500/30 transition-all duration-300"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-primary-500/20 rounded-xl flex items-center justify-center border border-primary-500/30"
+              >
+                <Icon
+                  icon="mdi:source-branch"
+                  class="w-5 h-5 text-primary-400"
+                />
+              </div>
+              <h3 class="text-lg font-bold text-white">
+                Architecture & Migrations
+              </h3>
+            </div>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Led 2 major frontend migrations — from legacy code to Angular at
+              YUKKALab and from scattered UI components to a shared library at
+              BuildingMinds. I make architecture decisions that balance
+              technical excellence with business timelines.
+            </p>
+          </div>
+          <div
+            class="bg-neutral-900/50 border border-white/5 rounded-2xl p-6 hover:border-primary-500/30 transition-all duration-300"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 bg-secondary-500/20 rounded-xl flex items-center justify-center border border-secondary-500/30"
+              >
+                <Icon icon="mdi:robot" class="w-5 h-5 text-secondary-400" />
+              </div>
+              <h3 class="text-lg font-bold text-white">
+                AI-Augmented Workflows
+              </h3>
+            </div>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Pioneered AI integration at Fast Track by establishing team-wide
+              GitHub Copilot workflows, MCP protocols, and Design System
+              documentation standards. I believe in data-driven decision making
+              and empowerment through automation.
+            </p>
+          </div>
         </div>
       </div>
 

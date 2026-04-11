@@ -43,13 +43,13 @@
           <Icon icon="carbon:cube" class="w-32 h-32 text-white" />
         </div> -->
         <div class="flex-1 flex flex-col z-10">
-          <h4 class="text-2xl font-bold text-white mb-4">The Architect</h4>
+          <h4 class="text-2xl font-bold text-white mb-4">The Tech Leader</h4>
           <p class="text-zinc-400 leading-relaxed">
-            I bridge the gap between form and function through an AI-augmented
-            development flow. From automated unit testing to real-time code
-            optimization, I leverage an intelligent toolchain to build faster
-            and more reliably, ensuring that every pixel is perfect and every
-            backend system is bulletproof.
+            I scale engineering excellence by combining architectural foresight
+            with AI-augmented workflows. With 4 developers mentored, 2 major
+            migrations led, and teams of 3–4 guided across multiple products, I
+            build high-performing frontend teams and robust systems that align
+            technical strategy with business goals.
           </p>
         </div>
         <div
@@ -119,17 +119,17 @@
         >
       </div>
 
-      <!-- Small Card: Companies -->
+      <!-- Small Card: Devs Mentored -->
       <div
         class="col-span-1 bg-neutral-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-center items-center text-center transition-transform scroll-animate-item"
       >
         <span
           class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-primary-300 to-primary-600"
-          >{companyCount}+</span
+          >4+</span
         >
         <span
           class="text-sm text-zinc-500 mt-2 uppercase tracking-widest font-semibold"
-          >Companies</span
+          >Devs Mentored</span
         >
       </div>
 

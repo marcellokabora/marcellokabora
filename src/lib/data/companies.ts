@@ -1,11 +1,15 @@
 interface Company {
     logo: string;
+    icon?: string;
     name: string;
     slogan: string;
     title: string;
     time: string;
     link?: string;
     technologies: string;
+    teamSize?: string;
+    achievements?: string[];
+    leadership?: string;
 }
 
 export const companies: Company[] = [
@@ -22,46 +26,79 @@ export const companies: Company[] = [
         logo: "/logo/fasttrack.png",
         name: "Fast Track",
         slogan: "Flight Tickets",
-        title: "Frontend AI Leader",
-        time: "From June 2024 - Jan 2025",
+        title: "Tech Leader",
+        time: "From June 2024 - Feb 2025",
         link: "//fasttrack.flights",
-        technologies: "Vue, Nuxt, Svelte, Github, Figma, Tailwind, Turborepo"
+        technologies: "Vue, Nuxt, Svelte, Github, Figma, Tailwind, Turborepo",
+        teamSize: "Team of 4",
+        leadership: "Led frontend architecture and AI integration strategy",
+        achievements: [
+            "Established AI agent protocols and Design System documentation for the team",
+            "Led MCP protocol implementation for frontend-backend connectivity",
+            "Architected monorepo structure with Turborepo across Vue, Nuxt, and Svelte"
+        ]
     },
     {
         logo: "/company/evaglobal.png",
+        icon: "/company/evaglobal_icon.png",
         name: "Eva Global",
         slogan: "eMobility",
-        title: "Frontend Developer",
+        title: "Senior Frontend Developer",
         time: "Oct 2022 - Feb 2025",
         link: "//linkedin.com/company/evaglobal",
-        technologies: "Angular, Storybook, Gitlab, Jira, Figma"
+        technologies: "Angular, Storybook, Gitlab, Jira, Figma",
+        achievements: [
+            "Built and maintained the shared Angular Material UI library",
+            "Drove UX improvements including the Heatmap feature from concept to delivery"
+        ]
     },
     {
         logo: "/logo/linus.png",
         name: "Linus",
         slogan: "Digital Finance",
-        title: "Frontend Developer",
+        title: "Senior Frontend Developer",
         time: "Sep 2021 - Aug 2022",
         link: "//linkedin.com/company/linus-digital-finance",
-        technologies: "React, Vue, GraphQL, Docker, Builder, Github, Jira, Styled, Figma"
+        technologies: "React, Vue, GraphQL, Docker, Builder, Github, Jira, Styled, Figma",
+        leadership: "Core team member driving the platform rebuild",
+        achievements: [
+            "Led the rebuild of the Registration and Product template systems with Builder.io and React",
+            "Delivered multiple marketing landing pages aligning frontend with business goals"
+        ]
     },
     {
         logo: "/logo/buildingminds.png",
+        icon: "/logo/buildingminds_icon.png",
         name: "Buildingminds",
         slogan: "Equipment Tool",
         title: "Frontend Developer",
         time: "Jan 2020 - Sep 2021",
         link: "//linkedin.com/company/buildingminds",
-        technologies: "Angular, Redux, Bootstrap, Azure, Abstract, Material, Firebase, Jest"
+        technologies: "Angular, Redux, Bootstrap, Azure, Abstract, Material, Firebase, Jest",
+        teamSize: "Team of 3",
+        leadership: "Cross-team contributor driving frontend standards",
+        achievements: [
+            "Led migration of legacy UI components to a shared Angular component library",
+            "Worked across multiple teams to standardize frontend patterns and Redux state management",
+            "Mentored 2 developers on Angular architecture and testing with Jest"
+        ]
     },
     {
         logo: "/company/yukka.png",
+        icon: "/company/yukka_icon.png",
         name: "Yukkalab",
         slogan: "News analytics",
-        title: "Frontend Developer",
+        title: "Frontend Architect",
         time: "Jun 2017 - Nov 2019",
         link: "//linkedin.com/company/yukkalabag",
-        technologies: "Angular, Material, MySql, Jira, D3, Highcharts, Github, Firebase"
+        technologies: "Angular, Material, MySql, Jira, D3, Highcharts, Github, Firebase",
+        teamSize: "Team of 3",
+        leadership: "Owned complex data visualization architecture",
+        achievements: [
+            "Architected and built advanced data visualizations (Chartmap, Network, Signals) with D3 and Highcharts",
+            "Led the migration from legacy frontend to Angular with Material Design",
+            "Established charting component patterns reused across the entire product"
+        ]
     },
     {
         logo: "/logo/smava.png",

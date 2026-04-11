@@ -3,7 +3,7 @@
   import Icon from "@iconify/svelte";
 
   // Get the last 5 companies (most recent)
-  const recentCompanies = companies.slice(0, 6);
+  const recentCompanies = companies.slice(0, 5);
 
   // Transform companies data to match the experience format
   let experience = recentCompanies.map((company) => {
@@ -15,6 +15,10 @@
       logo: company.logo,
       technologies: company.technologies,
       link: company.link,
+      teamSize: company.teamSize,
+      achievements: company.achievements,
+      leadership: company.leadership,
+      icon: company.icon || company.logo,
     };
   });
 </script>
@@ -44,9 +48,9 @@
           <div
             class="absolute left-8 md:left-1/2 w-16 h-16 rounded-full bg-neutral-900 border-2 border-zinc-700 transform -translate-x-8 md:-translate-x-8 z-10 p-2 flex items-center justify-center overflow-hidden shadow-xl"
           >
-            {#if job.logo}
+            {#if job.icon}
               <img
-                src={job.logo}
+                src={job.icon}
                 alt={job.company}
                 class="w-full h-full object-contain"
               />
@@ -68,13 +72,37 @@
                 class="inline-block text-xs font-semibold text-secondary-400 bg-secondary-400/10 px-3 py-1 rounded-full mb-3 border border-secondary-400/20"
                 >{job.timeRange}</span
               >
+              {#if job.teamSize}
+                <span
+                  class="inline-block text-xs font-semibold text-primary-400 bg-primary-400/10 px-3 py-1 rounded-full mb-3 ml-2 border border-primary-400/20"
+                  >{job.teamSize}</span
+                >
+              {/if}
               <h3 class="text-2xl font-bold text-white mb-2">
                 {job.company}
               </h3>
-              <p class="text-zinc-200 text-base font-medium mb-3">
+              <p class="text-zinc-200 text-base font-medium mb-1">
                 {job.role}
               </p>
-              <p class="text-zinc-400 text-sm leading-relaxed">{job.desc}</p>
+              {#if job.leadership}
+                <p class="text-primary-400/80 text-sm italic mb-3 text-balance">
+                  {job.leadership}
+                </p>
+              {/if}
+              {#if job.achievements && job.achievements.length > 0}
+                <ul class="mt-3 space-y-1.5">
+                  {#each job.achievements as achievement}
+                    <li
+                      class="text-zinc-400 text-sm leading-relaxed flex items-start gap-2 {i % 2 === 0 ? 'md:flex-row-reverse md:text-right' : ''}"
+                    >
+                      <span class="text-secondary-400 mt-0.5 flex-shrink-0"
+                        >▸</span
+                      >
+                      <span>{achievement}</span>
+                    </li>
+                  {/each}
+                </ul>
+              {/if}
             </div>
           </div>
         </div>

@@ -14,9 +14,9 @@
   }
 
   let {
-    title = "Marcello Annicchiarico | Frontend AI Developer",
-    description = "Senior Frontend Developer with a decade of experience in software development, UI/UX, and data visualization. Passionate about building high-performance UI libraries and PWAs for SaaS and B2B, using frameworks like Vue, Svelte, Angular, and React.",
-    keywords = "Software, Developer, Frontend, Fullstack, Developer, UI/UX, Nodejs, Svelte, Angular, Vue, React, Material, Firebase",
+    title = "Marcello Annicchiarico | Tech Leader & Senior Frontend Engineer",
+    description = "Tech Leader and Senior Frontend Engineer in Berlin with 10+ years of experience scaling frontend teams, leading architecture migrations, and building high-performance web applications with Vue, Svelte, Angular, and React.",
+    keywords = "Tech Lead, Senior Frontend Engineer, Frontend Architect, Berlin, Team Leadership, Svelte, Angular, Vue, React, AI, Mentorship, Architecture, Firebase, D3, TypeScript",
     image = "https://marcellokabora.com/selfie/selfie-styled.png",
     imageWidth = 1200,
     imageHeight = 630,

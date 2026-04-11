@@ -39,8 +39,9 @@
         in:fly={{ y: 30, duration: 1000, delay: 200, easing: cubicOut }}
         class="text-zinc-400 text-xl md:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed px-8"
       >
-        Marcello Annicchiarico — Crafting premium, high-conversion web
-        interfaces with state-of-the-art tech.
+        Marcello Annicchiarico — Frontend Architect & Team Leader. I scale
+        engineering teams, drive architecture decisions, and ship premium
+        digital experiences.
       </p>
 
       <div
