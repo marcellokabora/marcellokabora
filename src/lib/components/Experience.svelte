@@ -93,7 +93,11 @@
                 <ul class="mt-3 space-y-1.5">
                   {#each job.achievements as achievement}
                     <li
-                      class="text-zinc-400 text-sm leading-relaxed flex items-start gap-2 {i % 2 === 0 ? 'md:flex-row-reverse md:text-right' : ''}"
+                      class="text-zinc-400 text-sm leading-relaxed flex items-start gap-2 {i %
+                        2 ===
+                      0
+                        ? 'md:flex-row-reverse md:text-right'
+                        : ''}"
                     >
                       <span class="text-secondary-400 mt-0.5 flex-shrink-0"
                         >▸</span
