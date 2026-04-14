@@ -84,11 +84,6 @@
               <p class="text-zinc-200 text-base font-medium mb-1">
                 {job.role}
               </p>
-              {#if job.leadership}
-                <p class="text-primary-400/80 text-sm italic mb-3 text-balance">
-                  {job.leadership}
-                </p>
-              {/if}
               {#if job.achievements && job.achievements.length > 0}
                 <ul class="mt-3 space-y-1.5">
                   {#each job.achievements as achievement}
