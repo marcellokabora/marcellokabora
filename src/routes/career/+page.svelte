@@ -67,7 +67,7 @@
         class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-purple-500/20"
       >
         <Icon
-          icon="material-symbols:business"
+          icon="material-symbols:corporate-fare"
           class="text-purple-400 text-xl"
         />
         <div>

@@ -7,9 +7,7 @@ interface Company {
     time: string;
     link?: string;
     technologies: string;
-    teamSize?: string;
     achievements?: string[];
-    leadership?: string;
 }
 
 export const companies: Company[] = [
@@ -30,8 +28,6 @@ export const companies: Company[] = [
         time: "From June 2024 - Feb 2025",
         link: "//fasttrack.flights",
         technologies: "Vue, Nuxt, Svelte, Github, Figma, Tailwind, Turborepo",
-        teamSize: "Team of 4",
-        leadership: "Led frontend architecture and AI integration strategy",
         achievements: [
             "Established AI agent protocols and Design System documentation for the team",
             "Led MCP protocol implementation for frontend-backend connectivity",
@@ -60,7 +56,6 @@ export const companies: Company[] = [
         time: "Sep 2021 - Aug 2022",
         link: "//linkedin.com/company/linus-digital-finance",
         technologies: "React, Vue, GraphQL, Docker, Builder, Github, Jira, Styled, Figma",
-        leadership: "Core team member driving the platform rebuild",
         achievements: [
             "Led the rebuild of the Registration and Product template systems with Builder.io and React",
             "Delivered multiple marketing landing pages aligning frontend with business goals"
@@ -75,8 +70,6 @@ export const companies: Company[] = [
         time: "Jan 2020 - Sep 2021",
         link: "//linkedin.com/company/buildingminds",
         technologies: "Angular, Redux, Bootstrap, Azure, Abstract, Material, Firebase, Jest",
-        teamSize: "Team of 3",
-        leadership: "Cross-team contributor driving frontend standards",
         achievements: [
             "Led migration of legacy UI components to a shared Angular component library",
             "Worked across multiple teams to standardize frontend patterns and Redux state management",
@@ -92,8 +85,6 @@ export const companies: Company[] = [
         time: "Jun 2017 - Nov 2019",
         link: "//linkedin.com/company/yukkalabag",
         technologies: "Angular, Material, MySql, Jira, D3, Highcharts, Github, Firebase",
-        teamSize: "Team of 3",
-        leadership: "Owned complex data visualization architecture",
         achievements: [
             "Architected and built advanced data visualizations (Chartmap, Network, Signals) with D3 and Highcharts",
             "Led the migration from legacy frontend to Angular with Material Design",

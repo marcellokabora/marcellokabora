@@ -15,9 +15,7 @@
       logo: company.logo,
       technologies: company.technologies,
       link: company.link,
-      teamSize: company.teamSize,
       achievements: company.achievements,
-      leadership: company.leadership,
       icon: company.icon || company.logo,
     };
   });
@@ -72,12 +70,6 @@
                 class="inline-block text-xs font-semibold text-secondary-400 bg-secondary-400/10 px-3 py-1 rounded-full mb-3 border border-secondary-400/20"
                 >{job.timeRange}</span
               >
-              {#if job.teamSize}
-                <span
-                  class="inline-block text-xs font-semibold text-primary-400 bg-primary-400/10 px-3 py-1 rounded-full mb-3 ml-2 border border-primary-400/20"
-                  >{job.teamSize}</span
-                >
-              {/if}
               <h3 class="text-2xl font-bold text-white mb-2">
                 {job.company}
               </h3>
