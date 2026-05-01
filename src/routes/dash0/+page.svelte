@@ -155,7 +155,7 @@
       <img
         src="/logo/dash0.png"
         alt="dash0"
-        class="w-[420px] max-w-[55vw] rounded-2xl"
+        class="w-[420px] max-w-[55vw] rounded-2xl border border-zinc-800"
       />
       <div class="flex flex-col items-center gap-3">
         <p class="text-white/40 text-sm font-mono tracking-widest uppercase">
@@ -362,7 +362,7 @@
           </div>
 
           <div
-            class="bg-[var(--surface)] border border-[var(--accent)]/20 rounded-2xl p-5 flex flex-col gap-3"
+            class="bg-[var(--surface)] border border-white/8 rounded-2xl p-5 flex flex-col gap-3"
           >
             <div class="flex items-center gap-3">
               <div
@@ -697,7 +697,7 @@
             </h2>
           </div>
           <div class="flex flex-col gap-3">
-            {#each [{ icon: "▲", label: "Framework", value: "Next.js / Astro", note: "Static-first for speed" }, { icon: "◈", label: "CMS", value: "Sanity", note: "Headless, structured content" }, { icon: "◉", label: "Analytics", value: "PostHog", note: "Product-led tracking" }, { icon: "◆", label: "Deployment", value: "Vercel", note: "Global CI/CD" }] as item}
+            {#each [{ icon: "▲", label: "Framework", value: "Astro", note: "Static-first for speed" }, { icon: "◈", label: "CMS", value: "Sanity", note: "Headless, structured content" }, { icon: "◉", label: "Analytics", value: "PostHog", note: "Product-led tracking" }, { icon: "◆", label: "Deployment", value: "Vercel", note: "Global CI/CD" }] as item}
               <div
                 class="flex items-center gap-4 bg-[var(--surface)] border border-white/8 rounded-xl px-4 py-3"
               >
@@ -884,7 +884,7 @@
       <img
         src="/logo/dash0.png"
         alt="dash0"
-        class="w-[420px] max-w-[55vw] rounded-2xl"
+        class="w-[420px] max-w-[55vw] rounded-2xl border border-zinc-800"
       />
       <div class="flex flex-col items-center gap-4">
         <h2 class="text-white text-3xl font-bold tracking-tight text-center">
