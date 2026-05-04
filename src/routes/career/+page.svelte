@@ -32,7 +32,7 @@
   <div class="container mx-auto max-w-6xl px-6 py-20 pt-32 w-full text-center">
     <div in:flyAnim={{ y: -16, duration: 500, delay: 150 }}>
       <span
-        class="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full text-xs font-semibold uppercase tracking-widest bg-purple-500/20 border border-purple-500/30 text-purple-300"
+        class="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full text-xs font-semibold uppercase tracking-widest bg-blue-500/20 border border-blue-500/30 text-blue-300"
       >
         <Icon icon="material-symbols:work-history" class="text-sm" />
         Professional Experience
@@ -55,20 +55,20 @@
       in:flyAnim={{ y: 20, duration: 600, delay: 450 }}
     >
       <div
-        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-purple-500/20"
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-blue-500/20"
       >
-        <Icon icon="material-symbols:public" class="text-purple-400 text-xl" />
+        <Icon icon="material-symbols:public" class="text-blue-400 text-xl" />
         <div>
           <div class="text-xl font-bold text-white">3</div>
           <div class="text-xs text-zinc-400">Countries</div>
         </div>
       </div>
       <div
-        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-purple-500/20"
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-blue-500/20"
       >
         <Icon
           icon="material-symbols:corporate-fare"
-          class="text-purple-400 text-xl"
+          class="text-blue-400 text-xl"
         />
         <div>
           <div class="text-xl font-bold text-white">8+</div>
@@ -76,11 +76,11 @@
         </div>
       </div>
       <div
-        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-purple-500/20"
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-blue-500/20"
       >
         <Icon
           icon="material-symbols:location-on-outline"
-          class="text-purple-400 text-xl"
+          class="text-blue-400 text-xl"
         />
         <div class="text-sm text-zinc-300 font-medium">
           Berlin · Barcelona · Italy

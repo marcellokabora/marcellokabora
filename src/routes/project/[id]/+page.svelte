@@ -159,14 +159,14 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen
-                    class="w-full aspect-video max-h-[70vh] mx-auto shadow-xl rounded-lg"
+                    class="w-full aspect-video max-h-[70vh] mx-auto"
                   ></iframe>
                 {:else}
                   <img
                     src={getImg(item.url)}
                     alt=""
                     loading="lazy"
-                    class="w-full h-auto max-h-[70vh] mx-auto object-contain transition-all duration-300 shadow-xl rounded-lg"
+                    class="w-full h-auto max-h-[70vh] mx-auto object-contain transition-all duration-300"
                   />
                   {#if $user}
                     <!-- Reorder buttons -->

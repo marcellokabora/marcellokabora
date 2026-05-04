@@ -6,27 +6,21 @@
   <div class="company-description">
     <div class="description-content">
       <p>
-        <strong>The Challenge:</strong>
-        <a href="//evaglobal.com" target="_blank">Eva Global</a> needed to scale
-        its eMobility platform's frontend while building a cohesive UI library to
-        serve multiple product teams managing electric vehicle charger infrastructure.
+        As Senior Frontend Developer at <a
+          href="//evaglobal.com"
+          target="_blank">Eva Global</a
+        >, I owned the Angular Material UI library architecture for an eMobility
+        platform managing electric vehicle charger infrastructure across
+        multiple product teams.
       </p>
       <p>
-        <strong>My Role:</strong> As Senior Frontend Developer, I owned the
-        Angular Material UI library architecture and drove UX improvements from
-        concept to delivery, including the
-        <a href="/project/heatmap/">Heatmap</a> feature.
-      </p>
-      <p>
-        <strong>Architecture:</strong> Built and maintained the shared UI
-        library using Angular Material and Storybook, ensuring design
-        consistency across the
-        <a href="/project/monitoring/">Monitoring</a> platform and other products.
-      </p>
-      <p>
-        <strong>Result:</strong> Established a reusable component system adopted
-        across teams and accelerated feature delivery through documented Storybook
-        patterns.
+        I built and maintained the shared UI component library with Storybook,
+        driving UX improvements including the <a href="/project/heatmap/"
+          >Heatmap</a
+        >
+        and
+        <a href="/project/monitoring/">Monitoring</a> features — establishing reusable
+        patterns adopted across teams and accelerating feature delivery.
       </p>
     </div>
   </div>
@@ -34,27 +28,17 @@
   <div class="company-description">
     <div class="description-content">
       <p>
-        <strong>The Challenge:</strong> Fast Track needed to unify a fragmented frontend
-        codebase spanning Vue, Nuxt, and Svelte into a cohesive monorepo while accelerating
-        delivery through AI-driven workflows.
+        As Frontend AI Leader at Fast Track, I led a team of 3 in unifying a
+        fragmented Vue, Nuxt, and Svelte codebase into a <strong
+          >Turborepo</strong
+        > monorepo, while defining AI agent protocols for team-wide GitHub Copilot
+        adoption and establishing the Design System documentation.
       </p>
       <p>
-        <strong>Leadership:</strong> As Frontend AI Leader of a team of 3, I took
-        ownership of the technical strategy — establishing the Design System documentation,
-        defining AI agent protocols for team-wide adoption of GitHub Copilot, and
-        mentoring developers on AI-augmented development practices.
-      </p>
-      <p>
-        <strong>Architecture:</strong> I architected the monorepo structure with
-        <strong>Turborepo</strong>, implemented MCP protocols for robust
-        frontend-backend connectivity, and standardized the Figma-to-code
-        pipeline across the
-        <a href="/project/ticket-monorepo/">Ticket App</a> project.
-      </p>
-      <p>
-        <strong>Result:</strong> Delivered a unified codebase with shared design
-        tokens, reduced onboarding time for new developers, and established the foundational
-        AI integration guidelines that the team continues to use.
+        I architected the Figma-to-code pipeline for the <a
+          href="/project/ticket-monorepo/">Ticket App</a
+        >, implemented MCP protocols for frontend-backend connectivity, and set
+        the AI integration guidelines the team continues to use.
       </p>
     </div>
   </div>
@@ -94,29 +78,17 @@
   <div class="company-description">
     <div class="description-content">
       <p>
-        <strong>The Challenge:</strong>
-        <a href="//buildingminds.com" target="_blank">BuildingMinds</a> needed to
-        scale its Angular frontend across multiple teams while maintaining consistency
-        in a complex enterprise platform built on Microsoft Azure services.
+        At <a href="//buildingminds.com" target="_blank">BuildingMinds</a>, I
+        drove frontend standardization across an enterprise Angular platform
+        built on Microsoft Azure. Leading a team of 3, I migrated legacy UI into
+        a shared
+        <a href="/project/uicomponents">component library</a> and built the
+        <a href="/project/appmanager">App Management</a> module.
       </p>
       <p>
-        <strong>Leadership:</strong> Working within a team of 3, I drove
-        frontend standardization across squads — leading the migration of legacy
-        UI into a shared
-        <a href="/project/uicomponents">component library</a> and mentoring 2 developers
-        on Angular architecture, Redux state management patterns, and Jest testing
-        practices.
-      </p>
-      <p>
-        <strong>Architecture:</strong> I established reusable component patterns
-        with Angular Material and Redux, built the
-        <a href="/project/appmanager">App Management</a> module, and introduced consistent
-        testing strategies with Jest across the frontend codebase.
-      </p>
-      <p>
-        <strong>Result:</strong> Unified frontend patterns adopted by multiple teams,
-        reduced code duplication, and improved developer onboarding through documented
-        component standards and mentorship.
+        I mentored 2 developers on Angular architecture, Redux state management,
+        and Jest testing — unifying frontend patterns across multiple teams and
+        reducing code duplication.
       </p>
     </div>
   </div>
@@ -124,30 +96,22 @@
   <div class="company-description">
     <div class="description-content">
       <p>
-        <strong>The Challenge:</strong>
-        <a href="//yukkalab.com" target="_blank">YUKKALab</a> needed to build a sophisticated
-        news analytics platform with complex, interactive data visualizations that
-        could surface market sentiment before stock exchanges reflected the trend.
+        As frontend owner at <a href="//yukkalab.com" target="_blank"
+          >YUKKALab</a
+        >, I led the migration to Angular with Material Design and owned the
+        data visualization architecture for a news analytics platform surfacing
+        market sentiment ahead of stock movements.
       </p>
       <p>
-        <strong>Leadership:</strong> As the frontend owner within a team of 3, I
-        led the migration from the legacy frontend to Angular with Material Design
-        and took full ownership of the data visualization architecture. I established
-        charting component patterns that became the foundation for the entire product.
-      </p>
-      <p>
-        <strong>Architecture:</strong> I designed and built advanced interactive
-        visualizations using <strong>D3.js</strong> and
-        <strong>Highcharts</strong>
-        — including the <a href="/project/chartmap">Chartmap</a>,
+        I designed and built advanced interactive visualizations using <strong
+          >D3.js</strong
+        >
+        and
+        <strong>Highcharts</strong> — including the
+        <a href="/project/chartmap">Chartmap</a>,
         <a href="/project/network">Network</a>, and
-        <a href="/project/signals">Signals</a> modules — each translating complex
-        algorithmic data into actionable financial insights.
-      </p>
-      <p>
-        <strong>Result:</strong> Delivered a production-grade analytics platform
-        providing concrete investment recommendations through loss-limiting signals,
-        with reusable visualization components adopted across the product.
+        <a href="/project/signals">Signals</a> modules — translating complex algorithmic
+        data into actionable financial insights.
       </p>
     </div>
   </div>
