@@ -697,7 +697,7 @@
             </h2>
           </div>
           <div class="flex flex-col gap-3">
-            {#each [{ icon: "▲", label: "Framework", value: "Astro", note: "Static-first for speed" }, { icon: "◈", label: "CMS", value: "Sanity", note: "Headless, structured content" }, { icon: "◉", label: "Analytics", value: "PostHog", note: "Product-led tracking" }, { icon: "◆", label: "Deployment", value: "Vercel", note: "Global CI/CD" }] as item}
+            {#each [{ icon: "▲", label: "Framework", value: "Next.js", note: "Static-first for speed" }, { icon: "◈", label: "CMS", value: "Sanity", note: "Headless, structured content" }, { icon: "◉", label: "Analytics", value: "PostHog", note: "Product-led tracking" }, { icon: "◆", label: "Deployment", value: "Vercel", note: "Global CI/CD" }] as item}
               <div
                 class="flex items-center gap-4 bg-[var(--surface)] border border-white/8 rounded-xl px-4 py-3"
               >
