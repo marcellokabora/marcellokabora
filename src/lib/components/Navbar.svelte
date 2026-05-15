@@ -18,6 +18,12 @@
   let user: User | null = $state(null);
   let dropdownRef: HTMLDivElement | undefined = $state();
   let mounted = $state(false);
+  let scrolled = $state(false);
+  let scrollY = $state(0);
+
+  $effect(() => {
+    scrolled = scrollY > 20;
+  });
 
   const menuItems = [
     { href: "/about", label: "About" },
@@ -83,6 +89,8 @@
     showMobileMenu = false;
   }
 </script>
+
+<svelte:window bind:scrollY />
 
 <!-- Mobile Menu Button - Top Left Corner -->
 {#if mounted}
@@ -182,24 +190,13 @@
 <!-- Desktop Navigation -->
 {#if mounted}
   <nav
-    class="hidden lg:flex fixed top-0 left-0 right-0 z-50 px-8 py-4 items-center justify-between"
+    class="hidden lg:flex fixed top-0 left-0 right-0 z-50 px-8 py-4 items-center justify-between transition-all duration-300 {scrolled
+      ? 'bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-zinc-800 shadow-lg'
+      : 'bg-gradient-to-b from-black/90 via-black/60 to-transparent'}"
   >
     <!-- Logo left -->
-    <a
-      href="/"
-      class="relative group"
-      in:scale={{ duration: 1000, easing: elasticOut, start: 0.3 }}
-    >
-      <div class="relative">
-        <div
-          class="absolute inset-0 bg-gradient-to-r from-secondary-400 via-blue-500 to-primary-600 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-all duration-500 animate-pulse scale-150"
-        ></div>
-        <img
-          src="/icon/mk.svg"
-          alt="MK"
-          class="h-9 w-auto relative z-10 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_12px_rgba(6,182,212,0.4)]"
-        />
-      </div>
+    <a href="/">
+      <img src="/icon/mk.svg" alt="MK" class="h-9 w-auto" />
     </a>
 
     <!-- Links right -->
