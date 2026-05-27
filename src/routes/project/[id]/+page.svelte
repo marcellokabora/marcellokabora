@@ -170,36 +170,6 @@
                   />
                   {#if $user}
                     <!-- Reorder buttons -->
-                    <div
-                      class="absolute left-4 top-4 flex gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300"
-                    >
-                      <button
-                        type="button"
-                        onclick={() => moveImage(item.url, -1)}
-                        disabled={(project.gallery?.indexOf(item.url) ?? 0) ===
-                          0}
-                        class="h-8 w-8 bg-black/40 text-white/60 rounded-full flex items-center justify-center border border-white/10 hover:bg-purple-500 hover:text-white hover:border-purple-500/30 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed cursor-pointer"
-                        aria-label="Move left"
-                      >
-                        <Icon
-                          icon="material-symbols:arrow-back"
-                          class="text-sm"
-                        />
-                      </button>
-                      <button
-                        type="button"
-                        onclick={() => moveImage(item.url, 1)}
-                        disabled={(project.gallery?.indexOf(item.url) ?? 0) ===
-                          (project.gallery?.length ?? 1) - 1}
-                        class="h-8 w-8 bg-black/40 text-white/60 rounded-full flex items-center justify-center border border-white/10 hover:bg-purple-500 hover:text-white hover:border-purple-500/30 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed cursor-pointer"
-                        aria-label="Move right"
-                      >
-                        <Icon
-                          icon="material-symbols:arrow-forward"
-                          class="text-sm"
-                        />
-                      </button>
-                    </div>
                     <form
                       method="POST"
                       action="?/remove"

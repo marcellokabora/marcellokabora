@@ -11,13 +11,9 @@
           target="_blank">Eva Global</a
         >, I owned the Angular Material UI library architecture for an eMobility
         platform managing electric vehicle charger infrastructure across
-        multiple product teams.
-      </p>
-      <p>
-        I built and maintained the shared UI component library with Storybook,
-        driving UX improvements including the <a href="/project/heatmap/"
-          >Heatmap</a
-        >
+        multiple product teams. I built and maintained the shared UI component
+        library with Storybook, driving UX improvements including the
+        <a href="/project/heatmap/">Heatmap</a>
         and
         <a href="/project/monitoring/">Monitoring</a> features — establishing reusable
         patterns adopted across teams and accelerating feature delivery.
@@ -31,14 +27,13 @@
         As Frontend AI Leader at Fast Track, I led a team of 3 in unifying a
         fragmented Vue, Nuxt, and Svelte codebase into a <strong
           >Turborepo</strong
-        > monorepo, while defining AI agent protocols for team-wide GitHub Copilot
-        adoption and establishing the Design System documentation.
-      </p>
-      <p>
-        I architected the Figma-to-code pipeline for the <a
-          href="/project/ticket-monorepo/">Ticket App</a
-        >, implemented MCP protocols for frontend-backend connectivity, and set
-        the AI integration guidelines the team continues to use.
+        >
+        monorepo, while defining AI agent protocols for team-wide GitHub Copilot
+        adoption and establishing the Design System documentation. I architected
+        the Figma-to-code pipeline for the
+        <a href="/project/ticket-monorepo/">Ticket App</a>, implemented MCP
+        protocols for frontend-backend connectivity, and set the AI integration
+        guidelines the team continues to use.
       </p>
     </div>
   </div>
@@ -83,12 +78,9 @@
         built on Microsoft Azure. Leading a team of 3, I migrated legacy UI into
         a shared
         <a href="/project/uicomponents">component library</a> and built the
-        <a href="/project/appmanager">App Management</a> module.
-      </p>
-      <p>
-        I mentored 2 developers on Angular architecture, Redux state management,
-        and Jest testing — unifying frontend patterns across multiple teams and
-        reducing code duplication.
+        <a href="/project/appmanager">App Management</a> module. I mentored 2 developers
+        on Angular architecture, Redux state management, and Jest testing — unifying
+        frontend patterns across multiple teams and reducing code duplication.
       </p>
     </div>
   </div>
@@ -100,12 +92,8 @@
           >YUKKALab</a
         >, I led the migration to Angular with Material Design and owned the
         data visualization architecture for a news analytics platform surfacing
-        market sentiment ahead of stock movements.
-      </p>
-      <p>
-        I designed and built advanced interactive visualizations using <strong
-          >D3.js</strong
-        >
+        market sentiment ahead of stock movements. I designed and built advanced
+        interactive visualizations using <strong>D3.js</strong>
         and
         <strong>Highcharts</strong> — including the
         <a href="/project/chartmap">Chartmap</a>,
