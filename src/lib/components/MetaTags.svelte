@@ -14,9 +14,9 @@
   }
 
   let {
-    title = "Marcello Annicchiarico | Tech Leader & Senior Frontend Engineer",
-    description = "Tech Leader and Senior Frontend Engineer in Berlin with 10+ years of experience scaling frontend teams, leading architecture migrations, and building high-performance web applications with Vue, Svelte, Angular, and React.",
-    keywords = "Tech Lead, Senior Frontend Engineer, Frontend Architect, Berlin, Team Leadership, Svelte, Angular, Vue, React, AI, Mentorship, Architecture, Firebase, D3, TypeScript",
+    title = "Marcello Annicchiarico | Full Stack Developer & AI Specialist | Barcelona",
+    description = "Full Stack Developer based in Barcelona with 10+ years of experience building high-performance web applications. Expert in AI tools, LLMs, and modern frontend frameworks. Available for on-site and remote work.",
+    keywords = "Full Stack Developer, AI Developer, LLM, Artificial Intelligence, Barcelona, Remote Work, Svelte, Angular, Vue, React, TypeScript, Firebase, Node.js, Frontend Engineer, Backend Developer, AI Tools",
     image = "https://marcellokabora.com/selfie/selfie-styled.png",
     imageWidth = 1200,
     imageHeight = 630,
