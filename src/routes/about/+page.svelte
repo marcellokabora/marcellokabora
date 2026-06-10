@@ -21,11 +21,11 @@
   const unifiedMenu: Array<{ name: string; icon: string; label?: string }> = [
     { name: "skills", icon: "mdi:star-circle", label: "Skills" },
     { name: "leadership", icon: "mdi:account-group", label: "Leadership" },
-    ...menu.map((item) => ({ ...item, label: item.name })),
+    { name: "tools", icon: "mdi:wrench-outline", label: "Tools" },
     {
-      name: "recommendations",
+      name: "references",
       icon: "mdi:certificate",
-      label: "Recommendations",
+      label: "References",
     },
   ];
 
@@ -147,47 +147,42 @@
   const features = [
     {
       title: "AI & Agents",
-      photo: "/photo/ai-logo2.jpg",
+      icon: "mdi:robot",
       description: `I integrate AI and LLM technologies using <a href="//github.com/features/copilot" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Copilot</a>, <a href="//anthropic.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Claude</a>, and <a href="//deepmind.google/technologies/gemini/" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Gemini</a> to enhance productivity and create intelligent agentic systems.`,
     },
     {
       title: "Development",
-      photo: "/photo/software.jpg",
+      icon: "mdi:code-braces",
       description: `Building modern, scalable web applications from SaaS platforms to enterprise B2B solutions using cutting-edge frameworks and high-performance, maintainable codebases.`,
     },
     {
       title: "Design",
-      photo: "/photo/styling.jpg",
+      icon: "mdi:palette",
       description: `Creating accessible, intuitive interfaces focused on responsive design and user-centered workflows that reduce cognitive load and maximize productivity.`,
     },
     {
       title: "Visualization",
-      photo: "/photo/visualization.jpeg",
+      icon: "mdi:chart-bar",
       description: `Transforming complex data into compelling interactive dashboards and visualizations using <a href="//d3js.org" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">D3.js</a> and <a href="//highcharts.com" target="_blank" class="underline text-primary-400 hover:text-primary-300 transition-colors">Highcharts</a> for financial and enterprise applications.`,
     },
     {
       title: "Management",
-      photo: "/photo/develop.jpeg",
+      icon: "mdi:briefcase-outline",
       description: `Architecting technical solutions and leading teams with strategic framework selection and robust development workflows for consistent, high-quality applications.`,
     },
     {
-      title: "Framework",
-      photo: "/photo/framework.gif",
-      description: `Mastering modern JavaScript frameworks with deep expertise in component architecture, state management, and performance optimization across web and mobile platforms.`,
-    },
-    {
       title: "Styling",
-      photo: "/photo/styles.jpg",
+      icon: "mdi:brush-outline",
       description: `Crafting beautiful, responsive interfaces with Tailwind CSS, SCSS, and modern design systems. Expert in creating accessible UI components, animations, and design-to-code implementation.`,
     },
     {
       title: "Database",
-      photo: "/photo/database.webp",
+      icon: "mdi:database-outline",
       description: `Designing robust data architectures with expertise in relational and NoSQL databases, real-time synchronization, authentication, and secure API integrations for scalable applications.`,
     },
     {
       title: "Deployment",
-      photo: "/photo/deployment.webp",
+      icon: "mdi:rocket-launch-outline",
       description: `Deploying production-ready applications with CI/CD pipelines, serverless functions, and cloud infrastructure. Expert in DevOps best practices, monitoring, and performance optimization.`,
     },
   ];
@@ -221,7 +216,7 @@
         class="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full text-xs font-semibold uppercase tracking-widest bg-purple-500/20 border border-purple-500/30 text-purple-300"
       >
         <Icon icon="material-symbols:person-outline" class="text-sm" />
-        Tech Leader & Senior Frontend Engineer
+        Full Stack Engineer
       </span>
     </div>
     <h1
@@ -272,8 +267,8 @@
           class="text-purple-400 text-xl"
         />
         <div>
-          <div class="text-xl font-bold text-white">4+</div>
-          <div class="text-xs text-zinc-400">Devs Mentored</div>
+          <div class="text-xl font-bold text-white">8+</div>
+          <div class="text-xs text-zinc-400">Startups Developed</div>
         </div>
       </div>
     </div>
@@ -340,34 +335,20 @@
       <!-- Features Section -->
       <div id="skills" class="mb-16">
         <h2 class="text-3xl font-bold text-white mb-8">Skills</h2>
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
-        >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           {#each features as feature}
             <div
-              class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-neutral-900/50 transition-all duration-300 hover:border-primary-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]"
+              class="flex gap-4 p-5 rounded-xl border border-white/5 bg-neutral-900/30 hover:border-purple-500/20 hover:bg-neutral-900/50 transition-all duration-300"
             >
-              <!-- Image with Overlay -->
-              <div class="relative h-48 w-full overflow-hidden">
-                <img
-                  src={feature.photo}
-                  alt={feature.title}
-                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/20 to-transparent opacity-80"
-                ></div>
+              <div
+                class="flex-shrink-0 w-9 h-9 mt-0.5 rounded-lg bg-purple-500/15 border border-purple-500/20 flex items-center justify-center"
+              >
+                <Icon icon={feature.icon} class="w-5 h-5 text-purple-400" />
               </div>
-
-              <!-- Content -->
-              <div class="flex flex-1 flex-col p-6 pt-0">
-                <div class="-mt-6 relative z-10 mb-3">
-                  <h3
-                    class="inline-block text-xl font-bold text-white bg-neutral-900/80 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/10 group-hover:border-primary-500/30 transition-colors"
-                  >
-                    {feature.title}
-                  </h3>
-                </div>
+              <div class="flex-1">
+                <h3 class="text-base font-semibold text-white mb-1.5">
+                  {feature.title}
+                </h3>
                 <p class="text-sm text-zinc-400 leading-relaxed">
                   {@html feature.description}
                 </p>
@@ -467,65 +448,40 @@
       </div>
 
       <!-- Skills Grid Content -->
-      <div class="flex-1">
+      <div id="tools" class="mb-16">
         <h2 class="text-3xl font-bold text-white mb-8">Tools</h2>
 
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
-        >
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {#each items as item}
             <div
               id={item.id}
-              class="group relative flex flex-col bg-neutral-900/50 border border-white/5 rounded-2xl overflow-hidden hover:border-primary-500/30 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50 transition-all duration-300"
+              class="flex items-center gap-3 p-3 rounded-xl border border-white/5 bg-neutral-900/30 hover:border-purple-500/20 hover:bg-neutral-900/50 transition-all duration-300"
             >
-              <!-- Card Header -->
-              <div
-                class="relative h-48 bg-black/20 p-6 flex items-center justify-center group-hover:bg-black/30 transition-colors"
+              <img
+                src={item.photo}
+                alt={item.title}
+                class="w-7 h-7 object-contain flex-shrink-0"
+              />
+              <span class="text-sm font-medium text-zinc-300 truncate flex-1"
+                >{item.title}</span
               >
-                <!-- Glow Effect -->
-                <div
-                  class="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-900/90"
-                ></div>
-
-                <!-- Image -->
-                <img
-                  src={item.photo}
-                  alt={item.title}
-                  class="relative z-10 h-24 w-auto object-contain drop-shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
-                />
-              </div>
-
-              <!-- Card Body -->
-              <div class="p-6 pt-0 flex-1 flex flex-col relative z-20">
-                <div class="flex items-center justify-between mb-3 -mt-6">
-                  <h3
-                    class="text-xl font-bold text-white bg-neutral-900 px-3 py-1 rounded-lg border border-white/10 group-hover:border-primary-500/30 transition-colors shadow-lg"
-                  >
-                    {item.title}
-                  </h3>
-                  {#if item.link}
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      class="text-zinc-500 hover:text-primary-400 transition-colors bg-neutral-900 p-2 rounded-lg border border-white/10 group-hover:border-primary-500/30 shadow-lg"
-                    >
-                      <Icon icon="mdi:external-link" class="w-5 h-5" />
-                    </a>
-                  {/if}
-                </div>
-
-                <p class="text-sm text-zinc-400 leading-relaxed">
-                  {descriptions[item.name] || item.title}
-                </p>
-              </div>
+              {#if item.link}
+                <a
+                  href={item.link}
+                  target="_blank"
+                  class="text-zinc-600 hover:text-purple-400 transition-colors flex-shrink-0"
+                >
+                  <Icon icon="mdi:open-in-new" class="w-3.5 h-3.5" />
+                </a>
+              {/if}
             </div>
           {/each}
         </div>
       </div>
 
-      <!-- Recommendations Section -->
-      <div id="recommendations" class="mb-16">
-        <h2 class="text-3xl font-bold text-white mb-8">Recommendations</h2>
+      <!-- References Section -->
+      <div id="references" class="mb-16">
+        <h2 class="text-3xl font-bold text-white mb-8">References</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {#each recommendations as recommendation}
             <a
@@ -546,7 +502,7 @@
                   <h3 class="text-xl font-bold text-white mb-1">
                     {recommendation.company}
                   </h3>
-                  <p class="text-sm text-zinc-500">Recommendation Letter</p>
+                  <p class="text-sm text-zinc-500">Reference Letter</p>
                 </div>
                 <Icon
                   icon="mdi:open-in-new"

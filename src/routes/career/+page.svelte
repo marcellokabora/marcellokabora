@@ -57,6 +57,19 @@
       <div
         class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-blue-500/20"
       >
+        <Icon
+          icon="material-symbols:groups-outline"
+          class="text-blue-400 text-xl"
+        />
+        <div>
+          <div class="text-xl font-bold text-white">50+</div>
+          <div class="text-xs text-zinc-400">Projects</div>
+        </div>
+      </div>
+
+      <div
+        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-blue-500/20"
+      >
         <Icon icon="material-symbols:public" class="text-blue-400 text-xl" />
         <div>
           <div class="text-xl font-bold text-white">3</div>
@@ -73,17 +86,6 @@
         <div>
           <div class="text-xl font-bold text-white">8+</div>
           <div class="text-xs text-zinc-400">Companies</div>
-        </div>
-      </div>
-      <div
-        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-blue-500/20"
-      >
-        <Icon
-          icon="material-symbols:location-on-outline"
-          class="text-blue-400 text-xl"
-        />
-        <div class="text-sm text-zinc-300 font-medium">
-          Berlin · Barcelona · Italy
         </div>
       </div>
     </div>
