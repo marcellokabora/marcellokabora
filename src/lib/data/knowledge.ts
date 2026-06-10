@@ -238,6 +238,24 @@ const database = [
         photo: "/photo/builder.jpeg",
         link: "//www.builder.io/",
     },
+    {
+        name: "postgresql",
+        title: "PostgreSQL",
+        photo: "/photo/postgresql.png",
+        link: "//postgresql.org",
+    },
+    {
+        name: "mongodb",
+        title: "MongoDB",
+        photo: "/photo/mongodb.png",
+        link: "//mongodb.com",
+    },
+    {
+        name: "trpc",
+        title: "tRPC",
+        photo: "/photo/trpc.png",
+        link: "//trpc.io",
+    },
 ];
 
 const software = [

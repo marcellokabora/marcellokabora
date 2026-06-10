@@ -9,9 +9,14 @@
   const featuredTech = [
     "svelte",
     "react",
+    "angular",
+    "vue",
     "nodejs",
     "figma",
     "firebase",
+    "postgresql",
+    "mongodb",
+    "trpc",
     "tailwindcss",
   ];
   const techStack = items.filter((item) => featuredTech.includes(item.name));
@@ -37,19 +42,16 @@
       <div
         class="col-span-1 md:col-span-2 row-span-2 bg-neutral-900 border border-slate-800 rounded-2xl p-8 flex flex-col xl:flex-row gap-6 hover:border-zinc-600 transition-all duration-300 group overflow-hidden relative scroll-animate-item"
       >
-        <!-- <div
-          class="absolute bottom-0 left-0 p-8 opacity-5 group-hover:opacity-20 transition-opacity"
-        >
-          <Icon icon="carbon:cube" class="w-32 h-32 text-white" />
-        </div> -->
         <div class="flex-1 flex flex-col z-10">
-          <h4 class="text-2xl font-bold text-white mb-4">The Tech Leader</h4>
+          <h4 class="text-2xl font-bold text-white mb-4">
+            Full Stack Developer
+          </h4>
           <p class="text-zinc-400 leading-relaxed">
-            I scale engineering excellence by combining architectural foresight
-            with AI-augmented workflows. With 4 developers mentored, 2 major
-            migrations led, and teams of 3–4 guided across multiple products, I
-            build high-performing frontend teams and robust systems that align
-            technical strategy with business goals.
+            My expertise lies in the architecture of scalable design systems and
+            the integration of generative AI workflows. I focus on evolving
+            interfaces from reactive tools into proactive, agentic experiences,
+            ensuring that even the most intricate technical frameworks result in
+            a seamless, human-centric UX.
           </p>
         </div>
         <div
