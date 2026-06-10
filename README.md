@@ -1,8 +1,8 @@
 # Marcello Annicchiarico
 
-**Senior Frontend Engineer — UI/UX · 15 years**
+**Full Stack Developer - Design Systems Expert · 15 years**
 
-I build polished, scalable web products — from design systems to full product experiences. I care deeply about clean code, great UX, and shipping things that actually work.
+For the past decade, I’ve specialized in deconstructing complex business logic into high-performance digital ecosystems. My expertise lies in the architecture of scalable design systems and the integration of generative AI workflows. I focus on evolving interfaces from reactive tools into proactive, agentic experiences, ensuring that even the most intricate technical frameworks result in a seamless, human-centric UX.
 
 ```typescript
 const whoAmI = {
