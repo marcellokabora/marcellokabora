@@ -59,16 +59,16 @@
     </h1>
 
     <!-- Description -->
-    {#if project.info}
-      <p
-        class="text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto mb-10"
-        in:fly={{ y: 20, duration: 600, delay: 350 }}
-      >
-        {project.info.length > 260
+    <p
+      class="text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto mb-10"
+      in:fly={{ y: 20, duration: 600, delay: 350 }}
+    >
+      {project.info
+        ? project.info.length > 260
           ? project.info.slice(0, 260).trimEnd() + "…"
-          : project.info}
-      </p>
-    {/if}
+          : project.info
+        : ""}
+    </p>
 
     <!-- Metadata bar -->
     <div

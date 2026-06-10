@@ -47,6 +47,18 @@ const javascript = [
         link: "//reactjs.org",
     },
     {
+        name: "reactnative",
+        title: "React Native",
+        photo: "/photo/reactnative.png",
+        link: "//reactnative.dev",
+    },
+    {
+        name: "expo",
+        title: "Expo",
+        photo: "/photo/expo.png",
+        link: "//expo.dev",
+    },
+    {
         name: "next",
         title: "Next",
         photo: "/photo/next.png",
@@ -255,6 +267,12 @@ const database = [
         title: "tRPC",
         photo: "/photo/trpc.png",
         link: "//trpc.io",
+    },
+    {
+        name: "graphql",
+        title: "GraphQL",
+        photo: "/photo/graphql.png",
+        link: "//graphql.org",
     },
 ];
 

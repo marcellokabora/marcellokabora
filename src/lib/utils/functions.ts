@@ -96,6 +96,18 @@ export const URLS: { name: string, url: string }[] = [
     name: "gemini",
     url: "//gemini.google.com"
   },
+  {
+    name: "reactnative",
+    url: "//reactnative.dev"
+  },
+  {
+    name: "expo",
+    url: "//expo.dev"
+  },
+  {
+    name: "graphql",
+    url: "//graphql.org"
+  },
 ]
 
 // Firebase Storage image URL generator
