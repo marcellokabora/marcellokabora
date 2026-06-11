@@ -24,14 +24,14 @@ export const companies: Company[] = [
         logo: "/logo/fasttrack.png",
         name: "Fast Track",
         slogan: "Flight Tickets",
-        title: "Tech Leader",
+        title: "Fullstack Developer",
         time: "From June 2024 - Feb 2025",
         link: "//fasttrack.flights",
         technologies: "Vue, Nuxt, Svelte, Github, Figma, Tailwind, Turborepo",
         achievements: [
-            "Established AI agent protocols and Design System documentation for the team",
-            "Led MCP protocol implementation for frontend-backend connectivity",
-            "Architected monorepo structure with Turborepo across Vue, Nuxt, and Svelte"
+            "Built a scalable monorepo with Turborepo spanning Vue, Nuxt, and Svelte",
+            "Led MCP protocol integration to connect frontend and backend services",
+            "Established AI agent workflows and Design System docs for the team"
         ]
     },
     {
@@ -39,26 +39,28 @@ export const companies: Company[] = [
         icon: "/company/evaglobal_icon.png",
         name: "Eva Global",
         slogan: "eMobility",
-        title: "Senior Frontend Developer",
+        title: "Frontend Developer",
         time: "Oct 2022 - Feb 2025",
         link: "//linkedin.com/company/evaglobal",
         technologies: "Angular, Storybook, Gitlab, Jira, Figma",
         achievements: [
-            "Built and maintained the shared Angular Material UI library",
-            "Drove UX improvements including the Heatmap feature from concept to delivery"
+            "Built and maintained the shared Angular Material component library",
+            "Delivered the Heatmap feature end-to-end from design to production",
+            "Improved performance and accessibility across core product views"
         ]
     },
     {
         logo: "/logo/linus.png",
         name: "Linus",
         slogan: "Digital Finance",
-        title: "Senior Frontend Developer",
+        title: "Frontend Developer",
         time: "Sep 2021 - Aug 2022",
         link: "//linkedin.com/company/linus-digital-finance",
         technologies: "React, Vue, GraphQL, Docker, Builder, Github, Jira, Styled, Figma",
         achievements: [
-            "Led the rebuild of the Registration and Product template systems with Builder.io and React",
-            "Delivered multiple marketing landing pages aligning frontend with business goals"
+            "Rebuilt the Registration and Product systems using Builder.io and React",
+            "Delivered marketing landing pages aligned with business and growth goals",
+            "Integrated GraphQL APIs and improved component reuse across products"
         ]
     },
     {
@@ -71,9 +73,9 @@ export const companies: Company[] = [
         link: "//linkedin.com/company/buildingminds",
         technologies: "Angular, Redux, Bootstrap, Azure, Abstract, Material, Firebase, Jest",
         achievements: [
-            "Led migration of legacy UI components to a shared Angular component library",
-            "Worked across multiple teams to standardize frontend patterns and Redux state management",
-            "Mentored 2 developers on Angular architecture and testing with Jest"
+            "Migrated legacy UI components into a shared Angular component library",
+            "Standardised frontend patterns and Redux state across multiple teams",
+            "Mentored junior developers on Angular architecture and Jest testing"
         ]
     },
     {
@@ -86,9 +88,9 @@ export const companies: Company[] = [
         link: "//linkedin.com/company/yukkalabag",
         technologies: "Angular, Material, MySql, Jira, D3, Highcharts, Github, Firebase",
         achievements: [
-            "Architected and built advanced data visualizations (Chartmap, Network, Signals) with D3 and Highcharts",
-            "Led the migration from legacy frontend to Angular with Material Design",
-            "Established charting component patterns reused across the entire product"
+            "Architected data visualisations (Chartmap, Network, Signals) with D3 and Highcharts",
+            "Led the full migration from legacy frontend to Angular with Material Design",
+            "Defined charting component patterns adopted across the entire product suite"
         ]
     },
     {

@@ -40,7 +40,7 @@
 
       {#each experience as job, i}
         <div
-          class="relative flex flex-col md:flex-row gap-8 mb-10 last:mb-0 group"
+          class="relative flex flex-col md:flex-row gap-8 -mb-30 last:mb-0 group"
         >
           <!-- Logo Bubble (replaces year bubble) -->
           <div
