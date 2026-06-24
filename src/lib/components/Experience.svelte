@@ -3,7 +3,7 @@
   import Icon from "@iconify/svelte";
 
   // Get the last 5 companies (most recent)
-  const recentCompanies = companies.slice(0, 5);
+  const recentCompanies = companies.slice(0, 6);
 
   // Transform companies data to match the experience format
   let experience = recentCompanies.map((company) => {

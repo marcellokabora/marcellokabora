@@ -11,15 +11,20 @@ interface Company {
 }
 
 export const companies: Company[] = [
-    // {
-    //     logo: "/logo/7echno.png",
-    //     name: "7echno",
-    //     slogan: "Music Experience",
-    //     title: "Partime - Founder Developer",
-    //     time: "From May 2024",
-    //     link: "//7echno.com",
-    //     technologies: "Svelte, Github, Tailwind, Typescript, Firebase, Youtube"
-    // },
+    {
+        logo: "/logo/7echno-icon.png",
+        name: "7echno",
+        slogan: "Music Experience",
+        title: "Principal Full Stack Developer",
+        time: "From May 2024",
+        link: "//7echno.com",
+        technologies: "Svelte, Github, Tailwind, Typescript, Firebase, Youtube",
+        achievements: [
+            "Founded and architected the full platform from concept to production",
+            "Built a real-time music experience app using Svelte, Firebase, and YouTube API",
+            "Designed the UI/UX system and implemented the full frontend and backend stack"
+        ]
+    },
     {
         logo: "/logo/fasttrack.png",
         name: "Fast Track",
