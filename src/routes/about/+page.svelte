@@ -243,7 +243,7 @@
           class="text-purple-400 text-xl"
         />
         <div>
-          <div class="text-xl font-bold text-white">10+</div>
+          <div class="text-xl font-bold text-white">15+</div>
           <div class="text-xs text-zinc-400">Years Experience</div>
         </div>
       </div>
@@ -457,11 +457,11 @@
               id={item.id}
               class="flex items-center gap-3 p-3 rounded-xl border border-white/5 bg-neutral-900/30 hover:border-purple-500/20 hover:bg-neutral-900/50 transition-all duration-300"
             >
-              <img
-                src={item.photo}
-                alt={item.title}
-                class="w-7 h-7 object-contain flex-shrink-0"
-              />
+              <div
+                class="flex-shrink-0 w-8 h-8 bg-white/80 rounded-lg flex items-center justify-center p-1"
+              >
+                <Icon icon={item.icon} class="w-full h-full" />
+              </div>
               <span class="text-sm font-medium text-zinc-300 truncate flex-1"
                 >{item.title}</span
               >

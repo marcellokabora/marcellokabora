@@ -15,7 +15,7 @@ export const companies: Company[] = [
         logo: "/logo/7echno-icon.png",
         name: "7echno",
         slogan: "Music Experience",
-        title: "Principal Full Stack Developer",
+        title: "Full Stack Developer",
         time: "From May 2024",
         link: "//7echno.com",
         technologies: "Svelte, Github, Tailwind, Typescript, Firebase, Youtube",
