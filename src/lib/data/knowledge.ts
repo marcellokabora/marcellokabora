@@ -282,6 +282,30 @@ const ai = [
         icon: "simple-icons:anthropic",
         link: "//anthropic.com",
     },
+    {
+        name: "n8n",
+        title: "n8n",
+        icon: "simple-icons:n8n",
+        link: "//n8n.io",
+    },
+    {
+        name: "langchain",
+        title: "LangChain",
+        icon: "simple-icons:langchain",
+        link: "//langchain.com",
+    },
+    {
+        name: "make",
+        title: "Make",
+        icon: "simple-icons:make",
+        link: "//make.com",
+    },
+    {
+        name: "zapier",
+        title: "Zapier",
+        icon: "simple-icons:zapier",
+        link: "//zapier.com",
+    },
 ];
 
 const database = [
@@ -423,12 +447,6 @@ const software = [
         link: "//slack.com",
     },
     {
-        name: "ableton",
-        title: "Ableton",
-        icon: "simple-icons:ableton",
-        link: "//ableton.com",
-    },
-    {
         name: "1password",
         title: "1Password",
         icon: "logos:1password",
@@ -521,12 +539,6 @@ const management = [
         title: "Kubernetes",
         icon: "logos:kubernetes",
         link: "//kubernetes.io",
-    },
-    {
-        name: "nginx",
-        title: "Nginx",
-        icon: "logos:nginx",
-        link: "//nginx.org",
     },
     {
         name: "linux",

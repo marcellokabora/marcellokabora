@@ -70,7 +70,7 @@
       class="text-lg text-zinc-300 max-w-xl mx-auto mb-10"
       in:flyAnim={{ y: 20, duration: 600, delay: 350 }}
     >
-      Open to new opportunities, collaborations and interesting conversations
+      Open to new opportunities and collaborations
     </p>
     <div
       class="flex flex-wrap gap-3 justify-center"
