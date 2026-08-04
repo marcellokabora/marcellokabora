@@ -41,12 +41,14 @@
   <div class="company-description">
     <div class="description-content">
       <p>
-        <a href="//7echno.com" target="_blank">7echno</a> is an AI-powered streaming
-        platform that acts as a dynamic ecosystem for artists, venues, and labels
-        in the techno music scene. It uses AI for intelligent matching, personalized
-        recommendations, and data-driven insights, fostering connection, collaboration,
-        and growth within the community. Explore the <a href="https://7echno.com/pitch" target="_blank">pitch</a>
-        or follow the latest updates on the <a href="https://7echno.com/changelog" target="_blank">changelog</a>.
+        <a href="//7echno.com" target="_blank">7echno</a> is an AI-powered
+        streaming platform that acts as a dynamic ecosystem for artists, venues,
+        and labels in the techno music scene. It uses AI for intelligent
+        matching, personalized recommendations, and data-driven insights,
+        fostering connection, collaboration, and growth within the community.
+        Explore the <a href="https://7echno.com/pitch" target="_blank">pitch</a>
+        or follow the latest updates on the
+        <a href="https://7echno.com/changelog" target="_blank">changelog</a>.
       </p>
     </div>
   </div>

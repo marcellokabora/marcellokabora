@@ -29,7 +29,7 @@ export const companies: Company[] = [
         logo: "/logo/fasttrack.png",
         name: "Fast Track",
         slogan: "Flight Tickets",
-        title: "Fullstack Developer",
+        title: "Full Stack Developer",
         time: "From June 2024 - May 2025",
         link: "//fasttrack.flights",
         technologies: "Vue, Nuxt, Svelte, Github, Figma, Tailwind, Turborepo",
