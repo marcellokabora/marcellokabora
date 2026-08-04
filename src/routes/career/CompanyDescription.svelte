@@ -45,7 +45,8 @@
         platform that acts as a dynamic ecosystem for artists, venues, and labels
         in the techno music scene. It uses AI for intelligent matching, personalized
         recommendations, and data-driven insights, fostering connection, collaboration,
-        and growth within the community.
+        and growth within the community. Explore the <a href="https://7echno.com/pitch" target="_blank">pitch</a>
+        or follow the latest updates on the <a href="https://7echno.com/changelog" target="_blank">changelog</a>.
       </p>
     </div>
   </div>
@@ -58,13 +59,11 @@
         and expertise to give the co-investors access to high-quality investments
         whilst providing a best-in-class investing experience through our digital
         platform. I started work with the core of the team rebuilding the new UI
-        and working on the new
-        <a href="/project/linus-registration">Registration</a>, my next task was
-        to build the template of the main
+        and my next task was to build the template of the main
         <a href="/project/linus-product">Product</a>
         using Builder.io and React.js. and after I had rebuilt several landing pages
         for the
-        <a href="/project/linus-marketing">marketing</a>
+        <a href="/project/linus-marketing">Marketing</a>
         team.
       </p>
     </div>
@@ -77,7 +76,7 @@
         drove frontend standardization across an enterprise Angular platform
         built on Microsoft Azure. Leading a team of 3, I migrated legacy UI into
         a shared
-        <a href="/project/uicomponents">component library</a> and built the
+        <a href="/project/uicomponents">UI Library</a> and built the
         <a href="/project/appmanager">App Management</a> module. I mentored 2 developers
         on Angular architecture, Redux state management, and Jest testing — unifying
         frontend patterns across multiple teams and reducing code duplication.
@@ -135,9 +134,8 @@
         the list of all the website i builded for this company :
         <a href="/project/oktoberfest">Oktoberfest</a>,
         <a href="/project/iaa">IAA</a>,
-        <a href="/project/christmas">Christmas Markets</a>,
-        <a href="/project/loretdemar">Loret De Mar</a>. I worked in Italy for
-        the first 8 Months and the after 4 Months in remote from Berlin after i
+        <a href="/project/christmas">Markets</a>. I worked in Italy for the
+        first 8 Months and the after 4 Months in remote from Berlin after i
         decided to find a Full Time employment job.
       </p>
     </div>

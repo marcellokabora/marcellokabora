@@ -169,18 +169,11 @@
               <div class="flex-1 p-12">
                 <div class="space-y-6">
                   <!-- Job Title -->
-                  <div class="border-b border-neutral-800 pb-4">
-                    <h4 class="text-2xl font-bold text-white mb-2">
-                      {company.title}
-                    </h4>
-                  </div>
+                  <h4 class="text-2xl font-bold text-white">
+                    {company.title}
+                  </h4>
                   <!-- Technologies -->
                   <div class="space-y-3">
-                    <h5
-                      class="text-sm font-semibold text-neutral-500 uppercase tracking-wide"
-                    >
-                      Technologies Used
-                    </h5>
                     <div class="flex flex-wrap gap-2">
                       {#each company.technologies.split(", ") as tech}
                         <span
@@ -193,11 +186,6 @@
                   </div>
                   <!-- Description -->
                   <div class="space-y-3">
-                    <h5
-                      class="text-sm font-semibold text-neutral-500 uppercase tracking-wide"
-                    >
-                      Experience
-                    </h5>
                     <div class="prose prose-invert prose-neutral max-w-none">
                       <CompanyDescription {company} />
                     </div>

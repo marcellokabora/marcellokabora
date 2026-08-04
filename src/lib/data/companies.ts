@@ -30,7 +30,7 @@ export const companies: Company[] = [
         name: "Fast Track",
         slogan: "Flight Tickets",
         title: "Fullstack Developer",
-        time: "From June 2024 - Feb 2025",
+        time: "From June 2024 - May 2025",
         link: "//fasttrack.flights",
         technologies: "Vue, Nuxt, Svelte, Github, Figma, Tailwind, Turborepo",
         achievements: [
