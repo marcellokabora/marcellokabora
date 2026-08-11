@@ -295,6 +295,12 @@ const ai = [
         link: "//langchain.com",
     },
     {
+        name: "temporal",
+        title: "Temporal",
+        icon: "simple-icons:temporal",
+        link: "//temporal.io",
+    },
+    {
         name: "make",
         title: "Make",
         icon: "simple-icons:make",

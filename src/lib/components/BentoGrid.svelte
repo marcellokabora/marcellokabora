@@ -13,11 +13,14 @@
     "vue",
     "nodejs",
     "figma",
+    "copilot",
+    "langchain",
+    "temporal",
     "firebase",
     "postgresql",
     "mongodb",
     "trpc",
-    "tailwindcss",
+    // "tailwindcss",
   ];
   const techStack = items.filter((item) => featuredTech.includes(item.name));
   const totalSkills = items.length;
