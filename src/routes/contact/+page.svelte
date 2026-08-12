@@ -64,7 +64,7 @@
       class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
       in:flyAnim={{ y: 30, duration: 700, delay: 250 }}
     >
-      Let's talk
+      Let's connect
     </h1>
     <p
       class="text-lg text-zinc-300 max-w-xl mx-auto mb-10"
@@ -72,29 +72,6 @@
     >
       Open to new opportunities and collaborations
     </p>
-    <div
-      class="flex flex-wrap gap-3 justify-center"
-      in:flyAnim={{ y: 20, duration: 600, delay: 450 }}
-    >
-      <div
-        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-cyan-500/20"
-      >
-        <Icon icon="material-symbols:schedule" class="text-cyan-400 text-xl" />
-        <div>
-          <div class="text-xl font-bold text-white">24/7</div>
-          <div class="text-xs text-zinc-400">Available</div>
-        </div>
-      </div>
-      <div
-        class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-cyan-500/20"
-      >
-        <Icon icon="material-symbols:speed" class="text-cyan-400 text-xl" />
-        <div>
-          <div class="text-xl font-bold text-white">&lt; 24h</div>
-          <div class="text-xs text-zinc-400">Response Time</div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 

@@ -46,9 +46,7 @@
         class="col-span-1 md:col-span-2 row-span-2 bg-neutral-900 border border-slate-800 rounded-2xl p-8 flex flex-col xl:flex-row gap-6 hover:border-zinc-600 transition-all duration-300 group overflow-hidden relative scroll-animate-item"
       >
         <div class="flex-1 flex flex-col z-10">
-          <h4 class="text-2xl font-bold text-white mb-4">
-            Full Stack Developer
-          </h4>
+          <h4 class="text-2xl font-bold text-white mb-4">Product Engineer</h4>
           <p class="text-zinc-400 leading-relaxed">
             My expertise lies in the architecture of scalable design systems and
             the integration of generative AI workflows. I focus on evolving
