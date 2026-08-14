@@ -1,21 +1,21 @@
 # Marcello Annicchiarico
 
-**Full Stack Developer - Design Systems Expert · 15 years**
+**Product Engineer | Agentic Workflows & System Architecture**
 
-For the past decade, I’ve specialized in deconstructing complex business logic into high-performance digital ecosystems. My expertise lies in the architecture of scalable design systems and the integration of generative AI workflows. I focus on evolving interfaces from reactive tools into proactive, agentic experiences, ensuring that even the most intricate technical frameworks result in a seamless, human-centric UX.
+For the past decade, I’ve focused on turning tricky business logic into fast, scalable software. Today, I connect full-stack TypeScript systems with cutting-edge AI architecture. I use tools like Copilot, AI Skills, and MCP not just to automate, but to build great products—turning everyday interactions into smart, bug-free, proactive workflows . My goal is always to build sturdy, well-typed backend systems and intuitive UIs that turn complex architecture into fast and natural user experience.
 
 ```typescript
 const whoAmI = {
   name: "Marcello Annicchiarico",
-  role: "Senior Frontend Engineer",
+  role: "Product Engineer",
   location: "Italy 🇮🇹",
   experience: "15 years",
 
   stack: {
-    frameworks: ["SvelteKit", "React", "Next.js"],
-    languages: ["TypeScript", "JavaScript"],
-    styling: ["Tailwind CSS", "CSS-in-JS"],
-    backend: ["Firebase", "Node.js", "REST", "GraphQL"],
+    frameworks: ["Svelte", "React", "Vue", "Astro", "Angular"],
+    languages: ["TypeScript", "JavaScript", "Phyton"],
+    styling: ["Tailwind", "CSS", "Figma"],
+    backend: ["Firebase", "Node.js", "REST", "SQL", "GraphQL"],
   },
 
   strengths: ["UI systems", "UX design", "Performance", "Product thinking"],
