@@ -122,7 +122,7 @@
             <button
               type="button"
               onclick={scrollPrev}
-              class="absolute left-0 top-1/2 -translate-y-1/2 z-10 h-10 w-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-primary-600 text-white border border-white/10 hover:border-primary-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer -translate-x-1"
+              class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 h-10 w-10 items-center justify-center rounded-full bg-black/50 hover:bg-primary-600 text-white border border-white/10 hover:border-primary-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer -translate-x-1"
               disabled={activeGalleryIndex === 0}
               aria-label="Previous image"
             >
@@ -135,7 +135,7 @@
             <button
               type="button"
               onclick={scrollNext}
-              class="absolute right-0 top-1/2 -translate-y-1/2 z-10 h-10 w-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-primary-600 text-white border border-white/10 hover:border-primary-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer translate-x-1"
+              class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 h-10 w-10 items-center justify-center rounded-full bg-black/50 hover:bg-primary-600 text-white border border-white/10 hover:border-primary-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer translate-x-1"
               disabled={activeGalleryIndex === galleryItems().length - 1}
               aria-label="Next image"
             >
@@ -146,11 +146,13 @@
           <div
             bind:this={scrollContainer}
             onscroll={handleGalleryScroll}
-            class="flex overflow-x-auto snap-x snap-mandatory scrollbar-none"
+            class="flex flex-col gap-4 md:flex-row md:gap-0 overflow-visible md:overflow-x-auto snap-none md:snap-x md:snap-mandatory scrollbar-none"
             style="scrollbar-width: none; -ms-overflow-style: none;"
           >
             {#each galleryItems() as item, index (item.type === "video" ? `video-${item.url}` : item.url)}
-              <div class="relative group w-full flex-shrink-0 snap-center px-2">
+              <div
+                class="relative group w-full flex-shrink-0 md:snap-center md:px-2"
+              >
                 {#if item.type === "video"}
                   <iframe
                     src="https://www.youtube.com/embed/{item.url}"
@@ -206,7 +208,7 @@
 
           <!-- Pagination dots -->
           {#if galleryItems().length > 1}
-            <div class="flex justify-center gap-2 mt-6">
+            <div class="hidden md:flex justify-center gap-2 mt-6">
               {#each galleryItems() as _, index}
                 <button
                   type="button"

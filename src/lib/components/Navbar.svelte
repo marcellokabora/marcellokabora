@@ -176,7 +176,7 @@
             <a
               href="/login"
               onclick={closeMobileMenu}
-              class="w-full px-4 py-2 text-center text-sm text-white bg-secondary-500 hover:bg-secondary-600 rounded-lg flex items-center justify-center gap-2 transition-all"
+              class="w-full px-4 py-2.5 text-center text-sm text-white bg-primary-500 hover:bg-primary-600 rounded-full flex items-center justify-center gap-2 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]"
             >
               <Icon icon="material-symbols:login" class="text-lg" />
               <span>Sign In</span>
