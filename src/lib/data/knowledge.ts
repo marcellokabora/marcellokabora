@@ -300,18 +300,6 @@ const ai = [
         icon: "simple-icons:temporal",
         link: "//temporal.io",
     },
-    {
-        name: "make",
-        title: "Make",
-        icon: "simple-icons:make",
-        link: "//make.com",
-    },
-    {
-        name: "zapier",
-        title: "Zapier",
-        icon: "simple-icons:zapier",
-        link: "//zapier.com",
-    },
 ];
 
 const database = [
@@ -453,12 +441,6 @@ const software = [
         link: "//slack.com",
     },
     {
-        name: "1password",
-        title: "1Password",
-        icon: "logos:1password",
-        link: "//1password.com",
-    },
-    {
         name: "docker",
         title: "Docker",
         icon: "logos:docker-icon",
@@ -539,18 +521,6 @@ const management = [
         title: "GitHub Actions",
         icon: "logos:github-actions",
         link: "//github.com/features/actions",
-    },
-    {
-        name: "kubernetes",
-        title: "Kubernetes",
-        icon: "logos:kubernetes",
-        link: "//kubernetes.io",
-    },
-    {
-        name: "linux",
-        title: "Linux",
-        icon: "logos:linux-tux",
-        link: "//linux.org",
     },
     {
         name: "notion",

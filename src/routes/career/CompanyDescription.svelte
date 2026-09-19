@@ -37,6 +37,20 @@
       </p>
     </div>
   </div>
+{:else if company.name.toLowerCase() === "fit-m8"}
+  <div class="company-description">
+    <div class="description-content">
+      <p>
+        <a href="//fit-m8.app" target="_blank">FIT-M8</a> eliminates the
+        friction of discovering local workout buddies, personal trainers, and
+        sports-minded matches through a hyper-filtered, location-based social.
+        app. Explore the
+        <a href="https://fit-m8.app/pitch" target="_blank">pitch</a>
+        or follow the latest updates on the
+        <a href="https://fit-m8.app/changelog" target="_blank">changelog</a>.
+      </p>
+    </div>
+  </div>
 {:else if company.name === "7echno"}
   <div class="company-description">
     <div class="description-content">
