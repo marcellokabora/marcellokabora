@@ -45,10 +45,10 @@
       class="w-full h-full object-cover scale-105"
     />
     <div
-      class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"
+      class="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)]/90 via-[var(--bg-color)]/50 to-[var(--bg-color)]/20"
     ></div>
     <div
-      class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0a0a0a] pointer-events-none"
+      class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[var(--bg-color)] pointer-events-none"
     ></div>
   </div>
   <div class="container mx-auto max-w-6xl px-6 py-20 pt-32 w-full text-center">
@@ -72,6 +72,22 @@
     >
       Open to new opportunities and collaborations
     </p>
+    <div
+      class="flex flex-wrap gap-3 justify-center"
+      in:flyAnim={{ y: 20, duration: 600, delay: 450 }}
+    >
+      {#each socialLinks as social}
+        <a
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-black/50 backdrop-blur-md border border-cyan-500/20 hover:border-cyan-400/50 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          <Icon icon={social.icon} class="text-cyan-400 text-xl" />
+          <div class="text-sm font-semibold text-white">{social.name}</div>
+        </a>
+      {/each}
+    </div>
   </div>
 </div>
 
@@ -79,43 +95,6 @@
   class="pb-16 px-4 max-w-6xl mx-auto"
   in:fly={{ y: 100, duration: 1000, delay: 100 }}
 >
-  <!-- Social Media Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-16">
-    {#each socialLinks as social}
-      <a
-        href={social.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group relative p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl backdrop-blur-sm hover:border-primary-500/50 transition-all duration-300 hover:scale-105"
-      >
-        <div class="flex flex-col items-center text-center space-y-4">
-          <!-- Icon with Gradient Background -->
-          <div class="relative">
-            <div
-              class="absolute inset-0 bg-gradient-to-r {social.color} rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"
-            ></div>
-            <div
-              class="relative bg-gradient-to-r {social.color} p-4 rounded-2xl"
-            >
-              <Icon icon={social.icon} class="w-12 h-12 text-white" />
-            </div>
-          </div>
-
-          <!-- Text Content -->
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">{social.name}</h3>
-            <p class="text-zinc-400 text-sm">{social.description}</p>
-          </div>
-
-          <!-- Hover Arrow -->
-          <div class="opacity-0 group-hover:opacity-100 transition-opacity">
-            <Icon icon="mdi:arrow-right" class="w-6 h-6 text-primary-400" />
-          </div>
-        </div>
-      </a>
-    {/each}
-  </div>
-
   <!-- QR Codes Section (Mobile Only) -->
   <div class="md:hidden my-16">
     <div class="text-center mb-8">

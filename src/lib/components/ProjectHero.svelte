@@ -29,11 +29,11 @@
     />
     <!-- Progressive darkening overlay -->
     <div
-      class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"
+      class="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)]/90 via-[var(--bg-color)]/40 to-[var(--bg-color)]/20"
     ></div>
     <!-- Fade to page background at bottom -->
     <div
-      class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0a0a0a] pointer-events-none"
+      class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[var(--bg-color)] pointer-events-none"
     ></div>
   </div>
 

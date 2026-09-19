@@ -204,10 +204,10 @@
       class="w-full h-full object-cover scale-105"
     />
     <div
-      class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20"
+      class="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)]/90 via-[var(--bg-color)]/50 to-[var(--bg-color)]/20"
     ></div>
     <div
-      class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0a0a0a] pointer-events-none"
+      class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[var(--bg-color)] pointer-events-none"
     ></div>
   </div>
   <div class="container mx-auto max-w-6xl px-6 py-20 pt-32 w-full text-center">

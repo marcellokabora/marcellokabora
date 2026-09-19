@@ -12,10 +12,24 @@ interface Company {
 
 export const companies: Company[] = [
     {
+        logo: "/logo/fit-m8-icon.png",
+        name: "FIT-M8",
+        slogan: "SWIPE MEET PLAY",
+        title: "Founder Engineer",
+        time: "From September 2026",
+        link: "//fit-m8.app",
+        technologies: "Svelte, Github, Tailwind, Typescript, Firebase, Gmap",
+        achievements: [
+            "Founded and architected the full platform from concept to production",
+            "Built a real-time music experience app using Svelte, Firebase, and YouTube API",
+            "Designed the UI/UX system and implemented the full frontend and backend stack"
+        ]
+    },
+    {
         logo: "/logo/7echno-icon.png",
         name: "7echno",
         slogan: "Music Experience",
-        title: "Full Stack Developer",
+        title: "Founder Engineer",
         time: "From May 2024",
         link: "//7echno.com",
         technologies: "Svelte, Github, Tailwind, Typescript, Firebase, Youtube",
@@ -54,20 +68,20 @@ export const companies: Company[] = [
             "Improved performance and accessibility across core product views"
         ]
     },
-    {
-        logo: "/logo/linus.png",
-        name: "Linus",
-        slogan: "Digital Finance",
-        title: "Frontend Developer",
-        time: "Sep 2021 - Aug 2022",
-        link: "//linkedin.com/company/linus-digital-finance",
-        technologies: "React, Vue, GraphQL, Docker, Builder, Github, Jira, Styled, Figma",
-        achievements: [
-            "Rebuilt the Registration and Product systems using Builder.io and React",
-            "Delivered marketing landing pages aligned with business and growth goals",
-            "Integrated GraphQL APIs and improved component reuse across products"
-        ]
-    },
+    // {
+    //     logo: "/logo/linus.png",
+    //     name: "Linus",
+    //     slogan: "Digital Finance",
+    //     title: "Frontend Developer",
+    //     time: "Sep 2021 - Aug 2022",
+    //     link: "//linkedin.com/company/linus-digital-finance",
+    //     technologies: "React, Vue, GraphQL, Docker, Builder, Github, Jira, Styled, Figma",
+    //     achievements: [
+    //         "Rebuilt the Registration and Product systems using Builder.io and React",
+    //         "Delivered marketing landing pages aligned with business and growth goals",
+    //         "Integrated GraphQL APIs and improved component reuse across products"
+    //     ]
+    // },
     {
         logo: "/logo/buildingminds.png",
         icon: "/logo/buildingminds_icon.png",

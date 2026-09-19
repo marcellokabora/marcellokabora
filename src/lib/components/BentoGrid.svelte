@@ -46,20 +46,24 @@
         class="col-span-1 md:col-span-2 row-span-2 bg-neutral-900 border border-slate-800 rounded-2xl p-8 flex flex-col xl:flex-row gap-6 hover:border-zinc-600 transition-all duration-300 group overflow-hidden relative scroll-animate-item"
       >
         <div class="flex-1 flex flex-col z-10">
-          <h4 class="text-2xl font-bold text-white mb-4">Product Engineer</h4>
+          <h4 class="text-2xl font-bold text-white mb-4">
+            Product Design Engineer
+          </h4>
           <p class="text-zinc-400 leading-relaxed">
-            My expertise lies in the architecture of scalable design systems and
-            the integration of generative AI workflows. I focus on evolving
-            interfaces from reactive tools into proactive, agentic experiences,
-            ensuring that even the most intricate technical frameworks result in
-            a seamless, human-centric UX.
+            I bridge the gap between product design and engineering,
+            transforming ideas and designs into fast, scalable, and highly
+            refined interfaces. I care deeply about thoughtful UX, interaction
+            details, visual quality, and well-crafted code, using modern
+            frontend technologies, TypeScript, and AI-powered workflows to bring
+            products to life quickly. My goal is to make complex systems feel
+            simple, intuitive, and effortless to use.
           </p>
         </div>
         <div
           class="w-full xl:w-64 h-100 xl:h-full bg-zinc-800/50 rounded-xl flex items-center justify-center overflow-hidden border border-zinc-700/50 flex-shrink-0"
         >
           <img
-            src="/selfie/selfie-styled.png"
+            src="/selfie/marcello-bridge.jpg"
             alt="Marcello Annicchiarico"
             class="w-full h-full object-cover"
           />
@@ -138,7 +142,7 @@
 
       <!-- Small Card: Watch Video -->
       <a
-        href="https://youtu.be/04E-zwMWM4o"
+        href="https://youtu.be/"
         target="_blank"
         rel="noopener noreferrer"
         class="col-span-1 bg-gradient-to-br from-primary-900/20 to-primary-600/10 border border-primary-500/30 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:border-primary-500/50 transition-all duration-300 relative overflow-hidden group cursor-pointer scroll-animate-item"
