@@ -12,138 +12,117 @@
     <p
       class="text-sm font-bold text-green-400 uppercase tracking-widest mb-2 text-center"
     >
-      Personal Project
+      Founder Projects
     </p>
-
-    <!-- Logo Hero -->
-    <div class="flex justify-center my-16">
-      <img
-        src="/logo/7echno-white.png"
-        alt="7echno"
-        class="h-16 md:h-20 w-auto object-contain"
-      />
-    </div>
 
     <svelte:boundary>
       {#snippet pending()}
         <div class="text-center">
-          <p class="text-zinc-400">Loading project...</p>
+          <p class="text-zinc-400">Loading projects...</p>
         </div>
       {/snippet}
 
       {#snippet failed(error)}
         <div class="text-center">
-          <p class="text-red-400">Failed to load project</p>
+          <p class="text-red-400">Failed to load projects</p>
         </div>
       {/snippet}
 
       {@const projects = await getProjects()}
+      {@const fitm8Project = projects.find((p) => p.name === "fit-m8")}
       {@const technoProject = projects.find((p) => p.name === "7echno")}
-      {@const musicProject = projects.find((p) => p.name === "7echno-music")}
 
-      {#if technoProject}
-        <!-- Stats Row -->
-        <div class="grid grid-cols-3 gap-4 mb-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+        {#if fitm8Project}
           <div
-            class="bg-[#1a1a1a] border border-zinc-800 rounded-2xl p-6 text-center"
+            class="bg-[#1a1a1a]/50 border border-zinc-800 rounded-2xl p-6 flex flex-col items-center text-center"
           >
-            <div class="text-4xl font-bold text-green-400 mb-1">300+</div>
-            <div class="text-sm text-zinc-500 uppercase tracking-wider">
-              Artists
-            </div>
-          </div>
-          <div
-            class="bg-[#1a1a1a] border border-zinc-800 rounded-2xl p-6 text-center"
-          >
-            <div class="text-4xl font-bold text-green-400 mb-1">500+</div>
-            <div class="text-sm text-zinc-500 uppercase tracking-wider">
-              Mixes
-            </div>
-          </div>
-          <div
-            class="bg-[#1a1a1a] border border-zinc-800 rounded-2xl p-6 text-center"
-          >
-            <div class="text-4xl font-bold text-green-400 mb-1">150+</div>
-            <div class="text-sm text-zinc-500 uppercase tracking-wider">
-              Events
-            </div>
-          </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div
-          class="bg-gradient-to-br from-green-900/20 to-emerald-900/20 border border-green-500/30 rounded-2xl p-6 mb-8"
-        >
-          <div class="flex items-start gap-4">
-            <Icon
-              icon="mdi:handshake"
-              class="w-8 h-8 text-green-400 flex-shrink-0 mt-0.5"
+            <img
+              src="/logo/fit-m8-logo.png"
+              alt="7echno"
+              class="h-14 w-auto object-contain mb-8 mt-4"
             />
-            <div class="flex-1">
-              <h5 class="text-lg font-bold text-white mb-1">
-                Looking for Partners & Investors
-              </h5>
-              <p class="text-zinc-400 text-sm">
-                Join me in building the future of music technology. Let's create
-                something extraordinary together.
-              </p>
+            <h5 class="font-bold text-white text-lg mb-1">FIT-M8</h5>
+            <p class="text-zinc-400 text-sm mb-5">
+              {fitm8Project.slogan ||
+                "Swipe. Meet. Play. Discover local workout buddies."}
+            </p>
+            <div class="flex items-center gap-3 mt-auto">
+              <a
+                href="//fit-m8.app"
+                target="_blank"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.3)]"
+              >
+                <Icon icon="mdi:web" class="w-4 h-4" />
+                <span>Visit</span>
+              </a>
+              <a
+                href="//fit-m8.app/pitch"
+                target="_blank"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-emerald-500/40 hover:border-emerald-400 text-emerald-400 rounded-xl font-semibold text-sm transition-all duration-300"
+              >
+                <Icon icon="mdi:presentation" class="w-4 h-4" />
+                <span>Pitch</span>
+              </a>
             </div>
-            <a
-              href="//7echno.com"
-              target="_blank"
-              class="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.3)]"
-            >
-              <span>Visit</span>
-              <Icon icon="mdi:arrow-right" class="w-4 h-4" />
-            </a>
+          </div>
+        {/if}
+
+        {#if technoProject}
+          <div
+            class="bg-[#1a1a1a]/50 border border-zinc-800 rounded-2xl p-6 flex flex-col items-center text-center"
+          >
+            <img
+              src="/logo/7echno-white.png"
+              alt="7echno"
+              class="h-14 w-auto object-contain mb-8 mt-4"
+            />
+            <h5 class="font-bold text-white text-lg mb-1">7echno</h5>
+            <p class="text-zinc-400 text-sm mb-5">
+              {technoProject.slogan ||
+                "An AI-powered streaming platform for the techno music scene."}
+            </p>
+            <div class="flex items-center gap-3 mt-auto">
+              <a
+                href="//7echno.com"
+                target="_blank"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.3)]"
+              >
+                <Icon icon="mdi:web" class="w-4 h-4" />
+                <span>Visit</span>
+              </a>
+              <a
+                href="/project/7echno-music"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-emerald-500/40 hover:border-emerald-400 text-emerald-400 rounded-xl font-semibold text-sm transition-all duration-300"
+              >
+                <Icon icon="mdi:presentation" class="w-4 h-4" />
+                <span>Pitch</span>
+              </a>
+            </div>
+          </div>
+        {/if}
+      </div>
+
+      <!-- Call to Action -->
+      <div
+        class="bg-gradient-to-br from-green-900/20 to-emerald-900/20 border border-green-500/30 rounded-2xl p-6 mt-8"
+      >
+        <div class="flex items-start gap-4">
+          <Icon
+            icon="mdi:handshake"
+            class="w-8 h-8 text-green-400 flex-shrink-0 mt-0.5"
+          />
+          <div class="flex-1">
+            <h5 class="text-lg font-bold text-white mb-1">
+              Looking for Partners & Investors
+            </h5>
+            <p class="text-zinc-400 text-sm">
+              Join me in building the future of fitness and music technology.
+              Let's create something extraordinary together.
+            </p>
           </div>
         </div>
-
-        <!-- Related Projects -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {#if technoProject}
-            <a
-              href="/project/7echno"
-              class="group bg-[#1a1a1a] border border-zinc-800 hover:border-green-500/50 rounded-2xl p-5 transition-all duration-300"
-            >
-              <div class="flex items-center gap-3 mb-3">
-                <div
-                  class="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center border border-green-500/30"
-                >
-                  <Icon icon="mdi:web" class="w-5 h-5 text-green-400" />
-                </div>
-                <div>
-                  <h5 class="font-bold text-white">7echno Platform</h5>
-                  <p class="text-xs text-zinc-500">Main Application</p>
-                </div>
-              </div>
-              <p class="text-zinc-400 text-sm">{technoProject.slogan}</p>
-            </a>
-          {/if}
-
-          {#if musicProject}
-            <a
-              href="/project/7echno-music"
-              class="group bg-[#1a1a1a] border border-zinc-800 hover:border-emerald-500/50 rounded-2xl p-5 transition-all duration-300"
-            >
-              <div class="flex items-center gap-3 mb-3">
-                <div
-                  class="w-10 h-10 bg-emerald-500/20 rounded-xl flex items-center justify-center border border-emerald-500/30"
-                >
-                  <Icon icon="mdi:music" class="w-5 h-5 text-emerald-400" />
-                </div>
-                <div>
-                  <h5 class="font-bold text-white">7echno Pitch</h5>
-                  <p class="text-xs text-zinc-500">Pitch Deck</p>
-                </div>
-              </div>
-              <p class="text-zinc-400 text-sm">
-                {musicProject?.slogan || "Discover and share amazing music"}
-              </p>
-            </a>
-          {/if}
-        </div>
-      {/if}
+      </div>
     </svelte:boundary>
   </div>
 </section>

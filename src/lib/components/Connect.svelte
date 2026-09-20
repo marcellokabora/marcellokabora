@@ -85,7 +85,7 @@
     <!-- Optional: Additional Info -->
     <div class="mt-16 pt-12 border-t border-white/5">
       <p class="text-zinc-500 text-sm">
-        Based in Berlin DE • Available for remote opportunities worldwide
+        Based in Barcelona ES • Available for remote opportunities worldwide
       </p>
     </div>
   </div>

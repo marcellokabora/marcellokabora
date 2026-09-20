@@ -11,40 +11,40 @@ interface Company {
 }
 
 export const companies: Company[] = [
-    {
-        logo: "/logo/fit-m8-icon.png",
-        name: "FIT-M8",
-        slogan: "SWIPE MEET PLAY",
-        title: "Founder Engineer",
-        time: "From September 2026",
-        link: "//fit-m8.app",
-        technologies: "Svelte, Github, Tailwind, Typescript, Firebase, Gmap",
-        achievements: [
-            "Founded and architected the full platform from concept to production",
-            "Built a real-time music experience app using Svelte, Firebase, and YouTube API",
-            "Designed the UI/UX system and implemented the full frontend and backend stack"
-        ]
-    },
-    {
-        logo: "/logo/7echno-icon.png",
-        name: "7echno",
-        slogan: "Music Experience",
-        title: "Founder Engineer",
-        time: "From May 2024",
-        link: "//7echno.com",
-        technologies: "Svelte, Github, Tailwind, Typescript, Firebase, Youtube",
-        achievements: [
-            "Founded and architected the full platform from concept to production",
-            "Built a real-time music experience app using Svelte, Firebase, and YouTube API",
-            "Designed the UI/UX system and implemented the full frontend and backend stack"
-        ]
-    },
+    // {
+    //     logo: "/logo/fit-m8-icon.png",
+    //     name: "FIT-M8",
+    //     slogan: "SWIPE MEET PLAY",
+    //     title: "Founder Engineer",
+    //     time: "From September 2026",
+    //     link: "//fit-m8.app",
+    //     technologies: "Svelte, Github, Tailwind, Typescript, Firebase, Gmap",
+    //     achievements: [
+    //         "Founded and architected the full platform from concept to production",
+    //         "Built a real-time music experience app using Svelte, Firebase, and YouTube API",
+    //         "Designed the UI/UX system and implemented the full frontend and backend stack"
+    //     ]
+    // },
+    // {
+    //     logo: "/logo/7echno-icon.png",
+    //     name: "7echno",
+    //     slogan: "Music Experience",
+    //     title: "Founder Engineer",
+    //     time: "From May 2024",
+    //     link: "//7echno.com",
+    //     technologies: "Svelte, Github, Tailwind, Typescript, Firebase, Youtube",
+    //     achievements: [
+    //         "Founded and architected the full platform from concept to production",
+    //         "Built a real-time music experience app using Svelte, Firebase, and YouTube API",
+    //         "Designed the UI/UX system and implemented the full frontend and backend stack"
+    //     ]
+    // },
     {
         logo: "/logo/fasttrack.png",
         name: "Fast Track",
         slogan: "Flight Tickets",
         title: "Full Stack Developer",
-        time: "From June 2024 - May 2025",
+        time: "March 2025 - July 2026",
         link: "//fasttrack.flights",
         technologies: "Vue, Nuxt, Svelte, Github, Figma, Tailwind, Turborepo",
         achievements: [
@@ -88,7 +88,7 @@ export const companies: Company[] = [
         name: "Buildingminds",
         slogan: "Equipment Tool",
         title: "Frontend Developer",
-        time: "Jan 2020 - Sep 2021",
+        time: "Jan 2020 - Apr 2022",
         link: "//linkedin.com/company/buildingminds",
         technologies: "Angular, Redux, Bootstrap, Azure, Abstract, Material, Firebase, Jest",
         achievements: [
@@ -119,7 +119,12 @@ export const companies: Company[] = [
         title: "Frontend Developer",
         time: "Feb 2016 - Feb 2017",
         link: "//linkedin.com/company/smava",
-        technologies: "HTML, CSS, Javascript, Foundation, Github"
+        technologies: "HTML, CSS, Javascript, Foundation, Github",
+        achievements: [
+            "Rebuilt the Smava Homepage, converting design into a production web app",
+            "Implemented interactive animations and UI events using jQuery",
+            "Built responsive email campaign templates for the marketing team"
+        ]
     },
     {
         logo: "/logo/tanglang.png",
@@ -127,16 +132,21 @@ export const companies: Company[] = [
         slogan: "Bus Travel",
         title: "Part Time - Fullstack Developer",
         time: "Apr 2014 - Dec 2015",
-        technologies: "Jquery, CSS, Javascript, MySql"
+        technologies: "Jquery, CSS, Javascript, MySql",
+        achievements: [
+            "Built 6 event travel websites (Oktoberfest, IAA, Christmas Markets)",
+            "Developed multi-step booking forms capturing traveler and payment details",
+            "Worked across Italy and remote from Berlin supporting live event launches"
+        ]
     },
-    {
-        logo: "/logo/maggiolino.png",
-        name: "Maggiolino",
-        slogan: "Books Online",
-        title: "Part Time - Fullstack Developer",
-        time: "Aug 2013 - Jan 2015",
-        technologies: "Jquery, Bootstrap, Javascript, MySql"
-    },
+    // {
+    //     logo: "/logo/maggiolino.png",
+    //     name: "Maggiolino",
+    //     slogan: "Books Online",
+    //     title: "Part Time - Fullstack Developer",
+    //     time: "Aug 2013 - Jan 2015",
+    //     technologies: "Jquery, Bootstrap, Javascript, MySql"
+    // },
     {
         logo: "/logo/petdog.png",
         name: "Annunci Animali",
@@ -153,12 +163,12 @@ export const companies: Company[] = [
         time: "Apr 2011 - Apr 2012",
         technologies: "HTML, CSS, Javascript"
     },
-    {
-        logo: "/logo/shipchandler.png",
-        name: "Shipchandler",
-        slogan: "Metallurgy",
-        title: "UI Designer",
-        time: "Jan 2009 - Feb 2010",
-        technologies: "HTML, CSS, Javascript"
-    },
+    // {
+    //     logo: "/logo/shipchandler.png",
+    //     name: "Shipchandler",
+    //     slogan: "Metallurgy",
+    //     title: "UI Designer",
+    //     time: "Jan 2009 - Feb 2010",
+    //     technologies: "HTML, CSS, Javascript"
+    // },
 ];
