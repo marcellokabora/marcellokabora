@@ -40,11 +40,11 @@
 
       {#each experience as job, i}
         <div
-          class="relative flex flex-col md:flex-row gap-8 -mb-30 last:mb-0 group"
+          class="relative flex flex-col md:flex-row gap-8 mb-8 md:-mb-30 last:mb-0 group"
         >
           <!-- Logo Bubble (replaces year bubble) -->
           <div
-            class="absolute left-8 md:left-1/2 w-16 h-16 rounded-full bg-neutral-800/50 border-2 border-zinc-700 transform -translate-x-8 md:-translate-x-8 z-10 p-2 flex items-center justify-center overflow-hidden shadow-xl"
+            class="absolute left-8 mt-32 md:left-1/2 w-16 h-16 rounded-full bg-neutral-800 border-2 border-zinc-700 transform -translate-x-8 md:-translate-x-8 z-10 p-2 flex items-center justify-center overflow-hidden shadow-xl"
           >
             {#if job.icon}
               <img
