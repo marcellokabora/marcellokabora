@@ -46,9 +46,7 @@
         class="col-span-1 md:col-span-2 row-span-2 bg-neutral-900 border border-slate-800 rounded-2xl p-8 flex flex-col xl:flex-row gap-6 hover:border-zinc-600 transition-all duration-300 group overflow-hidden relative scroll-animate-item"
       >
         <div class="flex-1 flex flex-col z-10">
-          <h4 class="text-2xl font-bold text-white mb-4">
-            Product Design Engineer
-          </h4>
+          <h4 class="text-2xl font-bold text-white mb-4">Product Engineer</h4>
           <p class="text-zinc-400 leading-relaxed">
             I bridge the gap between product design and engineering,
             transforming ideas and designs into fast, scalable, and highly
@@ -142,7 +140,7 @@
 
       <!-- Small Card: Watch Video -->
       <a
-        href="https://youtu.be/"
+        href="https://youtu.be/HG6A-cCgs9M"
         target="_blank"
         rel="noopener noreferrer"
         class="col-span-1 bg-gradient-to-br from-primary-900/20 to-primary-600/10 border border-primary-500/30 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:border-primary-500/50 transition-all duration-300 relative overflow-hidden group cursor-pointer scroll-animate-item"
