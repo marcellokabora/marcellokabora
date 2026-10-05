@@ -1,5 +1,6 @@
 {
   "gitlens.codeLens.authors.enabled": false,
   "gitlens.currentLine.enabled": false,
-  "gitlens.codeLens.recentChange.enabled": false
+  "gitlens.codeLens.recentChange.enabled": false,
+  "postman.settings.dotenv-detection-notification-visibility": false
 }

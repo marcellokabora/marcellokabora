@@ -138,6 +138,7 @@
             <option value="design">Design</option>
             <option value="website">Website</option>
             <option value="webapp">Webapp</option>
+            <option value="mobile">Mobile</option>
           </select>
         </label>
         <label class="field-label">

@@ -17,6 +17,7 @@
   const filterOptions = [
     { type: "webapp", icon: "mdi:web", label: "Webapp" },
     { type: "website", icon: "mdi:web-check", label: "Website" },
+    { type: "mobile", icon: "mdi:cellphone", label: "Mobile" },
     { type: "design", icon: "mdi:palette", label: "Design" },
   ];
 
@@ -30,8 +31,30 @@
       .filter((item) => (filter ? item.type === filter : item))
   );
 
+  let dropdownOpen = $state(false);
+  let dropdownEl: HTMLDivElement | undefined = $state();
+
+  const selectedOption = $derived(
+    filterOptions.find((option) => option.type === filter),
+  );
+
   function toggleFilter(type: string) {
     filter = filter === type ? "" : type;
+  }
+
+  function selectFilter(type: string) {
+    filter = type;
+    dropdownOpen = false;
+  }
+
+  function handleWindowClick(event: MouseEvent) {
+    if (dropdownOpen && !dropdownEl?.contains(event.target as Node)) {
+      dropdownOpen = false;
+    }
+  }
+
+  function handleWindowKeydown(event: KeyboardEvent) {
+    if (event.key === "Escape") dropdownOpen = false;
   }
 
   function getProjectCount(type: string): number {
@@ -44,11 +67,13 @@
   }
 </script>
 
-<div class="grid gap-16" in:fly={{ y: 100, duration: 1000, delay: 100 }}>
+<svelte:window onclick={handleWindowClick} onkeydown={handleWindowKeydown} />
+
+<div class="grid gap-10 sm:gap-16" in:fly={{ y: 100, duration: 1000, delay: 100 }}>
   {#if !hideSearch}
-    <div class="flex items-center justify-center flex-col gap-8">
+    <div class="flex items-center justify-center flex-col gap-4 sm:gap-8">
       <div
-        class="h-10 border border-zinc-700 dark:border-zinc-600 flex rounded-full overflow-hidden w-70 max-w-md bg-white dark:bg-zinc-900"
+        class="h-11 sm:h-10 border border-zinc-700 dark:border-zinc-600 flex rounded-full overflow-hidden w-full sm:w-70 max-w-md bg-white dark:bg-zinc-900"
       >
         <input
           type="text"
@@ -57,7 +82,71 @@
           class="px-4 border-none focus:outline-none w-full text-center bg-transparent text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400"
         />
       </div>
-      <div class="flex flex-wrap justify-center gap-2">
+
+      <!-- Custom select (mobile) -->
+      <div class="relative w-full max-w-md sm:hidden" bind:this={dropdownEl}>
+        <button
+          type="button"
+          onclick={() => (dropdownOpen = !dropdownOpen)}
+          aria-haspopup="listbox"
+          aria-expanded={dropdownOpen}
+          class="w-full h-11 px-4 flex items-center gap-3 rounded-full border bg-[#1a1a1a] text-white transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] focus:outline-none focus:ring-[3px] focus:ring-purple-500/10 {dropdownOpen ||
+          filter
+            ? 'border-purple-400'
+            : 'border-zinc-800'}"
+        >
+          <Icon
+            icon={selectedOption?.icon ?? "mdi:view-grid-outline"}
+            class="text-lg text-purple-400"
+          />
+          <span class="flex-1 text-left">
+            {selectedOption?.label ?? "All projects"}
+          </span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-zinc-700/50">
+            {selectedOption
+              ? getProjectCount(selectedOption.type)
+              : projects.length}
+          </span>
+          <Icon
+            icon="mdi:chevron-down"
+            class="text-xl text-zinc-400 transition-transform duration-300 {dropdownOpen
+              ? 'rotate-180'
+              : ''}"
+          />
+        </button>
+
+        {#if dropdownOpen}
+          <ul
+            role="listbox"
+            transition:fly={{ y: -8, duration: 200 }}
+            class="absolute z-30 mt-2 w-full p-2 grid gap-1 rounded-2xl border border-zinc-800 bg-[#1a1a1a]/95 backdrop-blur-xl shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
+          >
+            {#each [{ type: "", icon: "mdi:view-grid-outline", label: "All projects" }, ...filterOptions] as option}
+              <li role="option" aria-selected={filter === option.type}>
+                <button
+                  type="button"
+                  onclick={() => selectFilter(option.type)}
+                  class="w-full h-11 px-3 flex items-center gap-3 rounded-lg transition-colors duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] {filter ===
+                  option.type
+                    ? 'bg-purple-500/15 text-purple-400'
+                    : 'text-zinc-300 hover:bg-zinc-800'}"
+                >
+                  <Icon icon={option.icon} class="text-lg" />
+                  <span class="flex-1 text-left">{option.label}</span>
+                  <span class="text-xs px-2 py-0.5 rounded-full bg-zinc-700/50">
+                    {option.type
+                      ? getProjectCount(option.type)
+                      : projects.length}
+                  </span>
+                </button>
+              </li>
+            {/each}
+          </ul>
+        {/if}
+      </div>
+
+      <!-- Filter pills (tablet and up) -->
+      <div class="hidden sm:flex flex-wrap justify-center gap-2">
         {#each filterOptions as option}
           <button
             onclick={() => toggleFilter(option.type)}

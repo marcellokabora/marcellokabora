@@ -45,6 +45,13 @@
         icon: "material-symbols:language",
       });
     }
+    if (counts.mobile) {
+      stats.push({
+        value: `${counts.mobile}`,
+        label: "Mobile",
+        icon: "material-symbols:smartphone",
+      });
+    }
     if (counts.design) {
       stats.push({
         value: `${counts.design}`,
