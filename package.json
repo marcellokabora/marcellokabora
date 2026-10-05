@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "prepare": "svelte-kit sync || echo ''",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
@@ -23,12 +24,12 @@
   },
   "type": "module",
   "engines": {
-    "node": ">=20.x"
+    "node": "22.x"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@iconify/svelte": "^4.2.0",
-    "@sveltejs/adapter-vercel": "^4.0.5",
+    "@sveltejs/adapter-vercel": "^6.3.4",
     "@tailwindcss/vite": "^4.1.13",
     "@vercel/analytics": "^1.0.2",
     "@vercel/speed-insights": "^1.2.0",
