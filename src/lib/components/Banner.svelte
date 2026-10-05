@@ -23,7 +23,7 @@
 {#key animationKey}
   <div
     class="{title || slogan
-      ? 'h-[30vh] md:h-[45vh] '
+      ? 'h-[30vh] md:h-[45vh]'
       : 'h-[20vh] md:h-[25vh]'} flex items-center justify-center text-white overflow-hidden relative text-center px-4"
   >
     <!-- Background with overlay -->
