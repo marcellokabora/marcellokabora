@@ -3,9 +3,9 @@
   import Footer from "$lib/components/Footer.svelte";
   import "$lib/styles/app.css";
   import { dev } from "$app/environment";
-  import { inject } from "@vercel/analytics";
-  import { injectSpeedInsights } from "@vercel/speed-insights";
-  import { onMount } from "svelte";
+  import { initAnalytics, trackPageView } from "$lib/config/analytics";
+  import { afterNavigate } from "$app/navigation";
+  import { onMount, tick } from "svelte";
   import { initAuth, user } from "$lib/stores/authStore";
   import { browser } from "$app/environment";
   import { page } from "$app/stores";
@@ -26,29 +26,22 @@
     initAuth(); // Initialize Firebase auth
   });
 
-  // Check if we should inject analytics
+  // Analytics only runs in production and never for the logged-in admin
   $effect(() => {
-    if (browser) {
-      const isLoggedIn = $user !== null;
+    if (!browser || dev || $user !== null) return;
 
-      // Only inject analytics if in production and not logged in
-      if (!dev && !isLoggedIn) {
-        // Defer analytics until after page load to improve FCP
-        if (document.readyState === "complete") {
-          inject({ mode: "production" });
-          injectSpeedInsights();
-        } else {
-          window.addEventListener(
-            "load",
-            () => {
-              inject({ mode: "production" });
-              injectSpeedInsights();
-            },
-            { once: true },
-          );
-        }
-      }
+    // Defer until after page load to improve FCP
+    if (document.readyState === "complete") {
+      initAnalytics();
+    } else {
+      window.addEventListener("load", () => initAnalytics(), { once: true });
     }
+  });
+
+  // The first page view is sent automatically; track client-side navigations only
+  afterNavigate((navigation) => {
+    if (navigation.type === "enter" || dev || $user !== null) return;
+    tick().then(() => trackPageView($page.url.pathname, document.title));
   });
 </script>
 
