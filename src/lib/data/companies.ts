@@ -17,7 +17,7 @@ export const companies: Company[] = [
     //     slogan: "SWIPE MEET PLAY",
     //     title: "Founder Engineer",
     //     time: "From September 2026",
-    //     link: "//fit-m8.app",
+    //     link: "//plyrpro.com",
     //     technologies: "Svelte, Github, Tailwind, Typescript, Firebase, Gmap",
     //     achievements: [
     //         "Founded and architected the full platform from concept to production",

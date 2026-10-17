@@ -28,79 +28,69 @@
         </div>
       {/snippet}
 
-      {@const projects = await getProjects()}
-      {@const fitm8Project = projects.find((p) => p.name === "fit-m8")}
-      {@const technoProject = projects.find((p) => p.name === "7echno")}
-
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-        {#if fitm8Project}
-          <div
-            class="bg-[#1a1a1a]/50 border border-zinc-800 rounded-2xl p-6 flex flex-col items-center text-center"
-          >
-            <img
-              src="/logo/fit-m8-logo.png"
-              alt="7echno"
-              class="h-14 w-auto object-contain mb-8 mt-4"
-            />
-            <h5 class="font-bold text-white text-lg mb-1">FIT-M8</h5>
-            <p class="text-zinc-400 text-sm mb-5">
-              {fitm8Project.slogan ||
-                "Swipe. Meet. Play. Discover local workout buddies."}
-            </p>
-            <div class="flex items-center gap-3 mt-auto">
-              <a
-                href="//fit-m8.app"
-                target="_blank"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.3)]"
-              >
-                <Icon icon="mdi:web" class="w-4 h-4" />
-                <span>Visit</span>
-              </a>
-              <a
-                href="//fit-m8.app/pitch"
-                target="_blank"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-emerald-500/40 hover:border-emerald-400 text-emerald-400 rounded-xl font-semibold text-sm transition-all duration-300"
-              >
-                <Icon icon="mdi:presentation" class="w-4 h-4" />
-                <span>Pitch</span>
-              </a>
-            </div>
+        <div
+          class="bg-[#1a1a1a]/50 border border-zinc-800 rounded-2xl p-6 flex flex-col items-center text-center"
+        >
+          <img
+            src="/logo/plyrpro-text.png"
+            alt="7echno"
+            class="h-14 w-auto object-contain mb-8 mt-4"
+          />
+          <h5 class="font-bold text-white text-lg mb-1">PlyrPro</h5>
+          <p class="text-zinc-400 text-sm mb-5">
+            "Swipe. Meet. Play. Discover local workout buddies."
+          </p>
+          <div class="flex items-center gap-3 mt-auto">
+            <a
+              href="//plyrpro.com"
+              target="_blank"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.3)]"
+            >
+              <Icon icon="mdi:web" class="w-4 h-4" />
+              <span>Visit</span>
+            </a>
+            <a
+              href="//plyrpro.com/pitch"
+              target="_blank"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-emerald-500/40 hover:border-emerald-400 text-emerald-400 rounded-xl font-semibold text-sm transition-all duration-300"
+            >
+              <Icon icon="mdi:presentation" class="w-4 h-4" />
+              <span>Pitch</span>
+            </a>
           </div>
-        {/if}
-
-        {#if technoProject}
-          <div
-            class="bg-[#1a1a1a]/50 border border-zinc-800 rounded-2xl p-6 flex flex-col items-center text-center"
-          >
-            <img
-              src="/logo/7echno-white.png"
-              alt="7echno"
-              class="h-14 w-auto object-contain mb-8 mt-4"
-            />
-            <h5 class="font-bold text-white text-lg mb-1">7echno</h5>
-            <p class="text-zinc-400 text-sm mb-5">
-              {technoProject.slogan ||
-                "An AI-powered streaming platform for the techno music scene."}
-            </p>
-            <div class="flex items-center gap-3 mt-auto">
-              <a
-                href="//7echno.com"
-                target="_blank"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.3)]"
-              >
-                <Icon icon="mdi:web" class="w-4 h-4" />
-                <span>Visit</span>
-              </a>
-              <a
-                href="/project/7echno-music"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-emerald-500/40 hover:border-emerald-400 text-emerald-400 rounded-xl font-semibold text-sm transition-all duration-300"
-              >
-                <Icon icon="mdi:presentation" class="w-4 h-4" />
-                <span>Pitch</span>
-              </a>
-            </div>
+        </div>
+        <div
+          class="bg-[#1a1a1a]/50 border border-zinc-800 rounded-2xl p-6 flex flex-col items-center text-center"
+        >
+          <img
+            src="/logo/7echno-white.png"
+            alt="7echno"
+            class="h-14 w-auto object-contain mb-8 mt-4"
+          />
+          <h5 class="font-bold text-white text-lg mb-1">7echno</h5>
+          <p class="text-zinc-400 text-sm mb-5">
+            "An AI-powered streaming platform for the techno music scene."
+          </p>
+          <div class="flex items-center gap-3 mt-auto">
+            <a
+              href="//7echno.com"
+              target="_blank"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.3)]"
+            >
+              <Icon icon="mdi:web" class="w-4 h-4" />
+              <span>Visit</span>
+            </a>
+            <a
+              href="https://7echno.com/pitch"
+              target="_blank"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-emerald-500/40 hover:border-emerald-400 text-emerald-400 rounded-xl font-semibold text-sm transition-all duration-300"
+            >
+              <Icon icon="mdi:presentation" class="w-4 h-4" />
+              <span>Pitch</span>
+            </a>
           </div>
-        {/if}
+        </div>
       </div>
 
       <!-- Call to Action -->

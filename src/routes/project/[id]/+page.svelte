@@ -80,21 +80,31 @@
   let reorderForm: HTMLFormElement | undefined = $state();
   let reorderInput: HTMLInputElement | undefined = $state();
 
-  function moveImage(url: string, direction: -1 | 1) {
+  let dragIndex: number | null = $state(null);
+  let dragOverIndex: number | null = $state(null);
+
+  // Indexes refer to galleryItems(); the video (if any) is fixed at index 0
+  function moveImage(from: number, to: number) {
+    const offset = project.youtube ? 1 : 0;
     const gallery = [...(project.gallery ?? [])];
-    const idx = gallery.indexOf(url);
-    if (idx === -1) return;
-    const target = idx + direction;
-    if (target < 0 || target >= gallery.length) return;
-    [gallery[idx], gallery[target]] = [gallery[target], gallery[idx]];
+    const source = from - offset;
+    const target = to - offset;
+    if (source === target) return;
+    if (source < 0 || target < 0) return;
+    if (source >= gallery.length || target >= gallery.length) return;
+    const [moved] = gallery.splice(source, 1);
+    gallery.splice(target, 0, moved);
     project.gallery = gallery;
-    // Shift active index to follow the moved slide
-    const youtubeOffset = project.youtube ? 1 : 0;
-    activeGalleryIndex = target + youtubeOffset;
-    scrollToImage(activeGalleryIndex);
+    // Follow the moved slide
+    scrollToImage(to);
     // Persist to Firestore
     if (reorderInput) reorderInput.value = gallery.join(",");
     reorderForm?.requestSubmit();
+  }
+
+  function endDrag() {
+    dragIndex = null;
+    dragOverIndex = null;
   }
 </script>
 
@@ -171,7 +181,6 @@
                     class="w-full h-auto max-h-[70vh] mx-auto object-contain transition-all duration-300"
                   />
                   {#if $user}
-                    <!-- Reorder buttons -->
                     <form
                       method="POST"
                       action="?/remove"
@@ -207,7 +216,60 @@
           </div>
 
           <!-- Pagination dots -->
-          {#if galleryItems().length > 1}
+          {#if galleryItems().length > 1 && $user}
+            <!-- Drag & drop thumbnails to sort the gallery (admin only) -->
+            <div class="hidden md:flex flex-wrap justify-center gap-3 mt-6">
+              {#each galleryItems() as item, index (item.type === "video" ? `video-${item.url}` : item.url)}
+                {@const draggable = item.type === "image"}
+                <button
+                  type="button"
+                  {draggable}
+                  onclick={() => scrollToImage(index)}
+                  ondragstart={(e) => {
+                    dragIndex = index;
+                    e.dataTransfer?.setData("text/plain", String(index));
+                    if (e.dataTransfer) e.dataTransfer.effectAllowed = "move";
+                  }}
+                  ondragover={(e) => {
+                    if (dragIndex === null || !draggable) return;
+                    e.preventDefault();
+                    dragOverIndex = index;
+                  }}
+                  ondrop={(e) => {
+                    e.preventDefault();
+                    if (dragIndex !== null && draggable)
+                      moveImage(dragIndex, index);
+                    endDrag();
+                  }}
+                  ondragend={endDrag}
+                  class="relative h-14 w-20 overflow-hidden rounded-lg border-2 p-0 bg-[#1a1a1a] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] {draggable
+                    ? 'cursor-grab active:cursor-grabbing'
+                    : 'cursor-pointer'} {dragIndex === index
+                    ? 'opacity-40'
+                    : ''} {dragOverIndex === index && dragIndex !== index
+                    ? 'border-secondary-400 scale-105'
+                    : activeGalleryIndex === index
+                      ? 'border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.3)]'
+                      : 'border-zinc-800 hover:border-zinc-600'}"
+                  aria-label="Go to image {index + 1}"
+                >
+                  {#if item.type === "video"}
+                    <Icon
+                      icon="material-symbols:play-circle"
+                      class="m-auto text-2xl text-zinc-400"
+                    />
+                  {:else}
+                    <img
+                      src={getImg(item.url)}
+                      alt=""
+                      draggable="false"
+                      class="h-full w-full object-cover pointer-events-none"
+                    />
+                  {/if}
+                </button>
+              {/each}
+            </div>
+          {:else if galleryItems().length > 1}
             <div class="hidden md:flex justify-center gap-2 mt-6">
               {#each galleryItems() as _, index}
                 <button
