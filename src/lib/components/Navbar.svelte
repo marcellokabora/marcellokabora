@@ -240,7 +240,7 @@
 
           {#if showDropdown}
             <div
-              class="absolute right-0 top-12 z-[999] min-w-[200px] bg-[#1a1a1a] rounded-xl shadow-xl border border-zinc-800 overflow-hidden"
+              class="absolute right-0 top-12 z-[999] min-w-[200px] bg-secondary rounded-xl shadow-xl border border-zinc-800 overflow-hidden"
             >
               <div class="px-4 py-3 border-b border-zinc-800">
                 <div class="text-xs text-zinc-500 mb-0.5">Signed in as</div>

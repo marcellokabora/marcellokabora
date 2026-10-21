@@ -242,7 +242,7 @@
                     endDrag();
                   }}
                   ondragend={endDrag}
-                  class="relative h-14 w-20 overflow-hidden rounded-lg border-2 p-0 bg-[#1a1a1a] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] {draggable
+                  class="relative h-14 w-20 overflow-hidden rounded-lg border-2 p-0 bg-secondary transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] {draggable
                     ? 'cursor-grab active:cursor-grabbing'
                     : 'cursor-pointer'} {dragIndex === index
                     ? 'opacity-40'

@@ -318,7 +318,7 @@
   >
     <div class="max-w-3xl mx-auto flex flex-col gap-2">
       <div
-        class="flex items-center gap-3 bg-[#1a1a1a] border border-zinc-800 rounded-xl px-4 py-3 focus-within:border-primary-500/50 focus-within:ring-2 focus-within:ring-primary-500/10 transition-all duration-300"
+        class="flex items-center gap-3 bg-secondary border border-zinc-800 rounded-xl px-4 py-3 focus-within:border-primary-500/50 focus-within:ring-2 focus-within:ring-primary-500/10 transition-all duration-300"
       >
         <input
           bind:this={inputEl}

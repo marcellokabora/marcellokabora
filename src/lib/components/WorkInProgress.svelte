@@ -10,7 +10,7 @@
   <div class="absolute inset-0 bg-[#0a0a0a]/80"></div>
   <div class="relative z-10 max-w-5xl mx-auto">
     <p
-      class="text-sm font-bold text-green-400 uppercase tracking-widest mb-2 text-center"
+      class="text-sm font-bold text-white uppercase tracking-widest mb-2 text-center"
     >
       Founder Projects
     </p>
@@ -30,7 +30,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
         <div
-          class="bg-[#1a1a1a]/50 border border-zinc-800 rounded-2xl p-6 flex flex-col items-center text-center"
+          class="bg-secondary/50 border border-zinc-800 rounded-2xl p-6 flex flex-col items-center text-center"
         >
           <img
             src="/logo/plyrpro-text.png"
@@ -39,13 +39,13 @@
           />
           <h5 class="font-bold text-white text-lg mb-1">PlyrPro</h5>
           <p class="text-zinc-400 text-sm mb-5">
-            "Swipe. Meet. Play. Discover local workout buddies."
+            "Discover local workout buddies."
           </p>
           <div class="flex items-center gap-3 mt-auto">
             <a
               href="//plyrpro.com"
               target="_blank"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.3)]"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-[#c6f74c] text-black rounded-xl font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.3)]"
             >
               <Icon icon="mdi:web" class="w-4 h-4" />
               <span>Visit</span>
@@ -53,7 +53,7 @@
             <a
               href="//plyrpro.com/pitch"
               target="_blank"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-emerald-500/40 hover:border-emerald-400 text-emerald-400 rounded-xl font-semibold text-sm transition-all duration-300"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-[#c6f74c]/20 hover:yellow-emerald-400 text-[#c6f74c] rounded-xl font-semibold text-sm transition-all duration-300"
             >
               <Icon icon="mdi:presentation" class="w-4 h-4" />
               <span>Pitch</span>
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div
-          class="bg-[#1a1a1a]/50 border border-zinc-800 rounded-2xl p-6 flex flex-col items-center text-center"
+          class="bg-secondary/50 border border-zinc-800 rounded-2xl p-6 flex flex-col items-center text-center"
         >
           <img
             src="/logo/7echno-white.png"
@@ -70,7 +70,7 @@
           />
           <h5 class="font-bold text-white text-lg mb-1">7echno</h5>
           <p class="text-zinc-400 text-sm mb-5">
-            "An AI-powered streaming platform for the techno music scene."
+            "Streaming platform for DJs."
           </p>
           <div class="flex items-center gap-3 mt-auto">
             <a
@@ -94,14 +94,8 @@
       </div>
 
       <!-- Call to Action -->
-      <div
-        class="bg-gradient-to-br from-green-900/20 to-emerald-900/20 border border-green-500/30 rounded-2xl p-6 mt-8"
-      >
-        <div class="flex items-start gap-4">
-          <Icon
-            icon="mdi:handshake"
-            class="w-8 h-8 text-green-400 flex-shrink-0 mt-0.5"
-          />
+      <div class="bg-secondary/50 border border-white/10 rounded-2xl p-6 mt-8">
+        <div class="flex flex-col items-center text-center gap-4">
           <div class="flex-1">
             <h5 class="text-lg font-bold text-white mb-1">
               Looking for Partners & Investors

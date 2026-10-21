@@ -133,7 +133,7 @@
     <p class="text-[#a0a0a0] text-lg leading-relaxed mb-8">
       This form demonstrates server-side validation using SvelteKit's
       <code
-        class="bg-[#1a1a1a] text-purple-400 px-1.5 py-0.5 rounded font-mono text-sm"
+        class="bg-secondary text-purple-400 px-1.5 py-0.5 rounded font-mono text-sm"
         >.remote</code
       >
       function. As you type, the values are validated on the server, and errors are
@@ -163,7 +163,7 @@
 
     <form
       method="POST"
-      class="bg-[#1a1a1a] border border-zinc-800 rounded-2xl p-6 sm:p-8 mb-8"
+      class="bg-secondary border border-zinc-800 rounded-2xl p-6 sm:p-8 mb-8"
       use:enhance={() => {
         submitting = true;
         return async ({ update }) => {
@@ -291,7 +291,7 @@
       </button>
     </form>
 
-    <div class="bg-[#1a1a1a] border border-zinc-800 rounded-2xl p-6">
+    <div class="bg-secondary border border-zinc-800 rounded-2xl p-6">
       <h3 class="text-white text-lg font-semibold mb-4">How it works:</h3>
       <ul class="space-y-2">
         <li

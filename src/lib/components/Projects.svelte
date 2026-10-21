@@ -26,9 +26,9 @@
       .filter(
         (item) =>
           item.name.toLowerCase().includes(search.toLowerCase()) ||
-          item.title.toLowerCase().includes(search.toLowerCase())
+          item.title.toLowerCase().includes(search.toLowerCase()),
       )
-      .filter((item) => (filter ? item.type === filter : item))
+      .filter((item) => (filter ? item.type === filter : item)),
   );
 
   let dropdownOpen = $state(false);
@@ -69,7 +69,10 @@
 
 <svelte:window onclick={handleWindowClick} onkeydown={handleWindowKeydown} />
 
-<div class="grid gap-10 sm:gap-16" in:fly={{ y: 100, duration: 1000, delay: 100 }}>
+<div
+  class="grid gap-10 sm:gap-16"
+  in:fly={{ y: 100, duration: 1000, delay: 100 }}
+>
   {#if !hideSearch}
     <div class="flex items-center justify-center flex-col gap-4 sm:gap-8">
       <div
@@ -90,7 +93,7 @@
           onclick={() => (dropdownOpen = !dropdownOpen)}
           aria-haspopup="listbox"
           aria-expanded={dropdownOpen}
-          class="w-full h-11 px-4 flex items-center gap-3 rounded-full border bg-[#1a1a1a] text-white transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] focus:outline-none focus:ring-[3px] focus:ring-purple-500/10 {dropdownOpen ||
+          class="w-full h-11 px-4 flex items-center gap-3 rounded-full border bg-secondary text-white transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] focus:outline-none focus:ring-[3px] focus:ring-purple-500/10 {dropdownOpen ||
           filter
             ? 'border-purple-400'
             : 'border-zinc-800'}"
@@ -119,7 +122,7 @@
           <ul
             role="listbox"
             transition:fly={{ y: -8, duration: 200 }}
-            class="absolute z-30 mt-2 w-full p-2 grid gap-1 rounded-2xl border border-zinc-800 bg-[#1a1a1a]/95 backdrop-blur-xl shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
+            class="absolute z-30 mt-2 w-full p-2 grid gap-1 rounded-2xl border border-zinc-800 bg-secondary/95 backdrop-blur-xl shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
           >
             {#each [{ type: "", icon: "mdi:view-grid-outline", label: "All projects" }, ...filterOptions] as option}
               <li role="option" aria-selected={filter === option.type}>

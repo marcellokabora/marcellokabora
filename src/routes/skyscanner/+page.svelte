@@ -237,7 +237,7 @@
                 class="flex-shrink-0 w-14 flex flex-col items-center gap-1 pt-1"
               >
                 <div
-                  class="w-8 h-8 rounded-full bg-[#1a1a1a] border border-white/10 flex items-center justify-center overflow-hidden z-10 group-hover:border-white/30 transition-colors duration-200"
+                  class="w-8 h-8 rounded-full bg-secondary border border-white/10 flex items-center justify-center overflow-hidden z-10 group-hover:border-white/30 transition-colors duration-200"
                 >
                   <img
                     src={item.logo}
@@ -291,7 +291,7 @@
         <div class="grid grid-cols-2 gap-4">
           {#each skillCategories as cat}
             <div
-              class="bg-[#1a1a1a] border border-white/8 rounded-2xl p-5 flex flex-col gap-3"
+              class="bg-secondary border border-white/8 rounded-2xl p-5 flex flex-col gap-3"
             >
               <div class="flex items-center gap-2">
                 <span class="text-white/30 text-sm font-mono">{cat.icon}</span>
@@ -335,7 +335,7 @@
           <!-- Left: Motivation -->
           <div class="flex flex-col gap-4">
             <div
-              class="bg-[#1a1a1a] border border-white/8 rounded-2xl p-5 flex flex-col gap-3"
+              class="bg-secondary border border-white/8 rounded-2xl p-5 flex flex-col gap-3"
             >
               <p
                 class="text-white/30 text-xs font-mono tracking-widest uppercase"
@@ -383,7 +383,7 @@
             <div class="flex flex-col gap-3">
               <!-- Design Systems -->
               <div
-                class="bg-[#1a1a1a] border border-white/8 rounded-xl p-4 flex gap-4 items-start"
+                class="bg-secondary border border-white/8 rounded-xl p-4 flex gap-4 items-start"
               >
                 <div
                   class="mt-0.5 w-6 h-6 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0"
@@ -415,7 +415,7 @@
 
               <!-- Scale & Performance -->
               <div
-                class="bg-[#1a1a1a] border border-white/8 rounded-xl p-4 flex gap-4 items-start"
+                class="bg-secondary border border-white/8 rounded-xl p-4 flex gap-4 items-start"
               >
                 <div
                   class="mt-0.5 w-6 h-6 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0"
@@ -447,7 +447,7 @@
 
               <!-- AI-powered UX -->
               <div
-                class="bg-[#1a1a1a] border border-white/8 rounded-xl p-4 flex gap-4 items-start"
+                class="bg-secondary border border-white/8 rounded-xl p-4 flex gap-4 items-start"
               >
                 <div
                   class="mt-0.5 w-6 h-6 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0"
@@ -501,7 +501,7 @@
         <div class="grid grid-cols-3 gap-4">
           <!-- Interests -->
           <div
-            class="col-span-2 bg-[#1a1a1a] border border-white/8 rounded-2xl p-5 flex flex-col gap-4"
+            class="col-span-2 bg-secondary border border-white/8 rounded-2xl p-5 flex flex-col gap-4"
           >
             <p
               class="text-white/30 text-xs font-mono tracking-widest uppercase"
@@ -524,7 +524,7 @@
 
           <!-- Languages -->
           <div
-            class="bg-[#1a1a1a] border border-white/8 rounded-2xl p-5 flex flex-col gap-4"
+            class="bg-secondary border border-white/8 rounded-2xl p-5 flex flex-col gap-4"
           >
             <p
               class="text-white/30 text-xs font-mono tracking-widest uppercase"
@@ -548,7 +548,7 @@
 
           <!-- 7echno -->
           <div
-            class="col-span-3 bg-[#1a1a1a] border border-white/8 rounded-2xl p-5 flex items-center gap-6"
+            class="col-span-3 bg-secondary border border-white/8 rounded-2xl p-5 flex items-center gap-6"
           >
             <div
               class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0"
