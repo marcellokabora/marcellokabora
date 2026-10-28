@@ -140,7 +140,7 @@
 
       <!-- Small Card: Watch Video -->
       <a
-        href="https://youtu.be/HG6A-cCgs9M"
+        href="https://youtu.be/RaaI-0Jj8vE"
         target="_blank"
         rel="noopener noreferrer"
         class="col-span-1 bg-gradient-to-br from-primary-900/20 to-primary-600/10 border border-primary-500/30 rounded-2xl p-6 flex flex-col justify-center items-center text-center hover:border-primary-500/50 transition-all duration-300 relative overflow-hidden group cursor-pointer scroll-animate-item"
