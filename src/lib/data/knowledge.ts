@@ -260,7 +260,7 @@ const ai = [
     {
         id: "ai tools",
         name: "copilot",
-        title: "GitHub Copilot",
+        title: "Copilot",
         icon: "simple-icons:githubcopilot",
         link: "//github.com/features/copilot",
     },
@@ -537,10 +537,10 @@ const management = [
 ];
 
 export const items = [
-    ...ai,
     ...javascript,
     ...design,
     ...database,
     ...software,
     ...management,
+    ...ai,
 ];

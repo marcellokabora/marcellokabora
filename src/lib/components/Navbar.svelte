@@ -31,7 +31,7 @@
     { href: "/projects", label: "Projects" },
     { href: "/career", label: "Career" },
     { href: "/contact", label: "Contact" },
-    { href: "/assistant", label: "Assistant" },
+    // { href: "/assistant", label: "Assistant" },
   ];
 
   function isActive(href: string): boolean {
