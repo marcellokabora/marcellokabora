@@ -12,13 +12,13 @@ const whoAmI = {
   experience: "15 years",
 
   stack: {
-    frameworks: ["Svelte", "React", "Vue", "Astro", "Angular"],
+    frameworks: ["Svelte", "React", "Vue", "Angular"],
     languages: ["TypeScript", "JavaScript", "Phyton"],
     styling: ["Tailwind", "CSS", "Figma"],
-    backend: ["Firebase", "Node.js", "REST", "SQL", "GraphQL"],
+    backend: ["Postgres", "REST", "Firebase"],
   },
 
-  strengths: ["UI systems", "UX design", "Performance", "Product thinking"],
+  strengths: ["UI systems", "UX design", "Performance", "Product"],
   aiTooling: ["GitHub Copilot", "Cursor", "Vercel AI SDK"],
   openTo: ["Freelance", "Consulting", "Collaborations"],
 };
