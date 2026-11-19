@@ -133,21 +133,32 @@
                 class="lg:w-80 bg-gradient-to-br from-neutral-900 to-neutral-950 p-12 flex flex-col items-center justify-center text-center border-b lg:border-b-0 lg:border-r border-neutral-800"
               >
                 <div class="space-y-4">
-                  <a
-                    href={company.link}
-                    target="_blank"
-                    class="block group/logo transition-transform duration-300 hover:scale-105"
-                  >
-                    <div
-                      class="bg-neutral-800/50 p-6 rounded-xl shadow-sm group-hover/logo:shadow-md group-hover/logo:shadow-secondary-500/20 transition-all duration-300 border border-neutral-700 group-hover/logo:border-secondary-500/50"
+                  {#if company.link}
+                    <a
+                      href={company.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="block group/logo transition-transform duration-300 hover:scale-105"
                     >
+                      <div
+                        class="bg-neutral-800/50 p-6 rounded-xl shadow-sm group-hover/logo:shadow-md group-hover/logo:shadow-secondary-500/20 transition-all duration-300 border border-neutral-700 group-hover/logo:border-secondary-500/50"
+                      >
+                        <img
+                          src={company.logo}
+                          alt={`${company.name} logo`}
+                          class="w-32 h-20 object-contain mx-auto"
+                        />
+                      </div>
+                    </a>
+                  {:else}
+                    <div class="bg-neutral-800/50 p-6 rounded-xl shadow-sm border border-neutral-700">
                       <img
                         src={company.logo}
                         alt={`${company.name} logo`}
                         class="w-32 h-20 object-contain mx-auto"
                       />
                     </div>
-                  </a>
+                  {/if}
 
                   <div class="space-y-2">
                     <h3 class="text-2xl font-bold text-white">
