@@ -2,7 +2,14 @@
   export let company;
 </script>
 
-{#if company.name === "Eva Global"}
+{#if company.name === "Pasiona"}
+  <p class="text-zinc-300 leading-relaxed">
+    Starting 23 November 2026, my focus at Pasiona is making Design Systems
+    accessible to AI coding assistants. The role includes building MCP servers,
+    creating reusable AI instructions, packaging developer tools, and helping
+    teams improve their workflows through documentation and feedback.
+  </p>
+{:else if company.name === "Eva Global"}
   <div class="company-description">
     <div class="description-content">
       <p>

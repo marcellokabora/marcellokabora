@@ -11,6 +11,19 @@ interface Company {
 }
 
 export const companies: Company[] = [
+    {
+        logo: "/company/pasiona.jpg",
+        name: "Pasiona",
+        slogan: "Design Systems & AI",
+        title: "AI Developer",
+        time: "Starting 23 Nov 2026",
+        technologies: "TypeScript, JavaScript, MCP, Design Systems, AI Skills",
+        achievements: [
+            "Build MCP servers that connect AI coding assistants to Design System guidance",
+            "Create reusable AI instructions and workflows for accessible UI development",
+            "Package developer tooling and improve it through documentation and feedback"
+        ]
+    },
     // {
     //     logo: "/logo/fit-m8-icon.png",
     //     name: "FIT-M8",
@@ -114,6 +127,7 @@ export const companies: Company[] = [
     },
     {
         logo: "/logo/smava.png",
+        icon: "/company/smava-icon.png",
         name: "Smava",
         slogan: "Credit Online",
         title: "Frontend Developer",

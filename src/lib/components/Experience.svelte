@@ -51,6 +51,7 @@
                 src={job.icon}
                 alt={job.company}
                 class="w-full h-full object-contain"
+                class:rounded-full={job.company === "Pasiona" || job.company === "Smava"}
               />
             {:else}
               <Icon icon="mdi:domain" class="w-8 h-8 text-zinc-600" />
